@@ -1,0 +1,1 @@
+import { Users } from "lucide-react"; import { CrmPageHeader } from "@/components/crm/CrmPageHeader"; import { StaffClient } from "@/components/crm/StaffClient"; export default function Page(){return <><CrmPageHeader eyebrow="Team access" title="Staff" description="Create staff accounts and review who can access the school workspace." icon={Users}/><StaffClient/></>}

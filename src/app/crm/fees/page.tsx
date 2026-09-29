@@ -1,0 +1,1 @@
+import { Banknote } from "lucide-react"; import { CrmPageHeader } from "@/components/crm/CrmPageHeader"; import { FeesClient } from "@/components/crm/FeesClient"; export default function Page(){return <><CrmPageHeader eyebrow="Finance desk" title="Fees" description="Review assigned fees, received amounts, pending balances and payment status." icon={Banknote}/><FeesClient/></>}
