@@ -14,6 +14,19 @@ bun run typecheck
 
 `NEXT_PUBLIC_API_URL` must point at the Little Mahilam backend (default port 4000).
 
+## Deploying to Vercel
+
+`vercel.json` builds with Bun and the Next.js preset. Import this folder as its own Vercel project (the backend is a separate project) and set these environment variables for Production:
+
+- `NEXT_PUBLIC_SITE_URL`: the public https domain, e.g. `https://littlemahilam.in`. `robots.txt` only allows indexing for an https URL.
+- `NEXT_PUBLIC_API_URL`: the deployed backend, e.g. `https://api.littlemahilam.in/api/v1`.
+- `NEXT_PUBLIC_IMAGE_HOSTS`: the R2/CDN hostname(s) for CMS images.
+- The contact, social and verification values from `.env.example`.
+
+`NEXT_PUBLIC_*` values are baked in at build time, so redeploy after changing them. On the backend, set `FRONTEND_URL` to this site's URL (comma-separate extra origins such as the `vercel.app` URL) so CORS allows it.
+
+Put the site and the API on the same registrable domain (e.g. `littlemahilam.in` and `api.littlemahilam.in`). Sign-in cookies are `SameSite=Lax`, and two `*.vercel.app` URLs count as different sites, so the admin/CRM login only works once both have custom domains. The public pages work either way.
+
 ## What's where
 
 | Area | Routes | Notes |
