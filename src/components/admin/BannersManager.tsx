@@ -7,7 +7,7 @@ import { QueryState } from "@/components/states/QueryState";
 
 type Banner = { id: string; title: string; subtitle?: string | null; desktopImage?: string | null; mobileImage?: string | null; ctaLabel?: string | null; ctaLink?: string | null; secondaryCtaLabel?: string | null; secondaryCtaLink?: string | null; displayOrder: number; active: boolean };
 
-const EMPTY_FORM = { title: "", subtitle: "", desktopImage: "", mobileImage: "", ctaLabel: "Admissions", ctaLink: "/admissions", secondaryCtaLabel: "", secondaryCtaLink: "", displayOrder: 0, active: true };
+const EMPTY_FORM = { title: "", subtitle: "", image: "", ctaLabel: "Admissions", ctaLink: "/admissions", secondaryCtaLabel: "", secondaryCtaLink: "", displayOrder: 0, active: true };
 
 export function BannersManager() {
   const crud = useCrud<Banner>("/cms/banners", "Banner", { queryKey: ["banners"], invalidate: [["admin-overview"]] });
@@ -22,8 +22,9 @@ export function BannersManager() {
     const payload = {
       title: form.title.trim(),
       subtitle: form.subtitle.trim() || null,
-      desktopImage: form.desktopImage || null,
-      mobileImage: form.mobileImage || null,
+      // Keep the API's existing fields in sync while presenting one-image management.
+      desktopImage: form.image || null,
+      mobileImage: form.image || null,
       ctaLabel: form.ctaLabel.trim() || null,
       ctaLink: form.ctaLink.trim() || null,
       secondaryCtaLabel: form.secondaryCtaLabel.trim() || null,
@@ -37,12 +38,12 @@ export function BannersManager() {
 
   function startEdit(row: Banner) {
     setEditingId(row.id);
-    setForm({ title: row.title || "", subtitle: row.subtitle || "", desktopImage: row.desktopImage || "", mobileImage: row.mobileImage || "", ctaLabel: row.ctaLabel || "", ctaLink: row.ctaLink || "", secondaryCtaLabel: row.secondaryCtaLabel || "", secondaryCtaLink: row.secondaryCtaLink || "", displayOrder: row.displayOrder ?? 0, active: row.active !== false });
+    setForm({ title: row.title || "", subtitle: row.subtitle || "", image: row.desktopImage || row.mobileImage || "", ctaLabel: row.ctaLabel || "", ctaLink: row.ctaLink || "", secondaryCtaLabel: row.secondaryCtaLabel || "", secondaryCtaLink: row.secondaryCtaLink || "", displayOrder: row.displayOrder ?? 0, active: row.active !== false });
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   const rows = crud.rows.filter((row) => matches(search, row.title, row.subtitle)).sort((a, b) => a.displayOrder - b.displayOrder);
-  const preview = form.desktopImage || form.mobileImage;
+  const preview = form.image;
 
   return (
     <div className="grid gap-6 xl:grid-cols-[.85fr_1.15fr]">
@@ -63,9 +64,9 @@ export function BannersManager() {
         <div className="mt-5 grid gap-4">
           <label className="grid gap-1.5"><span className="label">Headline</span><input className="input" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required maxLength={160} /></label>
           <label className="grid gap-1.5"><span className="label">Supporting line</span><input className="input" value={form.subtitle} onChange={(e) => setForm({ ...form, subtitle: e.target.value })} /></label>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <ImageField label="Desktop image" heightClass="h-24" value={form.desktopImage} onChange={(url) => setForm((f) => ({ ...f, desktopImage: url }))} />
-            <ImageField label="Mobile image" heightClass="h-24" value={form.mobileImage} onChange={(url) => setForm((f) => ({ ...f, mobileImage: url }))} />
+          <div>
+            <ImageField label="Banner image — used on every screen" heightClass="h-36" value={form.image} onChange={(url) => setForm((f) => ({ ...f, image: url }))} />
+            <p className="mt-2 text-xs leading-5 text-slate-500">Upload one high-quality landscape image. The same image is shown on desktop, tablet and mobile with responsive cropping.</p>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <label className="grid gap-1.5"><span className="label">Button label</span><input className="input" value={form.ctaLabel} onChange={(e) => setForm({ ...form, ctaLabel: e.target.value })} /></label>

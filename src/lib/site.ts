@@ -85,3 +85,48 @@ export function absoluteUrl(path = "/") {
 export function telHref(phone: string) {
   return `tel:${phone.replace(/[^\d+]/g, "")}`;
 }
+
+export type PublicSettings = Record<string, unknown> | null | undefined;
+export type PublicSite = Omit<typeof site, "phone" | "email" | "whatsapp" | "fullAddress" | "mapUrl" | "openingHours" | "social"> & {
+  phone?: string;
+  email?: string;
+  whatsapp?: string;
+  fullAddress: string;
+  mapUrl: string;
+  openingHours?: string[];
+  social: { facebook?: string; instagram?: string; youtube?: string; whatsapp?: string };
+};
+
+const settingText = (settings: PublicSettings, key: string) => {
+  const value = settings?.[key];
+  return typeof value === "string" && value.trim() ? value.trim() : undefined;
+};
+
+export function whatsappHref(value?: string) {
+  if (!value) return undefined;
+  if (/^https?:\/\//i.test(value)) return value;
+  const digits = value.replace(/\D/g, "");
+  return digits ? `https://wa.me/${digits}` : undefined;
+}
+
+/** Overlay Admin → Settings values on the safe build-time defaults. */
+export function resolvePublicSite(settings?: PublicSettings): PublicSite {
+  const phone = settingText(settings, "school.phone") || site.phone;
+  const whatsapp = settingText(settings, "school.whatsapp") || site.whatsapp;
+  const hours = settingText(settings, "school.hours");
+  return {
+    ...site,
+    phone,
+    email: settingText(settings, "school.email") || site.email,
+    whatsapp,
+    fullAddress: settingText(settings, "school.address") || site.fullAddress,
+    mapUrl: settingText(settings, "school.mapUrl") || site.mapUrl,
+    openingHours: hours ? [hours] : site.openingHours,
+    social: {
+      facebook: settingText(settings, "social.facebook") || site.social.facebook,
+      instagram: settingText(settings, "social.instagram") || site.social.instagram,
+      youtube: settingText(settings, "social.youtube") || site.social.youtube,
+      whatsapp: whatsappHref(whatsapp) || site.social.whatsapp,
+    },
+  };
+}

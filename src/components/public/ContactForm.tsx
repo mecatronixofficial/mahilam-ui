@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CheckCircle2, LoaderCircle, RotateCw, Send, WifiOff } from "lucide-react";
 import { api, ApiError } from "@/lib/api";
-import { site, telHref } from "@/lib/site";
+import { telHref } from "@/lib/site";
 
 const PROGRAMS = ["Play Group", "Pre-KG", "LKG", "UKG", "Grade 1", "Grade 2", "Grade 3"];
 const INITIAL = { parentName: "", studentName: "", phone: "", email: "", interestedClass: "Pre-KG", message: "", website: "" };
@@ -12,7 +12,7 @@ const PHONE = /^(?:\+?91[\s-]?|0)?[6-9]\d{4}[\s-]?\d{5}$|^0\d{2,4}[\s-]?\d{6,8}$
 
 type Errors = Partial<Record<keyof typeof INITIAL, string>>;
 
-export function ContactForm({ mode = "visit" }: { mode?: "visit" | "admission" }) {
+export function ContactForm({ mode = "visit", phone }: { mode?: "visit" | "admission"; phone?: string }) {
   const [form, setForm] = useState(INITIAL);
   const [errors, setErrors] = useState<Errors>({});
   const [state, setState] = useState<"idle" | "sending" | "success" | "error" | "offline">("idle");
@@ -57,7 +57,7 @@ export function ContactForm({ mode = "visit" }: { mode?: "visit" | "admission" }
         <span className="flex h-20 w-20 animate-pop items-center justify-center rounded-[26px] bg-emerald-100 text-emerald-700 shadow-lg shadow-emerald-900/10"><CheckCircle2 className="h-10 w-10" /></span>
         <h3 className="text-3xl font-bold text-emerald-950">Thank you!</h3>
         <p className="max-w-md text-lg leading-8 text-slate-600">Your {mode === "admission" ? "admission enquiry" : "visit request"} has reached our team. We&apos;ll call you within one working day.</p>
-        {site.phone && <p className="text-sm font-bold text-slate-500">Need us sooner? Call <a className="text-emerald-800 underline" href={telHref(site.phone)}>{site.phone}</a></p>}
+        {phone && <p className="text-sm font-bold text-slate-500">Need us sooner? Call <a className="text-emerald-800 underline" href={telHref(phone)}>{phone}</a></p>}
         <button type="button" onClick={() => setState("idle")} className="btn-soft mt-2"><RotateCw className="h-4 w-4" />Send another enquiry</button>
       </div>
     );
@@ -95,7 +95,7 @@ export function ContactForm({ mode = "visit" }: { mode?: "visit" | "admission" }
       {(state === "error" || state === "offline") && (
         <div role="alert" className={`flex items-start gap-2 rounded-2xl px-4 py-3 text-sm font-bold ${state === "offline" ? "bg-amber-50 text-amber-900" : "bg-rose-50 text-rose-700"}`}>
           {state === "offline" && <WifiOff className="mt-0.5 h-4 w-4 shrink-0" />}
-          <span>{state === "offline" ? "You seem to be offline. Your details are still here — please try again when you're connected." : message}{site.phone && <> Or call us on <a className="underline" href={telHref(site.phone)}>{site.phone}</a>.</>}</span>
+          <span>{state === "offline" ? "You seem to be offline. Your details are still here — please try again when you're connected." : message}{phone && <> Or call us on <a className="underline" href={telHref(phone)}>{phone}</a>.</>}</span>
         </div>
       )}
     </form>

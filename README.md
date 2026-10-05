@@ -31,7 +31,7 @@ Put the site and the API on the same registrable domain (e.g. `littlemahilam.in`
 
 | Area | Routes | Notes |
 |---|---|---|
-| Public site | `/`, `/about`, `/programs`, `/learning-approach`, `/activities`, `/facilities`, `/gallery`, `/events`, `/admissions`, `/contact`, `/faq`, `/blog`, `/blog/[slug]`, `/preschool-in-tiruppur`, `/privacy-policy` | Server-rendered from `/cms/public/*` with 5-minute ISR; falls back gracefully if the API is down |
+| Public site | `/`, `/about`, `/programs`, `/learning-approach`, `/activities`, `/facilities`, `/gallery`, `/events`, `/admissions`, `/contact`, `/faq`, `/blog`, `/blog/[slug]`, `/preschool-in-tiruppur`, `/privacy-policy` | Server-rendered live from `/cms/public/*`; falls back gracefully if the API is down |
 | Website CMS | `/admin/*` | Admins only. Announcements, banners, reviews, programs, activities, facilities, gallery, events, blog, settings, activity log |
 | School CRM | `/crm/*` | Enquiries, admissions board, students, fees & payments, reports + CSV exports, staff, my account |
 | Status screens | `/offline`, `/forbidden`, `/session-expired`, 404/500 | Plus in-app loading, empty, error, partial-data and session-expired states |

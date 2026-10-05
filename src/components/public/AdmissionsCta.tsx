@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { ArrowRight, Phone, Smile } from "lucide-react";
-import { site, telHref } from "@/lib/site";
+import { resolvePublicSite, telHref } from "@/lib/site";
+import { getPublic } from "@/lib/server-api";
 
-export function AdmissionsCta({
+export async function AdmissionsCta({
   eyebrow = "Admissions open",
   title = "Give your child a happy beginning.",
   description = "Send an enquiry for Play Group, Pre-KG, LKG, UKG or Grades 1–3 and our team will call you back to arrange a campus visit.",
   ctaLabel = "Admission enquiry",
   ctaHref = "/admissions",
 }: { eyebrow?: string; title?: string; description?: string; ctaLabel?: string; ctaHref?: string }) {
+  const settings = await getPublic<Record<string, unknown>>("/settings", 0);
+  const details = resolvePublicSite(settings);
   return (
     <section className="py-20">
       <div className="container-pad">
@@ -22,7 +25,7 @@ export function AdmissionsCta({
             </div>
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
               <Link href={ctaHref} className="btn-accent !px-7 !py-4 text-base">{ctaLabel} <ArrowRight size={18} /></Link>
-              {site.phone && <a href={telHref(site.phone)} className="glass-dark inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-bold hover:bg-white/20"><Phone className="h-4 w-4" /> Call {site.phone}</a>}
+              {details.phone && <a href={telHref(details.phone)} className="glass-dark inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-bold hover:bg-white/20"><Phone className="h-4 w-4" /> Call {details.phone}</a>}
             </div>
           </div>
         </div>

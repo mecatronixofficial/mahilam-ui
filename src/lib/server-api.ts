@@ -1,12 +1,13 @@
 /**
  * Server-side reads of public CMS content. Pages render this data into HTML
- * (good for SEO and first paint) and refresh it in the background via ISR.
+ * (good for SEO and first paint). CMS content is read live so an admin's
+ * published changes are visible on the next page request.
  * A backend outage never fails a render: callers get `null` and show fallbacks.
  */
 
 const SERVER_API_URL = process.env.API_URL_INTERNAL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api/v1";
 
-export const REVALIDATE_SECONDS = 300;
+export const REVALIDATE_SECONDS = 0;
 
 export async function getPublic<T>(path: string, revalidate = REVALIDATE_SECONDS): Promise<T | null> {
   try {
@@ -39,7 +40,7 @@ export async function getPublicResult<T>(path: string, revalidate = REVALIDATE_S
 }
 
 export type Banner = { id: string; title: string; subtitle?: string | null; desktopImage?: string | null; mobileImage?: string | null; ctaLabel?: string | null; ctaLink?: string | null; secondaryCtaLabel?: string | null; secondaryCtaLink?: string | null; displayOrder?: number; active?: boolean };
-export type Announcement = { id: string; title: string; content?: string | null; type?: string; imageUrl?: string | null; ctaLabel?: string | null; ctaUrl?: string | null };
+export type Announcement = { id: string; title: string; content?: string | null; type?: string; priority?: number; imageUrl?: string | null; ctaLabel?: string | null; ctaUrl?: string | null; startDate?: string | null; endDate?: string | null; createdAt?: string | null };
 export type Testimonial = { id: string; parentName: string; location?: string | null; subject?: string | null; testimonial: string; rating?: number | null; featured?: boolean };
 export type Program = { id: string; name: string; slug?: string; ageGroup?: string | null; description?: string | null; coverImage?: string | null };
 export type SchoolEvent = { id: string; title: string; slug?: string; description?: string | null; startDate?: string | null; endDate?: string | null; date?: string | null; startTime?: string | null; endTime?: string | null; venue?: string | null; coverImage?: string | null; featured?: boolean };
@@ -47,3 +48,8 @@ export type GalleryAlbum = { id: string; title: string; slug: string; category?:
 export type BlogSummary = { id: string; title: string; slug: string; excerpt?: string | null; coverImage?: string | null; author?: string | null; category?: string | null; tags?: string[]; publishedAt?: string | null };
 export type BlogPost = BlogSummary & { content: string; seoTitle?: string | null; seoDescription?: string | null; updatedAt?: string | null; createdAt?: string | null };
 export type HomeData = { announcements?: Announcement[] };
+
+/** Site setting (boolean) that turns the homepage announcement popup on/off. Public because of the `site.` prefix. */
+export const ANNOUNCEMENT_POPUP_KEY = "site.announcementPopup";
+/** On unless explicitly switched off (also accepts "false" typed on the Settings page). */
+export const isPopupEnabled = (value: unknown) => value !== false && value !== "false";

@@ -43,8 +43,8 @@ export function DashboardClient() {
         <StatCard {...stat} label="Collected this month" icon={Wallet} tint="#16a34a" href="/crm/fees" value={formatMoney(d?.collectedThisMonth)} note={d ? `${formatMoney(d.outstandingFees)} outstanding` : undefined} />
       </div>
 
-      <div className="mt-6 grid gap-6 xl:grid-cols-[1.15fr_.85fr]">
-        <section className="panel p-6">
+      <div className="mt-6 grid gap-5 xl:grid-cols-[1.15fr_.85fr]">
+        <section className="panel p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div>
               <p className="accent-text text-[10px] font-black uppercase tracking-[.18em]">Today</p>
@@ -72,7 +72,7 @@ export function DashboardClient() {
           </ul>
         </section>
 
-        <section className="panel p-6">
+        <section className="panel p-4 sm:p-6">
           <p className="accent-text text-[10px] font-black uppercase tracking-[.18em]">Pipeline</p>
           <h2 className="mt-1 text-xl font-extrabold">Latest enquiries</h2>
           <ul className="mt-4 grid gap-2">
@@ -89,7 +89,7 @@ export function DashboardClient() {
         </section>
       </div>
 
-      <section className="panel-dark mt-6 p-6 sm:p-7">
+      <section className="panel-dark mt-5 p-5 sm:mt-6 sm:p-7">
         <p className="text-xs font-black uppercase tracking-[.18em] text-cyan-300">Quick actions</p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {([

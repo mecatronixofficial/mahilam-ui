@@ -42,11 +42,12 @@ export function StaffClient() {
       if (form.password) payload.password = form.password;
       crud.update.mutate({ id: editingId, payload }, { onSuccess: close });
     } else {
-      crud.create.mutate({ name: form.name.trim(), email: form.email.trim(), password: form.password }, { onSuccess: close });
+      crud.create.mutate({ name: form.name.trim(), email: form.email.trim(), password: form.password, role: form.role }, { onSuccess: close });
     }
   }
 
   const rows = crud.rows.filter((row) => matches(search, row.name, row.email, row.role));
+  const isSuperAdmin = me?.role === "SUPER_ADMIN";
 
   return (
     <>
@@ -88,9 +89,14 @@ export function StaffClient() {
         <form onSubmit={submit} className="grid gap-4">
           <label className="grid gap-1.5"><span className="label">Full name *</span><input className="input" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required /></label>
           <label className="grid gap-1.5"><span className="label">Email *</span><input className="input" type="email" autoComplete="off" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required /></label>
-          {editingId && (
-            <label className="grid gap-1.5"><span className="label">Role</span><select className="input" value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value as "STAFF" | "ADMIN" })}><option value="STAFF">Staff — CRM only</option><option value="ADMIN">Admin — CRM + website CMS</option></select></label>
-          )}
+          <label className="grid gap-1.5">
+            <span className="label">Role</span>
+            <select className="input" value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value as "STAFF" | "ADMIN" })}>
+              <option value="STAFF">Staff — CRM only</option>
+              {isSuperAdmin && <option value="ADMIN">Admin — CRM + website CMS</option>}
+            </select>
+            {!isSuperAdmin && <span className="text-xs text-slate-500">Only the Super Admin can create or promote administrators.</span>}
+          </label>
           <label className="grid gap-1.5">
             <span className="label">{editingId ? "Reset password (optional)" : "Temporary password *"}</span>
             <span className="relative">

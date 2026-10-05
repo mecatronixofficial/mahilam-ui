@@ -24,11 +24,11 @@ export function ListToolbar({
   actions?: React.ReactNode;
 }) {
   return (
-    <div className="panel mb-4 flex flex-col gap-3 p-3 lg:flex-row lg:items-center">
+    <div className="panel dash-toolbar mb-5 flex flex-col gap-3 p-3 sm:p-3.5 lg:flex-row lg:items-center">
       <label className="relative flex-1">
         <span className="sr-only">{placeholder}</span>
         <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-        <input type="search" value={search} onChange={(event) => onSearch(event.target.value)} placeholder={placeholder} className="input !min-h-10 !bg-white/60 !pl-10" />
+        <input type="search" value={search} onChange={(event) => onSearch(event.target.value)} placeholder={placeholder} className="input !min-h-11 !bg-white/80 !pl-10" />
       </label>
       {filters && onFilter && (
         <div className="hide-scrollbar flex gap-1.5 overflow-x-auto" role="tablist" aria-label="Filter">

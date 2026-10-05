@@ -4,7 +4,7 @@ import { SchoolHighlightsPage } from "@/components/public/SchoolHighlightsPage";
 import { getPublic } from "@/lib/server-api";
 import { pageMetadata } from "@/lib/seo";
 
-export const revalidate = 300;
+export const revalidate = 0;
 export const metadata: Metadata = pageMetadata({ title: "Facilities — A Safe, Bright Campus", description: "Welcoming classrooms, play spaces, reading corners and child-friendly design at Little Mahilam Preschool on Kangayam Road, Tiruppur. Book a campus visit.", path: "/facilities", keywords: ["preschool campus Tiruppur", "safe play school Tiruppur"] });
 
 type CmsFacility = { id: string; title: string; description?: string | null; image?: string | null };
@@ -17,6 +17,6 @@ const items = [
   { icon: Sun, title: "Bright environment", description: "Cheerful surroundings help children feel comfortable, curious and ready to participate." },
 ] as const;
 export default async function Page() {
-  const cms = await getPublic<CmsFacility[]>("/facilities");
-  return <SchoolHighlightsPage path="/facilities" cmsItems={cms} eyebrow="Facilities" title="Made for little learners." description="Warm, engaging spaces thoughtfully arranged for childhood learning, play and belonging." introTitle="The environment is part of the learning experience." intro="Children thrive when spaces feel welcoming and understandable. Our campus is planned to encourage safe exploration and growing independence." items={items} closingTitle="The best way to know us is to visit" closing="We invite families to see our learning spaces, meet the team and experience the warm Little Mahilam atmosphere in person. Book ahead so we can give you a guided visit." />;
+  const cms = await getPublic<CmsFacility[]>("/facilities", 0);
+  return <SchoolHighlightsPage theme="facilities" icon={Building2} path="/facilities" cmsItems={cms} eyebrow="Facilities" title="Made for little" highlight="learners" description="Warm, engaging spaces thoughtfully arranged for childhood learning, play and belonging." introTitle="The environment is part of the learning experience." intro="Children thrive when spaces feel welcoming and understandable. Our campus is planned to encourage safe exploration and growing independence." items={items} closingTitle="The best way to know us is to visit" closing="We invite families to see our learning spaces, meet the team and experience the warm Little Mahilam atmosphere in person. Book ahead so we can give you a guided visit." />;
 }

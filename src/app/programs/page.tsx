@@ -7,20 +7,22 @@ import {
   Baby,
   BookOpen,
   Brain,
-  CheckCircle2,
+  Check,
+  GraduationCap,
   Heart,
   Palette,
+  Pencil,
   Puzzle,
   Shapes,
   Sparkles,
-  Star,
   Sun,
   Users,
 } from "lucide-react";
 
 import { PublicShell } from "@/components/public/PublicShell";
 import { localImage } from "@/lib/images";
-import { PageHero } from "@/components/public/PageHero";
+import { PageBanner } from "@/components/public/PageBanner";
+import { CardSlider } from "@/components/public/CardSlider";
 import { ProgramsDynamic } from "@/components/public/ProgramsDynamic";
 import { AdmissionsCta } from "@/components/public/AdmissionsCta";
 import { getPublic, type Program } from "@/lib/server-api";
@@ -66,43 +68,14 @@ const programJourney = [
   },
 ];
 
+/** Bento tiles: the first is the large feature tile. */
 const learningAreas = [
-  {
-    icon: BookOpen,
-    title: "Language",
-    description:
-      "Stories, phonics, vocabulary, speaking, listening and early reading skills.",
-  },
-  {
-    icon: Brain,
-    title: "Thinking Skills",
-    description:
-      "Observation, reasoning, problem-solving and age-appropriate concept learning.",
-  },
-  {
-    icon: Palette,
-    title: "Creativity",
-    description:
-      "Art, craft, colours, music and imaginative activities for self-expression.",
-  },
-  {
-    icon: Users,
-    title: "Social Growth",
-    description:
-      "Sharing, teamwork, communication, friendship and positive classroom interaction.",
-  },
-  {
-    icon: Puzzle,
-    title: "Hands-On Learning",
-    description:
-      "Puzzles, activities, games and practical experiences that make learning meaningful.",
-  },
-  {
-    icon: Heart,
-    title: "Emotional Growth",
-    description:
-      "Confidence, independence, empathy and a sense of belonging in the classroom.",
-  },
+  { icon: BookOpen, title: "Language", description: "Stories, phonics, vocabulary, speaking, listening and early reading skills.", bg: "#fde9b8", ink: "#7a5a12" },
+  { icon: Brain, title: "Thinking Skills", description: "Observation, reasoning, problem-solving and age-appropriate concept learning.", bg: "#dcefe5", ink: "#285744" },
+  { icon: Palette, title: "Creativity", description: "Art, craft, colours, music and imaginative activities for self-expression.", bg: "#fbd9cf", ink: "#9a3f2b" },
+  { icon: Users, title: "Social Growth", description: "Sharing, teamwork, communication, friendship and positive classroom interaction.", bg: "#dbe8f7", ink: "#2f5d94" },
+  { icon: Puzzle, title: "Hands-On Learning", description: "Puzzles, activities, games and practical experiences that make learning meaningful.", bg: "#e9e1fb", ink: "#5b3fa8" },
+  { icon: Heart, title: "Emotional Growth", description: "Confidence, independence, empathy and a sense of belonging in the classroom.", bg: "#fde2ea", ink: "#a33a5c" },
 ];
 
 const benefits = [
@@ -116,317 +89,181 @@ const benefits = [
   "Social-emotional learning",
 ];
 
-export const revalidate = 300;
+const CRAYONS = ["#e2725b", "#f7c85b", "#3f7a63", "#8cb9e8", "#b79ce6"];
+
+// Programs are managed from the admin area and should appear as soon as they
+// are published. The API remains the source of truth, so do not cache this
+// request in Next's data cache.
+export const revalidate = 0;
 
 export default async function Page() {
-  const programs = await getPublic<Program[]>("/programs");
+  const programs = await getPublic<Program[]>("/programs", 0);
   return (
     <PublicShell>
-      {/* ======================================================
-          HERO
-      ====================================================== */}
-
-      <PageHero
-        eyebrow="Programs"
-        title="Learning journeys for every age."
+      <PageBanner
+        theme="programs"
+        eyebrow="Our programs"
+        icon={GraduationCap}
+        title="Learning journeys for"
+        highlight="every age"
         description="Age-appropriate learning journeys designed to help every child play, explore, discover and grow with happiness."
         crumbs={[{ name: "Programs", path: "/programs" }]}
+        image={{ src: localImage("/images/banners/programs.webp", 0), alt: "Children learning together in a Little Mahilam classroom" }}
       />
 
       {/* ======================================================
-          PROGRAM INTRO
+          INTRO — chalkboard + arch window photo
       ====================================================== */}
-
-      <section className="relative overflow-hidden section-tint py-16 md:py-20">
-        <div className="absolute -left-20 top-10 h-52 w-52 rounded-full bg-yellow-200/30 blur-3xl" />
-
-        <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-pink-200/30 blur-3xl" />
-
-        <div className="absolute left-[6%] top-12 hidden rotate-12 text-4xl text-yellow-300/50 lg:block">
-          ★
-        </div>
-
-        <div className="absolute right-[7%] top-16 hidden text-4xl text-pink-300/50 lg:block">
-          ♥
-        </div>
-
-        <div className="container-pad relative">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Image */}
-
-            <div className="relative mx-auto w-full max-w-[590px] pb-14">
-              <div className="relative h-[430px] overflow-hidden rounded-[75px_30px_75px_30px] border-[7px] border-white shadow-[0_25px_70px_rgba(15,23,42,0.14)] sm:h-[520px]">
-                <Image
-                  src={localImage("/images/programs/kids-learning.webp", 0)}
-                  alt="Children enjoying preschool learning activities"
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 92vw"
-                  className="object-cover"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/20 via-transparent to-transparent" />
-              </div>
-
-              {/* Small image */}
-
-              <div className="absolute -bottom-1 right-0 h-40 w-40 overflow-hidden rounded-[35px] border-[6px] border-white shadow-xl sm:-right-5 sm:h-52 sm:w-52">
-                <Image
-                  src={localImage("/images/programs/kids-playing.webp", 1)}
-                  alt="Children enjoying play-based activities"
-                  fill
-                  sizes="220px"
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Floating card */}
-
-              <div className="absolute -left-2 top-12 rounded-[25px] bg-yellow-300 px-5 py-4 shadow-xl sm:-left-8">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white">
-                    <Sparkles className="h-5 w-5 text-yellow-600" />
-                  </span>
-
-                  <div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-600">
-                      Learning through
-                    </div>
-
-                    <div className="font-black text-slate-900">
-                      Play & Discovery
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <section className="relative overflow-hidden py-16 md:py-24">
+        <div className="container-pad grid items-center gap-12 lg:grid-cols-[1.15fr_.85fr]">
+          <div className="chalkboard relative rounded-[18px] p-7 text-white sm:p-10">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-extrabold uppercase tracking-[.18em] text-[#fde9b8]">
+              <Pencil className="h-3.5 w-3.5" /> Learning Journey
+            </span>
+            <h2 className="mt-5 max-w-xl font-display text-3xl font-bold leading-[1.15] sm:text-4xl">
+              Every age has its own{" "}
+              <span className="relative inline-block text-[#f7c85b]">
+                special way to learn.
+                <svg aria-hidden viewBox="0 0 300 14" preserveAspectRatio="none" className="absolute -bottom-2 left-0 h-3 w-full opacity-80">
+                  <path d="M3 9 C 60 3, 120 12, 180 6 S 270 5, 297 8" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeDasharray="1 7" />
+                </svg>
+              </span>
+            </h2>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-white/85">
+              Our programs are designed around the developmental needs of children at every stage — from their first preschool experience to confident primary learning.
+            </p>
+            <p className="mt-4 max-w-xl leading-8 text-white/65">
+              Each level combines guided learning with play, movement, creativity, stories, communication and hands-on exploration.
+            </p>
+            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+              {["Play-based learning", "Age-specific activities", "Creative classrooms", "Individual attention"].map((item) => (
+                <li key={item} className="flex items-center gap-3 font-display text-base font-bold text-white/90">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border-2 border-white/70"><Check className="h-4 w-4 text-[#f7c85b]" strokeWidth={3} /></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Link href="/admissions" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#f7c85b] px-7 py-4 text-sm font-extrabold text-emerald-950 shadow-lg transition hover:-translate-y-1 hover:bg-[#fbd779]">
+              Admission Enquiry <ArrowRight className="h-4 w-4" />
+            </Link>
+            {/* Chalk tray */}
+            <div aria-hidden className="absolute -bottom-[12px] left-8 right-8 h-3 translate-y-full rounded-b-md bg-[#9c6d3f]">
+              <span className="absolute -top-1.5 left-10 h-2 w-8 rounded-full bg-white/90" />
+              <span className="absolute -top-1.5 left-24 h-2 w-6 rounded-full bg-[#f7c85b]" />
             </div>
+          </div>
 
-            {/* Content */}
-
-            <div>
-              <div className="eyebrow">
-                <Star className="h-4 w-4 fill-current" />
-                Learning Journey
-              </div>
-
-              <h2 className="mt-5 max-w-xl text-3xl font-black leading-[1.15] tracking-tight text-emerald-950 sm:text-4xl lg:text-[46px]">
-                Every age has its own
-                <span className="text-[#ef9e8a]"> special way to learn.</span>
-              </h2>
-
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-                Our programs are designed around the developmental needs of
-                children at every stage — from their first preschool experience
-                to confident primary learning.
-              </p>
-
-              <p className="mt-4 max-w-xl leading-8 text-slate-600">
-                Each level combines guided learning with play, movement,
-                creativity, stories, communication and hands-on exploration.
-              </p>
-
-              <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                {[
-                  "Play-based learning",
-                  "Age-specific activities",
-                  "Creative classrooms",
-                  "Individual attention",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-3 rounded-2xl glass-card px-4 py-3 shadow-sm"
-                  >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-50">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-700" />
-                    </span>
-
-                    <span className="text-sm font-bold text-slate-700">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <Link
-                href="/admissions"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-emerald-800 px-7 py-4 text-sm font-black text-white shadow-lg transition hover:-translate-y-1 hover:bg-emerald-900"
-              >
-                Admission Enquiry
-
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+          <div className="relative mx-auto w-full max-w-[400px] pt-4">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-t-full rounded-b-[36px] border-[8px] border-white shadow-[0_30px_60px_-28px_rgba(23,60,47,.5)]">
+              <Image src={localImage("/images/programs/kids-learning.webp", 0)} alt="Children enjoying preschool learning activities" fill sizes="(min-width: 1024px) 400px, 90vw" className="object-cover" />
             </div>
+            {/* Crayon row */}
+            <div aria-hidden className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-end gap-1.5">
+              {CRAYONS.map((color, i) => (
+                <span key={color} className="relative block w-5 rounded-t-sm shadow-md" style={{ backgroundColor: color, height: `${58 + (i % 3) * 10}px` }}>
+                  <span className="absolute -top-3 left-0 h-3 w-5" style={{ backgroundColor: color, clipPath: "polygon(50% 0, 100% 100%, 0 100%)" }} />
+                  <span className="absolute inset-x-0 top-3 h-1.5 bg-black/15" />
+                </span>
+              ))}
+            </div>
+            <span className="absolute -left-4 top-16 flex h-20 w-20 -rotate-12 flex-col items-center justify-center rounded-full bg-[#ef9e8a] font-display text-white shadow-lg">
+              <span className="text-2xl font-bold leading-none">2–6+</span>
+              <span className="text-[10px] font-extrabold uppercase tracking-wider">years</span>
+            </span>
           </div>
         </div>
       </section>
 
       {/* ======================================================
-          PROGRAM JOURNEY
+          JOURNEY — card slider of age stages
       ====================================================== */}
-
-      <section className="relative overflow-hidden py-16 md:py-20">
+      <section className="section-mint relative overflow-hidden py-16 md:py-20">
         <div className="container-pad">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow">
-              <Sun className="h-4 w-4 text-yellow-500" />
-              Our Learning Journey
-            </span>
-
-            <h2 className="mt-5 text-3xl font-black tracking-tight text-emerald-950 sm:text-4xl lg:text-5xl">
-              Growing with your child
-              <span className="text-[#ef9e8a]"> every step of the way.</span>
-            </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl leading-8 text-slate-600">
-              Each stage builds naturally on the previous one, helping children
-              become confident learners while still enjoying childhood.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <CardSlider
+            label="Program stages"
+            itemClassName="w-[82%] sm:w-[46%] lg:w-[31.8%]"
+            heading={
+              <>
+                <span className="eyebrow"><Sun className="h-4 w-4 text-yellow-500" /> Our Learning Journey</span>
+                <h2 className="mt-5 max-w-2xl font-display text-3xl font-bold text-emerald-950 sm:text-4xl lg:text-5xl">
+                  Growing with your child <span className="text-[#e2725b]">every step of the way.</span>
+                </h2>
+                <p className="mt-4 max-w-2xl leading-8 text-slate-600">Each stage builds naturally on the previous one, helping children become confident learners while still enjoying childhood.</p>
+              </>
+            }
+          >
             {programJourney.map((program, i) => {
               const Icon = program.icon;
-
+              const tint = TINTS[i % TINTS.length];
               return (
-                <div
-                  key={program.title}
-                  className="group overflow-hidden rounded-[32px] glass-card shadow-[0_15px_50px_rgba(15,23,42,0.07)] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-                >
-                  <div className="relative h-56 overflow-hidden">
-                    <Image
-                      src={program.image}
-                      alt={`${program.title} program`}
-                      fill
-                      sizes="(min-width: 1024px) 45vw, 92vw"
-                      className="object-cover transition duration-700 group-hover:scale-110"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-                    <span
-                      className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-2xl border-4 border-white shadow-md"
-                      style={{
-                        backgroundColor: TINTS[i % TINTS.length],
-                      }}
-                    >
-                      <Icon className="h-5 w-5 text-white" />
+                <article key={program.title} className="group flex h-full flex-col overflow-hidden rounded-[30px] bg-white shadow-[0_18px_40px_-24px_rgba(23,60,47,.4)]" style={{ borderBottom: `6px solid ${tint}` }}>
+                  <div className="relative h-52 overflow-hidden">
+                    <Image src={program.image} alt={`${program.title} program`} fill sizes="(min-width: 1024px) 380px, 80vw" className="object-cover transition duration-700 group-hover:scale-110" />
+                    <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-extrabold text-emerald-950 backdrop-blur">Step {i + 1}</span>
+                    <span className="absolute -bottom-6 right-5 flex h-14 w-14 items-center justify-center rounded-2xl border-4 border-white text-white shadow-md" style={{ backgroundColor: tint }}>
+                      <Icon className="h-6 w-6" />
                     </span>
                   </div>
-
-                  <div className="p-6">
-                    <div
-                      className="text-xs font-black uppercase tracking-[0.15em]"
-                      style={{
-                        color: TINTS[i % TINTS.length],
-                      }}
-                    >
-                      {program.age}
-                    </div>
-
-                    <h3 className="mt-2 text-xl font-black text-emerald-950">
-                      {program.title}
-                    </h3>
-
-                    <p className="mt-3 text-sm leading-7 text-slate-600">
-                      {program.text}
-                    </p>
+                  <div className="flex flex-1 flex-col p-6 pt-5">
+                    <span className="text-xs font-extrabold uppercase tracking-[.15em]" style={{ color: tint === "#f7c85b" ? "#b8860b" : tint }}>{program.age}</span>
+                    <h3 className="mt-2 font-display text-2xl font-bold text-emerald-950">{program.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{program.text}</p>
                   </div>
-                </div>
+                </article>
               );
             })}
-          </div>
+          </CardSlider>
         </div>
       </section>
 
       {/* ======================================================
           DYNAMIC PROGRAMS
       ====================================================== */}
-
-      <section className="relative overflow-hidden section-tint py-16 md:py-20">
-        <div className="absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-emerald-100/40 blur-3xl" />
-
+      <section id="all-programs" className="relative scroll-mt-24 overflow-hidden py-16 md:py-20">
         <div className="container-pad relative">
           <div className="mb-10">
-            <div className="eyebrow">
-              <BookOpen className="h-4 w-4" />
-              Explore Programs
-            </div>
-
-            <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-tight text-emerald-950 sm:text-4xl">
-              Find the right program for
-              <span className="text-[#ef9e8a]"> your little learner.</span>
+            <div className="eyebrow"><BookOpen className="h-4 w-4" /> Explore Programs</div>
+            <h2 className="mt-5 max-w-3xl font-display text-3xl font-bold text-emerald-950 sm:text-4xl">
+              Find the right program for <span className="text-[#e2725b]">your little learner.</span>
             </h2>
-
-            <p className="mt-4 max-w-2xl leading-8 text-slate-600">
-              Explore every available program, age group, learning focus and
-              activity designed for children at Little Mahilam.
-            </p>
+            <p className="mt-4 max-w-2xl leading-8 text-slate-600">Explore every available program, age group, learning focus and activity designed for children at Little Mahilam.</p>
           </div>
-
           <ProgramsDynamic programs={programs} />
         </div>
       </section>
 
       {/* ======================================================
-          WHAT CHILDREN LEARN
+          LEARNING AREAS — colourful bento grid
       ====================================================== */}
-
-      <section className="section-mint py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="container-pad">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow">
-              <Brain className="h-4 w-4" />
-              Whole Child Development
-            </span>
-
-            <h2 className="mt-5 text-3xl font-black tracking-tight text-emerald-950 sm:text-4xl">
-              Learning goes
-              <span className="text-[#ef9e8a]"> beyond books.</span>
+            <span className="eyebrow"><Brain className="h-4 w-4" /> Whole Child Development</span>
+            <h2 className="mt-5 font-display text-3xl font-bold text-emerald-950 sm:text-4xl">
+              Learning goes <span className="text-[#e2725b]">beyond books.</span>
             </h2>
-
-            <p className="mx-auto mt-4 max-w-2xl leading-8 text-slate-600">
-              Our programs focus on academic readiness along with communication,
-              creativity, confidence, movement and emotional development.
-            </p>
+            <p className="mx-auto mt-4 max-w-2xl leading-8 text-slate-600">Our programs focus on academic readiness along with communication, creativity, confidence, movement and emotional development.</p>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {/* 4-column bento: wide feature + 2 tiles, then 3 tiles + a wide closer. */}
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {learningAreas.map((area, i) => {
               const Icon = area.icon;
-
+              const feature = i === 0;
+              const wide = feature || i === learningAreas.length - 1;
               return (
-                <div
+                <article
                   key={area.title}
-                  className="group relative overflow-hidden rounded-[30px] glass-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  className={`group relative overflow-hidden rounded-[30px] p-6 transition-transform duration-300 hover:-translate-y-1 ${wide ? "sm:col-span-2" : ""} ${feature ? "lg:p-8" : ""}`}
+                  style={{ backgroundColor: area.bg, color: area.ink }}
                 >
-                  <div
-                    className="absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-10"
-                    style={{
-                      backgroundColor: TINTS[i % TINTS.length],
-                    }}
-                  />
-
-                  <span
-                    className="relative flex h-14 w-14 items-center justify-center rounded-[20px] transition-transform group-hover:rotate-6 group-hover:scale-110"
-                    style={{
-                      backgroundColor: `${TINTS[i % TINTS.length]}22`,
-                    }}
-                  >
-                    <Icon
-                      className="h-7 w-7"
-                      style={{
-                        color: TINTS[i % TINTS.length],
-                      }}
-                    />
+                  <Icon aria-hidden className={`absolute -bottom-6 -right-6 opacity-10 transition-transform duration-500 group-hover:rotate-12 ${feature ? "h-44 w-44" : "h-32 w-32"}`} />
+                  <span className={`relative flex items-center justify-center rounded-full bg-white shadow-sm ${feature ? "h-16 w-16" : "h-14 w-14"}`}>
+                    <Icon className={feature ? "h-8 w-8" : "h-7 w-7"} />
                   </span>
-
-                  <h3 className="relative mt-5 text-xl font-black text-emerald-950">
-                    {area.title}
-                  </h3>
-
-                  <p className="relative mt-2 text-sm leading-7 text-slate-600">
-                    {area.description}
-                  </p>
-                </div>
+                  <h3 className={`relative font-display font-bold text-emerald-950 ${feature ? "mt-6 text-3xl" : "mt-5 text-xl"}`}>{area.title}</h3>
+                  <p className={`relative leading-7 text-emerald-950/70 ${feature ? "mt-3 max-w-sm text-lg" : "mt-2 text-sm"}`}>{area.description}</p>
+                </article>
               );
             })}
           </div>
@@ -434,134 +271,65 @@ export default async function Page() {
       </section>
 
       {/* ======================================================
-          LEARNING THROUGH PLAY IMAGE SECTION
+          LEARNING THROUGH PLAY — notebook checklist
       ====================================================== */}
-
-      <section className="overflow-hidden section-tint py-16 md:py-20">
-        <div className="container-pad">
-          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-            {/* Content */}
-
-            <div>
-              <span className="eyebrow">
-                <Sparkles className="h-4 w-4" />
-                Play • Explore • Learn
-              </span>
-
-              <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight text-emerald-950 sm:text-4xl">
-                When children enjoy learning,
-                <span className="text-[#ef9e8a]">
-                  {" "}
-                  learning becomes natural.
-                </span>
-              </h2>
-
-              <p className="mt-5 max-w-xl leading-8 text-slate-600">
-                Children are active participants in our classrooms. They learn
-                through touching, observing, talking, creating, moving and
-                experimenting.
-              </p>
-
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {benefits.map((benefit, i) => (
-                  <div
-                    key={benefit}
-                    className="flex items-center gap-3 rounded-2xl glass-chip px-4 py-3"
-                  >
-                    <span
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl"
-                      style={{
-                        backgroundColor: `${TINTS[i % TINTS.length]}25`,
-                      }}
-                    >
-                      <CheckCircle2
-                        className="h-4 w-4"
-                        style={{
-                          color: TINTS[i % TINTS.length],
-                        }}
-                      />
-                    </span>
-
-                    <span className="text-sm font-bold text-slate-700">
-                      {benefit}
-                    </span>
-                  </div>
-                ))}
-              </div>
+      <section className="section-peach overflow-hidden py-16 md:py-20">
+        <div className="container-pad grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
+          <div className="notebook relative rounded-[20px] py-8 pl-16 pr-6 shadow-[0_24px_50px_-26px_rgba(23,60,47,.45)] sm:pr-10">
+            {/* Binder holes */}
+            <div aria-hidden className="absolute left-4 top-8 flex flex-col gap-16">
+              {[0, 1, 2].map((h) => <span key={h} className="h-5 w-5 rounded-full bg-[#f3e6d8] shadow-inner" />)}
             </div>
+            <span className="eyebrow"><Sparkles className="h-4 w-4" /> Play • Explore • Learn</span>
+            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-emerald-950 sm:text-4xl">
+              When children enjoy learning, <span className="text-[#e2725b]">learning becomes natural.</span>
+            </h2>
+            <p className="mt-4 max-w-xl leading-[2.1rem] text-slate-600">
+              Children are active participants in our classrooms. They learn through touching, observing, talking, creating, moving and experimenting.
+            </p>
+            <ul className="mt-4 grid gap-x-6 sm:grid-cols-2">
+              {benefits.map((benefit, i) => (
+                <li key={benefit} className="flex h-[2.1rem] items-center gap-3 font-display text-[1.05rem] font-bold text-emerald-900">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-[5px] border-2 border-emerald-800/60">
+                    <Check className="h-4 w-4" style={{ color: TINTS[i % TINTS.length] === "#f7c85b" ? "#d69e2e" : TINTS[i % TINTS.length] }} strokeWidth={3.5} />
+                  </span>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Images */}
-
-            <div className="relative mx-auto w-full max-w-[590px] py-8">
-              <div className="relative ml-auto h-[470px] w-[86%] overflow-hidden rounded-[100px_40px_100px_40px] border-[7px] border-white shadow-2xl">
-                <Image
-                  src={localImage("/images/programs/learning-through-play.webp", 0)}
-                  alt="Children learning through play"
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 92vw"
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="absolute bottom-0 left-0 h-44 w-44 overflow-hidden rounded-full border-[7px] border-white shadow-xl sm:h-52 sm:w-52">
-                <Image
-                  src={localImage("/images/programs/kids-art.webp", 1)}
-                  alt="Child enjoying creative art activity"
-                  fill
-                  sizes="220px"
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="absolute right-0 top-0 flex h-24 w-24 rotate-6 flex-col items-center justify-center rounded-[30px] bg-yellow-300 text-center shadow-xl">
-                <Sun className="mb-1 h-7 w-7 text-yellow-700" />
-
-                <span className="text-[10px] font-black uppercase leading-4 text-slate-800">
-                  Happy
-                  <br />
-                  Learning
-                </span>
-              </div>
+          <div className="relative mx-auto w-full max-w-[440px]">
+            <div className="relative aspect-square overflow-hidden rounded-full border-[10px] border-white shadow-2xl">
+              <Image src={localImage("/images/programs/learning-through-play.webp", 0)} alt="Children learning through play" fill sizes="(min-width: 1024px) 440px, 90vw" className="object-cover" />
             </div>
+            <div className="absolute -bottom-4 -left-2 h-36 w-36 overflow-hidden rounded-[30px] border-[6px] border-white shadow-xl sm:h-40 sm:w-40">
+              <Image src={localImage("/images/programs/kids-art.webp", 1)} alt="Child enjoying creative art activity" fill sizes="160px" className="object-cover" />
+            </div>
+            <span className="absolute -right-2 top-6 flex h-24 w-24 rotate-12 flex-col items-center justify-center rounded-full bg-[#f7c85b] text-center font-display text-emerald-950 shadow-xl ring-4 ring-white">
+              <Sun className="mb-0.5 h-6 w-6" />
+              <span className="text-[11px] font-bold uppercase leading-4">Happy<br />Learning</span>
+            </span>
           </div>
         </div>
       </section>
 
       {/* ======================================================
-          PROGRAM CTA
+          CTA — sunny band
       ====================================================== */}
-
       <section className="py-14">
         <div className="container-pad">
-          <div className="relative overflow-hidden rounded-[40px] mesh-dark grain px-7 py-10 text-white md:px-12 md:py-12">
-            <div className="absolute -right-14 -top-20 h-56 w-56 rounded-full bg-yellow-300/10" />
-
-            <div className="absolute -bottom-20 right-32 h-48 w-48 rounded-full bg-pink-300/10" />
-
+          <div className="relative overflow-hidden rounded-[40px] bg-[linear-gradient(120deg,#f7c85b,#f4b98a_60%,#ef9e8a)] px-7 py-10 text-emerald-950 md:px-12 md:py-12">
+            <Sun aria-hidden className="absolute -right-10 -top-10 h-48 w-48 animate-[spin_40s_linear_infinite] text-white/35" />
+            <Pencil aria-hidden className="absolute bottom-6 right-[38%] hidden h-10 w-10 -rotate-12 text-emerald-950/15 md:block" />
             <div className="relative grid items-center gap-8 lg:grid-cols-[1fr_auto]">
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-yellow-300">
-                  Need Help Choosing?
-                </span>
-
-                <h2 className="mt-3 max-w-3xl text-2xl font-black leading-tight sm:text-3xl">
-                  Find the right learning journey for
-                  <span className="text-yellow-300"> your child.</span>
-                </h2>
-
-                <p className="mt-3 max-w-2xl leading-7 text-white/60">
-                  Our team can help you understand the appropriate program based
-                  on your child's age and learning stage.
-                </p>
+                <span className="text-xs font-extrabold uppercase tracking-[.18em] text-emerald-950/60">Need Help Choosing?</span>
+                <h2 className="mt-3 max-w-3xl font-display text-2xl font-bold leading-tight sm:text-3xl">Find the right learning journey for your child.</h2>
+                <p className="mt-3 max-w-2xl leading-7 text-emerald-950/70">Our team can help you understand the appropriate program based on your child&apos;s age and learning stage.</p>
               </div>
-
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-yellow-300 px-7 py-4 text-sm font-black text-emerald-950 shadow-lg transition hover:-translate-y-1 hover:bg-yellow-200"
-              >
-                Talk to Our Team
-
-                <ArrowRight className="h-4 w-4" />
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-900 px-7 py-4 text-sm font-extrabold text-white shadow-lg transition hover:-translate-y-1 hover:bg-emerald-950">
+                Talk to Our Team <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>

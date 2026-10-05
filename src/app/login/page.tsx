@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { BrandLogo } from "@/components/public/BrandLogo";
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ArrowLeft, ArrowRight, Clock3, Eye, EyeOff, GraduationCap, LoaderCircle, LockKeyhole, Mail, ShieldCheck, Smile, Sparkles, WifiOff } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock3, Eye, EyeOff, GraduationCap, LoaderCircle, LockKeyhole, Mail, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
 import { api, ApiError } from "@/lib/api";
 
 /** Only same-site paths are allowed as a post-login destination. */
@@ -13,10 +15,13 @@ function safeNext(value: string | null) {
 
 export default function LoginPage() {
   return (
-    <main className="mesh-hero grain relative min-h-screen overflow-hidden lg:grid lg:grid-cols-[1.05fr_.95fr]">
+    <main className="relative grid h-dvh overflow-hidden bg-[#fff7e6] lg:grid-cols-[.9fr_1.1fr]">
       <BrandPanel />
-      <section className="relative flex min-h-screen items-center justify-center px-5 py-10 sm:px-8 lg:px-12">
-        <Suspense fallback={<div className="glass h-[520px] w-full max-w-md animate-pulse rounded-[32px]" />}>
+      <section className="relative flex h-dvh items-center justify-center overflow-hidden px-4 py-3 sm:px-8 lg:px-12">
+        <span aria-hidden className="absolute -right-12 -top-12 h-40 w-40 rounded-full border-[28px] border-[#f7c85b]/50" />
+        <span aria-hidden className="absolute bottom-10 left-8 h-12 w-12 rotate-12 rounded-2xl bg-[#a7d9c1]/60" />
+        <span aria-hidden className="absolute right-[12%] top-[16%] hidden -rotate-12 font-display text-2xl font-black text-[#e2725b]/35 sm:block">A B C</span>
+        <Suspense fallback={<div className="h-[500px] w-full max-w-md animate-pulse rounded-[36px] bg-white/70" />}>
           <LoginForm />
         </Suspense>
       </section>
@@ -26,34 +31,38 @@ export default function LoginPage() {
 
 function BrandPanel() {
   return (
-    <section className="mesh-dark relative hidden overflow-hidden p-12 text-white lg:flex lg:min-h-screen lg:flex-col lg:justify-between xl:p-16">
-      <span aria-hidden className="absolute -right-10 top-24 h-24 w-20 animate-float rounded-[50%_50%_50%_50%/58%_58%_42%_42%] bg-[radial-gradient(circle_at_33%_28%,#fff1cf,#f7c85b_45%,#ef9e8a)] opacity-70 [--r:8deg]" />
-      <Link href="/" className="relative flex w-fit items-center gap-3 rounded-full focus-visible:outline-white">
-        <span className="flex h-12 w-12 rotate-3 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f7c85b] to-[#ef9e8a] text-emerald-950 shadow-lg shadow-black/20"><Smile className="h-6 w-6" strokeWidth={2.5} /></span>
-        <span><span className="block font-display text-xl font-bold leading-tight">Little Mahilam</span><span className="block text-xs font-bold text-white/60">School of Happiness</span></span>
+    <section className="relative hidden h-dvh overflow-hidden bg-emerald-950 text-white lg:block">
+      <Image src="/imgs/home/kid1.jpg" alt="Children learning happily at Little Mahilam Pre-school" fill priority sizes="45vw" className="object-cover" />
+      <div aria-hidden className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,35,27,.18),rgba(10,35,27,.35)_40%,rgba(10,35,27,.95)_100%)]" />
+      <div aria-hidden className="absolute inset-0 opacity-10 [background-image:radial-gradient(#fff_1.2px,transparent_1.2px)] [background-size:24px_24px]" />
+
+      <Link href="/" className="absolute left-8 top-7 z-10 flex w-fit rounded-[22px] bg-white/95 px-3 py-1 shadow-xl backdrop-blur focus-visible:outline-white xl:left-12 xl:top-10" aria-label="Little Mahilam Pre-school home">
+        <BrandLogo priority className="h-auto w-44 xl:w-52" />
       </Link>
 
-      <div className="relative max-w-xl py-12">
-        <span className="glass-dark inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-extrabold text-[#f7c85b]"><Sparkles className="h-3.5 w-3.5" /> School workspace</span>
-        <h1 className="mt-6 text-5xl font-bold leading-[1.02] xl:text-6xl">Everything your school team needs, in one happy place.</h1>
-        <p className="mt-6 max-w-lg text-lg leading-8 text-white/65">Manage enquiries, admissions, students, fees and website content through one secure, connected workspace.</p>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+      <span aria-hidden className="absolute right-8 top-12 z-10 rotate-6 rounded-full bg-[#f7c85b] px-4 py-2 font-display text-xs font-black uppercase tracking-wider text-emerald-950 shadow-lg">Play · Learn · Grow</span>
+
+      <div className="absolute inset-x-7 bottom-7 z-10 max-w-xl rounded-[32px] rounded-bl-[10px] border border-white/15 bg-emerald-950/88 p-6 shadow-2xl backdrop-blur-md xl:inset-x-10 xl:bottom-10 xl:p-8">
+        <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-extrabold text-[#f7c85b]"><Sparkles className="h-3.5 w-3.5" /> Secure school workspace</span>
+        <h1 className="mt-4 font-display text-3xl font-bold leading-[1.04] xl:text-4xl">Everything your school team needs, in one happy place.</h1>
+        <p className="mt-3 max-w-lg text-sm leading-6 text-white/70 xl:text-base">Manage families, admissions and website content through one secure, connected workspace.</p>
+        <div className="mt-5 grid grid-cols-2 gap-3">
           {[
             [GraduationCap, "School CRM", "Enquiries, admissions, students & fees.", "#f7c85b"],
             [Sparkles, "Website CMS", "Banners, gallery, events, blog & more.", "#ef9e8a"],
           ].map(([Icon, title, copy, color]) => {
             const I = Icon as typeof Sparkles;
             return (
-              <div key={title as string} className="glass-dark rounded-3xl p-5">
-                <I className="h-6 w-6" style={{ color: color as string }} />
-                <div className="mt-4 font-extrabold">{title as string}</div>
-                <p className="mt-1 text-sm leading-6 text-white/55">{copy as string}</p>
+              <div key={title as string} className="rounded-[20px] border border-white/10 bg-white/[.08] p-3.5">
+                <I className="h-5 w-5" style={{ color: color as string }} />
+                <div className="mt-2 text-sm font-extrabold">{title as string}</div>
+                <p className="mt-1 text-xs leading-5 text-white/55">{copy as string}</p>
               </div>
             );
           })}
         </div>
+        <p className="mt-4 text-[11px] font-bold uppercase tracking-[.16em] text-white/40">Authorised team members only</p>
       </div>
-      <p className="relative text-sm text-white/40">Authorised Little Mahilam team members only.</p>
     </section>
   );
 }
@@ -99,33 +108,35 @@ function LoginForm() {
   }
 
   return (
-    <div className="relative w-full max-w-md animate-fade-up">
-      <div className="mb-8 flex items-center justify-between lg:hidden">
-        <Link href="/" className="flex items-center gap-2 font-display text-lg font-bold text-emerald-950"><span className="flex h-10 w-10 rotate-3 items-center justify-center rounded-xl bg-gradient-to-br from-[#f7c85b] to-[#ef9e8a]"><Smile className="h-5 w-5" /></span>Little Mahilam</Link>
+    <div className="relative z-10 w-full max-w-md animate-fade-up">
+      <div className="mb-3 flex items-center justify-between lg:hidden">
+        <Link href="/" aria-label="Little Mahilam Pre-school home"><BrandLogo priority className="h-auto w-32" /></Link>
         <Link href="/" aria-label="Back to website" className="glass-chip flex h-10 w-10 items-center justify-center rounded-full text-emerald-950"><ArrowLeft className="h-4 w-4" /></Link>
       </div>
 
-      <div className="glass rounded-[32px] p-7 sm:p-9">
-        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700"><LockKeyhole className="h-6 w-6" /></span>
-        <h2 className="mt-6 text-3xl font-bold text-emerald-950">Welcome back</h2>
-        <p className="mt-2 leading-7 text-slate-500">Sign in with your staff account to continue.</p>
+      <div className="relative rounded-[34px] border-4 border-white bg-white/90 p-5 shadow-[10px_12px_0_#f7c85b] backdrop-blur-md sm:p-7">
+        <span aria-hidden className="absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 -rotate-2 bg-[#ef9e8a]/70" />
+        <div className="flex items-center gap-4">
+          <span className="flex h-11 w-11 shrink-0 rotate-3 items-center justify-center rounded-2xl bg-emerald-900 text-white"><LockKeyhole className="h-5 w-5" /></span>
+          <div><h2 className="font-display text-2xl font-bold text-emerald-950 sm:text-3xl">Welcome back!</h2><p className="mt-0.5 text-sm text-slate-500">Sign in with your staff account.</p></div>
+        </div>
 
         {expired && (
-          <div role="status" className="mt-5 flex items-start gap-3 rounded-2xl border border-sky-200/70 bg-sky-50/80 px-4 py-3 text-sm font-bold text-sky-900">
+          <div role="status" className="mt-4 flex items-start gap-3 rounded-2xl border border-sky-200/70 bg-sky-50/80 px-4 py-2.5 text-xs font-bold text-sky-900">
             <Clock3 className="mt-0.5 h-4 w-4 shrink-0" />Your session expired. Sign in again and we&apos;ll take you back where you were.
           </div>
         )}
 
-        <form onSubmit={submit} className="mt-7 grid gap-5">
+        <form onSubmit={submit} className="mt-5 grid gap-3.5">
           <label>
-            <span className="label mb-2 block">Email address</span>
+            <span className="label mb-1.5 block">Email address</span>
             <span className="relative block">
               <Mail className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input className="input min-h-12 !pl-11" type="email" inputMode="email" autoComplete="username" placeholder="you@littlemahilam.in" maxLength={160} value={email} onChange={(e) => setEmail(e.target.value)} disabled={loading} required autoFocus />
             </span>
           </label>
           <label>
-            <span className="label mb-2 block">Password</span>
+            <span className="label mb-1.5 block">Password</span>
             <span className="relative block">
               <LockKeyhole className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input className="input min-h-12 !px-11" type={showPassword ? "text" : "password"} autoComplete="current-password" placeholder="Enter your password" maxLength={128} value={password} onChange={(e) => setPassword(e.target.value)} onKeyUp={(e) => setCapsLock(e.getModifierState("CapsLock"))} onBlur={() => setCapsLock(false)} disabled={loading} required aria-invalid={Boolean(error) && !error?.offline} />
@@ -146,13 +157,13 @@ function LoginForm() {
           </button>
         </form>
 
-        <div className="mt-6 flex items-start gap-2.5 border-t border-emerald-950/10 pt-5 text-xs leading-5 text-slate-500">
+        <div className="mt-4 flex items-start gap-2.5 border-t border-emerald-950/10 pt-3 text-[11px] leading-4 text-slate-500">
           <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" />
           <span><strong className="text-emerald-800">Secure staff access.</strong> Sessions use protected HTTP-only cookies with automatic renewal.</span>
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col items-center justify-between gap-3 text-center text-sm sm:flex-row sm:text-left">
+      <div className="mt-3 flex items-center justify-between gap-3 text-xs">
         <Link href="/" className="inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-emerald-950"><ArrowLeft className="h-4 w-4" /> Back to website</Link>
         <span className="text-slate-500">Forgot password? Ask an administrator.</span>
       </div>

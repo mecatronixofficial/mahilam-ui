@@ -5,19 +5,19 @@ import Link from "next/link";
 import {
   ArrowRight,
   Brain,
-  CheckCircle2,
   Heart,
+  Instagram,
   Rainbow,
   Shapes,
   Sparkles,
   Star,
   Sun,
-  Users,
 } from "lucide-react";
 
 import { PublicShell } from "@/components/public/PublicShell";
 import { localImage } from "@/lib/images";
-import { PageHero } from "@/components/public/PageHero";
+import { PageBanner } from "@/components/public/PageBanner";
+import { CardSlider } from "@/components/public/CardSlider";
 import { AdmissionsCta } from "@/components/public/AdmissionsCta";
 import { ExploreMore } from "@/components/public/ExploreMore";
 import { TestimonialsDynamic } from "@/components/public/TestimonialsDynamic";
@@ -31,11 +31,15 @@ const founders = [
     name: "Ramya Mahilam",
     role: "Founder",
     image: localImage("/images/about/ramya-mahilam.webp", 0),
+    instagram: "https://www.instagram.com/ramya.mahilam/?hl=en",
+    handle: "@ramya.mahilam",
   },
   {
     name: "Sneha Balumani",
     role: "Founder",
     image: localImage("/images/about/sneha-balumani.webp", 1),
+    instagram: "https://www.instagram.com/snehabalumani/?hl=en",
+    handle: "@snehabalumani",
   },
 ];
 
@@ -60,6 +64,24 @@ const pillars = [
   },
 ];
 
+const vision = [
+  {
+    number: "01",
+    title: "Happy Children",
+    text: "Creating a warm environment where children feel comfortable, valued and excited to participate.",
+  },
+  {
+    number: "02",
+    title: "Happy Learning",
+    text: "Making learning enjoyable through play, stories, movement, creativity and exploration.",
+  },
+  {
+    number: "03",
+    title: "Happy Growth",
+    text: "Supporting emotional, social, physical and intellectual development together.",
+  },
+];
+
 const values = [
   "Learning with happiness",
   "Freedom to explore",
@@ -69,6 +91,13 @@ const values = [
   "Strong parent partnership",
 ];
 
+const storyStickers = [
+  { label: "Learn through play", tint: "#f7c85b", rotate: "-3deg" },
+  { label: "Explore with curiosity", tint: "#a7d9c1", rotate: "2deg" },
+  { label: "Express with confidence", tint: "#ef9e8a", rotate: "2.5deg" },
+  { label: "Grow with happiness", tint: "#8cb9e8", rotate: "-2deg" },
+];
+
 export const metadata: Metadata = pageMetadata({
   title: "About Us — Our Story, Founders & Philosophy",
   description: "Meet Little Mahilam Preschool on Kangayam Road, Tiruppur: our founders, our child-centric School of Happiness philosophy and the values behind our play-way learning.",
@@ -76,234 +105,175 @@ export const metadata: Metadata = pageMetadata({
   keywords: ["about Little Mahilam", "preschool founders Tiruppur", "child-centric philosophy"],
 });
 
-export const revalidate = 300;
+export const revalidate = 0;
+
+/** Washi-tape strip for pinning photos. */
+function Tape({ className, color = "#f7c85b" }: { className: string; color?: string }) {
+  return <span aria-hidden className={`absolute z-10 block h-7 w-24 opacity-80 shadow-sm ${className}`} style={{ backgroundColor: color, clipPath: "polygon(3% 0, 97% 4%, 100% 50%, 97% 96%, 3% 100%, 0 50%)" }} />;
+}
 
 export default async function Page() {
-  const testimonials = await getPublic<Testimonial[]>("/testimonials");
+  const testimonials = await getPublic<Testimonial[]>("/testimonials", 0);
   return (
     <PublicShell>
-      {/* ======================================================
-          HERO
-      ====================================================== */}
-
-      <PageHero
+      <PageBanner
+        theme="about"
         eyebrow="About us"
-        title="A School of Happiness in Tiruppur."
+        icon={Heart}
+        title="A School of Happiness in"
+        highlight="Tiruppur"
         description="A warm, joyful learning community created around childhood, curiosity and happiness."
         crumbs={[{ name: "About", path: "/about" }]}
+        image={{ src: localImage("/images/banners/about.webp", 0), alt: "Happy children at Little Mahilam Preschool, Tiruppur" }}
       />
 
       {/* ======================================================
-          OUR STORY
+          OUR STORY — scrapbook polaroids
       ====================================================== */}
+      <section className="relative overflow-hidden py-16 md:py-24">
+        <div className="container-pad grid items-center gap-14 lg:grid-cols-[1.05fr_.95fr]">
+          <div>
+            <div className="eyebrow"><Sparkles className="h-4 w-4" /> Our Story</div>
+            <h2 className="mt-5 max-w-xl font-display text-3xl font-bold leading-[1.12] text-emerald-950 sm:text-4xl lg:text-[46px]">
+              A happy beginning for every <span className="text-[#e2725b]">little learner.</span>
+            </h2>
+            <p className="mt-6 max-w-xl text-lg font-bold leading-8 text-slate-700">
+              Little Mahilam Preschool is envisioned as a <span className="text-emerald-700">School of Happiness</span> where children are encouraged to be curious, expressive and confident.
+            </p>
+            <p className="mt-4 max-w-xl leading-8 text-slate-600">
+              We believe childhood should be filled with meaningful experiences, joyful discoveries and opportunities to explore the world through play.
+            </p>
+            <p className="mt-4 max-w-xl leading-8 text-slate-600">
+              Our learning environment supports each child&apos;s individuality while helping them develop communication, creativity, independence, emotional confidence and a genuine love for learning.
+            </p>
+            <ul className="mt-8 flex flex-wrap gap-3">
+              {storyStickers.map(({ label, tint, rotate }) => (
+                <li key={label} className="rounded-2xl border-2 border-dashed bg-white px-4 py-2.5 font-display text-sm font-bold text-emerald-950 shadow-sm" style={{ borderColor: tint, rotate }}>
+                  {label}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      <section className="relative overflow-hidden section-tint py-16 md:py-20">
-        {/* Decorative shapes */}
-        <div className="absolute -left-20 top-16 h-52 w-52 rounded-full bg-yellow-200/30 blur-3xl" />
+          <div className="relative mx-auto h-[460px] w-full max-w-[500px] sm:h-[520px]">
+            {/* Doodles */}
+            <Sun aria-hidden className="absolute -top-2 right-2 h-16 w-16 animate-[spin_30s_linear_infinite] fill-[#f7c85b]/40 text-[#f7c85b]" />
+            <svg aria-hidden viewBox="0 0 120 60" className="absolute bottom-6 left-0 hidden h-14 w-28 text-[#e2725b] sm:block">
+              <path d="M5 45 C 30 5, 70 5, 100 30" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6 7" strokeLinecap="round" />
+              <path d="M92 20 L102 31 L88 35" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
 
-        <div className="absolute -right-20 bottom-10 h-64 w-64 rounded-full bg-pink-200/30 blur-3xl" />
-
-        <div className="absolute left-[7%] top-10 hidden rotate-12 text-4xl text-yellow-300/60 md:block">
-          ★
-        </div>
-
-        <div className="absolute right-[6%] top-20 hidden -rotate-12 text-4xl text-pink-300/60 md:block">
-          ♥
-        </div>
-
-        <div className="container-pad relative">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* ================= IMAGE ================= */}
-
-            <div className="relative mx-auto w-full max-w-[590px] pb-14">
-              <div className="relative h-[420px] overflow-hidden rounded-[60px_25px_70px_30px] border-[7px] border-white shadow-[0_25px_70px_rgba(15,23,42,0.14)] sm:h-[520px]">
-                <Image
-                  src={localImage("/images/about/kids-learning.webp", 0)}
-                  alt="Children enjoying learning activities at Little Mahilam Preschool"
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 92vw"
-                  className="object-cover"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/20 via-transparent to-transparent" />
+            <figure className="absolute left-0 top-6 w-[56%] -rotate-6 bg-white p-3 pb-14 shadow-[0_24px_45px_-20px_rgba(23,60,47,.45)]">
+              <Tape className="-top-3 left-1/2 -translate-x-1/2 rotate-[-4deg]" />
+              <div className="relative aspect-[4/5] overflow-hidden bg-[#fffaf0]">
+                <Image src={localImage("/images/about/kids-learning.webp", 0)} alt="Children enjoying learning activities at Little Mahilam Preschool" fill sizes="(min-width: 1024px) 300px, 60vw" className="object-cover" />
               </div>
+              <figcaption className="absolute inset-x-0 bottom-3 text-center font-display text-lg font-bold text-emerald-900">Learning time!</figcaption>
+            </figure>
 
-              {/* Small image */}
-
-              <div className="absolute -bottom-2 right-0 h-40 w-40 overflow-hidden rounded-[35px] border-[6px] border-white shadow-xl sm:-right-5 sm:h-52 sm:w-52">
-                <Image
-                  src={localImage("/images/about/kids-playing.webp", 1)}
-                  alt="Children playing together"
-                  fill
-                  sizes="220px"
-                  className="object-cover"
-                />
+            <figure className="absolute bottom-0 right-0 w-[50%] rotate-[5deg] bg-white p-3 pb-14 shadow-[0_24px_45px_-20px_rgba(23,60,47,.45)]">
+              <Tape className="-top-3 right-6 rotate-[8deg]" color="#a7d9c1" />
+              <div className="relative aspect-square overflow-hidden bg-[#fffaf0]">
+                <Image src={localImage("/images/about/kids-playing.webp", 1)} alt="Children playing together" fill sizes="(min-width: 1024px) 280px, 55vw" className="object-cover" />
               </div>
-
-              {/* Floating School of Happiness */}
-
-              <div className="absolute -left-2 top-12 rounded-[25px] bg-yellow-300 px-4 py-4 shadow-xl sm:-left-8 sm:px-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white">
-                    <Sun className="h-6 w-6 text-yellow-500" />
-                  </span>
-
-                  <div>
-                    <div className="text-[10px] font-black uppercase tracking-[0.15em] text-slate-500">
-                      Welcome to
-                    </div>
-
-                    <div className="mt-0.5 font-black text-slate-900">
-                      School of Happiness
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Star */}
-
-              <span className="absolute -right-3 top-8 flex h-14 w-14 rotate-12 items-center justify-center rounded-2xl bg-[#ef9e8a] shadow-lg">
-                <Star className="h-6 w-6 fill-white text-white" />
-              </span>
-            </div>
-
-            {/* ================= CONTENT ================= */}
-
-            <div>
-              <div className="eyebrow">
-                <Sparkles className="h-4 w-4" />
-                Our Story
-              </div>
-
-              <h2 className="mt-5 max-w-xl text-3xl font-black leading-[1.15] tracking-tight text-emerald-950 sm:text-4xl lg:text-[46px]">
-                A happy beginning for every
-                <span className="text-[#ef9e8a]"> little learner.</span>
-              </h2>
-
-              <p className="mt-6 max-w-xl text-lg font-bold leading-8 text-slate-700">
-                Little Mahilam Preschool is envisioned as a{" "}
-                <span className="text-emerald-700">
-                  School of Happiness
-                </span>{" "}
-                where children are encouraged to be curious, expressive and
-                confident.
-              </p>
-
-              <p className="mt-4 max-w-xl leading-8 text-slate-600">
-                We believe childhood should be filled with meaningful
-                experiences, joyful discoveries and opportunities to explore the
-                world through play.
-              </p>
-
-              <p className="mt-4 max-w-xl leading-8 text-slate-600">
-                Our learning environment supports each child's individuality
-                while helping them develop communication, creativity,
-                independence, emotional confidence and a genuine love for
-                learning.
-              </p>
-
-              {/* Mini values */}
-
-              <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                {[
-                  "Learn through play",
-                  "Explore with curiosity",
-                  "Express with confidence",
-                  "Grow with happiness",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-3 rounded-2xl glass-card px-4 py-3 shadow-sm"
-                  >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-50">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-700" />
-                    </span>
-
-                    <span className="text-sm font-bold text-slate-700">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+              <figcaption className="absolute inset-x-0 bottom-3 flex items-center justify-center gap-1.5 font-display text-lg font-bold text-emerald-900">
+                Best friends <Heart className="h-4 w-4 fill-[#ef9e8a] text-[#ef9e8a]" />
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
       {/* ======================================================
-          SCHOOL OF HAPPINESS
+          VISION — dotted path of steps
       ====================================================== */}
-
-      <section className="relative overflow-hidden py-16 md:py-20">
-        <div className="absolute -top-12 right-[10%] h-24 w-24 rounded-full border-[18px] border-yellow-200/50" />
-
+      <section className="section-mint relative overflow-hidden py-16 md:py-20">
         <div className="container-pad">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="eyebrow">
-              <Rainbow className="h-4 w-4" />
-              Our Vision
-            </div>
-
-            <h2 className="mt-5 text-3xl font-black tracking-tight text-emerald-950 sm:text-4xl lg:text-5xl">
-              More than a school.
-              <span className="text-[#ef9e8a]"> A place to be happy.</span>
+            <div className="eyebrow"><Rainbow className="h-4 w-4" /> Our Vision</div>
+            <h2 className="mt-5 font-display text-3xl font-bold text-emerald-950 sm:text-4xl lg:text-5xl">
+              More than a school. <span className="text-[#e2725b]">A place to be happy.</span>
             </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600">
-              We want children to look forward to coming to school every day —
-              meeting friends, discovering new ideas and enjoying meaningful
-              childhood experiences.
+            <p className="mx-auto mt-5 max-w-2xl leading-8 text-slate-600">
+              We want children to look forward to coming to school every day — meeting friends, discovering new ideas and enjoying meaningful childhood experiences.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {[
-              {
-                number: "01",
-                title: "Happy Children",
-                text: "Creating a warm environment where children feel comfortable, valued and excited to participate.",
-              },
-              {
-                number: "02",
-                title: "Happy Learning",
-                text: "Making learning enjoyable through play, stories, movement, creativity and exploration.",
-              },
-              {
-                number: "03",
-                title: "Happy Growth",
-                text: "Supporting emotional, social, physical and intellectual development together.",
-              },
-            ].map((item, i) => (
-              <div
-                key={item.title}
-                className="group relative overflow-hidden rounded-[32px] glass-card p-7 shadow-[0_15px_45px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-              >
-                <span
-                  className="absolute -right-5 -top-7 text-[100px] font-black leading-none opacity-[0.07]"
-                  style={{
-                    color: TINTS[i],
-                  }}
-                >
+          <ol className="relative mt-14 grid gap-10 md:grid-cols-3 md:gap-6">
+            <svg aria-hidden viewBox="0 0 1000 60" preserveAspectRatio="none" className="absolute inset-x-[16%] top-5 hidden h-14 w-[68%] md:block">
+              <path d="M0 30 C 160 -10, 330 70, 500 30 S 840 -10, 1000 30" fill="none" stroke="#3f7a63" strokeOpacity=".35" strokeWidth="3" strokeDasharray="4 12" strokeLinecap="round" />
+            </svg>
+            {vision.map((item, i) => (
+              <li key={item.title} className="relative text-center">
+                <span className="relative mx-auto flex h-20 w-20 items-center justify-center rounded-full border-[6px] border-white font-display text-2xl font-bold text-emerald-950 shadow-lg" style={{ backgroundColor: TINTS[i], rotate: i === 1 ? "4deg" : "-4deg" }}>
                   {item.number}
                 </span>
+                <h3 className="mt-5 font-display text-xl font-bold text-emerald-950">{item.title}</h3>
+                <p className="mx-auto mt-2 max-w-xs text-sm leading-7 text-slate-600">{item.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
-                <span
-                  className="relative flex h-12 w-12 items-center justify-center rounded-2xl text-sm font-black"
-                  style={{
-                    backgroundColor: `${TINTS[i]}25`,
-                    color: TINTS[i],
-                  }}
-                >
-                  {item.number}
-                </span>
+      {/* ======================================================
+          FOUNDERS — lanyard ID badges
+      ====================================================== */}
+      <section id="founders" className="relative scroll-mt-24 overflow-hidden py-16 md:py-20">
+        <div className="container-pad grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <div>
+            <div className="eyebrow"><Heart className="h-4 w-4 fill-current" /> Meet Our Founders</div>
+            <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-emerald-950 sm:text-4xl">
+              Built with a love for <span className="text-[#e2725b]">childhood &amp; learning.</span>
+            </h2>
+            <p className="mt-5 max-w-lg leading-8 text-slate-600">
+              Little Mahilam was envisioned by educators who believe that early childhood education should feel joyful, meaningful and respectful of every child&apos;s uniqueness.
+            </p>
+            <p className="mt-5 max-w-lg font-display text-lg font-bold leading-8 text-emerald-950">
+              School of Happiness envisioned by{" "}
+              <a href="https://www.instagram.com/ramya.mahilam/?hl=en" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[#e2725b] underline decoration-[#e2725b]/30 underline-offset-4 transition hover:text-emerald-700"><Instagram className="h-4 w-4" />@ramya.mahilam</a>
+              {" "}&amp;{" "}
+              <a href="https://www.instagram.com/snehabalumani/?hl=en" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[#e2725b] underline decoration-[#e2725b]/30 underline-offset-4 transition hover:text-emerald-700"><Instagram className="h-4 w-4" />@snehabalumani</a>
+            </p>
+            <blockquote className="relative mt-8 max-w-md rounded-[28px] rounded-bl-md bg-emerald-900 p-6 text-white shadow-lg">
+              <span aria-hidden className="absolute -top-5 left-6 font-display text-7xl leading-none text-[#f7c85b]">“</span>
+              <p className="mt-2 font-display text-lg font-bold leading-7">Every child deserves a place where learning begins with happiness.</p>
+              <footer className="mt-5 flex items-center gap-3 border-t border-white/15 pt-4">
+                <div className="flex -space-x-2">
+                  {founders.map((founder) => (
+                    <span key={founder.name} className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-emerald-900 bg-white">
+                      <Image src={founder.image} alt="" fill sizes="36px" className="object-cover" />
+                    </span>
+                  ))}
+                </div>
+                <span className="text-sm font-bold text-white/75">Ramya Mahilam &amp; Sneha Balumani</span>
+              </footer>
+            </blockquote>
+          </div>
 
-                <h3 className="relative mt-6 text-xl font-black text-emerald-950">
-                  {item.title}
-                </h3>
-
-                <p className="relative mt-3 text-sm leading-7 text-slate-600">
-                  {item.text}
-                </p>
+          <div className="grid gap-10 pt-6 sm:grid-cols-2 sm:gap-6">
+            {founders.map((founder, i) => (
+              <div key={founder.name} className="relative flex flex-col items-center" style={{ rotate: i ? "3deg" : "-3deg" }}>
+                {/* Lanyard + clip */}
+                <span aria-hidden className="h-14 w-3 rounded-b-sm" style={{ background: `repeating-linear-gradient(45deg, ${TINTS[i]}, ${TINTS[i]} 6px, #fff 6px, #fff 9px)` }} />
+                <span aria-hidden className="-mt-1 h-5 w-9 rounded-md border-4 border-slate-300 bg-slate-100" />
+                <article className="-mt-1 w-full max-w-[280px] overflow-hidden rounded-[26px] bg-white text-center shadow-[0_24px_45px_-22px_rgba(23,60,47,.45)] ring-1 ring-emerald-950/5">
+                  <div className="h-16" style={{ background: `linear-gradient(120deg, ${TINTS[i]}, ${TINTS[(i + 1) % TINTS.length]})` }} />
+                  <div className="relative mx-auto -mt-12 h-28 w-28 overflow-hidden rounded-full border-[5px] border-white bg-[#fffaf0] shadow-md">
+                    <Image src={founder.image} alt={`${founder.name}, founder of Little Mahilam Preschool`} fill sizes="112px" className="object-cover" />
+                  </div>
+                  <div className="px-5 pb-6 pt-3">
+                    <p className="text-[11px] font-extrabold uppercase tracking-[.2em] text-emerald-700">{founder.role}</p>
+                    <h3 className="mt-1 font-display text-xl font-bold text-emerald-950">{founder.name}</h3>
+                    <a href={founder.instagram} target="_blank" rel="noopener noreferrer" aria-label={`${founder.name} on Instagram`} className="mt-2 inline-flex items-center gap-1.5 text-sm font-extrabold text-[#e2725b] transition hover:text-emerald-700">
+                      <Instagram className="h-4 w-4" />{founder.handle}
+                    </a>
+                    <p className="mt-2 text-sm leading-6 text-slate-500">Creating meaningful early-learning experiences with care, creativity and happiness.</p>
+                    <div aria-hidden className="mx-auto mt-4 flex w-fit gap-1">
+                      {[0, 1, 2, 3, 4].map((s) => <Star key={s} className="h-3.5 w-3.5 fill-[#f7c85b] text-[#f7c85b]" />)}
+                    </div>
+                  </div>
+                </article>
               </div>
             ))}
           </div>
@@ -311,289 +281,106 @@ export default async function Page() {
       </section>
 
       {/* ======================================================
-          FOUNDERS
+          PHILOSOPHY — dark card slider
       ====================================================== */}
-
-      <section className="relative overflow-hidden section-tint py-16 md:py-20">
-        <div className="container-pad">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-            {/* Heading */}
-
-            <div>
-              <div className="eyebrow">
-                <Heart className="h-4 w-4 fill-current" />
-                Meet Our Founders
-              </div>
-
-              <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight text-emerald-950 sm:text-4xl">
-                Built with a love for
-                <span className="text-[#ef9e8a]"> childhood & learning.</span>
-              </h2>
-
-              <p className="mt-5 max-w-lg leading-8 text-slate-600">
-                Little Mahilam was envisioned by educators who believe that
-                early childhood education should feel joyful, meaningful and
-                respectful of every child's uniqueness.
-              </p>
-
-              <div className="mt-7 rounded-[28px] glass-card p-6">
-                <Sparkles className="h-6 w-6 text-emerald-700" />
-
-                <p className="mt-4 font-bold leading-7 text-emerald-950">
-                  “Every child deserves a place where learning begins with
-                  happiness.”
-                </p>
-              </div>
-            </div>
-
-            {/* Founder Cards */}
-
-            <div className="grid gap-6 sm:grid-cols-2">
-              {founders.map((founder, i) => (
-                <div
-                  key={founder.name}
-                  className={`group overflow-hidden rounded-[36px] glass-card shadow-[0_15px_50px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-2 hover:shadow-xl ${
-                    i === 1 ? "sm:translate-y-8 sm:hover:translate-y-6" : ""
-                  }`}
-                >
-                  <div className="relative h-[340px] overflow-hidden bg-[#fffaf0]">
-                    <Image
-                      src={founder.image}
-                      alt={`${founder.name}, founder of Little Mahilam Preschool`}
-                      fill
-                      sizes="(min-width: 1024px) 45vw, 92vw"
-                      className="object-cover transition duration-700 group-hover:scale-105"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/45 via-transparent to-transparent" />
-
-                    <span
-                      className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-2xl border-4 border-white shadow-lg"
-                      style={{
-                        backgroundColor: TINTS[i],
-                      }}
-                    >
-                      <Heart className="h-4 w-4 fill-white text-white" />
-                    </span>
-                  </div>
-
-                  <div className="relative p-6">
-                    <div
-                      className="absolute inset-x-6 top-0 h-1 rounded-full"
-                      style={{
-                        backgroundColor: TINTS[i],
-                      }}
-                    />
-
-                    <div className="pt-2 text-xs font-black uppercase tracking-[0.17em] text-emerald-700">
-                      {founder.role}
-                    </div>
-
-                    <h3 className="mt-2 text-xl font-black text-emerald-950">
-                      {founder.name}
-                    </h3>
-
-                    <p className="mt-3 text-sm leading-6 text-slate-500">
-                      Creating meaningful early-learning experiences with care,
-                      creativity and happiness.
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ======================================================
-          PHILOSOPHY
-      ====================================================== */}
-
       <section className="relative overflow-hidden mesh-dark py-16 text-white md:py-20">
-        <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-emerald-800/40 blur-3xl" />
-
-        <div className="absolute -bottom-32 right-0 h-80 w-80 rounded-full bg-yellow-300/10 blur-3xl" />
-
         <div className="container-pad relative">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="eyebrow">
-              <Sparkles className="h-4 w-4" />
-              Our Philosophy
-            </div>
-
-            <h2 className="mt-5 text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
-              How we bring happiness
-              <span className="text-yellow-300"> to learning.</span>
-            </h2>
-
-            <p className="mx-auto mt-5 max-w-2xl leading-8 text-white/60">
-              Our approach creates meaningful experiences that help children
-              discover, participate, communicate and grow naturally.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <CardSlider
+            label="Our philosophy"
+            tone="dark"
+            heading={
+              <>
+                <span className="text-xs font-extrabold uppercase tracking-[.2em] text-[#f7c85b]">Our Philosophy</span>
+                <h2 className="mt-3 max-w-2xl font-display text-3xl font-bold sm:text-4xl lg:text-5xl">How we bring happiness <span className="text-[#f7c85b]">to learning.</span></h2>
+                <p className="mt-4 max-w-2xl leading-8 text-white/60">Our approach creates meaningful experiences that help children discover, participate, communicate and grow naturally.</p>
+              </>
+            }
+          >
             {pillars.map((pillar, i) => {
               const Icon = pillar.icon;
-
               return (
-                <div
-                  key={pillar.title}
-                  className="group rounded-[32px] border border-white/10 bg-white/[0.06] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:bg-white/[0.09]"
-                >
-                  <span
-                    className="flex h-14 w-14 items-center justify-center rounded-[20px] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110"
-                    style={{
-                      backgroundColor: `${TINTS[i]}25`,
-                    }}
-                  >
-                    <Icon
-                      className="h-7 w-7"
-                      style={{
-                        color: TINTS[i],
-                      }}
-                    />
+                <article key={pillar.title} className="group relative h-full overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.06] p-7 transition-colors hover:bg-white/[0.1]">
+                  <span aria-hidden className="absolute -right-3 -top-6 font-display text-[110px] font-bold leading-none text-white/[0.06]">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="relative flex h-16 w-16 items-center justify-center rounded-[22px] text-emerald-950 transition-transform duration-300 group-hover:-rotate-6" style={{ backgroundColor: TINTS[i] }}>
+                    <Icon className="h-8 w-8" />
                   </span>
-
-                  <h3 className="mt-6 text-xl font-black">{pillar.title}</h3>
-
-                  <p className="mt-3 text-sm leading-7 text-white/60">
-                    {pillar.description}
-                  </p>
-                </div>
+                  <h3 className="relative mt-6 font-display text-2xl font-bold">{pillar.title}</h3>
+                  <p className="relative mt-3 leading-7 text-white/65">{pillar.description}</p>
+                </article>
               );
             })}
+          </CardSlider>
+        </div>
+      </section>
+
+      {/* ======================================================
+          VALUES — photo with orbiting value badges
+      ====================================================== */}
+      <section className="overflow-hidden py-16 md:py-24">
+        <div className="container-pad">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="eyebrow"><Star className="h-4 w-4 fill-[#f7c85b] text-[#f7c85b]" /> What Matters To Us</div>
+            <h2 className="mt-5 font-display text-3xl font-bold leading-tight text-emerald-950 sm:text-4xl">
+              Childhood comes first in <span className="text-[#e2725b]">everything we do.</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl leading-8 text-slate-600">Our values guide our classrooms, activities and interactions with children and families every day.</p>
+          </div>
+
+          <div className="mt-12 grid items-center gap-8 lg:grid-cols-[1fr_auto_1fr] lg:gap-10">
+            <ul className="grid gap-4 lg:order-1">
+              {values.slice(0, 3).map((value, i) => (
+                <li key={value} className="flex items-center gap-3 rounded-full bg-white py-2 pl-2 pr-5 font-bold text-emerald-950 shadow-sm ring-1 ring-emerald-950/5 lg:flex-row-reverse lg:pl-5 lg:pr-2 lg:text-right">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold text-emerald-950" style={{ backgroundColor: TINTS[i % 3] }}>{i + 1}</span>
+                  <span className="flex-1">{value}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="relative mx-auto h-72 w-72 sm:h-80 sm:w-80 lg:order-2">
+              <span aria-hidden className="absolute -inset-5 animate-[spin_40s_linear_infinite] rounded-full border-[3px] border-dashed border-[#f7c85b]" />
+              <span aria-hidden className="absolute -inset-10 rounded-full border border-emerald-900/10" />
+              <div className="relative h-full w-full overflow-hidden rounded-full border-8 border-white shadow-2xl">
+                <Image src={localImage("/images/about/kids-group.webp", 0)} alt="Happy children learning and playing together" fill sizes="320px" className="object-cover" />
+              </div>
+              <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#e2725b] px-5 py-2 font-display text-sm font-bold text-white shadow-lg">Learn • Play • Grow</span>
+            </div>
+
+            <ul className="grid gap-4 lg:order-3">
+              {values.slice(3).map((value, i) => (
+                <li key={value} className="flex items-center gap-3 rounded-full bg-white py-2 pl-2 pr-5 font-bold text-emerald-950 shadow-sm ring-1 ring-emerald-950/5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold text-emerald-950" style={{ backgroundColor: TINTS[(i + 3) % 3] }}>{i + 4}</span>
+                  {value}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
       {/* ======================================================
-          OUR VALUES
+          CLOSING — invitation letter with stamp
       ====================================================== */}
-
-      <section className="overflow-hidden py-16 md:py-20">
+      <section className="section-peach py-16">
         <div className="container-pad">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            {/* Content */}
-
-            <div>
-              <div className="eyebrow">
-                <Star className="h-4 w-4 fill-yellow-300 text-yellow-300" />
-                What Matters To Us
+          {/* Airmail-striped envelope border */}
+          <div className="relative mx-auto max-w-4xl rounded-[10px] p-2.5 shadow-[0_30px_60px_-30px_rgba(23,60,47,.45)]" style={{ backgroundImage: "repeating-linear-gradient(135deg, #e2725b 0 14px, #fff 14px 24px, #8cb9e8 24px 38px, #fff 38px 48px)" }}>
+            <div className="relative rounded-[4px] bg-[#fffdf6] p-7 sm:p-10">
+              {/* Stamp */}
+              <div aria-hidden className="absolute right-5 top-5 flex h-20 w-16 rotate-6 flex-col items-center justify-center bg-[#f7c85b] text-emerald-950 sm:right-8 sm:top-8" style={{ outline: "3px dashed #fffdf6", outlineOffset: "-6px" }}>
+                <Heart className="h-7 w-7 fill-[#e2725b] text-[#e2725b]" />
+                <span className="mt-1 text-[8px] font-extrabold uppercase tracking-wider">Tiruppur</span>
               </div>
-
-              <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight text-emerald-950 sm:text-4xl">
-                Childhood comes first in
-                <span className="text-[#ef9e8a]"> everything we do.</span>
+              <span className="text-xs font-extrabold uppercase tracking-[.2em] text-emerald-700">You&apos;re invited</span>
+              <h2 className="mt-3 max-w-xl pr-20 font-display text-2xl font-bold leading-tight text-emerald-950 sm:text-3xl">
+                Come experience our <span className="text-[#e2725b]">School of Happiness.</span>
               </h2>
-
-              <p className="mt-5 max-w-xl leading-8 text-slate-600">
-                Our values guide our classrooms, activities and interactions
-                with children and families every day.
-              </p>
-
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {values.map((value, i) => (
-                  <div
-                    key={value}
-                    className="flex items-center gap-3 rounded-2xl glass-chip p-4"
-                  >
-                    <span
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
-                      style={{
-                        backgroundColor: `${TINTS[i % TINTS.length]}22`,
-                      }}
-                    >
-                      <CheckCircle2
-                        className="h-5 w-5"
-                        style={{
-                          color: TINTS[i % TINTS.length],
-                        }}
-                      />
-                    </span>
-
-                    <span className="text-sm font-black text-slate-700">
-                      {value}
-                    </span>
-                  </div>
-                ))}
+              <p className="mt-3 max-w-2xl leading-7 text-slate-600">Discover our classrooms, activities, learning environment and the joyful experiences we create for young children.</p>
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <Link href="/contact" className="inline-flex items-center gap-2 rounded-full bg-emerald-800 px-7 py-4 text-sm font-extrabold text-white shadow-lg transition hover:-translate-y-1 hover:bg-emerald-900">
+                  Visit Our School <ArrowRight className="h-4 w-4" />
+                </Link>
+                <span className="font-display text-lg font-bold text-emerald-900/70">— with love, Little Mahilam</span>
               </div>
-            </div>
-
-            {/* Kids Image */}
-
-            <div className="relative mx-auto w-full max-w-[560px] py-6">
-              <div className="relative h-[480px] overflow-hidden rounded-[100px_35px_100px_35px] border-[7px] border-white shadow-2xl">
-                <Image
-                  src={localImage("/images/about/kids-group.webp", 0)}
-                  alt="Happy children learning and playing together"
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 92vw"
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="absolute -left-4 bottom-0 rounded-[25px] bg-[#ef9e8a] px-5 py-4 text-white shadow-xl sm:-left-8">
-                <div className="flex items-center gap-3">
-                  <Users className="h-7 w-7" />
-
-                  <div>
-                    <div className="text-xs font-semibold text-white/70">
-                      Together we
-                    </div>
-
-                    <div className="font-black">Learn • Play • Grow</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -right-3 top-0 flex h-20 w-20 rotate-6 items-center justify-center rounded-[28px] bg-yellow-300 shadow-lg">
-                <Sun className="h-9 w-9 text-yellow-700" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ======================================================
-          CLOSING STORY CTA
-      ====================================================== */}
-
-      <section className="section-tint py-14">
-        <div className="container-pad">
-          <div className="relative overflow-hidden rounded-[40px] glass-card px-7 py-10 md:px-12 md:py-12">
-            <div className="absolute -right-10 -top-16 h-48 w-48 rounded-full bg-yellow-200/50" />
-
-            <div className="absolute -bottom-20 right-24 h-40 w-40 rounded-full bg-pink-200/30" />
-
-            <div className="relative grid items-center gap-8 lg:grid-cols-[1fr_auto]">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-emerald-700">
-                  Little Mahilam Preschool
-                </span>
-
-                <h2 className="mt-3 max-w-3xl text-2xl font-black leading-tight text-emerald-950 sm:text-3xl">
-                  Come experience our
-                  <span className="text-[#ef9e8a]">
-                    {" "}
-                    School of Happiness.
-                  </span>
-                </h2>
-
-                <p className="mt-3 max-w-2xl leading-7 text-slate-600">
-                  Discover our classrooms, activities, learning environment and
-                  the joyful experiences we create for young children.
-                </p>
-              </div>
-
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-800 px-7 py-4 text-sm font-black text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-emerald-900"
-              >
-                Visit Our School
-
-                <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </div>
         </div>

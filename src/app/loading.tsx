@@ -1,15 +1,36 @@
-import { Smile } from "lucide-react";
+import type { CSSProperties } from "react";
+import { BrandLogo } from "@/components/public/BrandLogo";
 
-/** Route-transition loader for public pages: brand mark on the page backdrop. */
+const BLOCKS = [
+  { letter: "A", color: "#f7c85b", delay: "0s", tilt: "-8deg" },
+  { letter: "B", color: "#ef9e8a", delay: ".15s", tilt: "6deg" },
+  { letter: "C", color: "#3f7a63", delay: ".3s", tilt: "-6deg" },
+];
+
+/** Route-transition loader for public pages: bouncing A-B-C toy blocks on the cream backdrop. */
 export default function Loading() {
   return (
-    <main className="mesh-hero grid min-h-[70vh] place-items-center px-6" role="status" aria-live="polite" aria-busy="true">
-      <div className="glass flex flex-col items-center rounded-[32px] px-10 py-9 text-center">
-        <span className="relative flex h-16 w-16 items-center justify-center">
-          <span className="absolute inset-0 animate-spin rounded-[22px] border-4 border-emerald-900/10 border-t-[#e58d73]" />
-          <Smile className="h-7 w-7 text-emerald-800" strokeWidth={2.5} />
-        </span>
-        <p className="mt-4 font-display text-lg font-bold text-emerald-950">Loading Little Mahilam…</p>
+    <main className="mesh-hero grid min-h-svh place-items-center px-4 py-10" role="status" aria-live="polite" aria-busy="true">
+      <div className="text-center">
+        <div aria-hidden className="flex items-end justify-center gap-3 pt-8">
+          {BLOCKS.map(({ letter, color, delay, tilt }) => (
+            <div key={letter} style={{ "--block": color, "--delay": delay, "--tilt": tilt } as CSSProperties}>
+              <span className="loader-block">{letter}</span>
+              <span className="loader-shadow block" />
+            </div>
+          ))}
+        </div>
+
+        <BrandLogo priority className="mx-auto mt-5 h-auto w-44" />
+        <p className="mt-2 flex items-center justify-center gap-2 text-sm font-bold text-emerald-900/70">
+          Let&apos;s play & learn
+          <span aria-hidden className="flex items-end gap-1 pt-1">
+            <span className="loader-dot h-1.5 w-1.5 rounded-full bg-[#f7c85b]" />
+            <span className="loader-dot h-1.5 w-1.5 rounded-full bg-[#ef9e8a]" />
+            <span className="loader-dot h-1.5 w-1.5 rounded-full bg-emerald-600" />
+          </span>
+        </p>
+        <span className="sr-only">Loading Little Mahilam…</span>
       </div>
     </main>
   );

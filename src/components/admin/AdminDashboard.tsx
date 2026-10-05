@@ -64,8 +64,8 @@ export function AdminDashboard() {
         })}
       </div>
 
-      <div className="mt-7 grid gap-6 xl:grid-cols-[1.25fr_.75fr]">
-        <section className="panel-dark p-7 sm:p-8">
+      <div className="mt-6 grid gap-5 xl:grid-cols-[1.25fr_.75fr]">
+        <section className="panel-dark p-5 sm:p-8">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs font-black uppercase tracking-[.18em] text-[#f7c85b]">Quick create</p>
@@ -83,7 +83,7 @@ export function AdminDashboard() {
           </div>
         </section>
 
-        <section className="panel p-7">
+        <section className="panel p-5 sm:p-7">
           <p className="accent-text text-xs font-black uppercase tracking-[.18em]">Content checklist</p>
           <h3 className="mt-2 text-xl font-extrabold">Keep the website fresh</h3>
           <ul className="mt-5 grid gap-3">

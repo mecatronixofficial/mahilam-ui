@@ -14,18 +14,19 @@ export function StatCard({ label, value, note, icon: Icon, tint = "#0e9aa7", hre
 }) {
   const body = (
     <>
-      <span aria-hidden className="absolute -right-8 -top-8 h-28 w-28 rounded-full opacity-20 blur-xl transition-opacity group-hover:opacity-35" style={{ backgroundColor: tint }} />
+      <span aria-hidden className="absolute -right-8 -top-8 h-28 w-28 rounded-full opacity-15 blur-2xl transition-opacity group-hover:opacity-30" style={{ backgroundColor: tint }} />
+      <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 opacity-70" style={{ background: `linear-gradient(90deg, ${tint}, transparent 72%)` }} />
       <div className="relative flex items-center justify-between">
-        {Icon && <span className="flex h-11 w-11 items-center justify-center rounded-2xl" style={{ backgroundColor: `${tint}1c`, color: tint }}><Icon className="h-5 w-5" /></span>}
+        {Icon && <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/80 shadow-sm" style={{ backgroundColor: `${tint}18`, color: tint }}><Icon className="h-5 w-5" /></span>}
         {href && <ArrowUpRight className="h-4 w-4 text-slate-300 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-slate-500" />}
       </div>
-      <div className="relative mt-5 text-3xl font-extrabold tracking-tight tabular-nums">
+      <div className="relative mt-5 text-3xl font-black tracking-[-.04em] text-slate-950 tabular-nums">
         {loading ? <span className="skeleton block h-8 w-16" /> : unavailable ? <span className="text-slate-300" title="Unavailable">—</span> : value}
       </div>
       <div className="relative mt-1 text-sm font-bold text-slate-500">{label}</div>
       {note && <div className="relative mt-2 text-xs font-bold" style={{ color: tint }}>{note}</div>}
     </>
   );
-  const className = "panel group relative block overflow-hidden p-5 transition hover:-translate-y-0.5";
+  const className = "panel group relative block min-h-[154px] overflow-hidden p-5 transition duration-200 hover:-translate-y-1 hover:shadow-[0_22px_45px_-28px_rgba(15,23,42,.5)]";
   return href ? <Link href={href} className={className}>{body}</Link> : <div className={className}>{body}</div>;
 }

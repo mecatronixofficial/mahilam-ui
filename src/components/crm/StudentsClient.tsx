@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { Cake, Download, LoaderCircle, Pencil, Phone, Plus, User } from "lucide-react";
+import { Cake, Download, Eye, LoaderCircle, Mail, MessageCircle, Pencil, Phone, Plus, Trash2, User, Users } from "lucide-react";
 import { api, downloadFile, errorMessage } from "@/lib/api";
 import { useIsAdmin } from "@/store/auth";
 import { useCrud } from "@/components/dashboard/useCrud";
@@ -18,6 +18,8 @@ type Student = {
   joiningDate?: string | null; phone?: string | null; whatsapp?: string | null; address?: string | null; emergencyContact?: string | null; notes?: string | null; status: string;
   classLevelId?: string | null; sectionId?: string | null; classLevel?: { name: string } | null; section?: { name: string } | null;
 };
+type Guardian = { id: string; name: string; relationship: string; mobile: string; whatsapp?: string | null; email?: string | null; occupation?: string | null; address?: string | null; primary: boolean };
+type StudentDetail = Student & { guardians: Array<{ primary: boolean; guardian: Omit<Guardian, "primary"> }> };
 
 const EMPTY_FORM = { firstName: "", lastName: "", dob: "", gender: "", bloodGroup: "", photoUrl: "", joiningDate: "", phone: "", whatsapp: "", address: "", emergencyContact: "", notes: "", status: "ACTIVE", classLevelId: "", sectionId: "" };
 
@@ -28,6 +30,7 @@ function age(dob?: string | null) {
 }
 
 export function StudentsClient() {
+  const qc = useQueryClient();
   const isAdmin = useIsAdmin();
   const crud = useCrud<Student>("/students", "Student", { queryKey: ["students"], invalidate: [["dashboard-report"]] });
   const classesQ = useQuery({ queryKey: ["academics-classes"], queryFn: () => api<{ data: ClassLevel[] }>("/academics/classes") });
@@ -40,6 +43,19 @@ export function StudentsClient() {
   const [status, setStatus] = useState("ACTIVE");
   const [classId, setClassId] = useState("");
   const [exporting, setExporting] = useState(false);
+  const [viewing, setViewing] = useState<Student | null>(null);
+  const [guardian, setGuardian] = useState({ name: "", relationship: "Parent", mobile: "", whatsapp: "", email: "", occupation: "", address: "", primary: false });
+  const detailQ = useQuery({ queryKey: ["student-detail", viewing?.id], queryFn: () => api<{ data: StudentDetail }>(`/students/${viewing!.id}`), enabled: Boolean(viewing) });
+  const addGuardian = useMutation({
+    mutationFn: () => api(`/students/${viewing!.id}/guardians`, { method: "POST", body: JSON.stringify({ ...guardian, whatsapp: guardian.whatsapp.trim() || null, email: guardian.email.trim() || null, occupation: guardian.occupation.trim() || null, address: guardian.address.trim() || null }) }),
+    onSuccess: () => { toast.success("Guardian added"); setGuardian({ name: "", relationship: "Parent", mobile: "", whatsapp: "", email: "", occupation: "", address: "", primary: false }); detailQ.refetch(); qc.invalidateQueries({ queryKey: ["students"] }); },
+    onError: (error) => toast.error(errorMessage(error)),
+  });
+  const removeGuardian = useMutation({
+    mutationFn: (id: string) => api(`/students/${viewing!.id}/guardians/${id}`, { method: "DELETE" }),
+    onSuccess: () => { toast.success("Guardian removed"); detailQ.refetch(); },
+    onError: (error) => toast.error(errorMessage(error)),
+  });
 
   const sections = classes.find((c) => c.id === form.classLevelId)?.sections ?? [];
 
@@ -118,6 +134,7 @@ export function StudentsClient() {
                 {s.phone && <a href={`tel:${s.phone}`} className="flex w-fit items-center gap-2 hover:text-slate-900"><Phone className="h-3.5 w-3.5 text-slate-400" />{s.phone}</a>}
               </div>
               <div className="mt-4 flex items-center gap-2 border-t pt-3">
+                <button type="button" onClick={() => setViewing(s)} className="btn-soft !px-3 !py-1.5 !text-xs"><Eye className="h-3.5 w-3.5" /> Full details</button>
                 <button type="button" onClick={() => startEdit(s)} className="btn-soft !px-3 !py-1.5 !text-xs"><Pencil className="h-3.5 w-3.5" /> Edit</button>
                 {isAdmin && <span className="ml-auto"><ConfirmDelete pending={crud.remove.isPending} onConfirm={() => crud.remove.mutate(s.id)} /></span>}
               </div>
@@ -150,6 +167,27 @@ export function StudentsClient() {
             <button type="button" onClick={close} className="btn-soft">Cancel</button>
           </div>
         </form>
+      </Drawer>
+
+      <Drawer open={Boolean(viewing)} onClose={() => setViewing(null)} eyebrow="Complete learner profile" title={viewing ? `${viewing.firstName} ${viewing.lastName || ""}` : "Student details"}>
+        {detailQ.isPending ? <div className="grid gap-3"><div className="skeleton h-32" /><div className="skeleton h-48" /></div> : detailQ.data?.data ? (() => {
+          const student = detailQ.data.data;
+          const guardians = student.guardians.map((link) => ({ ...link.guardian, primary: link.primary }));
+          return <div className="grid gap-5">
+            <section className="rounded-2xl border bg-white/70 p-4">
+              <div className="flex items-center gap-4"><div className="accent-bg flex h-14 w-14 items-center justify-center rounded-2xl text-xl font-black">{student.firstName[0]}</div><div><h3 className="text-lg font-extrabold">{student.firstName} {student.lastName}</h3><p className="text-sm font-bold text-slate-400">{student.admissionNumber}</p></div></div>
+              <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
+                {[["Class", `${student.classLevel?.name || "Unassigned"}${student.section ? ` · ${student.section.name}` : ""}`], ["Date of birth", formatDate(student.dob) || "—"], ["Gender", student.gender || "—"], ["Blood group", student.bloodGroup || "—"], ["Joining date", formatDate(student.joiningDate) || "—"], ["Status", humanize(student.status)]].map(([label, value]) => <div key={label}><dt className="text-xs font-bold uppercase tracking-wide text-slate-400">{label}</dt><dd className="mt-0.5 font-semibold">{value}</dd></div>)}
+              </dl>
+              {student.address && <p className="mt-4 border-t pt-3 text-sm leading-6 text-slate-600">{student.address}</p>}
+              {student.notes && <p className="mt-3 rounded-xl bg-amber-50 p-3 text-sm text-amber-900">{student.notes}</p>}
+            </section>
+            <section><div className="flex items-center gap-2"><Users className="h-5 w-5" /><h3 className="font-extrabold">Parents and guardians</h3></div>
+              {!guardians.length ? <p className="mt-3 rounded-2xl bg-slate-50 p-5 text-sm text-slate-500">No guardians added yet.</p> : <div className="mt-3 grid gap-3 sm:grid-cols-2">{guardians.map((g) => <article key={g.id} className="rounded-2xl border bg-white/70 p-4"><div className="flex justify-between gap-3"><div><p className="font-extrabold">{g.name}{g.primary && <span className="ml-2 chip bg-emerald-100 text-emerald-800">Primary</span>}</p><p className="text-xs font-bold text-slate-400">{g.relationship}{g.occupation ? ` · ${g.occupation}` : ""}</p></div>{isAdmin && <button type="button" onClick={() => removeGuardian.mutate(g.id)} aria-label="Remove guardian" className="rounded-lg p-2 text-slate-400 hover:text-rose-600"><Trash2 className="h-4 w-4" /></button>}</div><div className="mt-3 grid gap-1 text-sm"><a href={`tel:${g.mobile}`} className="flex items-center gap-2"><Phone className="h-3.5 w-3.5" />{g.mobile}</a>{g.whatsapp && <a href={`https://wa.me/${g.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-emerald-700"><MessageCircle className="h-3.5 w-3.5" />{g.whatsapp}</a>}{g.email && <a href={`mailto:${g.email}`} className="flex items-center gap-2"><Mail className="h-3.5 w-3.5" />{g.email}</a>}</div></article>)}</div>}
+            </section>
+            <form onSubmit={(event) => { event.preventDefault(); addGuardian.mutate(); }} className="grid gap-3 rounded-2xl border bg-white/60 p-4"><h3 className="font-extrabold">Add parent or guardian</h3><div className="grid gap-3 sm:grid-cols-2"><label className="grid gap-1.5"><span className="label">Name *</span><input className="input" value={guardian.name} onChange={(e) => setGuardian({ ...guardian, name: e.target.value })} required /></label><label className="grid gap-1.5"><span className="label">Relationship *</span><input className="input" placeholder="Mother, father, guardian" value={guardian.relationship} onChange={(e) => setGuardian({ ...guardian, relationship: e.target.value })} required /></label><label className="grid gap-1.5"><span className="label">Mobile *</span><input className="input" type="tel" value={guardian.mobile} onChange={(e) => setGuardian({ ...guardian, mobile: e.target.value })} required /></label><label className="grid gap-1.5"><span className="label">WhatsApp</span><input className="input" type="tel" value={guardian.whatsapp} onChange={(e) => setGuardian({ ...guardian, whatsapp: e.target.value })} /></label><label className="grid gap-1.5"><span className="label">Email</span><input className="input" type="email" value={guardian.email} onChange={(e) => setGuardian({ ...guardian, email: e.target.value })} /></label><label className="grid gap-1.5"><span className="label">Occupation</span><input className="input" value={guardian.occupation} onChange={(e) => setGuardian({ ...guardian, occupation: e.target.value })} /></label></div><label className="grid gap-1.5"><span className="label">Address</span><textarea className="input min-h-16" value={guardian.address} onChange={(e) => setGuardian({ ...guardian, address: e.target.value })} /></label><label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={guardian.primary} onChange={(e) => setGuardian({ ...guardian, primary: e.target.checked })} />Primary contact</label><button className="btn-primary w-fit" disabled={addGuardian.isPending}>{addGuardian.isPending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}Add guardian</button></form>
+          </div>;
+        })() : <p className="text-sm text-rose-600">Could not load the full student record.</p>}
       </Drawer>
     </>
   );

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { AlarmClock, ClipboardPlus, Download, LoaderCircle, MessageCircle, Pencil, Phone, Plus } from "lucide-react";
+import { AlarmClock, ClipboardPlus, Download, History, LoaderCircle, MessageCircle, Pencil, Phone, Plus, Trash2 } from "lucide-react";
 import { api, downloadFile, errorMessage } from "@/lib/api";
 import { useIsAdmin } from "@/store/auth";
 import { useCrud } from "@/components/dashboard/useCrud";
@@ -18,6 +18,8 @@ type Enquiry = {
   interestedClass: string; source: string; status: string; assignedStaffId?: string | null; nextFollowUpDate?: string | null; message?: string | null; notes?: string | null; createdAt?: string;
 };
 type Staff = { id: string; name: string };
+type FollowUp = { id: string; contactMethod: string; staffName?: string | null; notes: string; result?: string | null; nextFollowUp?: string | null; createdAt: string };
+type EnquiryDetail = Enquiry & { followUps: FollowUp[] };
 
 const EMPTY_FORM = { parentName: "", studentName: "", studentDob: "", phone: "", whatsapp: "", email: "", interestedClass: "Pre-KG", source: "PHONE", status: "NEW", assignedStaffId: "", nextFollowUpDate: "", message: "", notes: "" };
 const FILTERS = [
@@ -28,6 +30,7 @@ const FILTERS = [
   { value: "ADMISSION_CONFIRMED", label: "Converted" },
 ] as const;
 const CLOSED = new Set(["ADMISSION_CONFIRMED", "NOT_INTERESTED", "CLOSED"]);
+const FOLLOW_UP_METHODS = ["PHONE", "WHATSAPP", "EMAIL", "IN_PERSON", "OTHER"] as const;
 
 export function EnquiriesClient() {
   const qc = useQueryClient();
@@ -44,6 +47,29 @@ export function EnquiriesClient() {
   const [filter, setFilter] = useState("open");
   const [source, setSource] = useState("");
   const [exporting, setExporting] = useState(false);
+  const [following, setFollowing] = useState<Enquiry | null>(null);
+  const [followForm, setFollowForm] = useState({ contactMethod: "PHONE", notes: "", result: "", nextFollowUp: "", status: "CONTACTED" });
+  const detailQ = useQuery({
+    queryKey: ["enquiry-detail", following?.id],
+    queryFn: () => api<{ data: EnquiryDetail }>(`/enquiries/${following!.id}`),
+    enabled: Boolean(following),
+  });
+  const addFollowUp = useMutation({
+    mutationFn: () => api(`/enquiries/${following!.id}/follow-ups`, { method: "POST", body: JSON.stringify({ ...followForm, result: followForm.result.trim() || null, nextFollowUp: followForm.nextFollowUp || null }) }),
+    onSuccess: () => {
+      toast.success("Follow-up recorded");
+      setFollowForm({ contactMethod: "PHONE", notes: "", result: "", nextFollowUp: "", status: "CONTACTED" });
+      detailQ.refetch();
+      qc.invalidateQueries({ queryKey: ["enquiries"] });
+      qc.invalidateQueries({ queryKey: ["dashboard-report"] });
+    },
+    onError: (error) => toast.error(errorMessage(error)),
+  });
+  const removeFollowUp = useMutation({
+    mutationFn: (id: string) => api(`/enquiries/${following!.id}/follow-ups/${id}`, { method: "DELETE" }),
+    onSuccess: () => { toast.success("Follow-up removed"); detailQ.refetch(); },
+    onError: (error) => toast.error(errorMessage(error)),
+  });
 
   const convert = useMutation({
     mutationFn: async (row: Enquiry) => {
@@ -147,6 +173,7 @@ export function EnquiriesClient() {
                           {!CLOSED.has(r.status) && r.status !== "APPLICATION_STARTED" && (
                             <button type="button" onClick={() => convert.mutate(r)} disabled={convert.isPending} title="Start admission application" className="rounded-lg p-2 text-slate-500 hover:bg-white hover:text-emerald-700"><ClipboardPlus className="h-4 w-4" /></button>
                           )}
+                          <button type="button" onClick={() => { setFollowing(r); setFollowForm((value) => ({ ...value, status: r.status === "NEW" ? "CONTACTED" : r.status })); }} aria-label={`Follow up with ${r.parentName}`} title="Follow-up history" className="rounded-lg p-2 text-slate-500 hover:bg-white hover:text-amber-700"><History className="h-4 w-4" /></button>
                           <button type="button" onClick={() => startEdit(r)} aria-label="Edit enquiry" className="rounded-lg p-2 text-slate-500 hover:bg-white"><Pencil className="h-4 w-4" /></button>
                           {isAdmin && <ConfirmDelete compact pending={crud.remove.isPending} onConfirm={() => crud.remove.mutate(r.id)} />}
                         </div>
@@ -187,6 +214,31 @@ export function EnquiriesClient() {
             <button type="button" onClick={close} className="btn-soft">Cancel</button>
           </div>
         </form>
+      </Drawer>
+
+      <Drawer open={Boolean(following)} onClose={() => setFollowing(null)} eyebrow="Family follow-up" title={following ? `${following.parentName} · ${following.studentName}` : "Follow-up"}>
+        <form onSubmit={(event) => { event.preventDefault(); addFollowUp.mutate(); }} className="grid gap-4 rounded-2xl border bg-white/60 p-4">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <label className="grid gap-1.5"><span className="label">Contact method</span><select className="input" value={followForm.contactMethod} onChange={(e) => setFollowForm({ ...followForm, contactMethod: e.target.value })}>{FOLLOW_UP_METHODS.map((method) => <option key={method} value={method}>{humanize(method)}</option>)}</select></label>
+            <label className="grid gap-1.5"><span className="label">Move to stage</span><select className="input" value={followForm.status} onChange={(e) => setFollowForm({ ...followForm, status: e.target.value })}>{ENQUIRY_STATUSES.map((value) => <option key={value} value={value}>{humanize(value)}</option>)}</select></label>
+            <label className="grid gap-1.5 sm:col-span-2"><span className="label">Conversation notes *</span><textarea className="input min-h-20" value={followForm.notes} onChange={(e) => setFollowForm({ ...followForm, notes: e.target.value })} required minLength={2} /></label>
+            <label className="grid gap-1.5"><span className="label">Result</span><input className="input" placeholder="Interested, callback requested…" value={followForm.result} onChange={(e) => setFollowForm({ ...followForm, result: e.target.value })} /></label>
+            <label className="grid gap-1.5"><span className="label">Next follow-up</span><input className="input" type="date" value={followForm.nextFollowUp} onChange={(e) => setFollowForm({ ...followForm, nextFollowUp: e.target.value })} /></label>
+          </div>
+          <button className="btn-primary w-fit" disabled={addFollowUp.isPending}>{addFollowUp.isPending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}Record follow-up</button>
+        </form>
+        <section className="mt-5">
+          <h3 className="font-extrabold">Follow-up history</h3>
+          {detailQ.isPending ? <div className="skeleton mt-3 h-24" /> : !(detailQ.data?.data.followUps?.length) ? <p className="mt-3 rounded-2xl bg-slate-50 p-5 text-sm text-slate-500">No follow-ups recorded yet.</p> : (
+            <ol className="mt-3 grid gap-3">
+              {detailQ.data.data.followUps.map((follow) => <li key={follow.id} className="rounded-2xl border bg-white/70 p-4">
+                <div className="flex items-start justify-between gap-3"><div><p className="text-sm font-extrabold">{humanize(follow.contactMethod)}{follow.result ? ` · ${follow.result}` : ""}</p><p className="text-xs font-semibold text-slate-400">{formatDate(follow.createdAt)}{follow.staffName ? ` · ${follow.staffName}` : ""}</p></div>{isAdmin && <button type="button" onClick={() => removeFollowUp.mutate(follow.id)} aria-label="Delete follow-up" className="rounded-lg p-2 text-slate-400 hover:bg-rose-50 hover:text-rose-600"><Trash2 className="h-4 w-4" /></button>}</div>
+                <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-slate-600">{follow.notes}</p>
+                {follow.nextFollowUp && <p className="mt-2 text-xs font-bold text-amber-700">Next: {formatDate(follow.nextFollowUp)}</p>}
+              </li>)}
+            </ol>
+          )}
+        </section>
       </Drawer>
     </>
   );

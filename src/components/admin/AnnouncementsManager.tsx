@@ -1,6 +1,10 @@
 "use client";
 import { useState } from "react";
-import { CalendarDays, ImageOff, Link2, LoaderCircle, Pencil, Plus } from "lucide-react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { BellOff, BellRing, CalendarDays, ImageOff, Link2, LoaderCircle, Pencil, Plus } from "lucide-react";
+import { api, errorMessage } from "@/lib/api";
+import { ANNOUNCEMENT_POPUP_KEY, isPopupEnabled } from "@/lib/server-api";
 import { useCrud } from "@/components/dashboard/useCrud";
 import { ConfirmDelete, FormTitle, ImageField, ListToolbar, matches, PublishToggle } from "@/components/dashboard/ui";
 import { QueryState } from "@/components/states/QueryState";
@@ -58,6 +62,7 @@ export function AnnouncementsManager() {
 
   return (
     <div className="grid gap-6 xl:grid-cols-[.8fr_1.2fr]">
+      <PopupSwitch />
       <form onSubmit={submit} className="panel h-fit xl:sticky xl:top-28">
         <FormTitle editing={Boolean(editingId)} create="New announcement" edit="Edit announcement" onCancel={reset} />
         <div className="mt-5 grid gap-4">
@@ -122,5 +127,46 @@ export function AnnouncementsManager() {
         </QueryState>
       </div>
     </div>
+  );
+}
+
+type Setting = { key: string; value: unknown };
+
+/** Master on/off for the homepage announcement popup, stored as a public site setting. */
+function PopupSwitch() {
+  const qc = useQueryClient();
+  const settings = useQuery({ queryKey: ["settings"], queryFn: () => api<{ data: Setting[] }>("/cms/settings") });
+  const enabled = isPopupEnabled(settings.data?.data.find((row) => row.key === ANNOUNCEMENT_POPUP_KEY)?.value);
+  const save = useMutation({
+    mutationFn: (value: boolean) => api("/cms/settings", { method: "POST", body: JSON.stringify({ key: ANNOUNCEMENT_POPUP_KEY, value }) }),
+    onSuccess: (_, value) => { toast.success(value ? "Announcement popup turned on" : "Announcement popup turned off"); qc.invalidateQueries({ queryKey: ["settings"] }); },
+    onError: (error) => toast.error(errorMessage(error)),
+  });
+  const busy = settings.isLoading || save.isPending;
+  const Icon = enabled ? BellRing : BellOff;
+
+  return (
+    <section className="panel flex flex-wrap items-center justify-between gap-4 xl:col-span-2">
+      <div className="flex min-w-0 items-center gap-4">
+        <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${enabled ? "bg-emerald-100/80 text-emerald-700" : "bg-slate-200/70 text-slate-500"}`}><Icon className="h-5 w-5" /></span>
+        <div className="min-w-0">
+          <h2 className="font-extrabold">Announcement popup on website</h2>
+          <p className="mt-0.5 text-sm leading-6 text-slate-500">{enabled ? "On — the top published announcement pops up once per visit on the homepage." : "Off — no popup is shown. Your announcements stay saved and published."}</p>
+        </div>
+      </div>
+      <button
+        type="button"
+        role="switch"
+        aria-checked={enabled}
+        aria-label="Show announcement popup on website"
+        disabled={busy}
+        onClick={() => save.mutate(!enabled)}
+        className={`relative inline-flex h-8 w-14 shrink-0 items-center rounded-full transition disabled:opacity-60 ${enabled ? "bg-emerald-500" : "bg-slate-300"}`}
+      >
+        <span className={`flex h-6 w-6 items-center justify-center rounded-full bg-white shadow transition-transform ${enabled ? "translate-x-7" : "translate-x-1"}`}>
+          {save.isPending && <LoaderCircle className="h-3.5 w-3.5 animate-spin text-slate-400" />}
+        </span>
+      </button>
+    </section>
   );
 }

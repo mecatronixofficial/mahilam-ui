@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fredoka, Nunito, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { baseKeywords, site, SITE_URL } from "@/lib/site";
 import { schoolSchema, websiteSchema } from "@/lib/seo";
@@ -56,9 +57,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={`${nunito.variable} ${fredoka.variable} ${jakarta.variable}`}>
+    // data-scroll-behavior lets Next turn off the global smooth scroll while it jumps to the top of a new page;
+    // without it the jump animates and gets cut short, leaving visitors mid-page.
+    <html lang="en-IN" data-scroll-behavior="smooth" className={`${nunito.variable} ${fredoka.variable} ${jakarta.variable}`}>
       <body>
         <JsonLd data={[schoolSchema(), websiteSchema()]} />
+        <ScrollToTop />
         <Providers>{children}</Providers>
       </body>
     </html>

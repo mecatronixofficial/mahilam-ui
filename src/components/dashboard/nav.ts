@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Activity, Banknote, BarChart3, Building2, CalendarDays, ClipboardCheck, GraduationCap, History, Images, LayoutDashboard,
-  Megaphone, Newspaper, Palette, Settings, Star, UserCog, UserPlus, Users,
+  MailOpen, Megaphone, Newspaper, Palette, School, Settings, Star, UserCog, UserPlus, Users,
 } from "lucide-react";
 
 export type WorkspaceMode = "admin" | "crm";
@@ -19,6 +19,7 @@ export const NAV: Record<WorkspaceMode, NavItem[]> = {
     { href: "/admin/gallery", icon: Images, label: "Gallery", helper: "Albums & media", group: "Stories" },
     { href: "/admin/events", icon: CalendarDays, label: "Events", helper: "School calendar", group: "Stories" },
     { href: "/admin/blogs", icon: Newspaper, label: "Blog", helper: "Articles & news", group: "Stories" },
+    { href: "/admin/subscribers", icon: MailOpen, label: "Subscribers", helper: "Newsletter list", group: "Stories" },
     { href: "/admin/settings", icon: Settings, label: "Settings", helper: "Website details", group: "System" },
     { href: "/admin/activity", icon: History, label: "Activity Log", helper: "Who changed what", group: "System" },
   ],
@@ -27,6 +28,7 @@ export const NAV: Record<WorkspaceMode, NavItem[]> = {
     { href: "/crm/enquiries", icon: UserPlus, label: "Enquiries", helper: "New family leads", group: "Families" },
     { href: "/crm/admissions", icon: ClipboardCheck, label: "Admissions", helper: "Applications pipeline", group: "Families" },
     { href: "/crm/students", icon: GraduationCap, label: "Students", helper: "Learner records", group: "School" },
+    { href: "/crm/academics", icon: School, label: "Academics", helper: "Years, classes & sections", group: "School" },
     { href: "/crm/fees", icon: Banknote, label: "Fees", helper: "Payments & balances", group: "School" },
     { href: "/crm/reports", icon: BarChart3, label: "Reports", helper: "Insights & exports", group: "School" },
     { href: "/crm/staff", icon: Users, label: "Staff", helper: "Team access", group: "Team" },

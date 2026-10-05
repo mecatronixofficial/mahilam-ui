@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { WhatsappIcon } from "./WhatsappIcon";
+import { BalloonString } from "./BalloonString";
 
-const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_URL;
 const FLY_AWAY_MS = 550;
 
-export function FloatingActions() {
+export function FloatingActions({ whatsapp }: { whatsapp?: string }) {
   const [showTop, setShowTop] = useState(false);
   const [leaving, setLeaving] = useState(false);
 
@@ -35,13 +35,13 @@ export function FloatingActions() {
           onClick={handleScrollTop}
           disabled={leaving}
           aria-label="Scroll to top"
-          className={`relative mb-2 flex h-14 w-12 items-center justify-center transition-all ease-in ${
+          className={`relative mb-8 flex h-14 w-12 items-center justify-center transition-all ease-in ${
             leaving
               ? "-translate-y-32 opacity-0 duration-500"
               : "motion-safe:animate-bounce duration-200"
           }`}
         >
-          <span className="absolute -bottom-3 left-1/2 h-4 w-px -translate-x-1/2 bg-emerald-950/25" />
+          <BalloonString length={28} color="rgba(23,60,47,.4)" className="absolute left-[calc(50%-6px)] top-[calc(100%+5px)]" />
           <span
             className="absolute -bottom-1.5 left-1/2 h-2 w-2.5 -translate-x-1/2"
             style={{ backgroundColor: "#ef9e8a", clipPath: "polygon(50% 100%, 0 0, 100% 0)" }}

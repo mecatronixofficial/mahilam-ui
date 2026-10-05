@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
-import { Smile } from "lucide-react";
+import { BrandLogo } from "@/components/public/BrandLogo";
 
 /** Full-page status layout (404, 500, offline, forbidden, session expired) in the public glass style. */
 export function StatusScreen({
@@ -29,8 +29,8 @@ export function StatusScreen({
           <h1 className="mt-4 text-2xl font-bold text-emerald-950 md:text-3xl">{title}</h1>
           <p className="mx-auto mt-3 max-w-md text-lg leading-8 text-slate-600">{description}</p>
           {children && <div className="mt-8 flex flex-wrap justify-center gap-3">{children}</div>}
-          <Link href="/" className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-emerald-800/80 hover:text-emerald-900">
-            <Smile className="h-4 w-4" /> Little Mahilam · School of Happiness
+          <Link href="/" className="mt-8 inline-flex transition hover:scale-[1.03]" aria-label="Little Mahilam Pre-school home">
+            <BrandLogo className="h-auto w-36" />
           </Link>
         </div>
       </div>
