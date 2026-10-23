@@ -1,3 +1,4 @@
+import "@/components/dashboard/compact.css";
 import type { Metadata } from "next";
 import { AdminShell } from "@/components/admin/AdminShell";
 export const metadata: Metadata = { title: "CMS", robots: { index: false, follow: false } };

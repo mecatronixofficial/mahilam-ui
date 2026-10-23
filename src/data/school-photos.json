@@ -1,0 +1,602 @@
+[
+  {
+    "id": "summer-play",
+    "src": "/images/school/summer-play.webp",
+    "alt": "Summer dress-up and imaginative play",
+    "caption": "Summer dress-up and imaginative play",
+    "category": "Celebrations",
+    "width": 1280,
+    "height": 960,
+    "original": "36543212_2110354605843429_4918085373256531968_n.jpg"
+  },
+  {
+    "id": "colour-exploration",
+    "src": "/images/school/colour-exploration.webp",
+    "alt": "Children exploring colours and painting together",
+    "caption": "Children exploring colours and painting together",
+    "category": "Art and sensory play",
+    "width": 640,
+    "height": 1316,
+    "original": "36601530_2110354785843411_8573240947473645568_n.jpg"
+  },
+  {
+    "id": "community-outing",
+    "src": "/images/school/community-outing.webp",
+    "alt": "Children lining up with teachers during a community outing",
+    "caption": "Children lining up with teachers during a community outing",
+    "category": "Learning beyond the classroom",
+    "width": 960,
+    "height": 720,
+    "original": "37864286_2133002863578603_6448082114276491264_n.jpg"
+  },
+  {
+    "id": "little-gardener",
+    "src": "/images/school/little-gardener.webp",
+    "alt": "A young learner examining plants outdoors",
+    "caption": "A young learner examining plants outdoors",
+    "category": "Nature and outdoor discovery",
+    "width": 640,
+    "height": 1316,
+    "original": "38029640_2138389013039988_983435231748947968_n.jpg"
+  },
+  {
+    "id": "meeting-a-goat",
+    "src": "/images/school/meeting-a-goat.webp",
+    "alt": "Children gently meeting a goat during a farm visit",
+    "caption": "Children gently meeting a goat during a farm visit",
+    "category": "Nature and outdoor discovery",
+    "width": 640,
+    "height": 1316,
+    "original": "38036820_2138389499706606_4606370407988068352_n.jpg"
+  },
+  {
+    "id": "caring-for-animals",
+    "src": "/images/school/caring-for-animals.webp",
+    "alt": "A child learning to care for a goat",
+    "caption": "A child learning to care for a goat",
+    "category": "Nature and outdoor discovery",
+    "width": 640,
+    "height": 1316,
+    "original": "38071687_2138389563039933_2602922697327378432_n.jpg"
+  },
+  {
+    "id": "farm-discovery",
+    "src": "/images/school/farm-discovery.webp",
+    "alt": "Children discovering farm animals together",
+    "caption": "Children discovering farm animals together",
+    "category": "Nature and outdoor discovery",
+    "width": 1316,
+    "height": 640,
+    "original": "38085026_2138390069706549_1052587615418580992_n.jpg"
+  },
+  {
+    "id": "farm-friends",
+    "src": "/images/school/farm-friends.webp",
+    "alt": "Children sharing a happy moment during a farm visit",
+    "caption": "Children sharing a happy moment during a farm visit",
+    "category": "Nature and outdoor discovery",
+    "width": 1316,
+    "height": 640,
+    "original": "38085103_2138389999706556_4130938144163889152_n.jpg"
+  },
+  {
+    "id": "seedling-discovery",
+    "src": "/images/school/seedling-discovery.webp",
+    "alt": "A child proudly holding a young plant",
+    "caption": "A child proudly holding a young plant",
+    "category": "Nature and outdoor discovery",
+    "width": 640,
+    "height": 1316,
+    "original": "38128372_2138389149706641_8915421966903541760_n.jpg"
+  },
+  {
+    "id": "gentle-animal-care",
+    "src": "/images/school/gentle-animal-care.webp",
+    "alt": "A child holding a goat with adult guidance",
+    "caption": "A child holding a goat with adult guidance",
+    "category": "Nature and outdoor discovery",
+    "width": 640,
+    "height": 1316,
+    "original": "38128655_2138389626373260_5679595611846868992_n.jpg"
+  },
+  {
+    "id": "guided-garden-discovery",
+    "src": "/images/school/guided-garden-discovery.webp",
+    "alt": "A teacher guiding children as they explore plants",
+    "caption": "A teacher guiding children as they explore plants",
+    "category": "Nature and outdoor discovery",
+    "width": 640,
+    "height": 1316,
+    "original": "38137278_2138389289706627_6960244040767897600_n.jpg"
+  },
+  {
+    "id": "outing-together",
+    "src": "/images/school/outing-together.webp",
+    "alt": "Children gathered together on a supervised outing",
+    "caption": "Children gathered together on a supervised outing",
+    "category": "Learning beyond the classroom",
+    "width": 1316,
+    "height": 640,
+    "original": "38140407_2138390229706533_6722415689950298112_n.jpg"
+  },
+  {
+    "id": "bird-watching",
+    "src": "/images/school/bird-watching.webp",
+    "alt": "Children observing birds during a nature visit",
+    "caption": "Children observing birds during a nature visit",
+    "category": "Nature and outdoor discovery",
+    "width": 1316,
+    "height": 640,
+    "original": "38178392_2138389956373227_6310849589817638912_n.jpg"
+  },
+  {
+    "id": "discovering-roots",
+    "src": "/images/school/discovering-roots.webp",
+    "alt": "Children examining the roots of a plant",
+    "caption": "Children examining the roots of a plant",
+    "category": "Nature and outdoor discovery",
+    "width": 1316,
+    "height": 640,
+    "original": "38195986_2138389346373288_7161147329381138432_n.jpg"
+  },
+  {
+    "id": "farm-trailer-adventure",
+    "src": "/images/school/farm-trailer-adventure.webp",
+    "alt": "Children and a teacher exploring a farm trailer",
+    "caption": "Children and a teacher exploring a farm trailer",
+    "category": "Learning beyond the classroom",
+    "width": 1316,
+    "height": 640,
+    "original": "38223053_2138389686373254_834980258393358336_n.jpg"
+  },
+  {
+    "id": "farm-trailer-friends",
+    "src": "/images/school/farm-trailer-friends.webp",
+    "alt": "Children gathered in a farm trailer with their teacher",
+    "caption": "Children gathered in a farm trailer with their teacher",
+    "category": "Learning beyond the classroom",
+    "width": 1316,
+    "height": 640,
+    "original": "38239106_2138389726373250_2142892589953581056_n.jpg"
+  },
+  {
+    "id": "hands-on-harvest",
+    "src": "/images/school/hands-on-harvest.webp",
+    "alt": "Children learning about plants with a teacher",
+    "caption": "Children learning about plants with a teacher",
+    "category": "Nature and outdoor discovery",
+    "width": 1316,
+    "height": 640,
+    "original": "38246188_2138389406373282_4313071081368846336_n.jpg"
+  },
+  {
+    "id": "farm-visit-group",
+    "src": "/images/school/farm-visit-group.webp",
+    "alt": "Children and teachers together at the entrance to a farm visit",
+    "caption": "Children and teachers together at the entrance to a farm visit",
+    "category": "Learning beyond the classroom",
+    "width": 1316,
+    "height": 640,
+    "original": "38273605_2138390189706537_1261330297383813120_n.jpg"
+  },
+  {
+    "id": "roots-and-leaves",
+    "src": "/images/school/roots-and-leaves.webp",
+    "alt": "Young learners discovering roots and leaves together",
+    "caption": "Young learners discovering roots and leaves together",
+    "category": "Nature and outdoor discovery",
+    "width": 1316,
+    "height": 640,
+    "original": "38280536_2138389233039966_2041341365299707904_n.jpg"
+  },
+  {
+    "id": "festival-friends",
+    "src": "/images/school/festival-friends.webp",
+    "alt": "Children in festive clothes at a school celebration",
+    "caption": "Children in festive clothes at a school celebration",
+    "category": "Celebrations",
+    "width": 960,
+    "height": 1280,
+    "original": "40595152_2169093226636233_4087660490321297408_n.jpg"
+  },
+  {
+    "id": "parents-and-children",
+    "src": "/images/school/parents-and-children.webp",
+    "alt": "Parents and children sharing a school gathering",
+    "caption": "Parents and children sharing a school gathering",
+    "category": "Family and school life",
+    "width": 1600,
+    "height": 1200,
+    "original": "40744555_2169093503302872_7589313366443687936_n.jpg"
+  },
+  {
+    "id": "festival-bell",
+    "src": "/images/school/festival-bell.webp",
+    "alt": "A child taking part in a traditional celebration",
+    "caption": "A child taking part in a traditional celebration",
+    "category": "Celebrations",
+    "width": 960,
+    "height": 1280,
+    "original": "40752005_2169093199969569_2522506615895097344_n.jpg"
+  },
+  {
+    "id": "confident-little-speaker",
+    "src": "/images/school/confident-little-speaker.webp",
+    "alt": "A child speaking in front of classmates with a teacher nearby",
+    "caption": "A child speaking in front of classmates with a teacher nearby",
+    "category": "Classroom learning",
+    "width": 1600,
+    "height": 1200,
+    "original": "40932331_2170538186491737_6073228733165076480_n.jpg"
+  },
+  {
+    "id": "learning-at-the-board",
+    "src": "/images/school/learning-at-the-board.webp",
+    "alt": "A child practising at the classroom board",
+    "caption": "A child practising at the classroom board",
+    "category": "Classroom learning",
+    "width": 1600,
+    "height": 1200,
+    "original": "40960955_2170538169825072_3278637618400591872_n.jpg"
+  },
+  {
+    "id": "little-chefs",
+    "src": "/images/school/little-chefs.webp",
+    "alt": "Children enjoying a cooking and role-play activity",
+    "caption": "Children enjoying a cooking and role-play activity",
+    "category": "Cooking and life skills",
+    "width": 800,
+    "height": 600,
+    "original": "42472041_2180778942134328_8003463198642536448_n.jpg"
+  },
+  {
+    "id": "grandparents-at-school",
+    "src": "/images/school/grandparents-at-school.webp",
+    "alt": "Children sharing a meal with grandparents at school",
+    "caption": "Children sharing a meal with grandparents at school",
+    "category": "Family and school life",
+    "width": 800,
+    "height": 600,
+    "original": "42576627_2180778962134326_1136130076560064512_n.jpg"
+  },
+  {
+    "id": "sharing-and-serving",
+    "src": "/images/school/sharing-and-serving.webp",
+    "alt": "A child practising serving food at a school gathering",
+    "caption": "A child practising serving food at a school gathering",
+    "category": "Cooking and life skills",
+    "width": 800,
+    "height": 600,
+    "original": "42627974_2180778958800993_4896584573699227648_n.jpg"
+  },
+  {
+    "id": "traditional-art-together",
+    "src": "/images/school/traditional-art-together.webp",
+    "alt": "A child exploring a traditional art activity with family",
+    "caption": "A child exploring a traditional art activity with family",
+    "category": "Art and sensory play",
+    "width": 1600,
+    "height": 1200,
+    "original": "42654694_2180771772135045_2705239903628689408_n.jpg"
+  },
+  {
+    "id": "busy-bee-dress-up",
+    "src": "/images/school/busy-bee-dress-up.webp",
+    "alt": "Children sharing their handmade bee costumes",
+    "caption": "Children sharing their handmade bee costumes",
+    "category": "Celebrations",
+    "width": 1280,
+    "height": 960,
+    "original": "43354628_2186476888231200_8185049579784241152_n.jpg"
+  },
+  {
+    "id": "sports-day-butterflies",
+    "src": "/images/school/sports-day-butterflies.webp",
+    "alt": "Children taking part in an outdoor butterfly-themed school activity",
+    "caption": "Children taking part in an outdoor butterfly-themed school activity",
+    "category": "Celebrations",
+    "width": 1440,
+    "height": 1440,
+    "original": "477625081_3864249993787206_6776692126488629449_n.jpg"
+  },
+  {
+    "id": "christmas-gathering",
+    "src": "/images/school/christmas-gathering.webp",
+    "alt": "Children and teachers enjoying a Christmas gathering",
+    "caption": "Children and teachers enjoying a Christmas gathering",
+    "category": "Celebrations",
+    "width": 1600,
+    "height": 1200,
+    "original": "48408856_2227413334137555_6912780894050713600_n.jpg"
+  },
+  {
+    "id": "christmas-friends",
+    "src": "/images/school/christmas-friends.webp",
+    "alt": "Children dressed in red for a Christmas celebration",
+    "caption": "Children dressed in red for a Christmas celebration",
+    "category": "Celebrations",
+    "width": 960,
+    "height": 720,
+    "original": "503461219_3972958509583020_2884308523323803013_n.jpg"
+  },
+  {
+    "id": "christmas-craft",
+    "src": "/images/school/christmas-craft.webp",
+    "alt": "Children decorating paper crafts together",
+    "caption": "Children decorating paper crafts together",
+    "category": "Art and sensory play",
+    "width": 720,
+    "height": 960,
+    "original": "503526559_3972958512916353_199226338523671387_n.jpg"
+  },
+  {
+    "id": "cutting-and-creating",
+    "src": "/images/school/cutting-and-creating.webp",
+    "alt": "A teacher helping children practise cutting paper",
+    "caption": "A teacher helping children practise cutting paper",
+    "category": "Art and sensory play",
+    "width": 720,
+    "height": 960,
+    "original": "503625079_3972958232916381_7316503534947960481_n.jpg"
+  },
+  {
+    "id": "festive-little-friends",
+    "src": "/images/school/festive-little-friends.webp",
+    "alt": "Children wearing Santa hats at a school celebration",
+    "caption": "Children wearing Santa hats at a school celebration",
+    "category": "Celebrations",
+    "width": 960,
+    "height": 720,
+    "original": "503737468_3972958506249687_6235990525065834563_n.jpg"
+  },
+  {
+    "id": "annual-stage-performance",
+    "src": "/images/school/annual-stage-performance.webp",
+    "alt": "Children in costumes taking part in a stage performance",
+    "caption": "Children in costumes taking part in a stage performance",
+    "category": "Celebrations",
+    "width": 1600,
+    "height": 1063,
+    "original": "503802478_3974418889436982_1580814699939193387_n.jpg"
+  },
+  {
+    "id": "festive-smiles",
+    "src": "/images/school/festive-smiles.webp",
+    "alt": "Children sharing a happy moment in festive clothes",
+    "caption": "Children sharing a happy moment in festive clothes",
+    "category": "Celebrations",
+    "width": 960,
+    "height": 720,
+    "original": "503838174_3972958186249719_1829812691626390892_n.jpg"
+  },
+  {
+    "id": "friendship-and-smiles",
+    "src": "/images/school/friendship-and-smiles.webp",
+    "alt": "Children relaxing and smiling together",
+    "caption": "Children relaxing and smiling together",
+    "category": "Family and school life",
+    "width": 960,
+    "height": 960,
+    "original": "53761265_2276920905853464_6377566761390178304_n.jpg"
+  },
+  {
+    "id": "family-celebration",
+    "src": "/images/school/family-celebration.webp",
+    "alt": "Families gathered for a traditional school celebration",
+    "caption": "Families gathered for a traditional school celebration",
+    "category": "Family and school life",
+    "width": 960,
+    "height": 960,
+    "original": "72886974_2424580234420863_7315559418081312768_n.jpg"
+  },
+  {
+    "id": "learning-materials",
+    "src": "/images/school/learning-materials.webp",
+    "alt": "Classroom books, learning materials and school equipment",
+    "caption": "Classroom books, learning materials and school equipment",
+    "category": "Classroom learning",
+    "width": 960,
+    "height": 960,
+    "original": "73105945_2424577944421092_8861562707644514304_n.jpg"
+  },
+  {
+    "id": "classroom-community",
+    "src": "/images/school/classroom-community.webp",
+    "alt": "Children gathered together for a classroom group photo",
+    "caption": "Children gathered together for a classroom group photo",
+    "category": "Family and school life",
+    "width": 960,
+    "height": 960,
+    "original": "74314997_2424552871090266_6435535222019719168_n.jpg"
+  },
+  {
+    "id": "school-traditions",
+    "src": "/images/school/school-traditions.webp",
+    "alt": "Families and teachers taking part in a traditional gathering",
+    "caption": "Families and teachers taking part in a traditional gathering",
+    "category": "Family and school life",
+    "width": 960,
+    "height": 960,
+    "original": "74331133_2424580281087525_9057297759031263232_n.jpg"
+  },
+  {
+    "id": "meeting-a-chef",
+    "src": "/images/school/meeting-a-chef.webp",
+    "alt": "Children meeting a chef during an educational visit",
+    "caption": "Children meeting a chef during an educational visit",
+    "category": "Cooking and life skills",
+    "width": 976,
+    "height": 976,
+    "original": "74426187_2441055466106673_3094462505850765312_n.jpg"
+  },
+  {
+    "id": "cinema-discovery",
+    "src": "/images/school/cinema-discovery.webp",
+    "alt": "Children observing projection equipment on a supervised visit",
+    "caption": "Children observing projection equipment on a supervised visit",
+    "category": "Learning beyond the classroom",
+    "width": 960,
+    "height": 960,
+    "original": "75246814_2455960917949461_4959857958889455616_n.jpg"
+  },
+  {
+    "id": "pizza-making",
+    "src": "/images/school/pizza-making.webp",
+    "alt": "Children adding toppings during a hands-on cooking activity",
+    "caption": "Children adding toppings during a hands-on cooking activity",
+    "category": "Cooking and life skills",
+    "width": 1080,
+    "height": 1080,
+    "original": "75557391_2441052286106991_3495765459507085312_n.jpg"
+  },
+  {
+    "id": "happy-little-chefs",
+    "src": "/images/school/happy-little-chefs.webp",
+    "alt": "Children smiling during a cooking activity",
+    "caption": "Children smiling during a cooking activity",
+    "category": "Cooking and life skills",
+    "width": 1080,
+    "height": 1080,
+    "original": "75565669_2441052226106997_8295885359795929088_n.jpg"
+  },
+  {
+    "id": "playground-adventures",
+    "src": "/images/school/playground-adventures.webp",
+    "alt": "Children enjoying climbing and movement outdoors",
+    "caption": "Children enjoying climbing and movement outdoors",
+    "category": "Nature and outdoor discovery",
+    "width": 1080,
+    "height": 1080,
+    "original": "78592141_2465516036993949_2092284307405012992_n.jpg"
+  },
+  {
+    "id": "discovering-projection",
+    "src": "/images/school/discovering-projection.webp",
+    "alt": "Children learning about projection equipment with adult guidance",
+    "caption": "Children learning about projection equipment with adult guidance",
+    "category": "Learning beyond the classroom",
+    "width": 960,
+    "height": 960,
+    "original": "78682450_2455960874616132_4872559454358339584_n.jpg"
+  },
+  {
+    "id": "dress-up-discovery",
+    "src": "/images/school/dress-up-discovery.webp",
+    "alt": "Children exploring costumes and imaginative play",
+    "caption": "Children exploring costumes and imaginative play",
+    "category": "Celebrations",
+    "width": 976,
+    "height": 976,
+    "original": "81366695_2493048610907358_1809003331306127360_n.jpg"
+  },
+  {
+    "id": "underwater-explorers",
+    "src": "/images/school/underwater-explorers.webp",
+    "alt": "Children dressed as underwater explorers",
+    "caption": "Children dressed as underwater explorers",
+    "category": "Celebrations",
+    "width": 976,
+    "height": 976,
+    "original": "81620863_2493048410907378_6961216051996524544_n.jpg"
+  },
+  {
+    "id": "little-fish-costume",
+    "src": "/images/school/little-fish-costume.webp",
+    "alt": "A child wearing a colourful fish costume",
+    "caption": "A child wearing a colourful fish costume",
+    "category": "Celebrations",
+    "width": 976,
+    "height": 976,
+    "original": "82223828_2493048564240696_5648571233411792896_n.jpg"
+  },
+  {
+    "id": "sensory-garden-play",
+    "src": "/images/school/sensory-garden-play.webp",
+    "alt": "Children filling pots and exploring soil in an outdoor play area",
+    "caption": "Children filling pots and exploring soil in an outdoor play area",
+    "category": "Art and sensory play",
+    "width": 1080,
+    "height": 810,
+    "original": "82500864_2498891283656424_6252275087827795968_n.jpg"
+  },
+  {
+    "id": "colourful-ocean-craft",
+    "src": "/images/school/colourful-ocean-craft.webp",
+    "alt": "A child presenting a handmade ocean-themed costume",
+    "caption": "A child presenting a handmade ocean-themed costume",
+    "category": "Celebrations",
+    "width": 976,
+    "height": 976,
+    "original": "82502263_2493048467574039_6990726080797605888_n.jpg"
+  },
+  {
+    "id": "library-discovery",
+    "src": "/images/school/library-discovery.webp",
+    "alt": "Children exploring books during a supervised library visit",
+    "caption": "Children exploring books during a supervised library visit",
+    "category": "Learning beyond the classroom",
+    "width": 960,
+    "height": 960,
+    "original": "82935820_2507817596097126_5304567498580951040_n.jpg"
+  },
+  {
+    "id": "market-explorers",
+    "src": "/images/school/market-explorers.webp",
+    "alt": "Children exploring vegetables during a supervised market visit",
+    "caption": "Children exploring vegetables during a supervised market visit",
+    "category": "Learning beyond the classroom",
+    "width": 960,
+    "height": 960,
+    "original": "86499516_2526170844261801_1278442963214532608_n.jpg"
+  },
+  {
+    "id": "discovering-grains",
+    "src": "/images/school/discovering-grains.webp",
+    "alt": "Children and teachers learning about grains at a market",
+    "caption": "Children and teachers learning about grains at a market",
+    "category": "Learning beyond the classroom",
+    "width": 960,
+    "height": 960,
+    "original": "86621773_2526170744261811_6691695008652722176_n.jpg"
+  },
+  {
+    "id": "everyday-discovery",
+    "src": "/images/school/everyday-discovery.webp",
+    "alt": "Children following their teachers through a market",
+    "caption": "Children following their teachers through a market",
+    "category": "Learning beyond the classroom",
+    "width": 960,
+    "height": 960,
+    "original": "86872737_2526170800928472_7812939527428767744_n.jpg"
+  },
+  {
+    "id": "vegetable-discovery",
+    "src": "/images/school/vegetable-discovery.webp",
+    "alt": "A teacher showing vegetables to children during a market visit",
+    "caption": "A teacher showing vegetables to children during a market visit",
+    "category": "Learning beyond the classroom",
+    "width": 960,
+    "height": 960,
+    "original": "86970004_2526170700928482_916435180745392128_n.jpg"
+  },
+  {
+    "id": "classroom-circle",
+    "src": "/images/school/classroom-circle.webp",
+    "alt": "Children listening together during a classroom circle activity",
+    "caption": "Children listening together during a classroom circle activity",
+    "category": "Classroom learning",
+    "width": 1440,
+    "height": 1440,
+    "original": "87047096_2528479247364294_1993087583822807040_n.jpg"
+  },
+  {
+    "id": "learning-circle",
+    "src": "/images/school/learning-circle.webp",
+    "alt": "A teacher guiding a group learning activity in the classroom",
+    "caption": "A teacher guiding a group learning activity in the classroom",
+    "category": "Classroom learning",
+    "width": 1440,
+    "height": 1440,
+    "original": "87139283_2528479207364298_4179411140771577856_n.jpg"
+  }
+]

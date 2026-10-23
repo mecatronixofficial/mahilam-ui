@@ -1,0 +1,489 @@
+[
+  {
+    "id": "home-hero",
+    "group": "home",
+    "title": "Default hero",
+    "sourcePath": "/images/home/hero.webp",
+    "photoId": "classroom-circle",
+    "section": "hero",
+    "field": "main",
+    "position": "50% 0%"
+  },
+  {
+    "id": "home-welcome-main",
+    "group": "home",
+    "title": "Welcome main photo",
+    "sourcePath": "/images/home/welcome-main.webp",
+    "photoId": "sensory-garden-play",
+    "section": "welcome",
+    "field": "main",
+    "position": "50% 50%"
+  },
+  {
+    "id": "home-welcome-small",
+    "group": "home",
+    "title": "Welcome round photo",
+    "sourcePath": "/images/home/welcome-small.webp",
+    "photoId": "happy-little-chefs",
+    "section": "welcome",
+    "field": "small",
+    "position": "50% 50%"
+  },
+  {
+    "id": "home-moment-0",
+    "group": "home",
+    "title": "Happy little chefs",
+    "sourcePath": "/images/home/moment-0.webp",
+    "photoId": "happy-little-chefs",
+    "section": "moments",
+    "field": "photo0",
+    "position": "50% 50%"
+  },
+  {
+    "id": "home-moment-1",
+    "group": "home",
+    "title": "Outdoor school activity",
+    "sourcePath": "/images/home/moment-1.webp",
+    "photoId": "sports-day-butterflies",
+    "section": "moments",
+    "field": "photo1",
+    "position": "50% 50%"
+  },
+  {
+    "id": "home-moment-2",
+    "group": "home",
+    "title": "Library discovery",
+    "sourcePath": "/images/home/moment-2.webp",
+    "photoId": "library-discovery",
+    "section": "moments",
+    "field": "photo2",
+    "position": "50% 50%"
+  },
+  {
+    "id": "home-moment-3",
+    "group": "home",
+    "title": "Creative craft time",
+    "sourcePath": "/images/home/moment-3.webp",
+    "photoId": "christmas-craft",
+    "section": "moments",
+    "field": "photo3",
+    "position": "50% 50%"
+  },
+  {
+    "id": "about-hero",
+    "group": "about",
+    "title": "About hero",
+    "sourcePath": "/images/banners/about.webp",
+    "photoId": "learning-circle",
+    "section": "hero",
+    "field": "main",
+    "position": "50% 50%"
+  },
+  {
+    "id": "about-hero-small",
+    "group": "about",
+    "title": "About round photo",
+    "sourcePath": "/images/about/kids-playing.webp",
+    "photoId": "playground-adventures",
+    "section": "hero",
+    "field": "small",
+    "position": "50% 50%"
+  },
+  {
+    "id": "about-story",
+    "group": "about",
+    "title": "Our story photo",
+    "sourcePath": "/images/about/kids-learning.webp",
+    "photoId": "confident-little-speaker",
+    "section": "story",
+    "field": "main",
+    "position": "50% 50%"
+  },
+  {
+    "id": "about-values",
+    "group": "about",
+    "title": "Children together",
+    "sourcePath": "/images/about/kids-group.webp",
+    "photoId": "classroom-community",
+    "section": "values",
+    "field": "main",
+    "position": "50% 50%"
+  },
+  {
+    "id": "programs-hero",
+    "group": "programs",
+    "title": "Programs main photo",
+    "sourcePath": "/images/banners/programs.webp",
+    "photoId": "classroom-circle",
+    "position": "50% 50%"
+  },
+  {
+    "id": "programs-small",
+    "group": "programs",
+    "title": "Programs round photo",
+    "sourcePath": "/images/programs/kids-learning.webp",
+    "photoId": "happy-little-chefs",
+    "position": "50% 50%"
+  },
+  {
+    "id": "play-group",
+    "group": "programs",
+    "title": "Play Group photo",
+    "sourcePath": "/images/programs/play-group.webp",
+    "photoId": "sensory-garden-play",
+    "position": "50% 50%"
+  },
+  {
+    "id": "pre-kg",
+    "group": "programs",
+    "title": "Pre-KG photo",
+    "sourcePath": "/images/programs/pre-kg.webp",
+    "photoId": "christmas-craft",
+    "position": "50% 50%"
+  },
+  {
+    "id": "kindergarten",
+    "group": "programs",
+    "title": "Kindergarten photo",
+    "sourcePath": "/images/programs/kindergarten.webp",
+    "photoId": "learning-at-the-board",
+    "position": "50% 50%"
+  },
+  {
+    "id": "primary",
+    "group": "programs",
+    "title": "Primary learning photo",
+    "sourcePath": "/images/programs/primary.webp",
+    "photoId": "confident-little-speaker",
+    "position": "50% 50%"
+  },
+  {
+    "id": "programs-play",
+    "group": "programs",
+    "title": "Learning through play",
+    "sourcePath": "/images/programs/learning-through-play.webp",
+    "photoId": "pizza-making",
+    "position": "50% 50%"
+  },
+  {
+    "id": "programs-art",
+    "group": "programs",
+    "title": "Art and creativity",
+    "sourcePath": "/images/programs/kids-art.webp",
+    "photoId": "colour-exploration",
+    "position": "50% 50%"
+  },
+  {
+    "id": "learning-hero",
+    "group": "learning",
+    "title": "Classroom learning",
+    "sourcePath": "/images/learning-approach/hero-classroom.webp",
+    "photoId": "classroom-circle",
+    "position": "50% 50%"
+  },
+  {
+    "id": "learning-small",
+    "group": "learning",
+    "title": "Curiosity and nature",
+    "sourcePath": "/images/learning-approach/hero-child.webp",
+    "photoId": "seedling-discovery",
+    "position": "50% 50%"
+  },
+  {
+    "id": "learning-hands-on",
+    "group": "learning",
+    "title": "Hands-on learning",
+    "sourcePath": "/images/learning-approach/play-hands-on.webp",
+    "photoId": "christmas-craft",
+    "position": "50% 50%"
+  },
+  {
+    "id": "learning-together",
+    "group": "learning",
+    "title": "Learning together",
+    "sourcePath": "/images/learning-approach/play-together.webp",
+    "photoId": "pizza-making",
+    "position": "50% 50%"
+  },
+  {
+    "id": "learning-imagination",
+    "group": "learning",
+    "title": "Imaginative play",
+    "sourcePath": "/images/learning-approach/play-imagination.webp",
+    "photoId": "busy-bee-dress-up",
+    "position": "50% 50%"
+  },
+  {
+    "id": "activity-art",
+    "group": "activities",
+    "title": "Art and craft",
+    "sourcePath": "/images/activities/art.webp",
+    "photoId": "cutting-and-creating",
+    "position": "50% 50%"
+  },
+  {
+    "id": "activity-music",
+    "group": "activities",
+    "title": "Performance and expression",
+    "sourcePath": "/images/activities/music.webp",
+    "photoId": "annual-stage-performance",
+    "position": "50% 50%"
+  },
+  {
+    "id": "activity-outdoor",
+    "group": "activities",
+    "title": "Outdoor activities",
+    "sourcePath": "/images/activities/outdoor.webp",
+    "photoId": "sports-day-butterflies",
+    "position": "50% 50%"
+  },
+  {
+    "id": "activity-story",
+    "group": "activities",
+    "title": "Books and discovery",
+    "sourcePath": "/images/activities/story.webp",
+    "photoId": "library-discovery",
+    "position": "50% 50%"
+  },
+  {
+    "id": "activity-sensory",
+    "group": "activities",
+    "title": "Sensory play",
+    "sourcePath": "/images/activities/sensory.webp",
+    "photoId": "sensory-garden-play",
+    "position": "50% 50%"
+  },
+  {
+    "id": "activity-nature",
+    "group": "activities",
+    "title": "Nature discovery",
+    "sourcePath": "/images/activities/nature.webp",
+    "photoId": "hands-on-harvest",
+    "position": "50% 50%"
+  },
+  {
+    "id": "facility-classrooms",
+    "group": "facilities",
+    "title": "Classrooms",
+    "sourcePath": "/images/facilities/classrooms.webp",
+    "photoId": "classroom-circle",
+    "position": "50% 50%"
+  },
+  {
+    "id": "facility-play",
+    "group": "facilities",
+    "title": "Play spaces",
+    "sourcePath": "/images/facilities/play-spaces.webp",
+    "photoId": "sensory-garden-play",
+    "position": "50% 50%"
+  },
+  {
+    "id": "facility-reading",
+    "group": "facilities",
+    "title": "Classroom books and materials",
+    "sourcePath": "/images/facilities/reading-corners.webp",
+    "photoId": "learning-circle",
+    "position": "50% 50%"
+  },
+  {
+    "id": "facility-activities",
+    "group": "facilities",
+    "title": "Activity zones",
+    "sourcePath": "/images/facilities/activity-zones.webp",
+    "photoId": "pizza-making",
+    "position": "50% 50%"
+  },
+  {
+    "id": "facility-friendly",
+    "group": "facilities",
+    "title": "Child-friendly classroom",
+    "sourcePath": "/images/facilities/child-friendly.webp",
+    "photoId": "confident-little-speaker",
+    "position": "50% 50%"
+  },
+  {
+    "id": "facility-bright",
+    "group": "facilities",
+    "title": "Bright classroom",
+    "sourcePath": "/images/facilities/bright.webp",
+    "photoId": "learning-at-the-board",
+    "position": "50% 50%"
+  },
+  {
+    "id": "facility-hero",
+    "group": "facilities",
+    "title": "Facilities hero",
+    "sourcePath": "/images/facilities/hero.webp",
+    "photoId": "classroom-circle",
+    "position": "50% 50%"
+  },
+  {
+    "id": "facility-hero-small",
+    "group": "facilities",
+    "title": "Facilities second photo",
+    "sourcePath": "/images/facilities/hero-2.webp",
+    "photoId": "sensory-garden-play",
+    "position": "50% 50%"
+  },
+  {
+    "id": "gallery-hero",
+    "group": "gallery",
+    "title": "Gallery hero",
+    "sourcePath": "/images/banners/gallery.webp",
+    "photoId": "happy-little-chefs",
+    "position": "50% 50%"
+  },
+  {
+    "id": "gallery-1",
+    "group": "gallery",
+    "title": "Learning in action",
+    "sourcePath": "/images/gallery/gallery-1.webp",
+    "photoId": "confident-little-speaker",
+    "position": "50% 50%"
+  },
+  {
+    "id": "gallery-2",
+    "group": "gallery",
+    "title": "Creative expression",
+    "sourcePath": "/images/gallery/gallery-2.webp",
+    "photoId": "christmas-craft",
+    "position": "50% 50%"
+  },
+  {
+    "id": "gallery-3",
+    "group": "gallery",
+    "title": "Outdoor play",
+    "sourcePath": "/images/gallery/gallery-3.webp",
+    "photoId": "playground-adventures",
+    "position": "50% 50%"
+  },
+  {
+    "id": "gallery-4",
+    "group": "gallery",
+    "title": "Celebrations",
+    "sourcePath": "/images/gallery/gallery-4.webp",
+    "photoId": "annual-stage-performance",
+    "position": "50% 50%"
+  },
+  {
+    "id": "gallery-5",
+    "group": "gallery",
+    "title": "Discovery",
+    "sourcePath": "/images/gallery/gallery-5.webp",
+    "photoId": "roots-and-leaves",
+    "position": "50% 50%"
+  },
+  {
+    "id": "gallery-6",
+    "group": "gallery",
+    "title": "Group learning",
+    "sourcePath": "/images/gallery/gallery-6.webp",
+    "photoId": "classroom-circle",
+    "position": "50% 50%"
+  },
+  {
+    "id": "gallery-creative",
+    "group": "gallery",
+    "title": "Creative activities",
+    "sourcePath": "/images/gallery/kids-creative.webp",
+    "photoId": "cutting-and-creating",
+    "position": "50% 50%"
+  },
+  {
+    "id": "gallery-painting",
+    "group": "gallery",
+    "title": "Painting and colour",
+    "sourcePath": "/images/gallery/kids-painting.webp",
+    "photoId": "colour-exploration",
+    "position": "50% 50%"
+  },
+  {
+    "id": "events-hero",
+    "group": "events",
+    "title": "School celebrations",
+    "sourcePath": "/images/events/kids-celebration.webp",
+    "photoId": "annual-stage-performance",
+    "position": "50% 50%"
+  },
+  {
+    "id": "events-festival",
+    "group": "events",
+    "title": "Festival celebrations",
+    "sourcePath": "/images/events/festival.webp",
+    "photoId": "festive-little-friends",
+    "position": "50% 50%"
+  },
+  {
+    "id": "events-activity",
+    "group": "events",
+    "title": "Creative activity days",
+    "sourcePath": "/images/events/activity-day.webp",
+    "photoId": "busy-bee-dress-up",
+    "position": "50% 50%"
+  },
+  {
+    "id": "events-family",
+    "group": "events",
+    "title": "Family moments",
+    "sourcePath": "/images/events/family-event.webp",
+    "photoId": "parents-and-children",
+    "position": "50% 50%"
+  },
+  {
+    "id": "contact-main",
+    "group": "other",
+    "title": "Contact page main photo",
+    "sourcePath": "/images/contact/campus.webp",
+    "photoId": "classroom-circle",
+    "position": "50% 50%"
+  },
+  {
+    "id": "contact-small",
+    "group": "other",
+    "title": "Contact welcome photo",
+    "sourcePath": "/images/contact/kids-welcome.webp",
+    "photoId": "happy-little-chefs",
+    "position": "50% 50%"
+  },
+  {
+    "id": "admissions-hero",
+    "group": "other",
+    "title": "Admissions hero",
+    "sourcePath": "/images/banners/admissions.webp",
+    "photoId": "confident-little-speaker",
+    "position": "50% 50%"
+  },
+  {
+    "id": "local-hero",
+    "group": "other",
+    "title": "Tiruppur page hero",
+    "sourcePath": "/images/banners/local.webp",
+    "photoId": "sensory-garden-play",
+    "position": "50% 50%"
+  },
+  {
+    "id": "local-campus",
+    "group": "other",
+    "title": "School learning photo",
+    "sourcePath": "/images/local/campus.webp",
+    "photoId": "classroom-circle",
+    "position": "50% 50%"
+  },
+  {
+    "id": "faq-hero",
+    "group": "other",
+    "title": "FAQs hero",
+    "sourcePath": "/images/banners/faq.webp",
+    "photoId": "parents-and-children",
+    "position": "50% 50%"
+  },
+  {
+    "id": "privacy-hero",
+    "group": "other",
+    "title": "Privacy page photo",
+    "sourcePath": "/images/banners/privacy.webp",
+    "photoId": "friendship-and-smiles",
+    "position": "50% 50%"
+  }
+]
+

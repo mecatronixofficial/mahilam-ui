@@ -1,0 +1,141 @@
+{
+  "checkedAt": "2026-10-22T08:09:54.936Z",
+  "readOnly": true,
+  "configured": true,
+  "isolatedTestConfigured": false,
+  "tables": [
+    "AcademicYear",
+    "Activity",
+    "Admission",
+    "Announcement",
+    "AuditLog",
+    "Banner",
+    "BlogPost",
+    "ClassLevel",
+    "Enquiry",
+    "EnquiryFollowUp",
+    "Facility",
+    "FeeStructure",
+    "FeeType",
+    "GalleryAlbum",
+    "GalleryItem",
+    "Guardian",
+    "NewsletterSubscriber",
+    "Payment",
+    "Program",
+    "RefreshSession",
+    "SchoolEvent",
+    "Section",
+    "Sequence",
+    "SiteSetting",
+    "Student",
+    "StudentFee",
+    "StudentGuardian",
+    "Testimonial",
+    "User",
+    "_prisma_migrations"
+  ],
+  "migrations": [
+    {
+      "migration_name": "20260915113243_init",
+      "finished": true,
+      "rolled_back": false
+    },
+    {
+      "migration_name": "20260915170000_add_testimonial_contact_fields",
+      "finished": true,
+      "rolled_back": false
+    },
+    {
+      "migration_name": "20260918052743_add_announcement_image",
+      "finished": true,
+      "rolled_back": false
+    },
+    {
+      "migration_name": "20260918181519_remove_attendance",
+      "finished": true,
+      "rolled_back": false
+    },
+    {
+      "migration_name": "20260929120000_add_sequences_and_indexes",
+      "finished": true,
+      "rolled_back": false
+    },
+    {
+      "migration_name": "20261001120000_add_newsletter_subscribers",
+      "finished": true,
+      "rolled_back": false
+    }
+  ],
+  "compatibility": {
+    "currentAcademicYears": 1,
+    "multiplePrimaryGuardianGroups": 0,
+    "multipleActiveApplicationGroups": 0,
+    "orphanAssignments": 0,
+    "orphanApplicationEnquiries": 0
+  },
+  "foreignKeys": [
+    {
+      "table_name": "\"ClassLevel\"",
+      "constraint_name": "ClassLevel_academicYearId_fkey",
+      "definition": "FOREIGN KEY (\"academicYearId\") REFERENCES \"AcademicYear\"(id) ON UPDATE CASCADE ON DELETE SET NULL"
+    },
+    {
+      "table_name": "\"EnquiryFollowUp\"",
+      "constraint_name": "EnquiryFollowUp_enquiryId_fkey",
+      "definition": "FOREIGN KEY (\"enquiryId\") REFERENCES \"Enquiry\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "table_name": "\"FeeStructure\"",
+      "constraint_name": "FeeStructure_feeTypeId_fkey",
+      "definition": "FOREIGN KEY (\"feeTypeId\") REFERENCES \"FeeType\"(id) ON UPDATE CASCADE ON DELETE RESTRICT"
+    },
+    {
+      "table_name": "\"GalleryItem\"",
+      "constraint_name": "GalleryItem_albumId_fkey",
+      "definition": "FOREIGN KEY (\"albumId\") REFERENCES \"GalleryAlbum\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "table_name": "\"Payment\"",
+      "constraint_name": "Payment_studentFeeId_fkey",
+      "definition": "FOREIGN KEY (\"studentFeeId\") REFERENCES \"StudentFee\"(id) ON UPDATE CASCADE ON DELETE RESTRICT"
+    },
+    {
+      "table_name": "\"RefreshSession\"",
+      "constraint_name": "RefreshSession_userId_fkey",
+      "definition": "FOREIGN KEY (\"userId\") REFERENCES \"User\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "table_name": "\"Section\"",
+      "constraint_name": "Section_classLevelId_fkey",
+      "definition": "FOREIGN KEY (\"classLevelId\") REFERENCES \"ClassLevel\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "table_name": "\"Student\"",
+      "constraint_name": "Student_classLevelId_fkey",
+      "definition": "FOREIGN KEY (\"classLevelId\") REFERENCES \"ClassLevel\"(id) ON UPDATE CASCADE ON DELETE SET NULL"
+    },
+    {
+      "table_name": "\"Student\"",
+      "constraint_name": "Student_sectionId_fkey",
+      "definition": "FOREIGN KEY (\"sectionId\") REFERENCES \"Section\"(id) ON UPDATE CASCADE ON DELETE SET NULL"
+    },
+    {
+      "table_name": "\"StudentFee\"",
+      "constraint_name": "StudentFee_studentId_fkey",
+      "definition": "FOREIGN KEY (\"studentId\") REFERENCES \"Student\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "table_name": "\"StudentGuardian\"",
+      "constraint_name": "StudentGuardian_guardianId_fkey",
+      "definition": "FOREIGN KEY (\"guardianId\") REFERENCES \"Guardian\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    },
+    {
+      "table_name": "\"StudentGuardian\"",
+      "constraint_name": "StudentGuardian_studentId_fkey",
+      "definition": "FOREIGN KEY (\"studentId\") REFERENCES \"Student\"(id) ON UPDATE CASCADE ON DELETE CASCADE"
+    }
+  ],
+  "serverVersion": "18.6",
+  "status": "metadata-read-success"
+}

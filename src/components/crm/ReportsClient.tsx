@@ -1,4 +1,5 @@
 "use client";
+import { OperationalReportsClient } from "./OperationalReportsClient";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -10,11 +11,13 @@ import { StatCard } from "@/components/dashboard/StatCard";
 import { ErrorState } from "@/components/states/QueryState";
 import { StateView } from "@/components/states/StateView";
 import { formatMoney, humanize } from "@/lib/media";
+import { BRAND } from "@/lib/brand";
+import { schoolMonthStart } from "@/lib/school-date";
 
-/* Single-series charts: one validated hue (#2a78d6 on the panel surface), no legend, recessive grid. */
-const SERIES = "#2a78d6";
-const GRID = "rgba(15,23,42,.07)";
-const AXIS = "#64748b";
+/* Single-series charts: one validated hue (var(--color-little-blue-600) on the panel surface), no legend, recessive grid. */
+const SERIES = BRAND.blue[600];
+const GRID = "rgba(21,23,17,.07)";
+const AXIS = BRAND.neutral[500];
 
 type Monthly = { month: string; count: number; total?: string | number };
 type EnquiryReport = { total: number; conversionRate: number; byStatus: { status: string; count: number }[]; bySource: { source: string; count: number }[]; monthly: Monthly[] };
@@ -22,11 +25,10 @@ type AdmissionReport = { byStatus: { status: string; count: number }[]; monthly:
 type FeeReport = { billed: string; paid: string; outstanding: string; collectedInRange: { amount: string; payments: number }; byMethod: { method: string; count: number; amount: string }[]; monthly: Monthly[] };
 
 const RANGES = [{ months: 3, label: "3 months" }, { months: 6, label: "6 months" }, { months: 12, label: "12 months" }] as const;
-const PIPELINE = ["APPLICATION", "DOCUMENT_PENDING", "VERIFICATION", "FEE_PENDING", "CONFIRMED", "REJECTED", "CANCELLED"];
+const PIPELINE = ["DRAFT", "APPLICATION", "DOCUMENT_PENDING", "VERIFICATION", "FEE_PENDING", "SUBMITTED", "APPROVED", "WAITLISTED", "ENROLLED", "CONFIRMED", "REJECTED", "CANCELLED"];
 
 function fromDate(months: number) {
-  const now = new Date();
-  return new Date(now.getFullYear(), now.getMonth() - (months - 1), 1).toISOString().slice(0, 10);
+  return schoolMonthStart(months);
 }
 
 /** The API omits months with no rows; fill them so trends don't silently skip gaps. */
@@ -34,9 +36,9 @@ function fillMonths(rows: Monthly[], months: number, valueOf: (row?: Monthly) =>
   const byMonth = new Map(rows.map((row) => [row.month, row]));
   const now = new Date();
   return Array.from({ length: months }, (_, index) => {
-    const date = new Date(now.getFullYear(), now.getMonth() - (months - 1 - index), 1);
-    const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
-    return { key, label: date.toLocaleString("en-IN", { month: "short", year: months > 6 ? "2-digit" : undefined }), value: valueOf(byMonth.get(key)) };
+    const key = schoolMonthStart(months - index, now).slice(0, 7);
+    const date = new Date(`${key}-01T00:00:00+05:30`);
+    return { key, label: date.toLocaleString("en-IN", { timeZone: "Asia/Kolkata", month: "short", year: months > 6 ? "2-digit" : undefined }), value: valueOf(byMonth.get(key)) };
   });
 }
 
@@ -44,8 +46,8 @@ function ChartTooltip({ active, payload, label, money }: { active?: boolean; pay
   if (!active || !payload?.length) return null;
   return (
     <div className="rounded-xl border border-white/80 bg-white/95 px-3 py-2 text-xs shadow-lg backdrop-blur">
-      <p className="font-bold text-slate-500">{label}</p>
-      <p className="mt-0.5 text-sm font-extrabold text-slate-900">{money ? formatMoney(payload[0].value) : payload[0].value.toLocaleString("en-IN")}</p>
+      <p className="font-bold text-little-neutral-500">{label}</p>
+      <p className="mt-0.5 text-sm font-extrabold text-little-neutral-900">{money ? formatMoney(payload[0].value) : payload[0].value.toLocaleString("en-IN")}</p>
     </div>
   );
 }
@@ -56,14 +58,14 @@ function ChartCard({ title, subtitle, rows, money, children }: { title: string; 
   return (
     <section className="panel p-5 sm:p-6">
       <div className="flex items-start justify-between gap-3">
-        <div><h2 className="text-lg font-extrabold">{title}</h2><p className="text-sm text-slate-500">{subtitle}</p></div>
-        <button type="button" onClick={() => setTable((v) => !v)} aria-pressed={table} className="chip border bg-white/70 text-slate-500 hover:bg-white" title="Toggle table view">
+        <div><h2 className="text-lg font-extrabold">{title}</h2><p className="text-sm text-little-neutral-500">{subtitle}</p></div>
+        <button type="button" onClick={() => setTable((v) => !v)} aria-pressed={table} className="chip border bg-white/70 text-little-neutral-500 hover:bg-white" title="Toggle table view">
           {table ? <BarChart3 className="h-3.5 w-3.5" /> : <Table2 className="h-3.5 w-3.5" />}{table ? "Chart" : "Table"}
         </button>
       </div>
       <div className="mt-4">
         {empty ? (
-          <p className="flex h-56 items-center justify-center rounded-2xl border-2 border-dashed text-sm font-bold text-slate-400">No data for this period yet</p>
+          <p className="flex h-56 items-center justify-center rounded-2xl border-2 border-dashed text-sm font-bold text-little-neutral-500">No data for this period yet</p>
         ) : table ? (
           <div className="max-h-64 overflow-y-auto rounded-2xl border bg-white/60">
             <table className="dash-table"><thead><tr><th>{title.includes("month") || title.includes("trend") ? "Month" : "Category"}</th><th className="text-right">Value</th></tr></thead>
@@ -99,17 +101,17 @@ function RankBars({ data, money }: { data: { label: string; value: number }[]; m
       <BarChart data={data} layout="vertical" margin={{ top: 0, right: 48, left: 8, bottom: 0 }} barCategoryGap={6}>
         <CartesianGrid horizontal={false} stroke={GRID} />
         <XAxis type="number" hide allowDecimals={false} />
-        <YAxis type="category" dataKey="label" tickLine={false} axisLine={false} width={120} tick={{ fill: "#334155", fontSize: 12, fontWeight: 600 }} />
-        <Tooltip cursor={{ fill: "rgba(42,120,214,.06)" }} content={<ChartTooltip money={money} />} />
+        <YAxis type="category" dataKey="label" tickLine={false} axisLine={false} width={120} tick={{ fill: BRAND.neutral[700], fontSize: 12, fontWeight: 600 }} />
+        <Tooltip cursor={{ fill: "rgba(49,138,139,.06)" }} content={<ChartTooltip money={money} />} />
         <Bar dataKey="value" fill={SERIES} radius={[0, 4, 4, 0]} maxBarSize={22}>
-          <LabelList dataKey="value" position="right" formatter={(v: unknown) => (money ? formatMoney(v) : String(v))} style={{ fill: "#334155", fontSize: 12, fontWeight: 700 }} />
+          <LabelList dataKey="value" position="right" formatter={(v: unknown) => (money ? formatMoney(v) : String(v))} style={{ fill: BRAND.neutral[700], fontSize: 12, fontWeight: 700 }} />
         </Bar>
       </BarChart>
     </ResponsiveContainer>
   );
 }
 
-export function ReportsClient() {
+function LegacyReportsClient() {
   const isAdmin = useIsAdmin();
   const [months, setMonths] = useState<number>(6);
   const from = fromDate(months);
@@ -137,9 +139,9 @@ export function ReportsClient() {
   return (
     <div className="grid gap-6">
       <div className="panel flex flex-wrap items-center gap-2 p-3">
-        <span className="px-2 text-xs font-black uppercase tracking-[.14em] text-slate-400">Period</span>
+        <span className="px-2 text-xs font-black uppercase tracking-[.14em] text-little-neutral-500">Period</span>
         {RANGES.map((range) => (
-          <button key={range.months} type="button" onClick={() => setMonths(range.months)} aria-pressed={months === range.months} className={`chip border ${months === range.months ? "dash-nav-active border-transparent" : "bg-white/60 text-slate-500 hover:bg-white"}`}>Last {range.label}</button>
+          <button key={range.months} type="button" onClick={() => setMonths(range.months)} aria-pressed={months === range.months} className={`chip border ${months === range.months ? "dash-nav-active border-transparent" : "bg-white/60 text-little-neutral-500 hover:bg-white"}`}>Last {range.label}</button>
         ))}
         {isAdmin && (
           <div className="ml-auto flex flex-wrap gap-2">
@@ -151,12 +153,12 @@ export function ReportsClient() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Enquiries in period" icon={UserPlus} tint="#0e9aa7" loading={enquiries.isPending} unavailable={enquiries.isError} value={e?.total ?? 0} />
-        <StatCard label="Enquiry → admission" icon={Percent} tint="#6366f1" loading={enquiries.isPending} unavailable={enquiries.isError} value={`${e?.conversionRate ?? 0}%`} note="Conversion rate" />
+        <StatCard label="Enquiries in period" icon={UserPlus} tint={BRAND.blue[500]} loading={enquiries.isPending} unavailable={enquiries.isError} value={e?.total ?? 0} />
+        <StatCard label="Enquiry → admission" icon={Percent} tint={BRAND.blue[600]} loading={enquiries.isPending} unavailable={enquiries.isError} value={`${e?.conversionRate ?? 0}%`} note="Conversion rate" />
         {isAdmin ? (
           <>
-            <StatCard label="Collected in period" icon={Wallet} tint="#16a34a" loading={fees.isPending} unavailable={fees.isError} value={formatMoney(f?.collectedInRange.amount)} note={f ? `${f.collectedInRange.payments} payments` : undefined} />
-            <StatCard label="Outstanding fees" icon={CircleDollarSign} tint="#e11d48" loading={fees.isPending} unavailable={fees.isError} value={formatMoney(f?.outstanding)} />
+            <StatCard label="Collected in period" icon={Wallet} tint={BRAND.green[600]} loading={fees.isPending} unavailable={fees.isError} value={formatMoney(f?.collectedInRange.amount)} note={f ? `${f.collectedInRange.payments} payments` : undefined} />
+            <StatCard label="Outstanding fees" icon={CircleDollarSign} tint={BRAND.coral[600]} loading={fees.isPending} unavailable={fees.isError} value={formatMoney(f?.outstanding)} />
           </>
         ) : (
           <div className="sm:col-span-2"><StateView compact variant="forbidden" title="Finance reports are for administrators" description="Enquiry and admission insights are shown below." /></div>
@@ -181,7 +183,12 @@ export function ReportsClient() {
         )}
       </div>
 
-      <p className="flex items-center gap-2 text-xs font-semibold text-slate-400"><TrendingUp className="h-3.5 w-3.5" />Figures update live from the school database. Exports contain personal data — store them securely.</p>
+      <p className="flex items-center gap-2 text-xs font-semibold text-little-neutral-500"><TrendingUp className="h-3.5 w-3.5" />Figures update live from the school database. Exports contain personal data — store them securely.</p>
     </div>
   );
+}
+
+export function ReportsClient() {
+  const isAdmin = useIsAdmin();
+  return <><OperationalReportsClient />{isAdmin && <details className="panel p-5"><summary className="cursor-pointer font-extrabold">Summary charts & existing financial analytics</summary><div className="mt-5"><LegacyReportsClient /></div></details>}</>;
 }

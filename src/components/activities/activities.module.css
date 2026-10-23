@@ -1,0 +1,27 @@
+/* Activities page only — playground movement. All off for reduced motion. */
+
+.swing { animation: swing 3.2s ease-in-out infinite; }
+@keyframes swing { 0%, 100% { transform: rotate(-12deg); } 50% { transform: rotate(12deg); } }
+
+.seesaw { animation: seesaw 4s ease-in-out infinite; }
+@keyframes seesaw { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+
+.kite { animation: kite 6s ease-in-out infinite; transform-origin: 50% 100%; }
+@keyframes kite { 0%, 100% { transform: translate(0, 0) rotate(-6deg); } 50% { transform: translate(14px, -12px) rotate(8deg); } }
+
+/* Scroll cue: a ball bouncing on the word "play". */
+.bounce { animation: bounce 1.4s cubic-bezier(.3, 0, .5, 1) infinite; }
+@keyframes bounce { 0%, 100% { transform: translateY(0) scale(1.08, .92); } 12% { transform: translateY(0) scale(1); } 50% { transform: translateY(-14px); } }
+
+/* Photo fades up once it has loaded (gallery). */
+.loaded { transition: opacity .6s ease, transform .8s var(--ease-smooth); }
+.loaded[data-loading] { opacity: 0; transform: scale(1.04); }
+
+@media (max-width: 639px) {
+  .kite { animation-duration: 9s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swing, .seesaw, .kite, .bounce { animation: none !important; }
+  .loaded { transition: none; }
+}

@@ -1,4 +1,5 @@
-const TINTS = ["#f7c85b", "#ef9e8a", "#3f7a63"];
+import { BRAND } from "@/lib/brand";
+const TINTS = [BRAND.yellow[400], BRAND.coral[300], BRAND.green[700]];
 const FLAGS = Array.from({ length: 28 });
 
 /** Decorative party-flag strip. Pure markup, no images. */

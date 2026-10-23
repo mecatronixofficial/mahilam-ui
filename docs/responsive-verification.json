@@ -1,0 +1,3468 @@
+{
+  "api": "local fixture only; no school database or cloud writes",
+  "checks": [
+    {
+      "label": "Login reachable",
+      "width": 320,
+      "height": 568,
+      "top": 24,
+      "submitTop": 349.765625,
+      "submitBottom": 399.359375,
+      "scrollHeight": 617,
+      "overflow": false,
+      "passed": true
+    },
+    {
+      "label": "Menu scrollable",
+      "width": 320,
+      "height": 568,
+      "navHeight": 273,
+      "lastLinkTop": 387,
+      "lastLinkBottom": 457,
+      "navBottom": 469,
+      "locked": true,
+      "passed": true
+    },
+    {
+      "label": "Menu Escape restores focus",
+      "width": 320,
+      "height": 568,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/gallery",
+      "width": 320,
+      "height": 568,
+      "left": 16,
+      "right": 304,
+      "top": 143,
+      "bottom": 425,
+      "captionTop": 365,
+      "captionBottom": 413,
+      "imageBottom": 353,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/activities",
+      "width": 320,
+      "height": 568,
+      "left": 12,
+      "right": 308,
+      "top": 53.515625,
+      "bottom": 514.46875,
+      "captionTop": 474.46875,
+      "captionBottom": 514.46875,
+      "imageBottom": 462.46875,
+      "passed": true
+    },
+    {
+      "label": "CMS touch fields readable",
+      "width": 320,
+      "height": 568,
+      "fonts": [
+        16
+      ],
+      "passed": true
+    },
+    {
+      "label": "CMS navigation fits",
+      "width": 320,
+      "height": 568,
+      "left": 0,
+      "right": 281.59375,
+      "navHeight": 391,
+      "lastBottom": 464.390625,
+      "navBottom": 480,
+      "passed": true
+    },
+    {
+      "label": "Login reachable",
+      "width": 390,
+      "height": 844,
+      "top": 163.3125,
+      "submitTop": 518.078125,
+      "submitBottom": 567.671875,
+      "scrollHeight": 844,
+      "overflow": false,
+      "passed": true
+    },
+    {
+      "label": "Menu scrollable",
+      "width": 390,
+      "height": 844,
+      "navHeight": 581,
+      "lastLinkTop": 663,
+      "lastLinkBottom": 733,
+      "navBottom": 745,
+      "locked": true,
+      "passed": true
+    },
+    {
+      "label": "Menu Escape restores focus",
+      "width": 390,
+      "height": 844,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/gallery",
+      "width": 390,
+      "height": 844,
+      "left": 16,
+      "right": 374,
+      "top": 266.75,
+      "bottom": 577.25,
+      "captionTop": 541.25,
+      "captionBottom": 565.25,
+      "imageBottom": 529.25,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/activities",
+      "width": 390,
+      "height": 844,
+      "left": 12,
+      "right": 378,
+      "top": 102.15625,
+      "bottom": 741.828125,
+      "captionTop": 721.828125,
+      "captionBottom": 741.828125,
+      "imageBottom": 709.828125,
+      "passed": true
+    },
+    {
+      "label": "CMS touch fields readable",
+      "width": 390,
+      "height": 844,
+      "fonts": [
+        16
+      ],
+      "passed": true
+    },
+    {
+      "label": "CMS navigation fits",
+      "width": 390,
+      "height": 844,
+      "left": 0,
+      "right": 310,
+      "navHeight": 667,
+      "lastBottom": 740.390625,
+      "navBottom": 756,
+      "passed": true
+    },
+    {
+      "label": "Login reachable",
+      "width": 844,
+      "height": 390,
+      "top": 24,
+      "submitTop": 195.765625,
+      "submitBottom": 245.359375,
+      "scrollHeight": 585,
+      "overflow": false,
+      "passed": true
+    },
+    {
+      "label": "Menu scrollable",
+      "width": 844,
+      "height": 390,
+      "navHeight": 247,
+      "lastLinkTop": 225,
+      "lastLinkBottom": 295,
+      "navBottom": 307,
+      "locked": true,
+      "passed": true
+    },
+    {
+      "label": "Menu Escape restores focus",
+      "width": 844,
+      "height": 390,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/gallery",
+      "width": 844,
+      "height": 390,
+      "left": 217.609375,
+      "right": 626.390625,
+      "top": 20.703125,
+      "bottom": 369.28125,
+      "captionTop": 333.28125,
+      "captionBottom": 357.28125,
+      "imageBottom": 321.28125,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/activities",
+      "width": 844,
+      "height": 390,
+      "left": 24,
+      "right": 820,
+      "top": 36.59375,
+      "bottom": 353.390625,
+      "captionTop": 329.390625,
+      "captionBottom": 353.390625,
+      "imageBottom": 317.390625,
+      "passed": true
+    },
+    {
+      "label": "CMS touch fields readable",
+      "width": 844,
+      "height": 390,
+      "fonts": [
+        16
+      ],
+      "passed": true
+    },
+    {
+      "label": "CMS navigation fits",
+      "width": 844,
+      "height": 390,
+      "left": 0,
+      "right": 310,
+      "navHeight": 213,
+      "lastBottom": 286.390625,
+      "navBottom": 302,
+      "passed": true
+    },
+    {
+      "label": "Login reachable",
+      "width": 768,
+      "height": 1024,
+      "top": 256.3125,
+      "submitTop": 624.078125,
+      "submitBottom": 673.671875,
+      "scrollHeight": 1024,
+      "overflow": false,
+      "passed": true
+    },
+    {
+      "label": "Menu scrollable",
+      "width": 768,
+      "height": 1024,
+      "navHeight": 761,
+      "lastLinkTop": 842,
+      "lastLinkBottom": 912,
+      "navBottom": 925,
+      "locked": true,
+      "passed": true
+    },
+    {
+      "label": "Menu Escape restores focus",
+      "width": 768,
+      "height": 1024,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/gallery",
+      "width": 768,
+      "height": 1024,
+      "left": 16,
+      "right": 752,
+      "top": 215,
+      "bottom": 809,
+      "captionTop": 773,
+      "captionBottom": 797,
+      "imageBottom": 761,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/activities",
+      "width": 768,
+      "height": 1024,
+      "left": 24,
+      "right": 744,
+      "top": 125.359375,
+      "bottom": 898.625,
+      "captionTop": 874.625,
+      "captionBottom": 898.625,
+      "imageBottom": 862.625,
+      "passed": true
+    },
+    {
+      "label": "CMS touch fields readable",
+      "width": 768,
+      "height": 1024,
+      "fonts": [
+        16
+      ],
+      "passed": true
+    },
+    {
+      "label": "CMS navigation fits",
+      "width": 768,
+      "height": 1024,
+      "left": 0,
+      "right": 310,
+      "navHeight": 847,
+      "lastBottom": 920.390625,
+      "navBottom": 936,
+      "passed": true
+    },
+    {
+      "label": "Login reachable",
+      "width": 1024,
+      "height": 768,
+      "top": 164.46875,
+      "submitTop": 459.9375,
+      "submitBottom": 509.53125,
+      "scrollHeight": 768,
+      "overflow": false,
+      "passed": true
+    },
+    {
+      "label": "Menu scrollable",
+      "width": 1024,
+      "height": 768,
+      "navHeight": 505,
+      "lastLinkTop": 587,
+      "lastLinkBottom": 657,
+      "navBottom": 669,
+      "locked": true,
+      "passed": true
+    },
+    {
+      "label": "Menu Escape restores focus",
+      "width": 1024,
+      "height": 768,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/gallery",
+      "width": 1024,
+      "height": 768,
+      "left": 121.125,
+      "right": 902.875,
+      "top": 69.84375,
+      "bottom": 698.15625,
+      "captionTop": 662.15625,
+      "captionBottom": 686.15625,
+      "imageBottom": 650.15625,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/activities",
+      "width": 1024,
+      "height": 768,
+      "left": 24,
+      "right": 1000,
+      "top": 89.515625,
+      "bottom": 678.46875,
+      "captionTop": 654.46875,
+      "captionBottom": 678.46875,
+      "imageBottom": 642.46875,
+      "passed": true
+    },
+    {
+      "label": "CMS touch fields readable",
+      "width": 1024,
+      "height": 768,
+      "fonts": [
+        16
+      ],
+      "passed": true
+    },
+    {
+      "label": "Login reachable",
+      "width": 1280,
+      "height": 720,
+      "top": 140.46875,
+      "submitTop": 435.9375,
+      "submitBottom": 485.53125,
+      "scrollHeight": 720,
+      "overflow": false,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/gallery",
+      "width": 1280,
+      "height": 720,
+      "left": 272.796875,
+      "right": 1007.1875,
+      "top": 63.609375,
+      "bottom": 656.390625,
+      "captionTop": 620.390625,
+      "captionBottom": 644.390625,
+      "imageBottom": 608.390625,
+      "passed": true
+    },
+    {
+      "label": "Photo viewer fits",
+      "route": "/activities",
+      "width": 1280,
+      "height": 720,
+      "left": 128,
+      "right": 1152,
+      "top": 82.796875,
+      "bottom": 637.1875,
+      "captionTop": 613.1875,
+      "captionBottom": 637.1875,
+      "imageBottom": 601.1875,
+      "passed": true
+    },
+    {
+      "label": "CMS touch fields readable",
+      "width": 1280,
+      "height": 720,
+      "fonts": [
+        12
+      ],
+      "passed": true
+    }
+  ],
+  "cases": [
+    {
+      "route": "/",
+      "width": 320,
+      "height": 844,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 320,
+      "height": 844,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 320,
+      "height": 844,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 320,
+      "height": 844,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 320,
+      "height": 844,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 320,
+      "height": 844,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 320,
+      "height": 844,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 320,
+      "height": 844,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 320,
+      "height": 844,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 320,
+      "height": 844,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 320,
+      "height": 844,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 320,
+      "height": 844,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 320,
+      "height": 844,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 320,
+      "height": 844,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 320,
+      "height": 844,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 320,
+      "height": 844,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 320,
+      "height": 844,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 320,
+      "height": 844,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 320,
+      "height": 844,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "height": 844,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 360,
+      "height": 844,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 360,
+      "height": 844,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 360,
+      "height": 844,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 360,
+      "height": 844,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 360,
+      "height": 844,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 360,
+      "height": 844,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 360,
+      "height": 844,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 360,
+      "height": 844,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 360,
+      "height": 844,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 360,
+      "height": 844,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 360,
+      "height": 844,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 360,
+      "height": 844,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 360,
+      "height": 844,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 360,
+      "height": 844,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 360,
+      "height": 844,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 360,
+      "height": 844,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 360,
+      "height": 844,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 360,
+      "height": 844,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "height": 844,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 375,
+      "height": 844,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 375,
+      "height": 844,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 375,
+      "height": 844,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 375,
+      "height": 844,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 375,
+      "height": 844,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 375,
+      "height": 844,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 375,
+      "height": 844,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 375,
+      "height": 844,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 375,
+      "height": 844,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 375,
+      "height": 844,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 375,
+      "height": 844,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 375,
+      "height": 844,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 375,
+      "height": 844,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 375,
+      "height": 844,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 375,
+      "height": 844,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 375,
+      "height": 844,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 375,
+      "height": 844,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 375,
+      "height": 844,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 390,
+      "height": 844,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 390,
+      "height": 844,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 390,
+      "height": 844,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 390,
+      "height": 844,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 390,
+      "height": 844,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 390,
+      "height": 844,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 390,
+      "height": 844,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 390,
+      "height": 844,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 390,
+      "height": 844,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 390,
+      "height": 844,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 390,
+      "height": 844,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 390,
+      "height": 844,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 390,
+      "height": 844,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 390,
+      "height": 844,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 390,
+      "height": 844,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 390,
+      "height": 844,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 390,
+      "height": 844,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 390,
+      "height": 844,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 414,
+      "height": 844,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 414,
+      "height": 844,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 414,
+      "height": 844,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 414,
+      "height": 844,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 414,
+      "height": 844,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 414,
+      "height": 844,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 414,
+      "height": 844,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 414,
+      "height": 844,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 414,
+      "height": 844,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 414,
+      "height": 844,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 414,
+      "height": 844,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 414,
+      "height": 844,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 414,
+      "height": 844,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 414,
+      "height": 844,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 414,
+      "height": 844,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 414,
+      "height": 844,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 414,
+      "height": 844,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 414,
+      "height": 844,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 414,
+      "height": 844,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 600,
+      "height": 1024,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 600,
+      "height": 1024,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 600,
+      "height": 1024,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 600,
+      "height": 1024,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 600,
+      "height": 1024,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 600,
+      "height": 1024,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 600,
+      "height": 1024,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 600,
+      "height": 1024,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 600,
+      "height": 1024,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 600,
+      "height": 1024,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 600,
+      "height": 1024,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 600,
+      "height": 1024,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 600,
+      "height": 1024,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 600,
+      "height": 1024,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 600,
+      "height": 1024,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 600,
+      "height": 1024,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 600,
+      "height": 1024,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 600,
+      "height": 1024,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 600,
+      "height": 1024,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 640,
+      "height": 1024,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 640,
+      "height": 1024,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 640,
+      "height": 1024,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 640,
+      "height": 1024,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 640,
+      "height": 1024,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 640,
+      "height": 1024,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 640,
+      "height": 1024,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 640,
+      "height": 1024,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 640,
+      "height": 1024,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 640,
+      "height": 1024,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 640,
+      "height": 1024,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 640,
+      "height": 1024,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 640,
+      "height": 1024,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 640,
+      "height": 1024,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 640,
+      "height": 1024,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 640,
+      "height": 1024,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 640,
+      "height": 1024,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 640,
+      "height": 1024,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 640,
+      "height": 1024,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "height": 1024,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 768,
+      "height": 1024,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 768,
+      "height": 1024,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 768,
+      "height": 1024,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 768,
+      "height": 1024,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 768,
+      "height": 1024,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 768,
+      "height": 1024,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 768,
+      "height": 1024,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 768,
+      "height": 1024,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 768,
+      "height": 1024,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 768,
+      "height": 1024,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 768,
+      "height": 1024,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 768,
+      "height": 1024,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 768,
+      "height": 1024,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 768,
+      "height": 1024,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 768,
+      "height": 1024,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 768,
+      "height": 1024,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 768,
+      "height": 1024,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 768,
+      "height": 1024,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 820,
+      "height": 1024,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 820,
+      "height": 1024,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 820,
+      "height": 1024,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 820,
+      "height": 1024,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 820,
+      "height": 1024,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 820,
+      "height": 1024,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 820,
+      "height": 1024,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 820,
+      "height": 1024,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 820,
+      "height": 1024,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 820,
+      "height": 1024,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 820,
+      "height": 1024,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 820,
+      "height": 1024,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 820,
+      "height": 1024,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 820,
+      "height": 1024,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 820,
+      "height": 1024,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 820,
+      "height": 1024,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 820,
+      "height": 1024,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 820,
+      "height": 1024,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 820,
+      "height": 1024,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 912,
+      "height": 1024,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 912,
+      "height": 1024,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 912,
+      "height": 1024,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 912,
+      "height": 1024,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 912,
+      "height": 1024,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 912,
+      "height": 1024,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 912,
+      "height": 1024,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 912,
+      "height": 1024,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 912,
+      "height": 1024,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 912,
+      "height": 1024,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 912,
+      "height": 1024,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 912,
+      "height": 1024,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 912,
+      "height": 1024,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 912,
+      "height": 1024,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 912,
+      "height": 1024,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 912,
+      "height": 1024,
+      "heading": "Home Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 912,
+      "height": 1024,
+      "heading": "About Page",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 912,
+      "height": 1024,
+      "heading": "Website Photos",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 912,
+      "height": 1024,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "height": 900,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 1024,
+      "height": 900,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 1024,
+      "height": 900,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 1024,
+      "height": 900,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 1024,
+      "height": 900,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 1024,
+      "height": 900,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 1024,
+      "height": 900,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 1024,
+      "height": 900,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 1024,
+      "height": 900,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 1024,
+      "height": 900,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 1024,
+      "height": 900,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 1024,
+      "height": 900,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 1024,
+      "height": 900,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 1024,
+      "height": 900,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 1024,
+      "height": 900,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 1024,
+      "height": 900,
+      "heading": "Home Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 1024,
+      "height": 900,
+      "heading": "About Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 1024,
+      "height": 900,
+      "heading": "Website Photos",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 1024,
+      "height": 900,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "height": 900,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 1280,
+      "height": 900,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 1280,
+      "height": 900,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 1280,
+      "height": 900,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 1280,
+      "height": 900,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 1280,
+      "height": 900,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 1280,
+      "height": 900,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 1280,
+      "height": 900,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 1280,
+      "height": 900,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 1280,
+      "height": 900,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 1280,
+      "height": 900,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 1280,
+      "height": 900,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 1280,
+      "height": 900,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 1280,
+      "height": 900,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 1280,
+      "height": 900,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 1280,
+      "height": 900,
+      "heading": "Home Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 1280,
+      "height": 900,
+      "heading": "About Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 1280,
+      "height": 900,
+      "heading": "Website Photos",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 1280,
+      "height": 900,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "height": 900,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 1440,
+      "height": 900,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 1440,
+      "height": 900,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 1440,
+      "height": 900,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 1440,
+      "height": 900,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 1440,
+      "height": 900,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 1440,
+      "height": 900,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 1440,
+      "height": 900,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 1440,
+      "height": 900,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 1440,
+      "height": 900,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 1440,
+      "height": 900,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 1440,
+      "height": 900,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 1440,
+      "height": 900,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 1440,
+      "height": 900,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 1440,
+      "height": 900,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 1440,
+      "height": 900,
+      "heading": "Home Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 1440,
+      "height": 900,
+      "heading": "About Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 1440,
+      "height": 900,
+      "heading": "Website Photos",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 1440,
+      "height": 900,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 1536,
+      "height": 900,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 1536,
+      "height": 900,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 1536,
+      "height": 900,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 1536,
+      "height": 900,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 1536,
+      "height": 900,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 1536,
+      "height": 900,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 1536,
+      "height": 900,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 1536,
+      "height": 900,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 1536,
+      "height": 900,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 1536,
+      "height": 900,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 1536,
+      "height": 900,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 1536,
+      "height": 900,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 1536,
+      "height": 900,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 1536,
+      "height": 900,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 1536,
+      "height": 900,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 1536,
+      "height": 900,
+      "heading": "Home Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 1536,
+      "height": 900,
+      "heading": "About Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 1536,
+      "height": 900,
+      "heading": "Website Photos",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 1536,
+      "height": 900,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "height": 900,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 1920,
+      "height": 900,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 1920,
+      "height": 900,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 1920,
+      "height": 900,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 1920,
+      "height": 900,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 1920,
+      "height": 900,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 1920,
+      "height": 900,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 1920,
+      "height": 900,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 1920,
+      "height": 900,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 1920,
+      "height": 900,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 1920,
+      "height": 900,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 1920,
+      "height": 900,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 1920,
+      "height": 900,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 1920,
+      "height": 900,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 1920,
+      "height": 900,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 1920,
+      "height": 900,
+      "heading": "Home Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 1920,
+      "height": 900,
+      "heading": "About Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 1920,
+      "height": 900,
+      "heading": "Website Photos",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 1920,
+      "height": 900,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/",
+      "width": 2560,
+      "height": 900,
+      "heading": "A School of Happiness.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/about",
+      "width": 2560,
+      "height": 900,
+      "heading": "Where little minds learn, play & shine!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/programs",
+      "width": 2560,
+      "height": 900,
+      "heading": "Learning journeys for every age.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/learning-approach",
+      "width": 2560,
+      "height": 900,
+      "heading": "Little Minds. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/activities",
+      "width": 2560,
+      "height": 900,
+      "heading": "Little Adventures. Big Smiles!",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/facilities",
+      "width": 2560,
+      "height": 900,
+      "heading": "Little Spaces. Big Possibilities.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/gallery",
+      "width": 2560,
+      "height": 900,
+      "heading": "Little moments. Lasting memories.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/events",
+      "width": 2560,
+      "height": 900,
+      "heading": "Moments we share together",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admissions",
+      "width": 2560,
+      "height": 900,
+      "heading": "A happy beginning starts here.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "width": 2560,
+      "height": 900,
+      "heading": "Let's begin a happy conversation.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/faq",
+      "width": 2560,
+      "height": 900,
+      "heading": "Questions parents ask us.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "width": 2560,
+      "height": 900,
+      "heading": "Little Stories. Big Discoveries.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/preschool-in-tiruppur",
+      "width": 2560,
+      "height": 900,
+      "heading": "A happy first school for Tiruppur's little learners.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy",
+      "width": 2560,
+      "height": 900,
+      "heading": "Your family's privacy matters.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/login",
+      "width": 2560,
+      "height": 900,
+      "heading": "Everything your school team needs, in one happy place.",
+      "inputFonts": [
+        16
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/home",
+      "width": 2560,
+      "height": 900,
+      "heading": "Home Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/about",
+      "width": 2560,
+      "height": 900,
+      "heading": "About Page",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/photos",
+      "width": 2560,
+      "height": 900,
+      "heading": "Website Photos",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    },
+    {
+      "route": "/admin/learning-approach",
+      "width": 2560,
+      "height": 900,
+      "heading": "Learning Approach",
+      "inputFonts": [
+        12
+      ],
+      "issues": []
+    }
+  ],
+  "findings": [],
+  "screenshots": "C:\\Users\\sivak\\AppData\\Local\\Temp\\mahilam-content-7d1f10f6-d921-4edf-860e-3f47f3cc3b05",
+  "status": "passed",
+  "runtimeErrors": []
+}

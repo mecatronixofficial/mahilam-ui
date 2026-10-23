@@ -1,3 +1,4 @@
+import "@/components/dashboard/compact.css";
 import type { Metadata } from "next";
 import { CrmShell } from "@/components/crm/CrmShell";
 export const metadata: Metadata = { title: "CRM", robots: { index: false, follow: false } };

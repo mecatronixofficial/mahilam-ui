@@ -5,19 +5,22 @@ import { ArrowUpRight, CalendarDays, CheckCircle2, GraduationCap, Images, Megaph
 import { api } from "@/lib/api";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { InlineNotice } from "@/components/states/StateView";
+import { BRAND } from "@/lib/brand";
 
 type Row = { active?: boolean; status?: string; startDate?: string; items?: unknown[] };
 
 const RESOURCES = [
-  { key: "announcements", endpoint: "/cms/announcements", label: "Live announcements", icon: Megaphone, tint: "#e2725b", href: "/admin/announcements", count: (rows: Row[]) => rows.filter((r) => r.active !== false).length },
-  { key: "banners", endpoint: "/cms/banners", label: "Homepage banners", icon: Images, tint: "#0e9aa7", href: "/admin/banners", count: (rows: Row[]) => rows.filter((r) => r.active !== false).length },
-  { key: "gallery", endpoint: "/cms/gallery", label: "Gallery photos", icon: Images, tint: "#d69e2e", href: "/admin/gallery", count: (rows: Row[]) => rows.reduce((sum, r) => sum + (r.items?.length || 0), 0) },
-  { key: "events", endpoint: "/cms/events", label: "Upcoming events", icon: CalendarDays, tint: "#6366f1", href: "/admin/events", count: (rows: Row[]) => rows.filter((r) => r.startDate && r.startDate.slice(0, 10) >= new Date().toISOString().slice(0, 10)).length },
-  { key: "testimonials", endpoint: "/cms/testimonials", label: "Reviews to approve", icon: Star, tint: "#f59e0b", href: "/admin/testimonials", count: (rows: Row[]) => rows.filter((r) => !r.active).length },
-  { key: "blogs", endpoint: "/cms/blogs", label: "Published posts", icon: Newspaper, tint: "#16a34a", href: "/admin/blogs", count: (rows: Row[]) => rows.filter((r) => r.status === "PUBLISHED").length },
+  { key: "announcements", endpoint: "/cms/announcements", label: "Live announcements", icon: Megaphone, tint: BRAND.coral[500], href: "/admin/announcements", count: (rows: Row[]) => rows.filter((r) => r.active !== false).length },
+  { key: "banners", endpoint: "/cms/banners", label: "Homepage banners", icon: Images, tint: BRAND.blue[500], href: "/admin/banners", count: (rows: Row[]) => rows.filter((r) => r.active !== false).length },
+  { key: "gallery", endpoint: "/cms/gallery", label: "Gallery photos", icon: Images, tint: BRAND.yellow[600], href: "/admin/gallery", count: (rows: Row[]) => rows.reduce((sum, r) => sum + (r.items?.length || 0), 0) },
+  { key: "events", endpoint: "/cms/events", label: "Upcoming events", icon: CalendarDays, tint: BRAND.blue[600], href: "/admin/events", count: (rows: Row[]) => rows.filter((r) => r.startDate && r.startDate.slice(0, 10) >= new Date().toISOString().slice(0, 10)).length },
+  { key: "testimonials", endpoint: "/cms/testimonials", label: "Reviews to approve", icon: Star, tint: BRAND.yellow[500], href: "/admin/testimonials", count: (rows: Row[]) => rows.filter((r) => !r.active).length },
+  { key: "blogs", endpoint: "/cms/blogs", label: "Published posts", icon: Newspaper, tint: BRAND.green[600], href: "/admin/blogs", count: (rows: Row[]) => rows.filter((r) => r.status === "PUBLISHED").length },
 ] as const;
 
 const QUICK = [
+  ["/admin/home", "Edit home page", Images],
+  ["/admin/about", "Edit About page", Images],
   ["/admin/announcements", "New announcement", Megaphone],
   ["/admin/banners", "Create banner", Images],
   ["/admin/gallery", "Upload photos", Images],
@@ -68,7 +71,7 @@ export function AdminDashboard() {
         <section className="panel-dark p-5 sm:p-8">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-black uppercase tracking-[.18em] text-[#f7c85b]">Quick create</p>
+              <p className="text-xs font-black uppercase tracking-[.18em] text-little-yellow-400">Quick create</p>
               <h3 className="mt-2 text-2xl font-extrabold">What would you like to publish today?</h3>
             </div>
             <Plus className="hidden h-12 w-12 text-white/10 sm:block" />
@@ -76,7 +79,7 @@ export function AdminDashboard() {
           <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {QUICK.map(([href, label, Icon]) => (
               <Link key={href} href={href} className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[.06] px-4 py-4 font-bold text-white/80 backdrop-blur transition hover:bg-white/[.12] hover:text-white">
-                <span className="flex items-center gap-3"><Icon className="h-4 w-4 text-[#ef9e8a]" />{label}</span>
+                <span className="flex items-center gap-3"><Icon className="h-4 w-4 text-little-coral-300" />{label}</span>
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
             ))}
@@ -96,10 +99,10 @@ export function AdminDashboard() {
               const I = Icon as typeof Star;
               return (
                 <li key={href as string}>
-                  <Link href={href as string} className="group flex items-center gap-3 rounded-2xl p-2 text-sm font-bold text-slate-600 hover:bg-white/70 hover:text-slate-900">
-                    <span className={`flex h-9 w-9 items-center justify-center rounded-xl ${done ? "bg-emerald-100/80 text-emerald-700" : "accent-bg"}`}>{done ? <CheckCircle2 className="h-4 w-4" /> : <I className="h-4 w-4" />}</span>
+                  <Link href={href as string} className="group flex items-center gap-3 rounded-2xl p-2 text-sm font-bold text-little-neutral-600 hover:bg-white/70 hover:text-little-neutral-900">
+                    <span className={`flex h-9 w-9 items-center justify-center rounded-xl ${done ? "bg-little-green-100/80 text-little-green-700" : "accent-bg"}`}>{done ? <CheckCircle2 className="h-4 w-4" /> : <I className="h-4 w-4" />}</span>
                     <span className="flex-1">{label as string}</span>
-                    <ArrowUpRight className="h-4 w-4 text-slate-300 group-hover:text-slate-500" />
+                    <ArrowUpRight className="h-4 w-4 text-little-neutral-300 group-hover:text-little-neutral-500" />
                   </Link>
                 </li>
               );

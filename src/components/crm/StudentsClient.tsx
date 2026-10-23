@@ -1,10 +1,13 @@
 "use client";
+import Link from "next/link";
+import { useEffect } from "react";
+import { useLookup } from "./crm-shared";
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Cake, Download, Eye, LoaderCircle, Mail, MessageCircle, Pencil, Phone, Plus, Trash2, User, Users } from "lucide-react";
 import { api, downloadFile, errorMessage } from "@/lib/api";
-import { useIsAdmin } from "@/store/auth";
+import { canManageAdmissions, useAuth, useIsAdmin } from "@/store/auth";
 import { useCrud } from "@/components/dashboard/useCrud";
 import { Drawer } from "@/components/dashboard/Drawer";
 import { ConfirmDelete, ImageField, ListToolbar, matches } from "@/components/dashboard/ui";
@@ -16,6 +19,7 @@ type ClassLevel = { id: string; name: string; sections?: { id: string; name: str
 type Student = {
   id: string; admissionNumber: string; firstName: string; lastName?: string | null; dob?: string | null; gender?: string | null; bloodGroup?: string | null; photoUrl?: string | null;
   joiningDate?: string | null; phone?: string | null; whatsapp?: string | null; address?: string | null; emergencyContact?: string | null; notes?: string | null; status: string;
+  academicYearId?: string | null;
   classLevelId?: string | null; sectionId?: string | null; classLevel?: { name: string } | null; section?: { name: string } | null;
 };
 type Guardian = { id: string; name: string; relationship: string; mobile: string; whatsapp?: string | null; email?: string | null; occupation?: string | null; address?: string | null; primary: boolean };
@@ -32,6 +36,11 @@ function age(dob?: string | null) {
 export function StudentsClient() {
   const qc = useQueryClient();
   const isAdmin = useIsAdmin();
+  const role = useAuth(state => state.user?.role);
+  const canEdit = canManageAdmissions(role);
+  const yearsQ = useLookup("years");
+  const [yearId, setYearId] = useState("");
+  useEffect(() => { const q = new URLSearchParams(window.location.search); setYearId(q.get("academicYearId") ?? ""); if (q.get("status")) setStatus(q.get("status")!); }, []);
   const crud = useCrud<Student>("/students", "Student", { queryKey: ["students"], invalidate: [["dashboard-report"]] });
   const classesQ = useQuery({ queryKey: ["academics-classes"], queryFn: () => api<{ data: ClassLevel[] }>("/academics/classes") });
   const classes = classesQ.data?.data ?? [];
@@ -85,7 +94,7 @@ export function StudentsClient() {
     finally { setExporting(false); }
   }
 
-  const rows = crud.rows.filter((row) => (!status || row.status === status) && (!classId || row.classLevelId === classId) && matches(search, row.firstName, row.lastName, row.admissionNumber, row.phone));
+  const rows = crud.rows.filter((row) => (!yearId || row.academicYearId === yearId) && (!status || row.status === status) && (!classId || row.classLevelId === classId) && matches(search, row.firstName, row.lastName, row.admissionNumber, row.phone));
   const set = (key: keyof typeof EMPTY_FORM) => (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, [key]: event.target.value });
 
   return (
@@ -99,13 +108,14 @@ export function StudentsClient() {
         onFilter={setStatus}
         count={rows.length}
         actions={
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <select aria-label="Academic year filter" className="input !min-h-10 !w-auto !py-1.5 text-sm" value={yearId} onChange={e => setYearId(e.target.value)}><option value="">All years</option>{yearsQ.data?.data.map(y => <option key={y.id} value={y.id}>{y.name}</option>)}</select>
             <select aria-label="Class" className="input !min-h-10 !w-auto !py-1.5 text-sm" value={classId} onChange={(e) => setClassId(e.target.value)}>
               <option value="">All classes</option>
               {classes.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
             </select>
             {isAdmin && <button type="button" onClick={exportCsv} disabled={exporting} className="btn-soft !px-3 !py-2 text-sm" title="Export CSV">{exporting ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}</button>}
-            <button type="button" onClick={startCreate} className="btn-primary !px-4 !py-2 text-sm"><Plus className="h-4 w-4" />Add</button>
+            <button type="button" onClick={startCreate} disabled={!canEdit} className="btn-primary !px-4 !py-2 text-sm"><Plus className="h-4 w-4" />Add</button>
           </div>
         }
       />
@@ -119,24 +129,24 @@ export function StudentsClient() {
                   ? <img src={s.photoUrl} alt="" loading="lazy" className="h-14 w-14 shrink-0 rounded-2xl object-cover" />
                   : <div className="accent-bg flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold">{s.firstName?.[0] ?? <User className="h-5 w-5" />}</div>}
                 <div className="min-w-0 flex-1">
-                  <h3 className="truncate font-extrabold">{s.firstName} {s.lastName}</h3>
-                  <p className="text-xs font-bold text-slate-400">{s.admissionNumber}</p>
+                  <h3 className="truncate font-extrabold"><Link className="underline-offset-4 hover:underline" href={`/crm/students/${s.id}`}>{s.firstName} {s.lastName}</Link></h3>
+                  <p className="text-xs font-bold text-little-neutral-500">{s.admissionNumber}</p>
                   <div className="mt-1.5 flex flex-wrap gap-1.5">
-                    {s.classLevel && <span className="chip bg-slate-200/60 text-slate-700">{s.classLevel.name}{s.section ? ` · ${s.section.name}` : ""}</span>}
-                    <select aria-label="Status" className={`chip cursor-pointer border-0 outline-none ${STATUS_STYLES[s.status] || STATUS_STYLES.ACTIVE}`} value={s.status} disabled={crud.patch.isPending} onChange={(e) => crud.patch.mutate({ id: s.id, payload: { status: e.target.value } })}>
+                    {s.classLevel && <span className="chip bg-little-neutral-200/60 text-little-neutral-700">{s.classLevel.name}{s.section ? ` · ${s.section.name}` : ""}</span>}
+                    <select aria-label="Status" className={`chip cursor-pointer border-0 outline-none ${STATUS_STYLES[s.status] || STATUS_STYLES.ACTIVE}`} value={s.status} disabled={crud.patch.isPending || !canEdit} onChange={(e) => crud.patch.mutate({ id: s.id, payload: { status: e.target.value } })}>
                       {STUDENT_STATUSES.map((x) => <option key={x} value={x}>{humanize(x)}</option>)}
                     </select>
                   </div>
                 </div>
               </div>
-              <div className="mt-4 grid gap-1.5 text-xs font-semibold text-slate-500">
-                {s.dob && <span className="flex items-center gap-2"><Cake className="h-3.5 w-3.5 text-slate-400" />{formatDate(s.dob)}{age(s.dob) ? ` · ${age(s.dob)}` : ""}</span>}
-                {s.phone && <a href={`tel:${s.phone}`} className="flex w-fit items-center gap-2 hover:text-slate-900"><Phone className="h-3.5 w-3.5 text-slate-400" />{s.phone}</a>}
+              <div className="mt-4 grid gap-1.5 text-xs font-semibold text-little-neutral-500">
+                {s.dob && <span className="flex flex-wrap items-center gap-2"><Cake className="h-3.5 w-3.5 text-little-neutral-500" />{formatDate(s.dob)}{age(s.dob) ? ` · ${age(s.dob)}` : ""}</span>}
+                {s.phone && <a href={`tel:${s.phone}`} className="flex w-fit items-center gap-2 hover:text-little-neutral-900"><Phone className="h-3.5 w-3.5 text-little-neutral-500" />{s.phone}</a>}
               </div>
               <div className="mt-4 flex items-center gap-2 border-t pt-3">
                 <button type="button" onClick={() => setViewing(s)} className="btn-soft !px-3 !py-1.5 !text-xs"><Eye className="h-3.5 w-3.5" /> Full details</button>
-                <button type="button" onClick={() => startEdit(s)} className="btn-soft !px-3 !py-1.5 !text-xs"><Pencil className="h-3.5 w-3.5" /> Edit</button>
-                {isAdmin && <span className="ml-auto"><ConfirmDelete pending={crud.remove.isPending} onConfirm={() => crud.remove.mutate(s.id)} /></span>}
+                <button type="button" onClick={() => startEdit(s)} disabled={!canEdit} className="btn-soft !px-3 !py-1.5 !text-xs"><Pencil className="h-3.5 w-3.5" /> Edit</button>
+                {isAdmin && <span className="ml-auto"><ConfirmDelete label="Archive" pending={crud.remove.isPending} onConfirm={() => crud.remove.mutate(s.id)} /></span>}
               </div>
             </article>
           ))}
@@ -175,19 +185,19 @@ export function StudentsClient() {
           const guardians = student.guardians.map((link) => ({ ...link.guardian, primary: link.primary }));
           return <div className="grid gap-5">
             <section className="rounded-2xl border bg-white/70 p-4">
-              <div className="flex items-center gap-4"><div className="accent-bg flex h-14 w-14 items-center justify-center rounded-2xl text-xl font-black">{student.firstName[0]}</div><div><h3 className="text-lg font-extrabold">{student.firstName} {student.lastName}</h3><p className="text-sm font-bold text-slate-400">{student.admissionNumber}</p></div></div>
+              <div className="flex items-center gap-4"><div className="accent-bg flex h-14 w-14 items-center justify-center rounded-2xl text-xl font-black">{student.firstName[0]}</div><div><h3 className="text-lg font-extrabold">{student.firstName} {student.lastName}</h3><p className="text-sm font-bold text-little-neutral-500">{student.admissionNumber}</p></div></div>
               <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
-                {[["Class", `${student.classLevel?.name || "Unassigned"}${student.section ? ` · ${student.section.name}` : ""}`], ["Date of birth", formatDate(student.dob) || "—"], ["Gender", student.gender || "—"], ["Blood group", student.bloodGroup || "—"], ["Joining date", formatDate(student.joiningDate) || "—"], ["Status", humanize(student.status)]].map(([label, value]) => <div key={label}><dt className="text-xs font-bold uppercase tracking-wide text-slate-400">{label}</dt><dd className="mt-0.5 font-semibold">{value}</dd></div>)}
+                {[["Class", `${student.classLevel?.name || "Unassigned"}${student.section ? ` · ${student.section.name}` : ""}`], ["Date of birth", formatDate(student.dob) || "—"], ["Gender", student.gender || "—"], ["Blood group", student.bloodGroup || "—"], ["Joining date", formatDate(student.joiningDate) || "—"], ["Status", humanize(student.status)]].map(([label, value]) => <div key={label}><dt className="text-xs font-bold uppercase tracking-wide text-little-neutral-500">{label}</dt><dd className="mt-0.5 font-semibold">{value}</dd></div>)}
               </dl>
-              {student.address && <p className="mt-4 border-t pt-3 text-sm leading-6 text-slate-600">{student.address}</p>}
-              {student.notes && <p className="mt-3 rounded-xl bg-amber-50 p-3 text-sm text-amber-900">{student.notes}</p>}
+              {student.address && <p className="mt-4 border-t pt-3 text-sm leading-6 text-little-neutral-600">{student.address}</p>}
+              {student.notes && <p className="mt-3 rounded-xl bg-little-yellow-50 p-3 text-sm text-little-yellow-900">{student.notes}</p>}
             </section>
-            <section><div className="flex items-center gap-2"><Users className="h-5 w-5" /><h3 className="font-extrabold">Parents and guardians</h3></div>
-              {!guardians.length ? <p className="mt-3 rounded-2xl bg-slate-50 p-5 text-sm text-slate-500">No guardians added yet.</p> : <div className="mt-3 grid gap-3 sm:grid-cols-2">{guardians.map((g) => <article key={g.id} className="rounded-2xl border bg-white/70 p-4"><div className="flex justify-between gap-3"><div><p className="font-extrabold">{g.name}{g.primary && <span className="ml-2 chip bg-emerald-100 text-emerald-800">Primary</span>}</p><p className="text-xs font-bold text-slate-400">{g.relationship}{g.occupation ? ` · ${g.occupation}` : ""}</p></div>{isAdmin && <button type="button" onClick={() => removeGuardian.mutate(g.id)} aria-label="Remove guardian" className="rounded-lg p-2 text-slate-400 hover:text-rose-600"><Trash2 className="h-4 w-4" /></button>}</div><div className="mt-3 grid gap-1 text-sm"><a href={`tel:${g.mobile}`} className="flex items-center gap-2"><Phone className="h-3.5 w-3.5" />{g.mobile}</a>{g.whatsapp && <a href={`https://wa.me/${g.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-emerald-700"><MessageCircle className="h-3.5 w-3.5" />{g.whatsapp}</a>}{g.email && <a href={`mailto:${g.email}`} className="flex items-center gap-2"><Mail className="h-3.5 w-3.5" />{g.email}</a>}</div></article>)}</div>}
+            <section><div className="flex flex-wrap items-center gap-2"><Users className="h-5 w-5" /><h3 className="font-extrabold">Parents and guardians</h3></div>
+              {!guardians.length ? <p className="mt-3 rounded-2xl bg-little-neutral-50 p-5 text-sm text-little-neutral-500">No guardians added yet.</p> : <div className="mt-3 grid gap-3 sm:grid-cols-2">{guardians.map((g) => <article key={g.id} className="rounded-2xl border bg-white/70 p-4"><div className="flex justify-between gap-3"><div><p className="font-extrabold">{g.name}{g.primary && <span className="ml-2 chip bg-little-green-100 text-little-green-800">Primary</span>}</p><p className="text-xs font-bold text-little-neutral-500">{g.relationship}{g.occupation ? ` · ${g.occupation}` : ""}</p></div>{isAdmin && <button type="button" disabled={!canEdit} onClick={() => removeGuardian.mutate(g.id)} aria-label="Remove guardian" className="rounded-lg p-2 text-little-neutral-500 hover:text-little-coral-600"><Trash2 className="h-4 w-4" /></button>}</div><div className="mt-3 grid gap-1 text-sm"><a href={`tel:${g.mobile}`} className="flex flex-wrap items-center gap-2"><Phone className="h-3.5 w-3.5" />{g.mobile}</a>{g.whatsapp && <a href={`https://wa.me/${g.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-little-green-700"><MessageCircle className="h-3.5 w-3.5" />{g.whatsapp}</a>}{g.email && <a href={`mailto:${g.email}`} className="flex flex-wrap items-center gap-2"><Mail className="h-3.5 w-3.5" />{g.email}</a>}</div></article>)}</div>}
             </section>
-            <form onSubmit={(event) => { event.preventDefault(); addGuardian.mutate(); }} className="grid gap-3 rounded-2xl border bg-white/60 p-4"><h3 className="font-extrabold">Add parent or guardian</h3><div className="grid gap-3 sm:grid-cols-2"><label className="grid gap-1.5"><span className="label">Name *</span><input className="input" value={guardian.name} onChange={(e) => setGuardian({ ...guardian, name: e.target.value })} required /></label><label className="grid gap-1.5"><span className="label">Relationship *</span><input className="input" placeholder="Mother, father, guardian" value={guardian.relationship} onChange={(e) => setGuardian({ ...guardian, relationship: e.target.value })} required /></label><label className="grid gap-1.5"><span className="label">Mobile *</span><input className="input" type="tel" value={guardian.mobile} onChange={(e) => setGuardian({ ...guardian, mobile: e.target.value })} required /></label><label className="grid gap-1.5"><span className="label">WhatsApp</span><input className="input" type="tel" value={guardian.whatsapp} onChange={(e) => setGuardian({ ...guardian, whatsapp: e.target.value })} /></label><label className="grid gap-1.5"><span className="label">Email</span><input className="input" type="email" value={guardian.email} onChange={(e) => setGuardian({ ...guardian, email: e.target.value })} /></label><label className="grid gap-1.5"><span className="label">Occupation</span><input className="input" value={guardian.occupation} onChange={(e) => setGuardian({ ...guardian, occupation: e.target.value })} /></label></div><label className="grid gap-1.5"><span className="label">Address</span><textarea className="input min-h-16" value={guardian.address} onChange={(e) => setGuardian({ ...guardian, address: e.target.value })} /></label><label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={guardian.primary} onChange={(e) => setGuardian({ ...guardian, primary: e.target.checked })} />Primary contact</label><button className="btn-primary w-fit" disabled={addGuardian.isPending}>{addGuardian.isPending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}Add guardian</button></form>
+            <form onSubmit={(event) => { event.preventDefault(); addGuardian.mutate(); }} className="grid gap-3 rounded-2xl border bg-white/60 p-4"><h3 className="font-extrabold">Add parent or guardian</h3><div className="grid gap-3 sm:grid-cols-2"><label className="grid gap-1.5"><span className="label">Name *</span><input className="input" value={guardian.name} onChange={(e) => setGuardian({ ...guardian, name: e.target.value })} required /></label><label className="grid gap-1.5"><span className="label">Relationship *</span><input className="input" placeholder="Mother, father, guardian" value={guardian.relationship} onChange={(e) => setGuardian({ ...guardian, relationship: e.target.value })} required /></label><label className="grid gap-1.5"><span className="label">Mobile *</span><input className="input" type="tel" value={guardian.mobile} onChange={(e) => setGuardian({ ...guardian, mobile: e.target.value })} required /></label><label className="grid gap-1.5"><span className="label">WhatsApp</span><input className="input" type="tel" value={guardian.whatsapp} onChange={(e) => setGuardian({ ...guardian, whatsapp: e.target.value })} /></label><label className="grid gap-1.5"><span className="label">Email</span><input className="input" type="email" value={guardian.email} onChange={(e) => setGuardian({ ...guardian, email: e.target.value })} /></label><label className="grid gap-1.5"><span className="label">Occupation</span><input className="input" value={guardian.occupation} onChange={(e) => setGuardian({ ...guardian, occupation: e.target.value })} /></label></div><label className="grid gap-1.5"><span className="label">Address</span><textarea className="input min-h-16" value={guardian.address} onChange={(e) => setGuardian({ ...guardian, address: e.target.value })} /></label><label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={guardian.primary} onChange={(e) => setGuardian({ ...guardian, primary: e.target.checked })} />Primary contact</label><button className="btn-primary w-fit" disabled={addGuardian.isPending || !canEdit}>{addGuardian.isPending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}Add guardian</button></form>
           </div>;
-        })() : <p className="text-sm text-rose-600">Could not load the full student record.</p>}
+        })() : <p className="text-sm text-little-coral-600">Could not load the full student record.</p>}
       </Drawer>
     </>
   );

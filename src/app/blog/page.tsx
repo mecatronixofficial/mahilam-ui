@@ -1,137 +1,128 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BookOpen, CalendarDays, ChevronLeft, ChevronRight, Newspaper, PenLine } from "lucide-react";
+import { Newspaper, PenLine } from "lucide-react";
 import { PublicShell } from "@/components/public/PublicShell";
-import { PageBanner } from "@/components/public/PageBanner";
-import { AdmissionsCta } from "@/components/public/AdmissionsCta";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getPublicResult, type BlogSummary } from "@/lib/server-api";
-import { formatDate, isOptimizable } from "@/lib/media";
-import { localImage } from "@/lib/images";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
+import { BRAND } from "@/lib/brand";
 
-const PER_PAGE = 12;
-const TINTS = ["#f7c85b", "#a7d9c1", "#ef9e8a", "#8cb9e8", "#c4b5fd"];
+import { Wave } from "@/components/about/Doodles";
+import { Appear } from "@/components/animations/Appear";
+import { journal } from "@/components/blog/fonts";
+import { FeaturedStory, JournalHero } from "@/components/blog/JournalHero";
+import { LearningHighlights, ParentsCorner, ReadingInvite } from "@/components/blog/JournalSections";
+import { StoryBrowser } from "@/components/blog/StoryBrowser";
+import { StoryGrid } from "@/components/blog/StoryCards";
+import { categoriesOf, LEARNING, PARENTING, postsAbout } from "@/components/blog/stories";
 
-export const metadata: Metadata = pageMetadata({
-  title: "Parent Blog — Early Learning Tips & School News",
-  description: "Parenting tips, early-learning ideas and news from Little Mahilam Preschool, Tiruppur — helpful reading for families of toddlers and young children.",
-  path: "/blog",
-  keywords: ["parenting tips Tiruppur", "preschool readiness tips", "early childhood learning blog"],
-});
+const PER_PAGE = 9;
+/** Enough recent posts to find real categories and fill the themed sections. */
+const RECENT = 100;
 
 export const revalidate = 0;
 
-export default async function BlogPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-  const page = Math.max(1, Number((await searchParams).page) || 1);
-  const result = await getPublicResult<BlogSummary[]>(`/blogs?page=${page}&limit=${PER_PAGE}`, 0);
-  const posts = result.status === "ok" ? result.data : [];
-  const meta = result.status === "ok" ? result.meta : undefined;
-  const [featured, ...rest] = page === 1 ? posts : [undefined, ...posts];
-  const today = formatDate(new Date().toISOString(), { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+type Search = { page?: string; category?: string; q?: string };
+type Props = { searchParams: Promise<Search> };
+
+function readParams(params: Search) {
+  return {
+    page: Math.min(Math.max(1, Number(params.page) || 1), 20),
+    category: (params.category ?? "").trim().slice(0, 60),
+    q: (params.q ?? "").trim().slice(0, 100),
+  };
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { category, q, page } = readParams(await searchParams);
+  const meta = pageMetadata({
+    title: "Parent Blog — Early Learning Tips & School News",
+    description: "Parenting tips, early-learning ideas and news from Little Mahilam Preschool, Tiruppur — helpful reading for families of toddlers and young children.",
+    path: "/blog",
+    keywords: ["parenting tips Tiruppur", "preschool readiness tips", "early childhood learning blog"],
+    // Search results and deeper "load more" views are not separate pages for search engines.
+    noindex: Boolean(q) || page > 1,
+  });
+  return category && !q ? { ...meta, alternates: { canonical: `/blog?category=${encodeURIComponent(category)}` } } : meta;
+}
+
+export default async function BlogPage({ searchParams }: Props) {
+  const { page, category, q } = readParams(await searchParams);
+  const filtered = Boolean(category || q);
+
+  const recent = await getPublicResult<BlogSummary[]>(`/blogs?page=1&limit=${RECENT}`, 0);
+  const recentPosts = recent.status === "ok" ? recent.data : [];
+  const featured = !filtered ? recentPosts[0] : undefined;
+
+  // The grid: filtered results from the API, or everything after the featured story. "Load more" widens the window.
+  const params = new URLSearchParams({ page: "1", limit: String(Math.min(PER_PAGE * page + (featured ? 1 : 0), 200)) });
+  if (category) params.set("category", category);
+  if (q) params.set("search", q);
+  const skip = featured ? 1 : 0;
+  const ownRequest = filtered || PER_PAGE * page + skip > RECENT;
+  const list = ownRequest ? await getPublicResult<BlogSummary[]>(`/blogs?${params}`, 0) : recent;
+  const listPosts = list.status === "ok" ? list.data.slice(skip, skip + PER_PAGE * page) : [];
+  const total = list.status === "ok" ? Math.max((list.meta?.total ?? list.data.length) - skip, 0) : 0;
+
+  const categories = categoriesOf(recentPosts);
+  const parenting = postsAbout(recentPosts, PARENTING);
+  const learning = postsAbout(recentPosts, LEARNING).slice(0, 10);
+  const error = recent.status === "error" || list.status === "error";
 
   return (
     <PublicShell>
-      <PageBanner
-        theme="blog"
-        eyebrow="Parent blog"
-        icon={BookOpen}
-        title="Stories, tips &"
-        highlight="school news."
-        description="Ideas for joyful learning at home, updates from our classrooms and answers to the questions parents of young children ask most."
-        crumbs={[{ name: "Blog", path: "/blog" }]}
-        image={{ src: localImage("/images/banners/blog.webp", 1), alt: "Children reading stories at Little Mahilam Preschool" }}
-      />
+      <JsonLd data={breadcrumbSchema([{ name: "Blog", path: "/blog" }])} />
+      <div className="overflow-x-clip">
+        <JournalHero categories={categories} nextBg={BRAND.yellow[50]} />
 
-      <section className="py-14 md:py-20">
-        <div className="container-pad">
-          {/* Newspaper masthead */}
-          <header className="mx-auto max-w-5xl border-y-4 border-double border-emerald-950 py-4 text-center">
-            <p className="font-display text-4xl font-bold tracking-tight text-emerald-950 sm:text-5xl">The Little Mahilam Times</p>
-            <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[11px] font-extrabold uppercase tracking-[.2em] text-slate-500">
-              <span>{today}</span>
-              <span aria-hidden>•</span>
-              <span>Tiruppur edition</span>
-              <span aria-hidden>•</span>
-              <span>For curious parents</span>
-            </div>
-          </header>
+        {featured && (
+          <section className="relative overflow-hidden pb-10 pt-6 md:pb-12 md:pt-8" style={{ background: BRAND.yellow[50] }}>
+            <div className="container-pad relative"><FeaturedStory post={featured} /></div>
+            <Wave color={BRAND.cream.base} flip className="absolute inset-x-0 bottom-0 h-6" />
+          </section>
+        )}
 
-          <div className="mx-auto mt-10 max-w-5xl">
-            {result.status === "error" ? (
-              <Notice icon={Newspaper} title="The blog is taking a short break." copy="We couldn't load articles right now. Please try again in a few minutes." />
-            ) : posts.length === 0 ? (
-              <Notice icon={PenLine} title="Our first stories are on the way." copy="We're writing helpful articles for parents. Check back soon — or visit us to see school life in person." />
+        <section id="stories" className="relative scroll-mt-24 pb-10 pt-6 md:pb-12 md:pt-8" style={{ background: BRAND.cream.base }}>
+          <div className="container-pad relative">
+            <Appear y={20} className="mb-6 flex flex-wrap items-end justify-between gap-3">
+              <h2 className={`${journal.className} text-[clamp(2rem,4.4vw,3.2rem)] font-extrabold leading-[1.05] text-little-green-950`}>
+                Explore our <span className="italic text-little-green-700">stories.</span>
+              </h2>
+            </Appear>
+
+            {error ? (
+              <Notice icon={Newspaper} title="The journal is taking a short nap." copy="We couldn't load stories right now. Please try again in a few minutes." />
+            ) : recentPosts.length === 0 ? (
+              <Notice icon={PenLine} title="Our first stories are being written." copy="Our teachers are putting together helpful reads for parents. Check back soon — or come and see school life in person." />
             ) : (
-              <>
-                {featured && (
-                  <Link href={`/blog/${featured.slug}`} className="group mb-12 grid gap-8 border-b-2 border-emerald-950/10 pb-12 md:grid-cols-[1.15fr_.85fr]">
-                    <div>
-                      <span className="inline-flex items-center gap-1.5 bg-[#e2725b] px-3 py-1 text-[11px] font-extrabold uppercase tracking-[.2em] text-white">Front page{featured.category ? ` · ${featured.category}` : ""}</span>
-                      <h2 className="mt-4 font-display text-3xl font-bold leading-[1.1] text-emerald-950 transition group-hover:text-emerald-800 md:text-5xl">{featured.title}</h2>
-                      <p className="mt-4 flex items-center gap-2 text-sm font-bold text-slate-500">
-                        <CalendarDays className="h-4 w-4" />{formatDate(featured.publishedAt, { day: "numeric", month: "long", year: "numeric" })}{featured.author ? ` · By ${featured.author}` : ""}
-                      </p>
-                      {featured.excerpt && (
-                        <p className="mt-5 text-lg leading-8 text-slate-600 first-letter:float-left first-letter:mr-2 first-letter:font-display first-letter:text-6xl first-letter:font-bold first-letter:leading-[.85] first-letter:text-[#e2725b]">{featured.excerpt}</p>
-                      )}
-                      <span className="mt-6 inline-flex items-center gap-1.5 font-extrabold text-emerald-800">Continue reading <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" /></span>
-                    </div>
-                    <figure>
-                      <div className="relative aspect-[4/3] overflow-hidden bg-emerald-50 grayscale-[15%] transition group-hover:grayscale-0 md:aspect-[4/5]">
-                        <Image src={featured.coverImage || "/imgs/home/kid1.jpg"} alt={featured.title} fill priority sizes="(min-width: 768px) 40vw, 92vw" unoptimized={!isOptimizable(featured.coverImage || "/")} className="object-cover transition duration-700 group-hover:scale-105" />
-                      </div>
-                      <figcaption className="mt-2 border-l-4 border-[#f7c85b] pl-3 text-xs font-bold italic text-slate-500">From our classrooms in Tiruppur</figcaption>
-                    </figure>
-                  </Link>
+              <StoryBrowser categories={categories} category={category} q={q} total={total} shown={listPosts.length} page={page}>
+                {listPosts.length > 0 ? (
+                  <div id="more"><StoryGrid posts={listPosts} /></div>
+                ) : (
+                  <Notice icon={PenLine} title="No stories match yet." copy="Try another word or topic — or browse all our stories." small />
                 )}
-
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                  {rest.filter(Boolean).map((post, i) => <PostCard key={post!.id} post={post!} tint={TINTS[i % TINTS.length]} />)}
-                </div>
-
-                {meta && meta.pages > 1 && (
-                  <nav aria-label="Blog pages" className="mt-12 flex items-center justify-center gap-3">
-                    {page > 1 ? <Link href={page === 2 ? "/blog" : `/blog?page=${page - 1}`} rel="prev" className="btn-soft"><ChevronLeft className="h-4 w-4" />Newer</Link> : <span />}
-                    <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-500 shadow-sm">Page {page} of {meta.pages}</span>
-                    {page < meta.pages ? <Link href={`/blog?page=${page + 1}`} rel="next" className="btn-soft">Older<ChevronRight className="h-4 w-4" /></Link> : <span />}
-                  </nav>
-                )}
-              </>
+              </StoryBrowser>
             )}
           </div>
-        </div>
-      </section>
-      <AdmissionsCta />
+        </section>
+
+        {!filtered && parenting.length > 0 && <ParentsCorner posts={parenting} />}
+        {!filtered && learning.length > 0 && <LearningHighlights posts={learning} />}
+        <ReadingInvite />
+      </div>
     </PublicShell>
   );
 }
 
-/** Article card with a folded top-right corner. */
-function PostCard({ post, tint }: { post: BlogSummary; tint: string }) {
+function Notice({ icon: Icon, title, copy, small = false }: { icon: typeof Newspaper; title: string; copy: string; small?: boolean }) {
   return (
-    <Link href={`/blog/${post.slug}`} className="group relative flex flex-col bg-white shadow-[0_18px_36px_-26px_rgba(23,60,47,.5)] transition hover:-translate-y-1" style={{ clipPath: "polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 0 100%)" }}>
-      <span aria-hidden className="absolute right-0 top-0 h-[34px] w-[34px]" style={{ background: `linear-gradient(225deg, transparent 50%, ${tint} 50%)` }} />
-      <div className="relative m-3 mb-0 h-44 overflow-hidden bg-emerald-50">
-        <Image src={post.coverImage || "/imgs/home/kid2.avif"} alt={post.title} fill sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 92vw" unoptimized={!isOptimizable(post.coverImage || "/")} className="object-cover transition duration-700 group-hover:scale-105" />
-      </div>
-      <div className="flex flex-1 flex-col p-6 pt-5">
-        {post.category && <span className="w-fit px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-[.2em] text-emerald-950" style={{ backgroundColor: tint }}>{post.category}</span>}
-        <h2 className="mt-3 font-display text-xl font-bold leading-snug text-emerald-950">{post.title}</h2>
-        {post.excerpt && <p className="mt-2 line-clamp-3 flex-1 leading-7 text-slate-600">{post.excerpt}</p>}
-        <p className="mt-4 border-t border-dashed border-emerald-950/15 pt-3 text-xs font-bold text-slate-400">{formatDate(post.publishedAt)}{post.author ? ` · ${post.author}` : ""}</p>
-      </div>
-    </Link>
-  );
-}
-
-function Notice({ icon: Icon, title, copy }: { icon: typeof Newspaper; title: string; copy: string }) {
-  return (
-    <div className="mx-auto max-w-2xl border-2 border-dashed border-emerald-950/20 bg-white p-10 text-center">
-      <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-[22px] bg-gradient-to-br from-[#f7c85b] to-[#ef9e8a] text-emerald-950"><Icon className="h-8 w-8" /></span>
-      <h2 className="mt-5 font-display text-2xl font-bold text-emerald-950">{title}</h2>
-      <p className="mx-auto mt-2 max-w-md leading-7 text-slate-600">{copy}</p>
-      <Link href="/contact" className="btn-soft mt-6">Plan a visit</Link>
+    <div className={`mx-auto max-w-2xl rounded-[36px] border-2 border-dashed border-little-green-950/15 bg-white text-center ${small ? "p-8" : "p-10"}`}>
+      <span className="mx-auto grid h-16 w-16 place-items-center rounded-[22px] bg-little-yellow-200 text-little-green-950"><Icon className="h-8 w-8" /></span>
+      <h3 className={`${journal.className} mt-5 text-2xl font-bold text-little-green-950`}>{title}</h3>
+      <p className="mx-auto mt-2 max-w-md leading-7 text-little-neutral-600">{copy}</p>
+      {small
+        ? <Link href="/blog#stories" className="mt-5 inline-block font-display font-bold text-little-coral-600 underline decoration-2 underline-offset-4">See all stories</Link>
+        : <Link href="/contact" className="mt-5 inline-block font-display font-bold text-little-coral-600 underline decoration-2 underline-offset-4">Plan a visit</Link>}
     </div>
   );
 }

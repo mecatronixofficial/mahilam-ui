@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { WhatsappIcon } from "./WhatsappIcon";
 import { BalloonString } from "./BalloonString";
+import { BRAND } from "@/lib/brand";
 
 const FLY_AWAY_MS = 550;
 
@@ -41,19 +42,19 @@ export function FloatingActions({ whatsapp }: { whatsapp?: string }) {
               : "motion-safe:animate-bounce duration-200"
           }`}
         >
-          <BalloonString length={28} color="rgba(23,60,47,.4)" className="absolute left-[calc(50%-6px)] top-[calc(100%+5px)]" />
+          <BalloonString length={28} color="rgba(36,68,32,.4)" className="absolute left-[calc(50%-6px)] top-[calc(100%+5px)]" />
           <span
             className="absolute -bottom-1.5 left-1/2 h-2 w-2.5 -translate-x-1/2"
-            style={{ backgroundColor: "#ef9e8a", clipPath: "polygon(50% 100%, 0 0, 100% 0)" }}
+            style={{ backgroundColor: BRAND.coral[300], clipPath: "polygon(50% 100%, 0 0, 100% 0)" }}
           />
           <span
-            className="relative flex h-14 w-12 items-center justify-center shadow-lg shadow-emerald-950/25 transition-shadow hover:shadow-xl"
+            className="relative flex h-14 w-12 items-center justify-center shadow-lg shadow-little-green-950/25 transition-shadow hover:shadow-xl"
             style={{
-              background: "radial-gradient(circle at 33% 28%, #fff1cf, #f7c85b 45%, #ef9e8a 100%)",
+              background: "radial-gradient(circle at 33% 28%, var(--color-little-yellow-50), var(--color-little-yellow-400) 45%, var(--color-little-coral-300) 100%)",
               borderRadius: "50% 50% 50% 50% / 58% 58% 42% 42%",
             }}
           >
-            <ArrowUp className="h-5 w-5 text-emerald-950" strokeWidth={3} />
+            <ArrowUp className="h-5 w-5 text-little-green-950" strokeWidth={3} />
           </span>
         </button>
       )}
@@ -64,7 +65,7 @@ export function FloatingActions({ whatsapp }: { whatsapp?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-emerald-950/25 transition-transform hover:scale-105"
+          className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-little-green-950/25 transition-transform hover:scale-105"
         >
           <span className="motion-safe:animate-ping absolute inset-0 rounded-full bg-[#25D366]/60" />
           <WhatsappIcon className="relative h-7 w-7" />

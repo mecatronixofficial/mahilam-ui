@@ -1,5 +1,6 @@
 "use client";
 
+import { AcademicEditorClient } from "./AcademicEditorClient";
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -22,7 +23,7 @@ export function AcademicsClient() {
   const [classForm, setClassForm] = useState({ name: "", code: "", displayOrder: 0, academicYearId: "", active: true });
   const [section, setSection] = useState({ classLevelId: "", name: "", capacity: "", room: "", active: true });
 
-  const refresh = () => { qc.invalidateQueries({ queryKey: ["academics-years"] }); qc.invalidateQueries({ queryKey: ["academics-classes"] }); };
+  const refresh = () => { qc.invalidateQueries({ queryKey: ["crm"] }); qc.invalidateQueries({ queryKey: ["academics-years"] }); qc.invalidateQueries({ queryKey: ["academics-classes"] }); };
   const fail = (error: unknown) => toast.error(errorMessage(error));
   const createYear = useMutation({ mutationFn: () => api("/academics/years", { method: "POST", body: JSON.stringify(year) }), onSuccess: () => { toast.success("Academic year added"); setYear({ name: "", startDate: "", endDate: "", current: false, active: true }); refresh(); }, onError: fail });
   const createClass = useMutation({ mutationFn: () => api("/academics/classes", { method: "POST", body: JSON.stringify({ ...classForm, code: classForm.code.trim().toUpperCase().replace(/\s+/g, "-"), academicYearId: classForm.academicYearId || null }) }), onSuccess: () => { toast.success("Class added"); setClassForm({ name: "", code: "", displayOrder: 0, academicYearId: "", active: true }); refresh(); }, onError: fail });
@@ -30,7 +31,7 @@ export function AcademicsClient() {
 
   const years = yearsQ.data?.data ?? [];
   const classes = classesQ.data?.data ?? [];
-  return <>
+  return <><AcademicEditorClient />
     {!isAdmin && <div className="mb-5"><InlineNotice variant="forbidden">Academic setup is read-only for staff. Administrators can create years, classes and sections.</InlineNotice></div>}
     {isAdmin && <div className="mb-6 grid gap-4 xl:grid-cols-3">
       <form onSubmit={(e) => { e.preventDefault(); createYear.mutate(); }} className="panel grid gap-3"><h2 className="flex items-center gap-2 font-extrabold"><CalendarDays className="h-5 w-5" />Academic year</h2><input className="input" placeholder="2026-2027" pattern="\d{4}-\d{4}" value={year.name} onChange={(e) => setYear({ ...year, name: e.target.value })} required /><div className="grid grid-cols-2 gap-2"><label className="grid gap-1"><span className="label">Starts</span><input className="input" type="date" value={year.startDate} onChange={(e) => setYear({ ...year, startDate: e.target.value })} required /></label><label className="grid gap-1"><span className="label">Ends</span><input className="input" type="date" value={year.endDate} onChange={(e) => setYear({ ...year, endDate: e.target.value })} required /></label></div><label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" checked={year.current} onChange={(e) => setYear({ ...year, current: e.target.checked })} />Set as current year</label><button className="btn-primary" disabled={createYear.isPending}>{createYear.isPending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}Add year</button></form>
@@ -38,7 +39,7 @@ export function AcademicsClient() {
       <form onSubmit={(e) => { e.preventDefault(); createSection.mutate(); }} className="panel grid gap-3"><h2 className="flex items-center gap-2 font-extrabold"><School className="h-5 w-5" />Section</h2><select className="input" value={section.classLevelId} onChange={(e) => setSection({ ...section, classLevelId: e.target.value })} required><option value="">Choose class</option>{classes.map((row) => <option key={row.id} value={row.id}>{row.name}</option>)}</select><div className="grid grid-cols-2 gap-2"><input className="input" placeholder="Section name" value={section.name} onChange={(e) => setSection({ ...section, name: e.target.value })} required /><input className="input" placeholder="Room" value={section.room} onChange={(e) => setSection({ ...section, room: e.target.value })} /></div><input className="input" type="number" min={1} max={500} placeholder="Capacity" value={section.capacity} onChange={(e) => setSection({ ...section, capacity: e.target.value })} /><button className="btn-primary" disabled={createSection.isPending}>{createSection.isPending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}Add section</button></form>
     </div>}
     <QueryState query={classesQ} isEmpty={!classes.length} empty={{ title: "No classes configured", description: "Add an academic year and the school's classes to organise student records." }}>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">{classes.map((row) => <article key={row.id} className="panel p-5"><div className="flex items-start justify-between"><div><h3 className="text-lg font-extrabold">{row.name}</h3><p className="text-xs font-bold text-slate-400">{row.code}</p></div><span className="chip bg-indigo-100 text-indigo-800"><Users className="h-3.5 w-3.5" />{row._count?.students ?? 0}</span></div><div className="mt-4 grid gap-2">{row.sections.length ? row.sections.map((item) => <div key={item.id} className="flex items-center justify-between rounded-xl bg-white/60 px-3 py-2 text-sm"><span className="font-bold">Section {item.name}{item.room ? ` · ${item.room}` : ""}</span><span className="text-xs text-slate-500">{item._count?.students ?? 0}{item.capacity ? ` / ${item.capacity}` : ""}</span></div>) : <p className="text-sm text-slate-400">No sections</p>}</div></article>)}</div>
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">{classes.map((row) => <article key={row.id} className="panel p-5"><div className="flex items-start justify-between"><div><h3 className="text-lg font-extrabold">{row.name}</h3><p className="text-xs font-bold text-little-neutral-500">{row.code}</p></div><span className="chip bg-little-blue-100 text-little-blue-800"><Users className="h-3.5 w-3.5" />{row._count?.students ?? 0}</span></div><div className="mt-4 grid gap-2">{row.sections.length ? row.sections.map((item) => <div key={item.id} className="flex items-center justify-between rounded-xl bg-white/60 px-3 py-2 text-sm"><span className="font-bold">Section {item.name}{item.room ? ` · ${item.room}` : ""}</span><span className="text-xs text-little-neutral-500">{item._count?.students ?? 0}{item.capacity ? ` / ${item.capacity}` : ""}</span></div>) : <p className="text-sm text-little-neutral-500">No sections</p>}</div></article>)}</div>
     </QueryState>
   </>;
 }

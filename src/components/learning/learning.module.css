@@ -1,0 +1,40 @@
+/* Learning Approach page only — small looping details that the shared motion kit doesn't cover. */
+
+/* Graph-paper dots, like a classroom notebook. */
+.paper {
+  background-image: radial-gradient(circle, rgb(36 68 32 / .09) 1.4px, transparent 1.6px);
+  background-size: 26px 26px;
+}
+
+/* Music tile: equaliser bars pumping at their own pace. */
+.eq { transform-origin: bottom; animation: eq var(--eq-dur, 1.1s) ease-in-out var(--eq-d, 0s) infinite alternate; }
+@keyframes eq { from { transform: scaleY(.3); } to { transform: scaleY(1); } }
+
+/* Day journey: dashes march along the road. */
+.march { animation: march 1.6s linear infinite; }
+@keyframes march { to { stroke-dashoffset: -28; } }
+
+/* A soft ring that pulses out of the active checkpoint. */
+.ping { animation: ping 1.8s var(--ease-smooth) infinite; }
+@keyframes ping { from { transform: scale(1); opacity: .55; } to { transform: scale(1.9); opacity: 0; } }
+
+/* Photo swap in "Learning Through Play": the new picture opens as a growing circle. */
+.iris { animation: iris .9s var(--ease-expo) both; }
+@keyframes iris { from { clip-path: circle(0% at var(--iris-x, 50%) var(--iris-y, 50%)); } to { clip-path: circle(75% at var(--iris-x, 50%) var(--iris-y, 50%)); } }
+
+/* Morphing organic frame. */
+.morph { animation: morph 14s ease-in-out infinite alternate; }
+@keyframes morph {
+  0% { border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%; }
+  50% { border-radius: 44% 56% 42% 58% / 58% 42% 58% 42%; }
+  100% { border-radius: 52% 48% 60% 40% / 42% 60% 40% 58%; }
+}
+
+@media (max-width: 639px) {
+  /* Keep phones calm: the frame stays still. */
+  .morph { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eq, .march, .ping, .iris, .morph { animation: none !important; }
+}

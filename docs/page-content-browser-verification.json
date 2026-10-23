@@ -1,0 +1,163 @@
+{
+  "api": "isolated fixture, no school database or cloud writes",
+  "checks": [
+    "Multipart upload, save lock during upload, publish, reload, public rendering, sibling draft preservation, save failure and restore defaults",
+    "Website-wide photo upload, settings persistence, public image replacement and Learning Approach editor without a schema migration",
+    "All home section text and image slots render from public CMS settings",
+    "All about section text and image slots render from public CMS settings",
+    "All 60 supplied photos appear in the default gallery; ten public pages and three CMS pages fit desktop and mobile screens"
+  ],
+  "viewports": [
+    {
+      "path": "/admin/home",
+      "width": 1440,
+      "pageWidth": 1425
+    },
+    {
+      "path": "/admin/about",
+      "width": 1440,
+      "pageWidth": 1425
+    },
+    {
+      "path": "/admin/photos",
+      "width": 1440,
+      "pageWidth": 1425
+    },
+    {
+      "path": "/admin/home",
+      "width": 390,
+      "pageWidth": 390
+    },
+    {
+      "path": "/admin/about",
+      "width": 390,
+      "pageWidth": 390
+    },
+    {
+      "path": "/admin/photos",
+      "width": 390,
+      "pageWidth": 390
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "pageWidth": 1440,
+      "photos": 15
+    },
+    {
+      "path": "/about",
+      "width": 1440,
+      "pageWidth": 1440,
+      "photos": 8
+    },
+    {
+      "path": "/programs",
+      "width": 1440,
+      "pageWidth": 1440,
+      "photos": 14
+    },
+    {
+      "path": "/learning-approach",
+      "width": 1440,
+      "pageWidth": 1425,
+      "photos": 6
+    },
+    {
+      "path": "/activities",
+      "width": 1440,
+      "pageWidth": 1425,
+      "photos": 23
+    },
+    {
+      "path": "/facilities",
+      "width": 1440,
+      "pageWidth": 1440,
+      "photos": 20
+    },
+    {
+      "path": "/gallery",
+      "width": 1440,
+      "pageWidth": 1440,
+      "photos": 76
+    },
+    {
+      "path": "/events",
+      "width": 1440,
+      "pageWidth": 1440,
+      "photos": 9
+    },
+    {
+      "path": "/admissions",
+      "width": 1440,
+      "pageWidth": 1425,
+      "photos": 4
+    },
+    {
+      "path": "/contact",
+      "width": 1440,
+      "pageWidth": 1425,
+      "photos": 5
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 14
+    },
+    {
+      "path": "/about",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 7
+    },
+    {
+      "path": "/programs",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 14
+    },
+    {
+      "path": "/learning-approach",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 6
+    },
+    {
+      "path": "/activities",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 24
+    },
+    {
+      "path": "/facilities",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 20
+    },
+    {
+      "path": "/gallery",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 76
+    },
+    {
+      "path": "/events",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 8
+    },
+    {
+      "path": "/admissions",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 5
+    },
+    {
+      "path": "/contact",
+      "width": 390,
+      "pageWidth": 390,
+      "photos": 5
+    }
+  ],
+  "status": "passed"
+}

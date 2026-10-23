@@ -64,7 +64,7 @@ export function TestimonialsManager() {
           <label className="grid gap-1.5"><span className="label">Review</span><textarea className="input min-h-28" value={form.testimonial} onChange={(e) => setForm({ ...form, testimonial: e.target.value })} required /></label>
           <fieldset>
             <legend className="label mb-1.5">Rating</legend>
-            <div className="flex gap-1">{[1, 2, 3, 4, 5].map((n) => <button key={n} type="button" aria-label={`${n} stars`} aria-pressed={form.rating === n} onClick={() => setForm({ ...form, rating: n })} className="rounded-lg p-1 transition hover:scale-110"><Star className={`h-6 w-6 ${n <= form.rating ? "fill-[#f7c85b] text-[#d6a62d]" : "text-slate-300"}`} /></button>)}</div>
+            <div className="flex gap-1">{[1, 2, 3, 4, 5].map((n) => <button key={n} type="button" aria-label={`${n} stars`} aria-pressed={form.rating === n} onClick={() => setForm({ ...form, rating: n })} className="rounded-lg p-1 transition hover:scale-110"><Star className={`h-6 w-6 ${n <= form.rating ? "fill-little-yellow-400 text-little-yellow-700" : "text-little-neutral-300"}`} /></button>)}</div>
           </fieldset>
           <ImageField label="Photo" heightClass="h-28" value={form.photo} onChange={(url) => setForm((f) => ({ ...f, photo: url }))} />
           <div className="grid grid-cols-2 gap-3">
@@ -74,8 +74,8 @@ export function TestimonialsManager() {
           <div className="grid grid-cols-2 items-end gap-3">
             <label className="grid gap-1.5"><span className="label">Display order</span><input className="input" type="number" value={form.displayOrder} onChange={(e) => setForm({ ...form, displayOrder: Number(e.target.value) })} /></label>
             <div className="flex min-h-11 flex-wrap items-center gap-4">
-              <label className="flex items-center gap-2 text-sm font-bold text-slate-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published</label>
-              <label className="flex items-center gap-2 text-sm font-bold text-slate-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.featured} onChange={(e) => setForm({ ...form, featured: e.target.checked })} />Featured</label>
+              <label className="flex items-center gap-2 text-sm font-bold text-little-neutral-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published</label>
+              <label className="flex items-center gap-2 text-sm font-bold text-little-neutral-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.featured} onChange={(e) => setForm({ ...form, featured: e.target.checked })} />Featured</label>
             </div>
           </div>
           <button className="btn-primary" disabled={crud.saving}>
@@ -87,8 +87,8 @@ export function TestimonialsManager() {
 
       <div>
         {pending > 0 && (
-          <div className="panel mb-4 flex items-center gap-3 !border-amber-200/70 !bg-amber-50/80 p-4 text-sm font-bold text-amber-900">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-100"><Star className="h-4 w-4" /></span>
+          <div className="panel mb-4 flex items-center gap-3 !border-little-yellow-200/70 !bg-little-yellow-50/80 p-4 text-sm font-bold text-little-yellow-900">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-little-yellow-100"><Star className="h-4 w-4" /></span>
             {pending} {pending === 1 ? "review is" : "reviews are"} waiting for approval.
             <button type="button" onClick={() => setFilter("pending")} className="ml-auto rounded-lg bg-white/80 px-3 py-1.5 text-xs font-black">Show</button>
           </div>
@@ -97,32 +97,32 @@ export function TestimonialsManager() {
         <QueryState query={crud.list} isEmpty={rows.length === 0} empty={crud.rows.length ? { title: "No matching reviews" } : { title: "No parent reviews yet", description: "Reviews submitted on the homepage arrive here for approval." }}>
           <div className="grid gap-4">
             {rows.map((review) => (
-              <article key={review.id} className={`panel p-6 ${!review.active ? "!border-amber-200/80" : ""} ${editingId === review.id ? "ring-2 ring-[var(--dash-accent)]" : ""}`}>
+              <article key={review.id} className={`panel p-6 ${!review.active ? "!border-little-yellow-200/80" : ""} ${editingId === review.id ? "ring-2 ring-[var(--dash-accent)]" : ""}`}>
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
                     {review.photo
                       ? <img src={review.photo} alt="" loading="lazy" className="h-12 w-12 rounded-full object-cover" />
                       : <div className="accent-bg flex h-12 w-12 items-center justify-center rounded-full"><User className="h-5 w-5" /></div>}
                     <div>
-                      <div className="font-extrabold">{review.parentName}{review.location ? <span className="font-bold text-slate-400"> · {review.location}</span> : null}</div>
-                      {review.studentReference && <div className="text-xs font-bold text-slate-400">{review.studentReference}</div>}
-                      <div className="mt-1 flex gap-0.5" aria-label={`${review.rating || 0} out of 5`}>{Array.from({ length: 5 }).map((_, index) => <Star key={index} className={`h-3.5 w-3.5 ${index < (review.rating || 0) ? "fill-[#f7c85b] text-[#d6a62d]" : "text-slate-200"}`} />)}</div>
+                      <div className="font-extrabold">{review.parentName}{review.location ? <span className="font-bold text-little-neutral-500"> · {review.location}</span> : null}</div>
+                      {review.studentReference && <div className="text-xs font-bold text-little-neutral-500">{review.studentReference}</div>}
+                      <div className="mt-1 flex gap-0.5" aria-label={`${review.rating || 0} out of 5`}>{Array.from({ length: 5 }).map((_, index) => <Star key={index} className={`h-3.5 w-3.5 ${index < (review.rating || 0) ? "fill-little-yellow-400 text-little-yellow-700" : "text-little-neutral-200"}`} />)}</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <button type="button" onClick={() => crud.patch.mutate({ id: review.id, payload: { featured: !review.featured } })} disabled={crud.patch.isPending} aria-pressed={review.featured} aria-label={review.featured ? "Unfeature" : "Feature"} className={`rounded-full p-2 ${review.featured ? "bg-amber-100/80 text-amber-600" : "bg-slate-200/60 text-slate-400"}`}>
-                      <Star className={`h-4 w-4 ${review.featured ? "fill-amber-500" : ""}`} />
+                    <button type="button" onClick={() => crud.patch.mutate({ id: review.id, payload: { featured: !review.featured } })} disabled={crud.patch.isPending} aria-pressed={review.featured} aria-label={review.featured ? "Unfeature" : "Feature"} className={`rounded-full p-2 ${review.featured ? "bg-little-yellow-100/80 text-little-yellow-700" : "bg-little-neutral-200/60 text-little-neutral-500"}`}>
+                      <Star className={`h-4 w-4 ${review.featured ? "fill-little-yellow-500" : ""}`} />
                     </button>
-                    <span className={`chip ${review.active ? "bg-emerald-100/80 text-emerald-800" : "bg-amber-100/80 text-amber-800"}`}>{review.active ? "Published" : "Pending"}</span>
+                    <span className={`chip ${review.active ? "bg-little-green-100/80 text-little-green-800" : "bg-little-yellow-100/80 text-little-yellow-800"}`}>{review.active ? "Published" : "Pending"}</span>
                   </div>
                 </div>
                 {review.subject && <h3 className="mt-4 font-extrabold">{review.subject}</h3>}
-                <p className="mt-1.5 leading-7 text-slate-600">“{review.testimonial}”</p>
+                <p className="mt-1.5 leading-7 text-little-neutral-600">“{review.testimonial}”</p>
                 {(review.mobile || review.email) && (
-                  <div className="mt-4 flex flex-wrap gap-4 rounded-xl bg-white/60 px-3 py-2 text-xs font-bold text-slate-500">
-                    {review.mobile && <a href={`tel:${review.mobile}`} className="flex items-center gap-1.5 hover:text-slate-800"><Phone className="h-3.5 w-3.5" />{review.mobile}</a>}
-                    {review.email && <a href={`mailto:${review.email}`} className="flex items-center gap-1.5 hover:text-slate-800"><Mail className="h-3.5 w-3.5" />{review.email}</a>}
-                    <span className="text-slate-400">Private — used only to verify the parent</span>
+                  <div className="mt-4 flex flex-wrap gap-4 rounded-xl bg-white/60 px-3 py-2 text-xs font-bold text-little-neutral-500">
+                    {review.mobile && <a href={`tel:${review.mobile}`} className="flex items-center gap-1.5 hover:text-little-neutral-800"><Phone className="h-3.5 w-3.5" />{review.mobile}</a>}
+                    {review.email && <a href={`mailto:${review.email}`} className="flex items-center gap-1.5 hover:text-little-neutral-800"><Mail className="h-3.5 w-3.5" />{review.email}</a>}
+                    <span className="text-little-neutral-500">Private — used only to verify the parent</span>
                   </div>
                 )}
                 <div className="mt-4 flex flex-wrap items-center gap-2 border-t pt-3">

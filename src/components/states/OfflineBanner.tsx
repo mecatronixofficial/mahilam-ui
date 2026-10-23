@@ -20,8 +20,8 @@ export function OfflineBanner() {
   const offline = status === "offline";
   return (
     <div role="status" aria-live="polite" className="pointer-events-none fixed inset-x-0 bottom-5 z-[90] flex justify-center px-4">
-      <div className={`glass pointer-events-auto flex animate-fade-up items-center gap-3 rounded-full px-4 py-2.5 text-sm font-bold ${offline ? "text-amber-900" : "text-emerald-800"}`}>
-        <span className={`flex h-8 w-8 items-center justify-center rounded-full ${offline ? "bg-amber-100" : "bg-emerald-100"}`}>
+      <div className={`glass pointer-events-auto flex animate-fade-up items-center gap-3 rounded-full px-4 py-2.5 text-sm font-bold ${offline ? "text-little-yellow-900" : "text-little-green-800"}`}>
+        <span className={`flex h-8 w-8 items-center justify-center rounded-full ${offline ? "bg-little-yellow-100" : "bg-little-green-100"}`}>
           {offline ? <WifiOff className="h-4 w-4" /> : <Wifi className="h-4 w-4" />}
         </span>
         {offline ? "You're offline. Some content may be out of date." : "Back online — refreshing content."}

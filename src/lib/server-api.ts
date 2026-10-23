@@ -5,7 +5,16 @@
  * A backend outage never fails a render: callers get `null` and show fallbacks.
  */
 
+import { DEFAULT_BRANDING, type Branding } from "./branding";
 const SERVER_API_URL = process.env.API_URL_INTERNAL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api/v1";
+
+export async function getBranding(): Promise<Branding> {
+  try {
+    const response = await fetch(`${SERVER_API_URL}/branding`, { cache: "no-store", signal: AbortSignal.timeout(6000) });
+    if (!response.ok) return DEFAULT_BRANDING;
+    return (await response.json()).data ?? DEFAULT_BRANDING;
+  } catch { return DEFAULT_BRANDING; }
+}
 
 export const REVALIDATE_SECONDS = 0;
 

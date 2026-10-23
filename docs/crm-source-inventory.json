@@ -1,0 +1,1584 @@
+{
+  "generatedAt": "2026-10-22T08:17:01.488Z",
+  "pages": [
+    {
+      "path": "/about",
+      "file": "src/app/about/page.tsx"
+    },
+    {
+      "path": "/activities",
+      "file": "src/app/activities/page.tsx"
+    },
+    {
+      "path": "/admin/activities",
+      "file": "src/app/admin/activities/page.tsx"
+    },
+    {
+      "path": "/admin/activity",
+      "file": "src/app/admin/activity/page.tsx"
+    },
+    {
+      "path": "/admin/announcements",
+      "file": "src/app/admin/announcements/page.tsx"
+    },
+    {
+      "path": "/admin/banners",
+      "file": "src/app/admin/banners/page.tsx"
+    },
+    {
+      "path": "/admin/blogs",
+      "file": "src/app/admin/blogs/page.tsx"
+    },
+    {
+      "path": "/admin/events",
+      "file": "src/app/admin/events/page.tsx"
+    },
+    {
+      "path": "/admin/facilities",
+      "file": "src/app/admin/facilities/page.tsx"
+    },
+    {
+      "path": "/admin/gallery",
+      "file": "src/app/admin/gallery/page.tsx"
+    },
+    {
+      "path": "/admin/learning-approach",
+      "file": "src/app/admin/learning-approach/page.tsx"
+    },
+    {
+      "path": "/admin",
+      "file": "src/app/admin/page.tsx"
+    },
+    {
+      "path": "/admin/programs",
+      "file": "src/app/admin/programs/page.tsx"
+    },
+    {
+      "path": "/admin/settings",
+      "file": "src/app/admin/settings/page.tsx"
+    },
+    {
+      "path": "/admin/subscribers",
+      "file": "src/app/admin/subscribers/page.tsx"
+    },
+    {
+      "path": "/admin/testimonials",
+      "file": "src/app/admin/testimonials/page.tsx"
+    },
+    {
+      "path": "/admissions",
+      "file": "src/app/admissions/page.tsx"
+    },
+    {
+      "path": "/blog",
+      "file": "src/app/blog/page.tsx"
+    },
+    {
+      "path": "/blog/[slug]",
+      "file": "src/app/blog/[slug]/page.tsx"
+    },
+    {
+      "path": "/contact",
+      "file": "src/app/contact/page.tsx"
+    },
+    {
+      "path": "/crm/academics",
+      "file": "src/app/crm/academics/page.tsx"
+    },
+    {
+      "path": "/crm/account",
+      "file": "src/app/crm/account/page.tsx"
+    },
+    {
+      "path": "/crm/admissions",
+      "file": "src/app/crm/admissions/page.tsx"
+    },
+    {
+      "path": "/crm/admissions/[id]",
+      "file": "src/app/crm/admissions/[id]/page.tsx"
+    },
+    {
+      "path": "/crm/attendance",
+      "file": "src/app/crm/attendance/page.tsx"
+    },
+    {
+      "path": "/crm/communications",
+      "file": "src/app/crm/communications/page.tsx"
+    },
+    {
+      "path": "/crm/enquiries",
+      "file": "src/app/crm/enquiries/page.tsx"
+    },
+    {
+      "path": "/crm/enquiries/[id]",
+      "file": "src/app/crm/enquiries/[id]/page.tsx"
+    },
+    {
+      "path": "/crm/fees",
+      "file": "src/app/crm/fees/page.tsx"
+    },
+    {
+      "path": "/crm/follow-ups",
+      "file": "src/app/crm/follow-ups/page.tsx"
+    },
+    {
+      "path": "/crm/guardians",
+      "file": "src/app/crm/guardians/page.tsx"
+    },
+    {
+      "path": "/crm/guardians/[id]",
+      "file": "src/app/crm/guardians/[id]/page.tsx"
+    },
+    {
+      "path": "/crm",
+      "file": "src/app/crm/page.tsx"
+    },
+    {
+      "path": "/crm/pipeline",
+      "file": "src/app/crm/pipeline/page.tsx"
+    },
+    {
+      "path": "/crm/reports",
+      "file": "src/app/crm/reports/page.tsx"
+    },
+    {
+      "path": "/crm/settings",
+      "file": "src/app/crm/settings/page.tsx"
+    },
+    {
+      "path": "/crm/staff",
+      "file": "src/app/crm/staff/page.tsx"
+    },
+    {
+      "path": "/crm/students",
+      "file": "src/app/crm/students/page.tsx"
+    },
+    {
+      "path": "/crm/students/[id]",
+      "file": "src/app/crm/students/[id]/page.tsx"
+    },
+    {
+      "path": "/crm/tasks",
+      "file": "src/app/crm/tasks/page.tsx"
+    },
+    {
+      "path": "/crm/templates",
+      "file": "src/app/crm/templates/page.tsx"
+    },
+    {
+      "path": "/crm/visits",
+      "file": "src/app/crm/visits/page.tsx"
+    },
+    {
+      "path": "/events",
+      "file": "src/app/events/page.tsx"
+    },
+    {
+      "path": "/facilities",
+      "file": "src/app/facilities/page.tsx"
+    },
+    {
+      "path": "/faq",
+      "file": "src/app/faq/page.tsx"
+    },
+    {
+      "path": "/forbidden",
+      "file": "src/app/forbidden/page.tsx"
+    },
+    {
+      "path": "/gallery",
+      "file": "src/app/gallery/page.tsx"
+    },
+    {
+      "path": "/learning-approach",
+      "file": "src/app/learning-approach/page.tsx"
+    },
+    {
+      "path": "/login",
+      "file": "src/app/login/page.tsx"
+    },
+    {
+      "path": "/offline",
+      "file": "src/app/offline/page.tsx"
+    },
+    {
+      "path": "/",
+      "file": "src/app/page.tsx"
+    },
+    {
+      "path": "/preschool-in-tiruppur",
+      "file": "src/app/preschool-in-tiruppur/page.tsx"
+    },
+    {
+      "path": "/privacy-policy",
+      "file": "src/app/privacy-policy/page.tsx"
+    },
+    {
+      "path": "/programs",
+      "file": "src/app/programs/page.tsx"
+    },
+    {
+      "path": "/session-expired",
+      "file": "src/app/session-expired/page.tsx"
+    }
+  ],
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/v1/academics/years",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/academics/years",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/academics/years/:id",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/academics/years/:id",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/academics/classes",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/academics/classes",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/academics/classes/:id",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/academics/classes/:id",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/academics/sections",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/academics/sections/:id",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/academics/sections/:id",
+      "file": "src/academics/academics.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admissions",
+      "file": "src/admissions/admissions.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admissions",
+      "file": "src/admissions/admissions.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admissions/:id",
+      "file": "src/admissions/admissions.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/admissions/:id",
+      "file": "src/admissions/admissions.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admissions/:id/submit",
+      "file": "src/admissions/admissions.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admissions/:id/review",
+      "file": "src/admissions/admissions.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admissions/:id/confirm",
+      "file": "src/admissions/admissions.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admissions/:id/enroll",
+      "file": "src/admissions/admissions.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/admissions/:id",
+      "file": "src/admissions/admissions.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/health",
+      "file": "src/app.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/health/ready",
+      "file": "src/app.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "file": "src/auth/auth.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/refresh",
+      "file": "src/auth/auth.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/logout",
+      "file": "src/auth/auth.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "file": "src/auth/auth.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/change-password",
+      "file": "src/auth/auth.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/branding",
+      "file": "src/branding/branding.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/branding/logo",
+      "file": "src/branding/branding.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/branding/logo",
+      "file": "src/branding/branding.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/home",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/banners",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/announcements",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/programs",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/programs/:slug",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/facilities",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/learning-photos",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/activities",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/activities/:slug",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/testimonials",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/public/testimonials",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/events",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/events/:slug",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/gallery",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/gallery/:slug",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/blogs",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/blogs/:slug",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/public/settings",
+      "file": "src/cms/cms-public.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/announcements",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/announcements",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/announcements/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/announcements/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/banners",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/banners",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/banners/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/banners/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/blogs",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/blogs",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/blogs/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/blogs/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/testimonials",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/testimonials",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/testimonials/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/testimonials/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/events",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/events",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/events/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/events/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/gallery",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/gallery/albums",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/gallery/albums/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/gallery/albums/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/gallery/items",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/gallery/items/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/gallery/items/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/programs",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/programs",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/programs/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/programs/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/facilities",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/facilities",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/facilities/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/facilities/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/activities",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/activities",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/cms/activities/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/activities/:id",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/learning-photos",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/cms/learning-photos/:slot",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/learning-photos/:slot",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cms/settings",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/cms/settings",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/cms/settings/:key",
+      "file": "src/cms/cms.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/dashboard",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/pipeline",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/enquiries/:id/activities",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/enquiries/:id/notes",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/follow-ups",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/follow-ups",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/crm/follow-ups/:id",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/visits",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/visits",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/crm/visits/:id",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/visit-slots",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/visit-slots",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/tasks",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/tasks",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/crm/tasks/:id",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/guardians",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/guardians/:id",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/guardians",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/crm/guardians/:id",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/guardians/:id/students",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/crm/guardians/:id/students",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/crm/guardians/:id",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/attendance",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/attendance",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/templates",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/templates",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/crm/templates/:id",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/communications",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/communications",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/defaults",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/settings",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/crm/settings",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/enquiries/:id/attachments",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/enquiries/:id/attachments",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/enquiries/:id/attachments/:attachmentId",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/crm/enquiries/:id/attachments/:attachmentId",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/crm/applications/:id/documents",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/applications/:id/documents/:documentId",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/crm/applications/:id/documents/:documentId",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/reports/:kind/export",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/crm/reports/:kind",
+      "file": "src/crm/crm.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries/public",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/enquiries/bulk-assignment",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/enquiries/:id",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/enquiries/:id",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/enquiries/:id/stage",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/enquiries/:id/assignment",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries/:id/restore",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/enquiries/:id",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/enquiries/:id/follow-ups",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/enquiries/:id/follow-ups/:followUpId",
+      "file": "src/enquiries/enquiries.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/fees",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/fees",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/fees/payments",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/fees/payments",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/fees/payments/:id/void",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/fees/types",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/fees/types",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/fees/types/:id",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/fees/types/:id",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/fees/structures",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/fees/structures",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/fees/structures/:id",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/fees/structures/:id",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/fees/structures/:id/assign",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/fees/:id",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/fees/:id",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/fees/:id",
+      "file": "src/fees/fees.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/integrations/status",
+      "file": "src/integrations/integrations.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/integrations/uploads/image",
+      "file": "src/integrations/integrations.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/newsletter/subscribe",
+      "file": "src/newsletter/newsletter.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/newsletter",
+      "file": "src/newsletter/newsletter.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/newsletter/:id",
+      "file": "src/newsletter/newsletter.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/newsletter/:id",
+      "file": "src/newsletter/newsletter.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/dashboard",
+      "file": "src/reports/reports.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/enquiries",
+      "file": "src/reports/reports.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/admissions",
+      "file": "src/reports/reports.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/fees",
+      "file": "src/reports/reports.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/audit-logs",
+      "file": "src/reports/reports.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/export/enquiries.csv",
+      "file": "src/reports/reports.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/export/students.csv",
+      "file": "src/reports/reports.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/export/fees.csv",
+      "file": "src/reports/reports.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/reports/export/payments.csv",
+      "file": "src/reports/reports.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/staff",
+      "file": "src/staff/staff.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/staff",
+      "file": "src/staff/staff.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/staff/:id",
+      "file": "src/staff/staff.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/staff/:id",
+      "file": "src/staff/staff.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/students",
+      "file": "src/students/students.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/students",
+      "file": "src/students/students.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/students/:id",
+      "file": "src/students/students.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/students/:id",
+      "file": "src/students/students.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/students/:id",
+      "file": "src/students/students.controller.ts"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/students/:id/guardians",
+      "file": "src/students/students.controller.ts"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/students/:id/guardians/:guardianId",
+      "file": "src/students/students.controller.ts"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/students/:id/guardians/:guardianId",
+      "file": "src/students/students.controller.ts"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/tasks/run",
+      "file": "src/tasks/tasks.controller.ts"
+    }
+  ],
+  "models": [
+    {
+      "name": "User",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "RefreshSession",
+      "relations": [
+        "user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)"
+      ],
+      "constraints": [
+        "@@index([userId])",
+        "@@index([tokenHash])",
+        "@@index([expiresAt])"
+      ]
+    },
+    {
+      "name": "AcademicYear",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "ClassLevel",
+      "relations": [
+        "academicYear   AcademicYear? @relation(fields: [academicYearId], references: [id])"
+      ],
+      "constraints": [
+        "@@index([displayOrder])"
+      ]
+    },
+    {
+      "name": "Section",
+      "relations": [
+        "classLevel   ClassLevel @relation(fields: [classLevelId], references: [id], onDelete: Cascade)"
+      ],
+      "constraints": [
+        "@@index([classLevelId])"
+      ]
+    },
+    {
+      "name": "Student",
+      "relations": [
+        "classLevel       ClassLevel?       @relation(fields: [classLevelId], references: [id])",
+        "section          Section?          @relation(fields: [sectionId], references: [id])",
+        "academicYear     AcademicYear? @relation(fields: [academicYearId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([firstName])",
+        "@@index([classLevelId])",
+        "@@index([sectionId])",
+        "@@index([status])",
+        "@@index([createdAt])"
+      ]
+    },
+    {
+      "name": "Guardian",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "StudentGuardian",
+      "relations": [
+        "student    Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)",
+        "guardian   Guardian @relation(fields: [guardianId], references: [id], onDelete: Cascade)"
+      ],
+      "constraints": [
+        "@@index([guardianId])"
+      ]
+    },
+    {
+      "name": "Enquiry",
+      "relations": [
+        "assignedStaff    User? @relation(fields: [assignedStaffId], references: [id], onDelete: Restrict)",
+        "academicYear     AcademicYear? @relation(fields: [academicYearId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([assignedStaffId, archivedAt, createdAt])",
+        "@@index([academicYearId, status])",
+        "@@index([status])",
+        "@@index([phone])",
+        "@@index([createdAt])",
+        "@@index([nextFollowUpDate])"
+      ]
+    },
+    {
+      "name": "EnquiryFollowUp",
+      "relations": [
+        "enquiry       Enquiry   @relation(fields: [enquiryId], references: [id], onDelete: Cascade)"
+      ],
+      "constraints": [
+        "@@index([enquiryId, createdAt])"
+      ]
+    },
+    {
+      "name": "Admission",
+      "relations": [
+        "enquiry           Enquiry? @relation(fields: [enquiryId], references: [id], onDelete: Restrict)",
+        "academicYear      AcademicYear? @relation(fields: [academicYearId], references: [id], onDelete: Restrict)",
+        "classLevel        ClassLevel? @relation(fields: [classLevelId], references: [id], onDelete: Restrict)",
+        "student           Student? @relation(fields: [studentId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([academicYearId, status])",
+        "@@index([status])",
+        "@@index([createdAt])",
+        "@@index([enquiryId])"
+      ]
+    },
+    {
+      "name": "FeeType",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "FeeStructure",
+      "relations": [
+        "feeType      FeeType   @relation(fields: [feeTypeId], references: [id])"
+      ],
+      "constraints": [
+        "@@index([feeTypeId])",
+        "@@index([className, academicYear])"
+      ]
+    },
+    {
+      "name": "StudentFee",
+      "relations": [
+        "student        Student       @relation(fields: [studentId], references: [id], onDelete: Cascade)",
+        "feeStructure   FeeStructure? @relation(fields: [feeStructureId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@unique([studentId, feeStructureId])",
+        "@@index([studentId])",
+        "@@index([status, dueDate])"
+      ]
+    },
+    {
+      "name": "Payment",
+      "relations": [
+        "studentFee    StudentFee    @relation(fields: [studentFeeId], references: [id])"
+      ],
+      "constraints": [
+        "@@index([studentFeeId])",
+        "@@index([paidAt])"
+      ]
+    },
+    {
+      "name": "Announcement",
+      "relations": [],
+      "constraints": [
+        "@@index([active, priority])"
+      ]
+    },
+    {
+      "name": "Banner",
+      "relations": [],
+      "constraints": [
+        "@@index([active, displayOrder])"
+      ]
+    },
+    {
+      "name": "Program",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "Facility",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "LearningPhoto",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "Activity",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "GalleryAlbum",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "GalleryItem",
+      "relations": [
+        "album        GalleryAlbum @relation(fields: [albumId], references: [id], onDelete: Cascade)"
+      ],
+      "constraints": [
+        "@@index([albumId, displayOrder])"
+      ]
+    },
+    {
+      "name": "BlogPost",
+      "relations": [],
+      "constraints": [
+        "@@index([status, publishedAt])"
+      ]
+    },
+    {
+      "name": "Testimonial",
+      "relations": [],
+      "constraints": [
+        "@@index([active, featured, displayOrder])"
+      ]
+    },
+    {
+      "name": "SchoolEvent",
+      "relations": [],
+      "constraints": [
+        "@@index([active, startDate])"
+      ]
+    },
+    {
+      "name": "SiteSetting",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "AuditLog",
+      "relations": [],
+      "constraints": [
+        "@@index([module, createdAt])",
+        "@@index([userId])"
+      ]
+    },
+    {
+      "name": "NewsletterSubscriber",
+      "relations": [],
+      "constraints": [
+        "@@index([active, createdAt])"
+      ]
+    },
+    {
+      "name": "Sequence",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "EnquiryActivity",
+      "relations": [
+        "enquiry   Enquiry @relation(fields: [enquiryId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([enquiryId, createdAt])"
+      ]
+    },
+    {
+      "name": "FollowUpTask",
+      "relations": [
+        "enquiry         Enquiry @relation(fields: [enquiryId], references: [id], onDelete: Restrict)",
+        "assignedStaff   User @relation(fields: [assignedStaffId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([assignedStaffId, status, dueAt])",
+        "@@index([enquiryId, status, dueAt])"
+      ]
+    },
+    {
+      "name": "VisitSlot",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "SchoolVisit",
+      "relations": [
+        "enquiry         Enquiry @relation(fields: [enquiryId], references: [id], onDelete: Restrict)",
+        "assignedStaff   User @relation(fields: [assignedStaffId], references: [id], onDelete: Restrict)",
+        "slot            VisitSlot? @relation(fields: [slotId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([assignedStaffId, startAt])",
+        "@@index([enquiryId, status])",
+        "@@index([slotId, status])"
+      ]
+    },
+    {
+      "name": "CrmTask",
+      "relations": [
+        "assignedStaff   User @relation(fields: [assignedStaffId], references: [id], onDelete: Restrict)",
+        "enquiry         Enquiry? @relation(fields: [enquiryId], references: [id], onDelete: Restrict)",
+        "admission       Admission? @relation(fields: [admissionId], references: [id], onDelete: Restrict)",
+        "student         Student? @relation(fields: [studentId], references: [id], onDelete: Restrict)",
+        "visit           SchoolVisit? @relation(fields: [visitId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([assignedStaffId, status, dueAt])"
+      ]
+    },
+    {
+      "name": "ApplicationDocument",
+      "relations": [
+        "admission     Admission @relation(fields: [admissionId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([admissionId, type])"
+      ]
+    },
+    {
+      "name": "AttendanceRecord",
+      "relations": [
+        "student   Student @relation(fields: [studentId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@unique([studentId, day])",
+        "@@index([day, status])"
+      ]
+    },
+    {
+      "name": "MessageTemplate",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "CommunicationLog",
+      "relations": [
+        "enquiry      Enquiry @relation(fields: [enquiryId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([enquiryId, createdAt])"
+      ]
+    },
+    {
+      "name": "CrmSetting",
+      "relations": [],
+      "constraints": []
+    },
+    {
+      "name": "EnquiryAttachment",
+      "relations": [
+        "enquiry      Enquiry @relation(fields: [enquiryId], references: [id], onDelete: Restrict)"
+      ],
+      "constraints": [
+        "@@index([enquiryId, createdAt])"
+      ]
+    }
+  ],
+  "migrations": [
+    "20260915113243_init",
+    "20260915170000_add_testimonial_contact_fields",
+    "20260918052743_add_announcement_image",
+    "20260918181519_remove_attendance",
+    "20260929120000_add_sequences_and_indexes",
+    "20261001120000_add_newsletter_subscribers",
+    "20261009120000_add_learning_photos",
+    "20261022090000_complete_school_crm"
+  ],
+  "environment": {
+    "frontend": [
+      "NEXT_PUBLIC_SITE_URL",
+      "NEXT_PUBLIC_API_URL",
+      "API_URL_INTERNAL",
+      "NEXT_PUBLIC_PHONE",
+      "NEXT_PUBLIC_EMAIL",
+      "NEXT_PUBLIC_WHATSAPP_URL",
+      "NEXT_PUBLIC_OPENING_HOURS",
+      "NEXT_PUBLIC_GEO_LAT",
+      "NEXT_PUBLIC_GEO_LNG",
+      "NEXT_PUBLIC_FACEBOOK_URL",
+      "NEXT_PUBLIC_INSTAGRAM_URL",
+      "NEXT_PUBLIC_YOUTUBE_URL",
+      "NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION",
+      "NEXT_PUBLIC_BING_SITE_VERIFICATION",
+      "NEXT_PUBLIC_IMAGE_HOSTS"
+    ],
+    "backend": [
+      "NODE_ENV",
+      "PORT",
+      "FRONTEND_URL",
+      "RATE_LIMIT_MAX",
+      "RATE_LIMIT_WINDOW_MS",
+      "DATABASE_URL",
+      "JWT_ACCESS_SECRET",
+      "JWT_REFRESH_SECRET",
+      "SEED_ADMIN_EMAIL",
+      "SEED_ADMIN_PASSWORD",
+      "DATABASE_POOL_MAX",
+      "PUBLIC_CACHE_TTL_MS",
+      "SLOW_REQUEST_MS",
+      "TRUST_PROXY_HOPS",
+      "DISABLE_CRON",
+      "CRON_SECRET",
+      "AUDIT_RETENTION_DAYS",
+      "TZ",
+      "CLOUDFLARE_ACCOUNT_ID",
+      "R2_ACCESS_KEY_ID",
+      "R2_SECRET_ACCESS_KEY",
+      "R2_BUCKET_NAME",
+      "R2_PUBLIC_URL",
+      "RESEND_API_KEY",
+      "MAIL_FROM",
+      "ADMIN_NOTIFICATION_EMAIL",
+      "WHATSAPP_ACCESS_TOKEN",
+      "WHATSAPP_PHONE_NUMBER_ID",
+      "WHATSAPP_ADMIN_TO",
+      "WHATSAPP_TEMPLATE_NAME",
+      "WHATSAPP_TEMPLATE_LANGUAGE",
+      "WHATSAPP_GRAPH_VERSION"
+    ]
+  }
+}

@@ -10,9 +10,9 @@ const STATUSES = ["DRAFT", "PUBLISHED", "ARCHIVED"] as const;
 type Status = (typeof STATUSES)[number];
 
 const STATUS_STYLES: Record<string, string> = {
-  DRAFT: "bg-slate-200/60 text-slate-600",
-  PUBLISHED: "bg-emerald-100/80 text-emerald-800",
-  ARCHIVED: "bg-amber-100/80 text-amber-800",
+  DRAFT: "bg-little-neutral-200/60 text-little-neutral-600",
+  PUBLISHED: "bg-little-green-100/80 text-little-green-800",
+  ARCHIVED: "bg-little-yellow-100/80 text-little-yellow-800",
 };
 
 type Blog = { id: string; title: string; slug: string; excerpt?: string | null; content: string; coverImage?: string | null; author?: string | null; category?: string | null; tags?: string[]; seoTitle?: string | null; seoDescription?: string | null; status: Status; publishedAt?: string | null };
@@ -69,11 +69,11 @@ export function BlogsManager() {
         <div className="mt-5 grid gap-4">
           <label className="grid gap-1.5"><span className="label">Title</span><input className="input" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value, slug: slugTouched ? form.slug : slugify(e.target.value) })} required maxLength={200} /></label>
           <label className="grid gap-1.5"><span className="label">URL slug</span>
-            <div className="flex items-center overflow-hidden rounded-[14px] border bg-white/70"><span className="whitespace-nowrap border-r px-3 text-xs font-bold text-slate-400">/blog/</span><input className="input !rounded-none !border-0 !bg-transparent !shadow-none" value={form.slug} onChange={(e) => { setSlugTouched(true); setForm({ ...form, slug: slugify(e.target.value) || e.target.value }); }} required /></div>
+            <div className="flex items-center overflow-hidden rounded-[14px] border bg-white/70"><span className="whitespace-nowrap border-r px-3 text-xs font-bold text-little-neutral-500">/blog/</span><input className="input !rounded-none !border-0 !bg-transparent !shadow-none" value={form.slug} onChange={(e) => { setSlugTouched(true); setForm({ ...form, slug: slugify(e.target.value) || e.target.value }); }} required /></div>
           </label>
           <label className="grid gap-1.5"><span className="label">Excerpt</span><textarea className="input min-h-16" placeholder="One or two sentences shown on the blog list" value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} maxLength={300} /></label>
           <label className="grid gap-1.5">
-            <span className="flex justify-between"><span className="label">Content</span><span className="text-xs font-bold text-slate-400">{words} words · ~{Math.max(1, Math.round(words / 200))} min read</span></span>
+            <span className="flex justify-between"><span className="label">Content</span><span className="text-xs font-bold text-little-neutral-500">{words} words · ~{Math.max(1, Math.round(words / 200))} min read</span></span>
             <textarea className="input min-h-56 leading-7" placeholder={"Write the article. Leave a blank line between paragraphs.\n\n## Use two hashes for a subheading\n- Start a line with a dash for a bullet"} value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} required />
           </label>
           <ImageField label="Cover image" value={form.coverImage} onChange={(url) => setForm((f) => ({ ...f, coverImage: url }))} />
@@ -90,13 +90,13 @@ export function BlogsManager() {
           <details className="rounded-2xl border bg-white/50 p-4" open={Boolean(form.seoTitle || form.seoDescription)}>
             <summary className="cursor-pointer text-sm font-extrabold">Search engine preview</summary>
             <div className="mt-3 rounded-xl bg-white p-4 shadow-sm">
-              <p className="truncate text-xs text-emerald-700">littlemahilam · blog › {form.slug || "your-post"}</p>
+              <p className="truncate text-xs text-little-green-700">littlemahilam · blog › {form.slug || "your-post"}</p>
               <p className="mt-1 line-clamp-1 text-lg font-medium text-[#1a0dab]">{seoTitle || "Post title"} | Little Mahilam Preschool</p>
-              <p className="mt-1 line-clamp-2 text-sm text-slate-600">{seoDescription || "Add an excerpt or SEO description so Google shows a helpful summary."}</p>
+              <p className="mt-1 line-clamp-2 text-sm text-little-neutral-600">{seoDescription || "Add an excerpt or SEO description so Google shows a helpful summary."}</p>
             </div>
             <div className="mt-3 grid gap-3">
-              <label className="grid gap-1.5"><span className="flex justify-between"><span className="label">SEO title</span><span className={`text-xs font-bold ${seoTitle.length > 60 ? "text-rose-600" : "text-slate-400"}`}>{seoTitle.length}/60</span></span><input className="input" value={form.seoTitle} placeholder="Defaults to the post title" onChange={(e) => setForm({ ...form, seoTitle: e.target.value })} /></label>
-              <label className="grid gap-1.5"><span className="flex justify-between"><span className="label">SEO description</span><span className={`text-xs font-bold ${seoDescription.length > 160 ? "text-rose-600" : "text-slate-400"}`}>{seoDescription.length}/160</span></span><textarea className="input min-h-16" value={form.seoDescription} placeholder="Defaults to the excerpt" onChange={(e) => setForm({ ...form, seoDescription: e.target.value })} /></label>
+              <label className="grid gap-1.5"><span className="flex justify-between"><span className="label">SEO title</span><span className={`text-xs font-bold ${seoTitle.length > 60 ? "text-little-coral-600" : "text-little-neutral-500"}`}>{seoTitle.length}/60</span></span><input className="input" value={form.seoTitle} placeholder="Defaults to the post title" onChange={(e) => setForm({ ...form, seoTitle: e.target.value })} /></label>
+              <label className="grid gap-1.5"><span className="flex justify-between"><span className="label">SEO description</span><span className={`text-xs font-bold ${seoDescription.length > 160 ? "text-little-coral-600" : "text-little-neutral-500"}`}>{seoDescription.length}/160</span></span><textarea className="input min-h-16" value={form.seoDescription} placeholder="Defaults to the excerpt" onChange={(e) => setForm({ ...form, seoDescription: e.target.value })} /></label>
             </div>
           </details>
 
@@ -116,15 +116,15 @@ export function BlogsManager() {
                 <div className="flex gap-4">
                   {r.coverImage
                     ? <img src={r.coverImage} alt="" loading="lazy" className="h-20 w-24 shrink-0 rounded-2xl object-cover" />
-                    : <div className="flex h-20 w-24 shrink-0 items-center justify-center rounded-2xl border border-dashed bg-white/50 text-slate-300"><ImageOff className="h-5 w-5" /></div>}
+                    : <div className="flex h-20 w-24 shrink-0 items-center justify-center rounded-2xl border border-dashed bg-white/50 text-little-neutral-300"><ImageOff className="h-5 w-5" /></div>}
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="font-extrabold">{r.title}</h3>
                       <span className={`chip ${STATUS_STYLES[r.status] || STATUS_STYLES.DRAFT}`}>{humanize(r.status)}</span>
                     </div>
-                    <p className="mt-1 text-xs font-bold text-slate-400">{[r.author, r.category, formatDate(r.publishedAt)].filter(Boolean).join(" · ") || "No author"}</p>
-                    {r.excerpt && <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-500">{r.excerpt}</p>}
-                    {!!r.tags?.length && <div className="mt-2 flex flex-wrap gap-1.5">{r.tags.map((t) => <span key={t} className="chip bg-slate-200/50 !py-0.5 text-slate-500">#{t}</span>)}</div>}
+                    <p className="mt-1 text-xs font-bold text-little-neutral-500">{[r.author, r.category, formatDate(r.publishedAt)].filter(Boolean).join(" · ") || "No author"}</p>
+                    {r.excerpt && <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-little-neutral-500">{r.excerpt}</p>}
+                    {!!r.tags?.length && <div className="mt-2 flex flex-wrap gap-1.5">{r.tags.map((t) => <span key={t} className="chip bg-little-neutral-200/50 !py-0.5 text-little-neutral-500">#{t}</span>)}</div>}
                   </div>
                 </div>
                 <div className="mt-4 flex flex-wrap items-center gap-2 border-t pt-3">

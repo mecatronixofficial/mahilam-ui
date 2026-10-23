@@ -13,11 +13,11 @@ import { formatDate, humanize, toDateInput } from "@/lib/media";
 const TYPES = ["GENERAL", "ADMISSION", "HOLIDAY", "EVENT", "IMPORTANT"] as const;
 
 const TYPE_STYLES: Record<string, string> = {
-  GENERAL: "bg-slate-200/60 text-slate-700",
-  ADMISSION: "bg-emerald-100/80 text-emerald-800",
-  HOLIDAY: "bg-amber-100/80 text-amber-800",
-  EVENT: "bg-sky-100/80 text-sky-800",
-  IMPORTANT: "bg-rose-100/80 text-rose-700",
+  GENERAL: "bg-little-neutral-200/60 text-little-neutral-700",
+  ADMISSION: "bg-little-green-100/80 text-little-green-800",
+  HOLIDAY: "bg-little-yellow-100/80 text-little-yellow-800",
+  EVENT: "bg-little-blue-100/80 text-little-blue-800",
+  IMPORTANT: "bg-little-coral-100/80 text-little-coral-700",
 };
 
 type Announcement = { id: string; title: string; content: string; type: string; priority: number; imageUrl?: string | null; ctaLabel?: string | null; ctaUrl?: string | null; startDate?: string | null; endDate?: string | null; active: boolean };
@@ -81,7 +81,7 @@ export function AnnouncementsManager() {
             <label className="grid gap-1.5"><span className="label">Show from</span><input className="input" type="date" value={form.startDate} onChange={(e) => setForm({ ...form, startDate: e.target.value })} /></label>
             <label className="grid gap-1.5"><span className="label">Until</span><input className="input" type="date" value={form.endDate} onChange={(e) => setForm({ ...form, endDate: e.target.value })} min={form.startDate || undefined} /></label>
           </div>
-          <label className="flex items-center gap-2.5 text-sm font-bold text-slate-600"><input type="checkbox" className="h-4 w-4 rounded accent-current" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published (visible on website)</label>
+          <label className="flex items-center gap-2.5 text-sm font-bold text-little-neutral-600"><input type="checkbox" className="h-4 w-4 rounded accent-current" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published (visible on website)</label>
           <button className="btn-primary" disabled={crud.saving}>
             {crud.saving ? <LoaderCircle className="h-4 w-4 animate-spin" /> : editingId ? <Pencil className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
             {crud.saving ? "Saving…" : editingId ? "Update announcement" : "Publish announcement"}
@@ -99,16 +99,16 @@ export function AnnouncementsManager() {
                   <div className="flex min-w-0 gap-4">
                     {r.imageUrl
                       ? <img src={r.imageUrl} alt="" className="h-16 w-16 shrink-0 rounded-2xl object-cover" loading="lazy" />
-                      : <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-dashed bg-white/50 text-slate-300"><ImageOff className="h-5 w-5" /></div>}
+                      : <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-dashed bg-white/50 text-little-neutral-300"><ImageOff className="h-5 w-5" /></div>}
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
                         <h3 className="font-extrabold">{r.title}</h3>
                         <span className={`chip ${TYPE_STYLES[r.type] || TYPE_STYLES.GENERAL}`}>{humanize(r.type)}</span>
-                        {r.priority > 0 && <span className="chip bg-slate-200/60 text-slate-600">Priority {r.priority}</span>}
+                        {r.priority > 0 && <span className="chip bg-little-neutral-200/60 text-little-neutral-600">Priority {r.priority}</span>}
                       </div>
-                      <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-500">{r.content}</p>
+                      <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-little-neutral-500">{r.content}</p>
                       {(r.startDate || r.endDate || r.ctaLabel) && (
-                        <div className="mt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-slate-500">
+                        <div className="mt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-little-neutral-500">
                           {(r.startDate || r.endDate) && <span className="flex items-center gap-1.5"><CalendarDays className="h-3.5 w-3.5" />{formatDate(r.startDate)}{r.endDate ? ` – ${formatDate(r.endDate)}` : ""}</span>}
                           {r.ctaLabel && <span className="accent-text flex items-center gap-1.5"><Link2 className="h-3.5 w-3.5" />{r.ctaLabel}{r.ctaUrl ? ` → ${r.ctaUrl}` : ""}</span>}
                         </div>
@@ -148,10 +148,10 @@ function PopupSwitch() {
   return (
     <section className="panel flex flex-wrap items-center justify-between gap-4 xl:col-span-2">
       <div className="flex min-w-0 items-center gap-4">
-        <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${enabled ? "bg-emerald-100/80 text-emerald-700" : "bg-slate-200/70 text-slate-500"}`}><Icon className="h-5 w-5" /></span>
+        <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${enabled ? "bg-little-green-100/80 text-little-green-700" : "bg-little-neutral-200/70 text-little-neutral-500"}`}><Icon className="h-5 w-5" /></span>
         <div className="min-w-0">
           <h2 className="font-extrabold">Announcement popup on website</h2>
-          <p className="mt-0.5 text-sm leading-6 text-slate-500">{enabled ? "On — the top published announcement pops up once per visit on the homepage." : "Off — no popup is shown. Your announcements stay saved and published."}</p>
+          <p className="mt-0.5 text-sm leading-6 text-little-neutral-500">{enabled ? "On — the top published announcement pops up once per visit on the homepage." : "Off — no popup is shown. Your announcements stay saved and published."}</p>
         </div>
       </div>
       <button
@@ -161,10 +161,10 @@ function PopupSwitch() {
         aria-label="Show announcement popup on website"
         disabled={busy}
         onClick={() => save.mutate(!enabled)}
-        className={`relative inline-flex h-8 w-14 shrink-0 items-center rounded-full transition disabled:opacity-60 ${enabled ? "bg-emerald-500" : "bg-slate-300"}`}
+        className={`relative inline-flex h-8 w-14 shrink-0 items-center rounded-full transition disabled:opacity-60 ${enabled ? "bg-little-green-500" : "bg-little-neutral-300"}`}
       >
         <span className={`flex h-6 w-6 items-center justify-center rounded-full bg-white shadow transition-transform ${enabled ? "translate-x-7" : "translate-x-1"}`}>
-          {save.isPending && <LoaderCircle className="h-3.5 w-3.5 animate-spin text-slate-400" />}
+          {save.isPending && <LoaderCircle className="h-3.5 w-3.5 animate-spin text-little-neutral-500" />}
         </span>
       </button>
     </section>

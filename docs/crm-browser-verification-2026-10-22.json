@@ -1,0 +1,541 @@
+{
+  "checkedAt": "2026-10-22T10:04:12.825Z",
+  "database": "disposable-local-postgresql",
+  "api": "real NestJS with Prisma",
+  "browser": "Chrome headless CDP",
+  "checks": [
+    "Public admission form saves an admission enquiry through real HTTP and PostgreSQL",
+    "Invalid and successful login use actual password hashing, cookies and database sessions",
+    "Task create form persists real data and survives page refresh",
+    "Pipeline failed-request rollback and successful stage persistence after browser refresh",
+    "Follow-up form applies configured default and saves assigned due date",
+    "Counsellor, accountant, teacher and CMS editor login routing, navigation and forbidden API checks"
+  ],
+  "viewports": [
+    {
+      "path": "/crm",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Command Center",
+      "errors": []
+    },
+    {
+      "path": "/crm/enquiries",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Enquiries",
+      "errors": []
+    },
+    {
+      "path": "/crm/pipeline",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Lead Pipeline",
+      "errors": []
+    },
+    {
+      "path": "/crm/follow-ups",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Follow-ups",
+      "errors": []
+    },
+    {
+      "path": "/crm/visits",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "School Visits",
+      "errors": []
+    },
+    {
+      "path": "/crm/admissions",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Admissions",
+      "errors": []
+    },
+    {
+      "path": "/crm/students",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Students",
+      "errors": []
+    },
+    {
+      "path": "/crm/guardians",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Guardians",
+      "errors": []
+    },
+    {
+      "path": "/crm/academics",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Academics",
+      "errors": []
+    },
+    {
+      "path": "/crm/attendance",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Attendance",
+      "errors": []
+    },
+    {
+      "path": "/crm/fees",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Fees",
+      "errors": []
+    },
+    {
+      "path": "/crm/tasks",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Tasks",
+      "errors": []
+    },
+    {
+      "path": "/crm/communications",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Communications",
+      "errors": []
+    },
+    {
+      "path": "/crm/templates",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Message Templates",
+      "errors": []
+    },
+    {
+      "path": "/crm/reports",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Reports",
+      "errors": []
+    },
+    {
+      "path": "/crm/staff",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Staff",
+      "errors": []
+    },
+    {
+      "path": "/crm/settings",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "CRM Settings",
+      "errors": []
+    },
+    {
+      "path": "/crm/enquiries/832b3a7e-bd34-49d2-98fb-0bf307bdd964",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Enquiries",
+      "errors": []
+    },
+    {
+      "path": "/crm",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Command Center",
+      "errors": []
+    },
+    {
+      "path": "/crm/enquiries",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Enquiries",
+      "errors": []
+    },
+    {
+      "path": "/crm/pipeline",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Lead Pipeline",
+      "errors": []
+    },
+    {
+      "path": "/crm/follow-ups",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "Follow-ups",
+      "errors": []
+    },
+    {
+      "path": "/crm/visits",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "School Visits",
+      "errors": []
+    },
+    {
+      "path": "/crm/admissions",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "Admissions",
+      "errors": []
+    },
+    {
+      "path": "/crm/students",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "Students",
+      "errors": []
+    },
+    {
+      "path": "/crm/guardians",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "Guardians",
+      "errors": []
+    },
+    {
+      "path": "/crm/academics",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Academics",
+      "errors": []
+    },
+    {
+      "path": "/crm/attendance",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "Attendance",
+      "errors": []
+    },
+    {
+      "path": "/crm/fees",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Fees",
+      "errors": []
+    },
+    {
+      "path": "/crm/tasks",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "Tasks",
+      "errors": []
+    },
+    {
+      "path": "/crm/communications",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "Communications",
+      "errors": []
+    },
+    {
+      "path": "/crm/templates",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "Message Templates",
+      "errors": []
+    },
+    {
+      "path": "/crm/reports",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Reports",
+      "errors": []
+    },
+    {
+      "path": "/crm/staff",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Staff",
+      "errors": []
+    },
+    {
+      "path": "/crm/settings",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "CRM Settings",
+      "errors": []
+    },
+    {
+      "path": "/crm/enquiries/832b3a7e-bd34-49d2-98fb-0bf307bdd964",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Enquiries",
+      "errors": []
+    },
+    {
+      "path": "/crm",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Command Center",
+      "errors": []
+    },
+    {
+      "path": "/crm/enquiries",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Enquiries",
+      "errors": []
+    },
+    {
+      "path": "/crm/pipeline",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Lead Pipeline",
+      "errors": []
+    },
+    {
+      "path": "/crm/follow-ups",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Follow-ups",
+      "errors": []
+    },
+    {
+      "path": "/crm/visits",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "School Visits",
+      "errors": []
+    },
+    {
+      "path": "/crm/admissions",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Admissions",
+      "errors": []
+    },
+    {
+      "path": "/crm/students",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Students",
+      "errors": []
+    },
+    {
+      "path": "/crm/guardians",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Guardians",
+      "errors": []
+    },
+    {
+      "path": "/crm/academics",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Academics",
+      "errors": []
+    },
+    {
+      "path": "/crm/attendance",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Attendance",
+      "errors": []
+    },
+    {
+      "path": "/crm/fees",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Fees",
+      "errors": []
+    },
+    {
+      "path": "/crm/tasks",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Tasks",
+      "errors": []
+    },
+    {
+      "path": "/crm/communications",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Communications",
+      "errors": []
+    },
+    {
+      "path": "/crm/templates",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Message Templates",
+      "errors": []
+    },
+    {
+      "path": "/crm/reports",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Reports",
+      "errors": []
+    },
+    {
+      "path": "/crm/staff",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Staff",
+      "errors": []
+    },
+    {
+      "path": "/crm/settings",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "CRM Settings",
+      "errors": []
+    },
+    {
+      "path": "/crm/enquiries/832b3a7e-bd34-49d2-98fb-0bf307bdd964",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Enquiries",
+      "errors": []
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Where Happy Hearts Begin to Learn",
+      "errors": []
+    },
+    {
+      "path": "/about",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Where little minds learn, play & shine!",
+      "errors": []
+    },
+    {
+      "path": "/programs",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Learning journeys for every age.",
+      "errors": []
+    },
+    {
+      "path": "/admissions",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "A happy beginning starts here.",
+      "errors": []
+    },
+    {
+      "path": "/contact",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Let's begin a happy conversation.",
+      "errors": []
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "A Happy Beginning for Every Little Learner",
+      "errors": []
+    },
+    {
+      "path": "/about",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Where little minds learn, play & shine!",
+      "errors": []
+    },
+    {
+      "path": "/programs",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Learning journeys for every age.",
+      "errors": []
+    },
+    {
+      "path": "/admissions",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "A happy beginning starts here.",
+      "errors": []
+    },
+    {
+      "path": "/contact",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Let's begin a happy conversation.",
+      "errors": []
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "A Happy Beginning for Every Little Learner",
+      "errors": []
+    },
+    {
+      "path": "/about",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Where little minds learn, play & shine!",
+      "errors": []
+    },
+    {
+      "path": "/programs",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Learning journeys for every age.",
+      "errors": []
+    },
+    {
+      "path": "/admissions",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "A happy beginning starts here.",
+      "errors": []
+    },
+    {
+      "path": "/contact",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Let's begin a happy conversation.",
+      "errors": []
+    },
+    {
+      "path": "/crm",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Command Center",
+      "errors": []
+    },
+    {
+      "path": "/crm",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Command Center",
+      "errors": []
+    }
+  ],
+  "apiFailures": [
+    {
+      "path": "/api/v1/crm/settings",
+      "method": "GET",
+      "status": 403,
+      "body": "{\"success\":false,\"statusCode\":403,\"message\":\"Forbidden resource\"}"
+    },
+    {
+      "path": "/api/v1/crm/settings",
+      "method": "GET",
+      "status": 403,
+      "body": "{\"success\":false,\"statusCode\":403,\"message\":\"Forbidden resource\"}"
+    },
+    {
+      "path": "/api/v1/crm/settings",
+      "method": "GET",
+      "status": 403,
+      "body": "{\"success\":false,\"statusCode\":403,\"message\":\"Forbidden resource\"}"
+    },
+    {
+      "path": "/api/v1/crm/dashboard",
+      "method": "GET",
+      "status": 403,
+      "body": "{\"success\":false,\"statusCode\":403,\"message\":\"Forbidden resource\"}"
+    }
+  ],
+  "exceptions": [],
+  "status": "passed"
+}

@@ -1,21 +1,22 @@
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { AlertTriangle, CheckCircle2, CircleDashed, Clock3, Inbox, LoaderCircle, SearchX, ShieldAlert, WifiOff } from "lucide-react";
+import { BRAND } from "@/lib/brand";
 
 export type StateVariant = "loading" | "empty" | "success" | "error" | "offline" | "forbidden" | "partial" | "session" | "not-found";
 
 type Action = { label: string; href?: string; onClick?: () => void; icon?: LucideIcon };
 
 const PRESETS: Record<StateVariant, { icon: LucideIcon; title: string; description: string; tint: string }> = {
-  loading: { icon: LoaderCircle, title: "Loading…", description: "Fetching the latest information.", tint: "#3f7a63" },
-  empty: { icon: Inbox, title: "Nothing here yet", description: "When items are added they will appear here.", tint: "#64748b" },
-  success: { icon: CheckCircle2, title: "All done!", description: "Your changes were saved successfully.", tint: "#16a34a" },
-  error: { icon: AlertTriangle, title: "Something went wrong", description: "We couldn't load this right now. Please try again.", tint: "#e11d48" },
-  offline: { icon: WifiOff, title: "You're offline", description: "Check your internet connection. We'll reload automatically when you're back online.", tint: "#d97706" },
-  forbidden: { icon: ShieldAlert, title: "Permission denied", description: "Your account doesn't have access to this area. Ask an administrator if you need it.", tint: "#7c3aed" },
-  partial: { icon: CircleDashed, title: "Some information is unavailable", description: "Part of this page couldn't load. What's shown is accurate, but may be incomplete.", tint: "#d97706" },
-  session: { icon: Clock3, title: "Your session has expired", description: "For your security you've been signed out after a period of inactivity. Please sign in again.", tint: "#0e7490" },
-  "not-found": { icon: SearchX, title: "Not found", description: "This item may have been moved or deleted.", tint: "#64748b" },
+  loading: { icon: LoaderCircle, title: "Loading…", description: "Fetching the latest information.", tint: BRAND.green[700] },
+  empty: { icon: Inbox, title: "Nothing here yet", description: "When items are added they will appear here.", tint: BRAND.neutral[500] },
+  success: { icon: CheckCircle2, title: "All done!", description: "Your changes were saved successfully.", tint: BRAND.green[600] },
+  error: { icon: AlertTriangle, title: "Something went wrong", description: "We couldn't load this right now. Please try again.", tint: BRAND.coral[600] },
+  offline: { icon: WifiOff, title: "You're offline", description: "Check your internet connection. We'll reload automatically when you're back online.", tint: BRAND.yellow[600] },
+  forbidden: { icon: ShieldAlert, title: "Permission denied", description: "Your account doesn't have access to this area. Ask an administrator if you need it.", tint: BRAND.pink[700] },
+  partial: { icon: CircleDashed, title: "Some information is unavailable", description: "Part of this page couldn't load. What's shown is accurate, but may be incomplete.", tint: BRAND.yellow[600] },
+  session: { icon: Clock3, title: "Your session has expired", description: "For your security you've been signed out after a period of inactivity. Please sign in again.", tint: BRAND.blue[700] },
+  "not-found": { icon: SearchX, title: "Not found", description: "This item may have been moved or deleted.", tint: BRAND.neutral[500] },
 };
 
 export function StateView({
@@ -55,8 +56,8 @@ export function StateView({
       >
         <Icon className={`${compact ? "h-6 w-6" : "h-8 w-8"} ${variant === "loading" ? "animate-spin" : ""}`} />
       </span>
-      <h2 className={`relative mt-5 font-black tracking-tight text-slate-900 ${compact ? "text-lg" : "text-2xl"}`}>{title ?? preset.title}</h2>
-      <p className={`relative mx-auto mt-2 max-w-md leading-7 text-slate-500 ${compact ? "text-sm" : ""}`}>{description ?? preset.description}</p>
+      <h2 className={`relative mt-5 font-black tracking-tight text-little-neutral-900 ${compact ? "text-lg" : "text-2xl"}`}>{title ?? preset.title}</h2>
+      <p className={`relative mx-auto mt-2 max-w-md leading-7 text-little-neutral-500 ${compact ? "text-sm" : ""}`}>{description ?? preset.description}</p>
       {(action || secondaryAction) && (
         <div className="relative mt-6 flex flex-wrap items-center justify-center gap-3">
           {action && <ActionButton action={action} primary />}
@@ -78,11 +79,11 @@ function ActionButton({ action, primary = false }: { action: Action; primary?: b
 /** Slim inline notice for partial data, soft warnings and success confirmations. */
 export function InlineNotice({ variant = "partial", children, onRetry }: { variant?: "partial" | "error" | "success" | "offline" | "forbidden"; children: React.ReactNode; onRetry?: () => void }) {
   const styles = {
-    partial: "border-amber-200/70 bg-amber-50/80 text-amber-900",
-    offline: "border-amber-200/70 bg-amber-50/80 text-amber-900",
-    error: "border-rose-200/70 bg-rose-50/80 text-rose-800",
-    success: "border-emerald-200/70 bg-emerald-50/80 text-emerald-800",
-    forbidden: "border-violet-200/70 bg-violet-50/80 text-violet-800",
+    partial: "border-little-yellow-200/70 bg-little-yellow-50/80 text-little-yellow-900",
+    offline: "border-little-yellow-200/70 bg-little-yellow-50/80 text-little-yellow-900",
+    error: "border-little-coral-200/70 bg-little-coral-50/80 text-little-coral-800",
+    success: "border-little-green-200/70 bg-little-green-50/80 text-little-green-800",
+    forbidden: "border-little-pink-200/70 bg-little-pink-50/80 text-little-pink-800",
   }[variant];
   const Icon = PRESETS[variant === "success" ? "success" : variant === "offline" ? "offline" : variant === "forbidden" ? "forbidden" : variant === "error" ? "error" : "partial"].icon;
   return (

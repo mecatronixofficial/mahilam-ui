@@ -112,7 +112,7 @@ export function CatalogManager({ kind }: { kind: keyof typeof CATALOGS }) {
           <ImageField label="Image" value={form.image} onChange={(url) => setForm((f) => ({ ...f, image: url }))} />
           <div className="grid grid-cols-2 items-end gap-3">
             <label className="grid gap-1.5"><span className="label">Display order</span><input className="input" type="number" min={0} value={form.displayOrder} onChange={(e) => setForm({ ...form, displayOrder: Number(e.target.value) })} /></label>
-            <label className="flex min-h-11 items-center gap-2.5 text-sm font-bold text-slate-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published</label>
+            <label className="flex min-h-11 items-center gap-2.5 text-sm font-bold text-little-neutral-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published</label>
           </div>
           <button className="btn-primary" disabled={crud.saving}>
             {crud.saving ? <LoaderCircle className="h-4 w-4 animate-spin" /> : editingId ? <Pencil className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
@@ -130,18 +130,18 @@ export function CatalogManager({ kind }: { kind: keyof typeof CATALOGS }) {
               const subtitle = config.fields.map((f) => row[f.key]).find((value) => typeof value === "string" && value) as string | undefined;
               return (
                 <article key={row.id} className={`panel flex items-center gap-4 p-4 ${editingId === row.id ? "ring-2 ring-[var(--dash-accent)]" : ""}`}>
-                  <span className="hidden items-center gap-1 text-xs font-black text-slate-300 sm:flex"><GripVertical className="h-4 w-4" />{row.displayOrder}</span>
+                  <span className="hidden items-center gap-1 text-xs font-black text-little-neutral-300 sm:flex"><GripVertical className="h-4 w-4" />{row.displayOrder}</span>
                   {image
                     ? <img src={image} alt="" loading="lazy" className="h-16 w-16 shrink-0 rounded-2xl object-cover" />
-                    : <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-dashed bg-white/50 text-slate-300"><ImageOff className="h-5 w-5" /></div>}
+                    : <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-dashed bg-white/50 text-little-neutral-300"><ImageOff className="h-5 w-5" /></div>}
                   <div className="min-w-0 flex-1">
                     <h3 className="truncate font-extrabold">{String(row[config.titleKey] ?? "")}</h3>
-                    {subtitle && <p className="mt-0.5 line-clamp-2 text-sm text-slate-500">{subtitle}</p>}
-                    {row.slug && <p className="mt-1 text-xs font-bold text-slate-400">/{row.slug}</p>}
+                    {subtitle && <p className="mt-0.5 line-clamp-2 text-sm text-little-neutral-500">{subtitle}</p>}
+                    {row.slug && <p className="mt-1 text-xs font-bold text-little-neutral-500">/{row.slug}</p>}
                   </div>
                   <div className="flex shrink-0 flex-col items-end gap-2 sm:flex-row sm:items-center">
                     <PublishToggle active={row.active} pending={crud.patch.isPending} onToggle={() => crud.patch.mutate({ id: row.id, payload: { active: !row.active } })} />
-                    <button type="button" onClick={() => startEdit(row)} aria-label="Edit" className="rounded-xl p-2 text-slate-500 hover:bg-white"><Pencil className="h-4 w-4" /></button>
+                    <button type="button" onClick={() => startEdit(row)} aria-label="Edit" className="rounded-xl p-2 text-little-neutral-500 hover:bg-white"><Pencil className="h-4 w-4" /></button>
                     <ConfirmDelete compact pending={crud.remove.isPending} onConfirm={() => crud.remove.mutate(row.id)} />
                   </div>
                 </article>

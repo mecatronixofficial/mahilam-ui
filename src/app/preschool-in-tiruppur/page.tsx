@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/media/SchoolImage";
 import Link from "next/link";
 import { ArrowRight, Brain, CheckCircle2, Clock3, Heart, MapPin, MessageCircleQuestion, Navigation, Phone, ShieldCheck, Shapes, Signpost, Sparkles, Users } from "lucide-react";
 import { PublicShell } from "@/components/public/PublicShell";
@@ -11,6 +11,7 @@ import { ADMISSION_FAQS, CAMPUS_FAQS } from "@/lib/faqs";
 import { localImage } from "@/lib/images";
 import { faqSchema, pageMetadata } from "@/lib/seo";
 import { site, telHref } from "@/lib/site";
+import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = pageMetadata({
   title: "Preschool & Play School in Tiruppur — Kangayam Road",
@@ -28,7 +29,8 @@ const REASONS = [
   { icon: CheckCircle2, title: "Play Group to Grade 3", copy: "One familiar school from a child's first classroom through the early primary years." },
 ];
 
-const SIGN_COLORS = ["#3f7a63", "#e2725b", "#d69e2e", "#4a7fc1", "#8b6fd6", "#2f9e8f"];
+/** Deep enough for white sign text. */
+const SIGN_COLORS = [BRAND.green[700], BRAND.coral[600], BRAND.yellow[700], BRAND.blue[700], BRAND.pink[600], BRAND.green[800]];
 const LOCAL_FAQS = [
   { q: "What age group of children are admitted to a playgroup?", a: "Children in a playgroup are usually between two and three years old." },
   { q: "Are preschool and playgroup the same?", a: "No. Preschool offers a more structured early-education programme, while playgroup provides a gentle, informal setting where younger children learn through play and social interaction." },
@@ -41,7 +43,7 @@ const LOCAL_FAQS = [
 const FAQS = [ADMISSION_FAQS[0], CAMPUS_FAQS[0], ADMISSION_FAQS[1], CAMPUS_FAQS[1], ADMISSION_FAQS[4]];
 
 /** A soft street-map texture for the location card. */
-const MAP_BG = "bg-[#eef3e6] [background-image:linear-gradient(90deg,transparent_46%,#fff_46%,#fff_54%,transparent_54%),linear-gradient(0deg,transparent_46%,#fff_46%,#fff_54%,transparent_54%),linear-gradient(35deg,transparent_48%,rgba(255,255,255,.8)_48%,rgba(255,255,255,.8)_52%,transparent_52%)] [background-size:140px_140px,140px_140px,260px_260px]";
+const MAP_BG = "bg-little-green-50 [background-image:linear-gradient(90deg,transparent_46%,#fff_46%,#fff_54%,transparent_54%),linear-gradient(0deg,transparent_46%,#fff_46%,#fff_54%,transparent_54%),linear-gradient(35deg,transparent_48%,rgba(255,255,255,.8)_48%,rgba(255,255,255,.8)_52%,transparent_52%)] [background-size:140px_140px,140px_140px,260px_260px]";
 
 export default function LocalLandingPage() {
   return (
@@ -69,12 +71,12 @@ export default function LocalLandingPage() {
       <section className="py-16 md:py-24">
         <div className="container-pad grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
           <div>
-            <span className="eyebrow"><Heart className="h-4 w-4 text-[#e2725b]" /> Why families choose us</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-emerald-950 sm:text-4xl lg:text-5xl">More than a <span className="text-[#e2725b]">play school.</span></h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              Choosing a preschool in Tiruppur is one of the first big decisions for your child. At Little Mahilam — our <strong className="text-emerald-900">School of Happiness</strong> — children build confidence, curiosity and strong foundations in language and numbers, in a place where they genuinely love to be.
+            <span className="eyebrow"><Heart className="h-4 w-4 text-little-coral-600" /> Why families choose us</span>
+            <h2 className="mt-4 font-display text-3xl font-bold text-little-green-950 sm:text-4xl lg:text-5xl">More than a <span className="text-little-pink-600">play school.</span></h2>
+            <p className="mt-5 text-lg leading-8 text-little-neutral-600">
+              Choosing a preschool in Tiruppur is one of the first big decisions for your child. At Little Mahilam — our <strong className="text-little-green-900">School of Happiness</strong> — children build confidence, curiosity and strong foundations in language and numbers, in a place where they genuinely love to be.
             </p>
-            <p className="mt-4 leading-8 text-slate-600">We offer Play Group (2–3 years), Pre-KG (3–4 years), LKG (4–5 years), UKG (5–6 years) and Grades 1 to 3, so your child can grow with teachers and friends they already know.</p>
+            <p className="mt-4 leading-8 text-little-neutral-600">We offer Play Group (2–3 years), Pre-KG (3–4 years), LKG (4–5 years), UKG (5–6 years) and Grades 1 to 3, so your child can grow with teachers and friends they already know.</p>
             <ul className="mt-6 flex flex-wrap gap-2">
               {site.programs.map((program, i) => (
                 <li key={program.name} className="rounded-full px-4 py-2 text-sm font-extrabold text-white shadow-sm" style={{ backgroundColor: SIGN_COLORS[i % SIGN_COLORS.length] }}>{program.name} · {program.age}</li>
@@ -84,14 +86,14 @@ export default function LocalLandingPage() {
 
           <div className="relative mx-auto w-full max-w-[380px]">
             {/* Map pin with photo */}
-            <div className="relative mx-auto aspect-[4/5] w-full drop-shadow-[0_30px_30px_rgba(226,114,91,.35)]">
-              <div className="absolute inset-0 bg-[#e2725b]" style={{ borderRadius: "50% 50% 50% 0", rotate: "-45deg", scale: ".82", translate: "0 -6%" }} />
+            <div className="relative mx-auto aspect-[4/5] w-full drop-shadow-[0_30px_30px_rgba(232,94,75,.35)]">
+              <div className="absolute inset-0 bg-little-coral-500" style={{ borderRadius: "50% 50% 50% 0", rotate: "-45deg", scale: ".82", translate: "0 -6%" }} />
               <div className="absolute left-1/2 top-[6%] aspect-square w-[74%] -translate-x-1/2 overflow-hidden rounded-full border-8 border-white">
                 <Image src={localImage("/images/local/campus.webp", 0)} alt="Children learning at Little Mahilam, a preschool on Kangayam Road, Tiruppur" fill sizes="300px" className="object-cover" />
               </div>
             </div>
-            <span className="mx-auto -mt-2 block h-4 w-28 rounded-[50%] bg-emerald-950/15 blur-[2px]" />
-            <span className="absolute -right-2 top-4 flex rotate-6 items-center gap-1.5 rounded-2xl bg-white px-4 py-2 font-display text-sm font-bold text-emerald-950 shadow-lg"><MapPin className="h-4 w-4 text-[#e2725b]" /> You are here!</span>
+            <span className="mx-auto -mt-2 block h-4 w-28 rounded-[50%] bg-little-green-950/15 blur-[2px]" />
+            <span className="absolute -right-2 top-4 flex rotate-6 items-center gap-1.5 rounded-2xl bg-white px-4 py-2 font-display text-sm font-bold text-little-green-950 shadow-lg"><MapPin className="h-4 w-4 text-little-coral-600" /> You are here!</span>
           </div>
         </div>
       </section>
@@ -106,7 +108,7 @@ export default function LocalLandingPage() {
             heading={
               <>
                 <span className="eyebrow"><Signpost className="h-4 w-4" /> What makes us different</span>
-                <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold text-emerald-950 sm:text-4xl">Six reasons parents pick <span className="text-[#e2725b]">Little Mahilam.</span></h2>
+                <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold text-little-green-950 sm:text-4xl">Six reasons parents pick <span className="text-little-pink-600">Little Mahilam.</span></h2>
               </>
             }
           >
@@ -122,7 +124,7 @@ export default function LocalLandingPage() {
                     </div>
                   </div>
                   <span aria-hidden className="h-6 w-3 bg-[#9c6d3f]" />
-                  <p className="w-full flex-1 rounded-[22px] bg-white p-5 text-center leading-7 text-slate-600 shadow-sm">{copy}</p>
+                  <p className="w-full flex-1 rounded-[22px] bg-white p-5 text-center leading-7 text-little-neutral-600 shadow-sm">{copy}</p>
                 </article>
               );
             })}
@@ -135,20 +137,20 @@ export default function LocalLandingPage() {
       ====================================================== */}
       <section className="py-16 md:py-20">
         <div className="container-pad grid gap-8 lg:grid-cols-2">
-          <div className={`relative overflow-hidden rounded-[32px] p-2 shadow-[0_24px_50px_-30px_rgba(23,60,47,.5)] ${MAP_BG}`}>
+          <div className={`relative overflow-hidden rounded-[32px] p-2 shadow-[0_24px_50px_-30px_rgba(36,68,32,.5)] ${MAP_BG}`}>
             <div className="relative flex h-full flex-col rounded-[26px] bg-white/85 p-7 backdrop-blur-sm md:p-9">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#e2725b] text-white shadow-md"><MapPin className="h-7 w-7" /></span>
-              <h2 className="mt-5 font-display text-2xl font-bold text-emerald-950 md:text-3xl">Easy to reach from across Tiruppur</h2>
-              <address className="mt-3 not-italic leading-8 text-slate-600">{site.fullAddress}</address>
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-little-coral-600 text-white shadow-md"><MapPin className="h-7 w-7" /></span>
+              <h2 className="mt-5 font-display text-2xl font-bold text-little-green-950 md:text-3xl">Easy to reach from across Tiruppur</h2>
+              <address className="mt-3 not-italic leading-8 text-little-neutral-600">{site.fullAddress}</address>
               {/* Route through the neighbourhoods */}
               <ol className="mt-6 grid gap-0">
                 {site.areasServed.map((area, i) => (
                   <li key={area} className="flex gap-3">
                     <span className="flex flex-col items-center">
                       <span className="h-4 w-4 shrink-0 rounded-full border-4 border-white shadow" style={{ backgroundColor: SIGN_COLORS[i % SIGN_COLORS.length] }} />
-                      {i < site.areasServed.length - 1 && <span className="h-5 border-l-2 border-dashed border-emerald-900/25" />}
+                      {i < site.areasServed.length - 1 && <span className="h-5 border-l-2 border-dashed border-little-green-900/25" />}
                     </span>
-                    <span className="text-sm font-bold leading-4 text-emerald-900">{area}</span>
+                    <span className="text-sm font-bold leading-4 text-little-green-900">{area}</span>
                   </li>
                 ))}
               </ol>
@@ -159,13 +161,13 @@ export default function LocalLandingPage() {
             </div>
           </div>
 
-          <div className="rounded-[32px] bg-[#fde9b8] p-6 md:p-8">
-            <h2 className="font-display text-2xl font-bold text-emerald-950">Quick answers</h2>
+          <div className="rounded-[32px] bg-little-yellow-100 p-6 md:p-8">
+            <h2 className="font-display text-2xl font-bold text-little-green-950">Quick answers</h2>
             <div className="mt-4 grid gap-3">
               {FAQS.map((faq) => (
                 <details key={faq.q} className="group rounded-2xl bg-white px-5 py-4 shadow-sm">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-emerald-950">{faq.q}<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#fde9b8] text-emerald-800 transition group-open:rotate-45">+</span></summary>
-                  <p className="mt-2 leading-7 text-slate-600">{faq.a}</p>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-little-green-950">{faq.q}<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-little-yellow-100 text-little-green-800 transition group-open:rotate-45">+</span></summary>
+                  <p className="mt-2 leading-7 text-little-neutral-600">{faq.a}</p>
                 </details>
               ))}
             </div>
@@ -178,18 +180,18 @@ export default function LocalLandingPage() {
       ====================================================== */}
       <section className="section-mint py-16 md:py-20">
         <div className="container-pad">
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-[32px] bg-white shadow-[0_24px_60px_-38px_rgba(23,60,47,.55)] ring-1 ring-emerald-950/5">
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-[32px] bg-white shadow-[0_24px_60px_-38px_rgba(36,68,32,.55)] ring-1 ring-little-green-950/5">
             <div className="grid gap-8 p-7 md:p-10 lg:grid-cols-[1fr_260px] lg:p-12">
               <div>
-                <span className="eyebrow"><Sparkles className="h-4 w-4 text-[#e2725b]" /> About Little Mahilam</span>
-                <h2 className="mt-4 font-display text-3xl font-bold text-emerald-950 sm:text-4xl">Little Mahilam Preschool in <span className="text-[#e2725b]">Kangayam Nagar, Tiruppur</span></h2>
-                <p className="mt-5 text-lg leading-8 text-slate-600">Little Mahilam Preschool is one of Tiruppur&apos;s trusted early-learning destinations, welcoming children for Play Group, Pre-KG, LKG, UKG and the early primary grades. Families choose us for child-centred learning, caring teachers and a safe environment where children can learn, play and grow with confidence.</p>
+                <span className="eyebrow"><Sparkles className="h-4 w-4 text-little-coral-600" /> About Little Mahilam</span>
+                <h2 className="mt-4 font-display text-3xl font-bold text-little-green-950 sm:text-4xl">Little Mahilam Preschool in <span className="text-little-pink-600">Kangayam Nagar, Tiruppur</span></h2>
+                <p className="mt-5 text-lg leading-8 text-little-neutral-600">Little Mahilam Preschool is one of Tiruppur&apos;s trusted early-learning destinations, welcoming children for Play Group, Pre-KG, LKG, UKG and the early primary grades. Families choose us for child-centred learning, caring teachers and a safe environment where children can learn, play and grow with confidence.</p>
 
-                <h3 className="mt-8 font-display text-2xl font-bold text-emerald-950">Location and overview</h3>
-                <p className="mt-3 leading-8 text-slate-600">Established in 1993, Little Mahilam Preschool has built a lasting place in the Tiruppur community. Our team is dedicated to helping every child discover their strengths through purposeful play, warm relationships and age-appropriate learning experiences. Conveniently located near Kangayam Road at Amarjothi AS Nagar, the campus is easy to reach from surrounding neighbourhoods across Tiruppur.</p>
+                <h3 className="mt-8 font-display text-2xl font-bold text-little-green-950">Location and overview</h3>
+                <p className="mt-3 leading-8 text-little-neutral-600">Established in 1993, Little Mahilam Preschool has built a lasting place in the Tiruppur community. Our team is dedicated to helping every child discover their strengths through purposeful play, warm relationships and age-appropriate learning experiences. Conveniently located near Kangayam Road at Amarjothi AS Nagar, the campus is easy to reach from surrounding neighbourhoods across Tiruppur.</p>
 
-                <h3 className="mt-8 font-display text-2xl font-bold text-emerald-950">Programmes and services offered</h3>
-                <p className="mt-3 leading-8 text-slate-600">We offer early-years and primary programmes designed around the changing needs of growing children. Our staff are approachable and happy to answer questions about admissions, class placement, campus visits and your child&apos;s day at school.</p>
+                <h3 className="mt-8 font-display text-2xl font-bold text-little-green-950">Programmes and services offered</h3>
+                <p className="mt-3 leading-8 text-little-neutral-600">We offer early-years and primary programmes designed around the changing needs of growing children. Our staff are approachable and happy to answer questions about admissions, class placement, campus visits and your child&apos;s day at school.</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {["Play Group", "Pre-KG", "LKG", "UKG", "Grades 1–3", "Activity-based learning"].map((item, index) => (
                     <span key={item} className="rounded-full px-4 py-2 text-sm font-extrabold text-white" style={{ backgroundColor: SIGN_COLORS[index % SIGN_COLORS.length] }}>{item}</span>
@@ -197,15 +199,15 @@ export default function LocalLandingPage() {
                 </div>
               </div>
 
-              <aside className="h-fit rounded-[26px] bg-[#fff4d6] p-6">
-                <Clock3 className="h-8 w-8 text-[#e2725b]" />
-                <h3 className="mt-4 font-display text-xl font-bold text-emerald-950">School hours</h3>
-                <dl className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
-                  <div><dt className="font-extrabold text-emerald-900">Monday–Friday</dt><dd>9:30 am–5:00 pm</dd></div>
-                  <div><dt className="font-extrabold text-emerald-900">Saturday</dt><dd>9:30 am–2:00 pm</dd></div>
-                  <div><dt className="font-extrabold text-emerald-900">Sunday</dt><dd>Closed</dd></div>
+              <aside className="h-fit rounded-[26px] bg-little-yellow-100 p-6">
+                <Clock3 className="h-8 w-8 text-little-coral-600" />
+                <h3 className="mt-4 font-display text-xl font-bold text-little-green-950">School hours</h3>
+                <dl className="mt-4 space-y-3 text-sm leading-6 text-little-neutral-600">
+                  <div><dt className="font-extrabold text-little-green-900">Monday–Friday</dt><dd>9:30 am–5:00 pm</dd></div>
+                  <div><dt className="font-extrabold text-little-green-900">Saturday</dt><dd>9:30 am–2:00 pm</dd></div>
+                  <div><dt className="font-extrabold text-little-green-900">Sunday</dt><dd>Closed</dd></div>
                 </dl>
-                <Link href="/contact" className="mt-6 inline-flex items-center gap-2 font-extrabold text-emerald-900">Contact the school <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/contact" className="mt-6 inline-flex items-center gap-2 font-extrabold text-little-green-900">Contact the school <ArrowRight className="h-4 w-4" /></Link>
               </aside>
             </div>
           </div>
@@ -216,15 +218,15 @@ export default function LocalLandingPage() {
       <section className="py-16 md:py-20">
         <div className="container-pad mx-auto max-w-5xl">
           <span className="eyebrow"><MessageCircleQuestion className="h-4 w-4" /> Helpful information</span>
-          <h2 className="mt-4 font-display text-3xl font-bold text-emerald-950 sm:text-4xl">Frequently asked <span className="text-[#e2725b]">questions.</span></h2>
+          <h2 className="mt-4 font-display text-3xl font-bold text-little-green-950 sm:text-4xl">Frequently asked <span className="text-little-pink-600">questions.</span></h2>
           <div className="mt-8 grid gap-4">
             {LOCAL_FAQS.map((faq, index) => (
-              <details key={faq.q} className="group rounded-[24px] bg-white px-6 py-5 shadow-[0_12px_30px_-24px_rgba(23,60,47,.55)] ring-1 ring-emerald-950/5" open={index === 0}>
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 font-display text-lg font-bold text-emerald-950">
-                  <span><span className="mr-2 text-[#e2725b]">{index + 1}.</span>{faq.q}</span>
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#fde9b8] text-emerald-900 transition group-open:rotate-45">+</span>
+              <details key={faq.q} className="group rounded-[24px] bg-white px-6 py-5 shadow-[0_12px_30px_-24px_rgba(36,68,32,.55)] ring-1 ring-little-green-950/5" open={index === 0}>
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 font-display text-lg font-bold text-little-green-950">
+                  <span className="min-w-0 flex-1 [overflow-wrap:anywhere]"><span className="mr-2 text-little-coral-600">{index + 1}.</span>{faq.q}</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-little-yellow-100 text-little-green-900 transition group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 border-t border-emerald-950/5 pt-3 leading-7 text-slate-600">{faq.a}</p>
+                <p className="mt-3 border-t border-little-green-950/5 pt-3 leading-7 text-little-neutral-600">{faq.a}</p>
               </details>
             ))}
           </div>
