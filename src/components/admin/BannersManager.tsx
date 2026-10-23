@@ -50,14 +50,14 @@ export function BannersManager() {
       <form onSubmit={submit} className="panel h-fit xl:sticky xl:top-28">
         <FormTitle editing={Boolean(editingId)} create="New homepage banner" edit="Edit banner" onCancel={reset} />
 
-        <div className="relative mt-5 flex aspect-[16/7] items-end overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900 to-emerald-700 p-4 text-white">
+        <div className="relative mt-5 flex aspect-[16/7] items-end overflow-hidden rounded-2xl bg-gradient-to-br from-little-green-900 to-little-green-700 p-4 text-white">
           {preview && <img src={preview} alt="" className="absolute inset-0 h-full w-full object-cover" />}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
           <div className="relative">
             <p className="text-[10px] font-black uppercase tracking-[.2em] text-white/60">Live preview</p>
             <p className="mt-1 line-clamp-2 text-lg font-extrabold leading-tight">{form.title || "Your headline appears here"}</p>
             {form.subtitle && <p className="mt-1 line-clamp-1 text-xs text-white/80">{form.subtitle}</p>}
-            {form.ctaLabel && <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#f7c85b] to-[#ef9e8a] px-3 py-1 text-xs font-black text-emerald-950">{form.ctaLabel} <ArrowRight className="h-3 w-3" /></span>}
+            {form.ctaLabel && <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-little-yellow-400 to-little-coral-300 px-3 py-1 text-xs font-black text-little-green-950">{form.ctaLabel} <ArrowRight className="h-3 w-3" /></span>}
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export function BannersManager() {
           <label className="grid gap-1.5"><span className="label">Supporting line</span><input className="input" value={form.subtitle} onChange={(e) => setForm({ ...form, subtitle: e.target.value })} /></label>
           <div>
             <ImageField label="Banner image — used on every screen" heightClass="h-36" value={form.image} onChange={(url) => setForm((f) => ({ ...f, image: url }))} />
-            <p className="mt-2 text-xs leading-5 text-slate-500">Upload one high-quality landscape image. The same image is shown on desktop, tablet and mobile with responsive cropping.</p>
+            <p className="mt-2 text-xs leading-5 text-little-neutral-500">Upload one high-quality landscape image. The same image is shown on desktop, tablet and mobile with responsive cropping.</p>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <label className="grid gap-1.5"><span className="label">Button label</span><input className="input" value={form.ctaLabel} onChange={(e) => setForm({ ...form, ctaLabel: e.target.value })} /></label>
@@ -76,7 +76,7 @@ export function BannersManager() {
           </div>
           <div className="grid grid-cols-2 items-end gap-3">
             <label className="grid gap-1.5"><span className="label">Display order</span><input className="input" type="number" value={form.displayOrder} onChange={(e) => setForm({ ...form, displayOrder: Number(e.target.value) })} /></label>
-            <label className="flex min-h-11 items-center gap-2.5 text-sm font-bold text-slate-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published</label>
+            <label className="flex min-h-11 items-center gap-2.5 text-sm font-bold text-little-neutral-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published</label>
           </div>
           <button className="btn-primary" disabled={crud.saving}>
             {crud.saving ? <LoaderCircle className="h-4 w-4 animate-spin" /> : editingId ? <Pencil className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
@@ -91,16 +91,16 @@ export function BannersManager() {
           <div className="grid gap-4 sm:grid-cols-2">
             {rows.map((r) => (
               <article key={r.id} className={`panel overflow-hidden ${editingId === r.id ? "ring-2 ring-[var(--dash-accent)]" : ""}`}>
-                <div className="relative aspect-[16/8] bg-slate-100">
+                <div className="relative aspect-[16/8] bg-little-neutral-100">
                   {r.desktopImage || r.mobileImage
                     ? <img src={(r.desktopImage || r.mobileImage)!} alt="" loading="lazy" className="h-full w-full object-cover" />
-                    : <div className="flex h-full items-center justify-center text-slate-300"><ImageOff className="h-6 w-6" /></div>}
-                  <span className="chip absolute left-3 top-3 bg-white/85 text-slate-700">#{r.displayOrder}</span>
+                    : <div className="flex h-full items-center justify-center text-little-neutral-300"><ImageOff className="h-6 w-6" /></div>}
+                  <span className="chip absolute left-3 top-3 bg-white/85 text-little-neutral-700">#{r.displayOrder}</span>
                   <div className="absolute right-3 top-3"><PublishToggle active={r.active} pending={crud.patch.isPending} onToggle={() => crud.patch.mutate({ id: r.id, payload: { active: !r.active } })} /></div>
                 </div>
                 <div className="p-4">
                   <h3 className="line-clamp-1 font-extrabold">{r.title}</h3>
-                  <p className="mt-1 line-clamp-1 text-sm text-slate-500">{r.subtitle || "No supporting line"}</p>
+                  <p className="mt-1 line-clamp-1 text-sm text-little-neutral-500">{r.subtitle || "No supporting line"}</p>
                   {r.ctaLabel && <p className="accent-text mt-2 truncate text-xs font-bold">{r.ctaLabel} → {r.ctaLink}</p>}
                   <div className="mt-3 flex items-center gap-2 border-t pt-3">
                     <button type="button" onClick={() => startEdit(r)} className="btn-soft !px-3 !py-1.5 !text-xs"><Pencil className="h-3.5 w-3.5" /> Edit</button>

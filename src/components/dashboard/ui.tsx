@@ -25,9 +25,9 @@ export function ListToolbar({
 }) {
   return (
     <div className="panel dash-toolbar mb-5 flex flex-col gap-3 p-3 sm:p-3.5 lg:flex-row lg:items-center">
-      <label className="relative flex-1">
+      <label className="relative min-w-0 flex-1">
         <span className="sr-only">{placeholder}</span>
-        <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+        <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-little-neutral-500" />
         <input type="search" value={search} onChange={(event) => onSearch(event.target.value)} placeholder={placeholder} className="input !min-h-11 !bg-white/80 !pl-10" />
       </label>
       {filters && onFilter && (
@@ -39,15 +39,15 @@ export function ListToolbar({
               role="tab"
               aria-selected={filter === option.value}
               onClick={() => onFilter(option.value)}
-              className={`chip shrink-0 border transition ${filter === option.value ? "dash-nav-active border-transparent" : "bg-white/60 text-slate-500 hover:bg-white"}`}
+              className={`chip shrink-0 border transition ${filter === option.value ? "dash-nav-active border-transparent" : "bg-white/60 text-little-neutral-500 hover:bg-white"}`}
             >
               {option.label}
             </button>
           ))}
         </div>
       )}
-      <div className="flex items-center justify-between gap-3 lg:justify-end">
-        {typeof count === "number" && <span className="whitespace-nowrap text-xs font-bold text-slate-400">{count} {count === 1 ? "result" : "results"}</span>}
+      <div className="flex flex-wrap items-center justify-between gap-3 lg:justify-end">
+        {typeof count === "number" && <span className="whitespace-nowrap text-xs font-bold text-little-neutral-500">{count} {count === 1 ? "result" : "results"}</span>}
         {actions}
       </div>
     </div>
@@ -59,18 +59,18 @@ export function ConfirmDelete({ onConfirm, pending, label = "Delete", compact = 
   const [asking, setAsking] = useState(false);
   if (!asking) {
     return (
-      <button type="button" onClick={() => setAsking(true)} aria-label={label} title={label} className={`inline-flex items-center gap-1.5 rounded-xl text-xs font-bold text-rose-600 hover:bg-rose-50 ${compact ? "p-2" : "px-3 py-1.5"}`}>
+      <button type="button" onClick={() => setAsking(true)} aria-label={label} title={label} className={`inline-flex items-center gap-1.5 rounded-xl text-xs font-bold text-little-coral-600 hover:bg-little-coral-50 ${compact ? "p-2" : "px-3 py-1.5"}`}>
         <Trash2 className="h-3.5 w-3.5" />{!compact && label}
       </button>
     );
   }
   return (
     <span className="inline-flex items-center gap-1.5 whitespace-nowrap text-xs font-bold">
-      {!compact && <span className="text-slate-500">Are you sure?</span>}
-      <button type="button" onClick={onConfirm} disabled={pending} className="inline-flex items-center gap-1 rounded-lg bg-rose-600 px-2.5 py-1.5 text-white disabled:opacity-60">
-        {pending && <LoaderCircle className="h-3 w-3 animate-spin" />}Delete
+      {!compact && <span className="text-little-neutral-500">Are you sure?</span>}
+      <button type="button" onClick={onConfirm} disabled={pending} className="inline-flex items-center gap-1 rounded-lg bg-little-coral-600 px-2.5 py-1.5 text-white disabled:opacity-60">
+        {pending && <LoaderCircle className="h-3 w-3 animate-spin" />}{label}
       </button>
-      <button type="button" onClick={() => setAsking(false)} className="rounded-lg border bg-white/70 px-2.5 py-1.5 text-slate-500">Cancel</button>
+      <button type="button" onClick={() => setAsking(false)} className="rounded-lg border bg-white/70 px-2.5 py-1.5 text-little-neutral-500">Cancel</button>
     </span>
   );
 }
@@ -83,27 +83,27 @@ export function PublishToggle({ active, onToggle, pending, on = "Published", off
       onClick={onToggle}
       disabled={pending}
       aria-pressed={active}
-      className={`chip shrink-0 transition disabled:opacity-60 ${active ? "bg-emerald-100/80 text-emerald-800 hover:bg-emerald-100" : "bg-slate-200/60 text-slate-500 hover:bg-slate-200"}`}
+      className={`chip shrink-0 transition disabled:opacity-60 ${active ? "bg-little-green-100/80 text-little-green-800 hover:bg-little-green-100" : "bg-little-neutral-200/60 text-little-neutral-500 hover:bg-little-neutral-200"}`}
     >
-      <span className={`h-1.5 w-1.5 rounded-full ${active ? "bg-emerald-500" : "bg-slate-400"}`} />{active ? on : off}
+      <span className={`h-1.5 w-1.5 rounded-full ${active ? "bg-little-green-500" : "bg-little-neutral-400"}`} />{active ? on : off}
     </button>
   );
 }
 
 /** Image preview with remove button, or an uploader when empty. */
-export function ImageField({ label, value, onChange, heightClass = "h-40", uploadLabel }: { label: string; value: string; onChange: (url: string) => void; heightClass?: string; uploadLabel?: string }) {
+export function ImageField({ label, value, onChange, heightClass = "h-40", uploadLabel, onUploadBusyChange }: { label: string; value: string; onChange: (url: string) => void; heightClass?: string; uploadLabel?: string; onUploadBusyChange?: (busy: boolean) => void }) {
   return (
     <div className="grid gap-1.5">
       <span className="label">{label}</span>
       {value ? (
         <div className="group relative overflow-hidden rounded-2xl border bg-white/60">
           <img src={value} alt="" className={`${heightClass} w-full object-cover`} />
-          <button type="button" onClick={() => onChange("")} className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-600 shadow hover:bg-white" aria-label={`Remove ${label.toLowerCase()}`}>
+          <button type="button" onClick={() => onChange("")} className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-little-neutral-600 shadow hover:bg-white" aria-label={`Remove ${label.toLowerCase()}`}>
             <X className="h-4 w-4" />
           </button>
         </div>
       ) : (
-        <ImageUpload label={uploadLabel ?? `Upload ${label.toLowerCase()}`} onUploaded={onChange} />
+        <ImageUpload label={uploadLabel ?? `Upload ${label.toLowerCase()}`} onUploaded={onChange} onBusyChange={onUploadBusyChange} />
       )}
     </div>
   );
@@ -117,7 +117,7 @@ export function FormTitle({ editing, create, edit, onCancel }: { editing: boolea
         <h2 className="mt-1 text-xl font-extrabold">{editing ? edit : create}</h2>
       </div>
       {editing && (
-        <button type="button" onClick={onCancel} className="flex items-center gap-1 rounded-xl px-2.5 py-1.5 text-xs font-bold text-slate-500 hover:bg-white/80">
+        <button type="button" onClick={onCancel} className="flex items-center gap-1 rounded-xl px-2.5 py-1.5 text-xs font-bold text-little-neutral-500 hover:bg-white/80">
           <X className="h-3.5 w-3.5" /> Cancel
         </button>
       )}

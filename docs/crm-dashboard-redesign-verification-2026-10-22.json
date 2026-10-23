@@ -1,0 +1,88 @@
+{
+  "checkedAt": "2026-10-22T10:32:01.680Z",
+  "database": "disposable-local-postgresql",
+  "api": "real NestJS with Prisma",
+  "browser": "Chrome headless CDP",
+  "checks": [
+    "Public admission form saves an admission enquiry through real HTTP and PostgreSQL",
+    "Invalid and successful login use actual password hashing, cookies and database sessions",
+    "Mobile filters expand, apply and reset; all fourteen metrics remain available",
+    "New enquiry shortcut opens the existing form and closes correctly",
+    "Task create form persists real data and survives page refresh",
+    "Pipeline failed-request rollback and successful stage persistence after browser refresh",
+    "Follow-up form applies configured default and saves assigned due date",
+    "Counsellor, accountant, teacher and CMS editor login routing, navigation and forbidden API checks"
+  ],
+  "viewports": [
+    {
+      "path": "/crm",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Command Center",
+      "errors": []
+    },
+    {
+      "path": "/crm",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Command Center",
+      "errors": []
+    },
+    {
+      "path": "/crm",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Command Center",
+      "errors": []
+    },
+    {
+      "path": "/crm",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Command Center",
+      "errors": []
+    },
+    {
+      "path": "/crm",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Command Center",
+      "errors": []
+    }
+  ],
+  "apiFailures": [
+    {
+      "path": "/api/v1/crm/settings",
+      "method": "GET",
+      "status": 403,
+      "body": "{\"success\":false,\"statusCode\":403,\"message\":\"Forbidden resource\"}"
+    },
+    {
+      "path": "/api/v1/crm/settings",
+      "method": "GET",
+      "status": 403,
+      "body": "{\"success\":false,\"statusCode\":403,\"message\":\"Forbidden resource\"}"
+    },
+    {
+      "path": "/api/v1/crm/settings",
+      "method": "GET",
+      "status": 403,
+      "body": "{\"success\":false,\"statusCode\":403,\"message\":\"Forbidden resource\"}"
+    },
+    {
+      "path": "/api/v1/crm/dashboard",
+      "method": "GET",
+      "status": 403,
+      "body": "{\"success\":false,\"statusCode\":403,\"message\":\"Forbidden resource\"}"
+    }
+  ],
+  "exceptions": [],
+  "design": {
+    "metricCount": 14,
+    "primaryCardHeight": 107.1875,
+    "valueFontSize": "25px",
+    "headerHeight": 58,
+    "bodyFontSize": "12px"
+  },
+  "status": "passed"
+}

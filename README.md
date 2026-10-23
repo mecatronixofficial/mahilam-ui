@@ -1,4 +1,4 @@
-# Little Mahilam Frontend
+﻿# Little Mahilam Frontend
 
 Next.js 16 (App Router, Turbopack) + Tailwind CSS v4 + TanStack Query.
 
@@ -13,6 +13,10 @@ bun run typecheck
 ```
 
 `NEXT_PUBLIC_API_URL` must point at the Little Mahilam backend (default port 4000).
+
+Development filesystem caching is disabled in `next.config.ts` to work around
+Turbopack cache-restore panics. Restarting development may compile more slowly.
+If Turbopack still crashes, stop the server and run `bun run dev:webpack`.
 
 ## Deploying to Vercel
 
@@ -32,8 +36,8 @@ Put the site and the API on the same registrable domain (e.g. `littlemahilam.in`
 | Area | Routes | Notes |
 |---|---|---|
 | Public site | `/`, `/about`, `/programs`, `/learning-approach`, `/activities`, `/facilities`, `/gallery`, `/events`, `/admissions`, `/contact`, `/faq`, `/blog`, `/blog/[slug]`, `/preschool-in-tiruppur`, `/privacy-policy` | Server-rendered live from `/cms/public/*`; falls back gracefully if the API is down |
-| Website CMS | `/admin/*` | Admins only. Announcements, banners, reviews, programs, activities, facilities, gallery, events, blog, settings, activity log |
-| School CRM | `/crm/*` | Enquiries, admissions board, students, fees & payments, reports + CSV exports, staff, my account |
+| Website CMS | `/admin/*` | Administrators and CMS editors (audit log restricted to administrators). Announcements, banners, reviews, programs, activities, facilities, gallery, events, blog, settings, activity log |
+| School CRM | `/crm/*` | Role-scoped dashboard, enquiries/pipeline, applications/enrollment, follow-ups, visits, students/guardians, academics, attendance, fees/payments, tasks/calendar, communications/templates, reports/CSV, settings, staff and account |
 | Status screens | `/offline`, `/forbidden`, `/session-expired`, 404/500 | Plus in-app loading, empty, error, partial-data and session-expired states |
 
 ## Key building blocks
@@ -47,6 +51,39 @@ Put the site and the API on the same registrable domain (e.g. `littlemahilam.in`
 - `src/components/dashboard/*` — glass workspace shell, `useCrud`, toolbar, drawer, command palette (Ctrl/⌘ K)
 - `public/sw.js` — shows an offline page when navigation fails with no connection (production only)
 
+## Home and About content
+
+Use `/admin/home` and `/admin/about` to manage section headings, descriptions and photo uploads through the existing backend. See [Home and About content](docs/page-content.md) for publishing, defaults and API details.
+
+The supplied school photography and website-wide upload controls are documented in [School photo placement](docs/school-photo-placement.md). Use `/admin/photos` for default photo positions across pages.
+
 ## Adding photography
 
 Pages reference files like `/images/about/kids-group.webp`. Drop the real photo at `public/images/about/kids-group.webp` and rebuild — no code change needed.
+
+## CRM verification and release
+
+See [SCHOOL_CRM_AUDIT_AND_COMPLETION.md](SCHOOL_CRM_AUDIT_AND_COMPLETION.md) for the initial audit, implementation, resource verification matrix, test results and remaining release work.
+
+Run type checks and tests with Bun:
+
+~~~powershell
+bun run typecheck
+bun run lint
+bun test
+bun run build
+$env:CRM_PUBLIC_SMOKE='true'
+bun test tests/public-routes.test.ts
+~~~
+
+The optional Chrome workflow suite uses the actual NestJS API and Prisma database. It requires the sibling backend to be built and a migrated disposable local database containing the synthetic fixtures produced by its PostgreSQL integration test:
+
+~~~powershell
+$env:CRM_BROWSER_DATABASE_URL='<local disposable PostgreSQL URL>'
+bun tests/crm-browser.mjs
+~~~
+
+The database hostname must be localhost/127.0.0.1/::1 and its name must start with mahilam_crm_test_. No fallback to the school database is allowed. The harness creates synthetic test accounts/records, starts isolated temporary API/frontend/Chrome processes, verifies forms/persistence/permissions/responsiveness, writes a JSON report under docs, and closes those processes. Chrome's default path is the Windows installation; CRM_CHROME_PATH and CRM_BACKEND_ROOT can override local locations. Do not run it against a school database.
+
+The school database was inspected read-only. The existing Learning Photos migration and the new complete_school_crm migration remain unapplied there. Release the matching backend and migrations before exposing the new frontend to school staff. The public design and existing navigation are retained.
+

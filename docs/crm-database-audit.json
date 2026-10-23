@@ -1,0 +1,3057 @@
+{
+  "auditedAt": "2026-10-17T06:38:12.734Z",
+  "mode": "READ ONLY; schema metadata only; no family records or secrets",
+  "columns": [
+    {
+      "table_name": "AcademicYear",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "AcademicYear",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "AcademicYear",
+      "column_name": "startDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "AcademicYear",
+      "column_name": "endDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "AcademicYear",
+      "column_name": "current",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "AcademicYear",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "AcademicYear",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Activity",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Activity",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Activity",
+      "column_name": "slug",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Activity",
+      "column_name": "description",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Activity",
+      "column_name": "image",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Activity",
+      "column_name": "benefits",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Activity",
+      "column_name": "displayOrder",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Activity",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "applicationNumber",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "admissionNumber",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "enquiryId",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "studentName",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "className",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "joiningDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "status",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "notes",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Admission",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "title",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "content",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "type",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "ctaLabel",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "ctaUrl",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "startDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "endDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "priority",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Announcement",
+      "column_name": "imageUrl",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "userId",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "action",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "module",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "entityId",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "oldValue",
+      "data_type": "jsonb",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "newValue",
+      "data_type": "jsonb",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "ip",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "userAgent",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "AuditLog",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "title",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "subtitle",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "desktopImage",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "mobileImage",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "ctaLabel",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "ctaLink",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "secondaryCtaLabel",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "secondaryCtaLink",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "displayOrder",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Banner",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "title",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "slug",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "excerpt",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "content",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "coverImage",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "author",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "category",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "tags",
+      "data_type": "ARRAY",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "seoTitle",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "seoDescription",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "status",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "publishedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "BlogPost",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "ClassLevel",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "ClassLevel",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "ClassLevel",
+      "column_name": "code",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "ClassLevel",
+      "column_name": "displayOrder",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "ClassLevel",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "ClassLevel",
+      "column_name": "academicYearId",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "enquiryNumber",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "parentName",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "studentName",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "studentDob",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "phone",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "whatsapp",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "email",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "interestedClass",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "source",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "assignedStaffId",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "nextFollowUpDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "message",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "notes",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "status",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Enquiry",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "column_name": "enquiryId",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "column_name": "contactMethod",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "column_name": "staffName",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "column_name": "notes",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "column_name": "nextFollowUp",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "column_name": "result",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Facility",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Facility",
+      "column_name": "title",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Facility",
+      "column_name": "description",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Facility",
+      "column_name": "image",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Facility",
+      "column_name": "icon",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Facility",
+      "column_name": "displayOrder",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Facility",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeStructure",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeStructure",
+      "column_name": "className",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeStructure",
+      "column_name": "academicYear",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeStructure",
+      "column_name": "amount",
+      "data_type": "numeric",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeStructure",
+      "column_name": "dueDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "FeeStructure",
+      "column_name": "frequency",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeStructure",
+      "column_name": "mandatory",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeStructure",
+      "column_name": "feeTypeId",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeType",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeType",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "FeeType",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "column_name": "title",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "column_name": "slug",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "column_name": "category",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "GalleryItem",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "GalleryItem",
+      "column_name": "albumId",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "GalleryItem",
+      "column_name": "imageUrl",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "GalleryItem",
+      "column_name": "caption",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "GalleryItem",
+      "column_name": "altText",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "GalleryItem",
+      "column_name": "displayOrder",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "GalleryItem",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Guardian",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Guardian",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Guardian",
+      "column_name": "relationship",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Guardian",
+      "column_name": "mobile",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Guardian",
+      "column_name": "whatsapp",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Guardian",
+      "column_name": "email",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Guardian",
+      "column_name": "occupation",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Guardian",
+      "column_name": "address",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Guardian",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "column_name": "email",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "column_name": "source",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Payment",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Payment",
+      "column_name": "receiptNumber",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Payment",
+      "column_name": "studentFeeId",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Payment",
+      "column_name": "amount",
+      "data_type": "numeric",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Payment",
+      "column_name": "method",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Payment",
+      "column_name": "notes",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Payment",
+      "column_name": "voided",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Payment",
+      "column_name": "paidAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Program",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Program",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Program",
+      "column_name": "slug",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Program",
+      "column_name": "ageGroup",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Program",
+      "column_name": "description",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Program",
+      "column_name": "detailedDescription",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Program",
+      "column_name": "coverImage",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Program",
+      "column_name": "displayOrder",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Program",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "RefreshSession",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "RefreshSession",
+      "column_name": "tokenHash",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "RefreshSession",
+      "column_name": "expiresAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "RefreshSession",
+      "column_name": "userId",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "RefreshSession",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "title",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "slug",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "coverImage",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "description",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "startDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "endDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "startTime",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "venue",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "category",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "column_name": "featured",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Section",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Section",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Section",
+      "column_name": "capacity",
+      "data_type": "integer",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Section",
+      "column_name": "room",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Section",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Section",
+      "column_name": "classLevelId",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Sequence",
+      "column_name": "key",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Sequence",
+      "column_name": "value",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Sequence",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SiteSetting",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SiteSetting",
+      "column_name": "key",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SiteSetting",
+      "column_name": "value",
+      "data_type": "jsonb",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "SiteSetting",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "admissionNumber",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "firstName",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "lastName",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "dob",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "gender",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "bloodGroup",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "photoUrl",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "joiningDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "phone",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "whatsapp",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "address",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "emergencyContact",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "notes",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "status",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "classLevelId",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "sectionId",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Student",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentFee",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentFee",
+      "column_name": "studentId",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentFee",
+      "column_name": "label",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentFee",
+      "column_name": "originalAmount",
+      "data_type": "numeric",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentFee",
+      "column_name": "discount",
+      "data_type": "numeric",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentFee",
+      "column_name": "fine",
+      "data_type": "numeric",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentFee",
+      "column_name": "paid",
+      "data_type": "numeric",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentFee",
+      "column_name": "status",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentFee",
+      "column_name": "dueDate",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "StudentGuardian",
+      "column_name": "studentId",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentGuardian",
+      "column_name": "guardianId",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "StudentGuardian",
+      "column_name": "primary",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "parentName",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "studentReference",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "photo",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "rating",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "testimonial",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "featured",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "displayOrder",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "location",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "mobile",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "email",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "Testimonial",
+      "column_name": "subject",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "User",
+      "column_name": "id",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "User",
+      "column_name": "email",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "User",
+      "column_name": "name",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "User",
+      "column_name": "passwordHash",
+      "data_type": "text",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "User",
+      "column_name": "role",
+      "data_type": "USER-DEFINED",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "User",
+      "column_name": "active",
+      "data_type": "boolean",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "User",
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "User",
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "column_name": "id",
+      "data_type": "character varying",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "column_name": "checksum",
+      "data_type": "character varying",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "column_name": "finished_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "column_name": "migration_name",
+      "data_type": "character varying",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "column_name": "logs",
+      "data_type": "text",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "column_name": "rolled_back_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "YES"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "column_name": "started_at",
+      "data_type": "timestamp with time zone",
+      "is_nullable": "NO"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "column_name": "applied_steps_count",
+      "data_type": "integer",
+      "is_nullable": "NO"
+    }
+  ],
+  "constraints": [
+    {
+      "table_name": "AcademicYear",
+      "constraint_name": "AcademicYear_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AcademicYear",
+      "constraint_name": "AcademicYear_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AcademicYear",
+      "constraint_name": "AcademicYear_current_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AcademicYear",
+      "constraint_name": "AcademicYear_endDate_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AcademicYear",
+      "constraint_name": "AcademicYear_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AcademicYear",
+      "constraint_name": "AcademicYear_name_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AcademicYear",
+      "constraint_name": "AcademicYear_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "AcademicYear",
+      "constraint_name": "AcademicYear_startDate_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Activity",
+      "constraint_name": "Activity_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Activity",
+      "constraint_name": "Activity_displayOrder_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Activity",
+      "constraint_name": "Activity_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Activity",
+      "constraint_name": "Activity_name_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Activity",
+      "constraint_name": "Activity_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Activity",
+      "constraint_name": "Activity_slug_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Admission",
+      "constraint_name": "Admission_applicationNumber_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Admission",
+      "constraint_name": "Admission_className_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Admission",
+      "constraint_name": "Admission_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Admission",
+      "constraint_name": "Admission_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Admission",
+      "constraint_name": "Admission_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Admission",
+      "constraint_name": "Admission_status_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Admission",
+      "constraint_name": "Admission_studentName_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Admission",
+      "constraint_name": "Admission_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Announcement",
+      "constraint_name": "Announcement_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Announcement",
+      "constraint_name": "Announcement_content_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Announcement",
+      "constraint_name": "Announcement_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Announcement",
+      "constraint_name": "Announcement_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Announcement",
+      "constraint_name": "Announcement_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Announcement",
+      "constraint_name": "Announcement_priority_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Announcement",
+      "constraint_name": "Announcement_title_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Announcement",
+      "constraint_name": "Announcement_type_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Announcement",
+      "constraint_name": "Announcement_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AuditLog",
+      "constraint_name": "AuditLog_action_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AuditLog",
+      "constraint_name": "AuditLog_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AuditLog",
+      "constraint_name": "AuditLog_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AuditLog",
+      "constraint_name": "AuditLog_module_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "AuditLog",
+      "constraint_name": "AuditLog_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Banner",
+      "constraint_name": "Banner_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Banner",
+      "constraint_name": "Banner_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Banner",
+      "constraint_name": "Banner_displayOrder_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Banner",
+      "constraint_name": "Banner_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Banner",
+      "constraint_name": "Banner_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Banner",
+      "constraint_name": "Banner_title_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Banner",
+      "constraint_name": "Banner_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "BlogPost",
+      "constraint_name": "BlogPost_content_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "BlogPost",
+      "constraint_name": "BlogPost_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "BlogPost",
+      "constraint_name": "BlogPost_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "BlogPost",
+      "constraint_name": "BlogPost_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "BlogPost",
+      "constraint_name": "BlogPost_slug_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "BlogPost",
+      "constraint_name": "BlogPost_status_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "BlogPost",
+      "constraint_name": "BlogPost_title_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "BlogPost",
+      "constraint_name": "BlogPost_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "ClassLevel",
+      "constraint_name": "ClassLevel_academicYearId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "ClassLevel",
+      "constraint_name": "ClassLevel_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "ClassLevel",
+      "constraint_name": "ClassLevel_code_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "ClassLevel",
+      "constraint_name": "ClassLevel_displayOrder_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "ClassLevel",
+      "constraint_name": "ClassLevel_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "ClassLevel",
+      "constraint_name": "ClassLevel_name_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "ClassLevel",
+      "constraint_name": "ClassLevel_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_enquiryNumber_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_interestedClass_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_parentName_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_phone_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_source_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_status_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_studentName_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Enquiry",
+      "constraint_name": "Enquiry_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "constraint_name": "EnquiryFollowUp_contactMethod_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "constraint_name": "EnquiryFollowUp_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "constraint_name": "EnquiryFollowUp_enquiryId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "constraint_name": "EnquiryFollowUp_enquiryId_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "constraint_name": "EnquiryFollowUp_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "constraint_name": "EnquiryFollowUp_notes_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "EnquiryFollowUp",
+      "constraint_name": "EnquiryFollowUp_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Facility",
+      "constraint_name": "Facility_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Facility",
+      "constraint_name": "Facility_displayOrder_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Facility",
+      "constraint_name": "Facility_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Facility",
+      "constraint_name": "Facility_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Facility",
+      "constraint_name": "Facility_title_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeStructure",
+      "constraint_name": "FeeStructure_academicYear_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeStructure",
+      "constraint_name": "FeeStructure_amount_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeStructure",
+      "constraint_name": "FeeStructure_className_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeStructure",
+      "constraint_name": "FeeStructure_feeTypeId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "FeeStructure",
+      "constraint_name": "FeeStructure_feeTypeId_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeStructure",
+      "constraint_name": "FeeStructure_frequency_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeStructure",
+      "constraint_name": "FeeStructure_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeStructure",
+      "constraint_name": "FeeStructure_mandatory_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeStructure",
+      "constraint_name": "FeeStructure_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "FeeType",
+      "constraint_name": "FeeType_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeType",
+      "constraint_name": "FeeType_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeType",
+      "constraint_name": "FeeType_name_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "FeeType",
+      "constraint_name": "FeeType_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "constraint_name": "GalleryAlbum_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "constraint_name": "GalleryAlbum_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "constraint_name": "GalleryAlbum_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "constraint_name": "GalleryAlbum_slug_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "GalleryAlbum",
+      "constraint_name": "GalleryAlbum_title_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "GalleryItem",
+      "constraint_name": "GalleryItem_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "GalleryItem",
+      "constraint_name": "GalleryItem_albumId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "GalleryItem",
+      "constraint_name": "GalleryItem_albumId_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "GalleryItem",
+      "constraint_name": "GalleryItem_displayOrder_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "GalleryItem",
+      "constraint_name": "GalleryItem_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "GalleryItem",
+      "constraint_name": "GalleryItem_imageUrl_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "GalleryItem",
+      "constraint_name": "GalleryItem_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Guardian",
+      "constraint_name": "Guardian_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Guardian",
+      "constraint_name": "Guardian_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Guardian",
+      "constraint_name": "Guardian_mobile_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Guardian",
+      "constraint_name": "Guardian_name_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Guardian",
+      "constraint_name": "Guardian_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Guardian",
+      "constraint_name": "Guardian_relationship_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "constraint_name": "NewsletterSubscriber_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "constraint_name": "NewsletterSubscriber_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "constraint_name": "NewsletterSubscriber_email_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "constraint_name": "NewsletterSubscriber_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "constraint_name": "NewsletterSubscriber_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "constraint_name": "NewsletterSubscriber_source_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "NewsletterSubscriber",
+      "constraint_name": "NewsletterSubscriber_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Payment",
+      "constraint_name": "Payment_amount_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Payment",
+      "constraint_name": "Payment_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Payment",
+      "constraint_name": "Payment_method_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Payment",
+      "constraint_name": "Payment_paidAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Payment",
+      "constraint_name": "Payment_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Payment",
+      "constraint_name": "Payment_receiptNumber_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Payment",
+      "constraint_name": "Payment_studentFeeId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "Payment",
+      "constraint_name": "Payment_studentFeeId_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Payment",
+      "constraint_name": "Payment_voided_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Program",
+      "constraint_name": "Program_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Program",
+      "constraint_name": "Program_displayOrder_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Program",
+      "constraint_name": "Program_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Program",
+      "constraint_name": "Program_name_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Program",
+      "constraint_name": "Program_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Program",
+      "constraint_name": "Program_slug_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "RefreshSession",
+      "constraint_name": "RefreshSession_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "RefreshSession",
+      "constraint_name": "RefreshSession_expiresAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "RefreshSession",
+      "constraint_name": "RefreshSession_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "RefreshSession",
+      "constraint_name": "RefreshSession_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "RefreshSession",
+      "constraint_name": "RefreshSession_tokenHash_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "RefreshSession",
+      "constraint_name": "RefreshSession_userId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "RefreshSession",
+      "constraint_name": "RefreshSession_userId_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "constraint_name": "SchoolEvent_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "constraint_name": "SchoolEvent_featured_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "constraint_name": "SchoolEvent_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "constraint_name": "SchoolEvent_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "constraint_name": "SchoolEvent_slug_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "constraint_name": "SchoolEvent_startDate_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SchoolEvent",
+      "constraint_name": "SchoolEvent_title_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Section",
+      "constraint_name": "Section_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Section",
+      "constraint_name": "Section_classLevelId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "Section",
+      "constraint_name": "Section_classLevelId_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Section",
+      "constraint_name": "Section_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Section",
+      "constraint_name": "Section_name_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Section",
+      "constraint_name": "Section_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Sequence",
+      "constraint_name": "Sequence_key_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Sequence",
+      "constraint_name": "Sequence_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Sequence",
+      "constraint_name": "Sequence_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Sequence",
+      "constraint_name": "Sequence_value_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SiteSetting",
+      "constraint_name": "SiteSetting_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SiteSetting",
+      "constraint_name": "SiteSetting_key_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SiteSetting",
+      "constraint_name": "SiteSetting_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "SiteSetting",
+      "constraint_name": "SiteSetting_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "SiteSetting",
+      "constraint_name": "SiteSetting_value_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Student",
+      "constraint_name": "Student_admissionNumber_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Student",
+      "constraint_name": "Student_classLevelId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "Student",
+      "constraint_name": "Student_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Student",
+      "constraint_name": "Student_firstName_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Student",
+      "constraint_name": "Student_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Student",
+      "constraint_name": "Student_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Student",
+      "constraint_name": "Student_sectionId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "Student",
+      "constraint_name": "Student_status_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Student",
+      "constraint_name": "Student_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_discount_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_fine_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_label_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_originalAmount_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_paid_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_status_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_studentId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "StudentFee",
+      "constraint_name": "StudentFee_studentId_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentGuardian",
+      "constraint_name": "StudentGuardian_guardianId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "StudentGuardian",
+      "constraint_name": "StudentGuardian_guardianId_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentGuardian",
+      "constraint_name": "StudentGuardian_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "StudentGuardian",
+      "constraint_name": "StudentGuardian_primary_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "StudentGuardian",
+      "constraint_name": "StudentGuardian_studentId_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "table_name": "StudentGuardian",
+      "constraint_name": "StudentGuardian_studentId_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Testimonial",
+      "constraint_name": "Testimonial_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Testimonial",
+      "constraint_name": "Testimonial_displayOrder_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Testimonial",
+      "constraint_name": "Testimonial_featured_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Testimonial",
+      "constraint_name": "Testimonial_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Testimonial",
+      "constraint_name": "Testimonial_parentName_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Testimonial",
+      "constraint_name": "Testimonial_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "Testimonial",
+      "constraint_name": "Testimonial_rating_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "Testimonial",
+      "constraint_name": "Testimonial_testimonial_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "User",
+      "constraint_name": "User_active_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "User",
+      "constraint_name": "User_createdAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "User",
+      "constraint_name": "User_email_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "User",
+      "constraint_name": "User_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "User",
+      "constraint_name": "User_name_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "User",
+      "constraint_name": "User_passwordHash_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "User",
+      "constraint_name": "User_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "User",
+      "constraint_name": "User_role_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "User",
+      "constraint_name": "User_updatedAt_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "constraint_name": "_prisma_migrations_applied_steps_count_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "constraint_name": "_prisma_migrations_checksum_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "constraint_name": "_prisma_migrations_id_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "constraint_name": "_prisma_migrations_migration_name_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "constraint_name": "_prisma_migrations_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "table_name": "_prisma_migrations",
+      "constraint_name": "_prisma_migrations_started_at_not_null",
+      "constraint_type": "CHECK"
+    }
+  ],
+  "indexes": [
+    {
+      "tablename": "AcademicYear",
+      "indexname": "AcademicYear_name_key",
+      "indexdef": "CREATE UNIQUE INDEX \"AcademicYear_name_key\" ON public.\"AcademicYear\" USING btree (name)"
+    },
+    {
+      "tablename": "AcademicYear",
+      "indexname": "AcademicYear_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"AcademicYear_pkey\" ON public.\"AcademicYear\" USING btree (id)"
+    },
+    {
+      "tablename": "Activity",
+      "indexname": "Activity_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Activity_pkey\" ON public.\"Activity\" USING btree (id)"
+    },
+    {
+      "tablename": "Activity",
+      "indexname": "Activity_slug_key",
+      "indexdef": "CREATE UNIQUE INDEX \"Activity_slug_key\" ON public.\"Activity\" USING btree (slug)"
+    },
+    {
+      "tablename": "Admission",
+      "indexname": "Admission_admissionNumber_key",
+      "indexdef": "CREATE UNIQUE INDEX \"Admission_admissionNumber_key\" ON public.\"Admission\" USING btree (\"admissionNumber\")"
+    },
+    {
+      "tablename": "Admission",
+      "indexname": "Admission_applicationNumber_key",
+      "indexdef": "CREATE UNIQUE INDEX \"Admission_applicationNumber_key\" ON public.\"Admission\" USING btree (\"applicationNumber\")"
+    },
+    {
+      "tablename": "Admission",
+      "indexname": "Admission_createdAt_idx",
+      "indexdef": "CREATE INDEX \"Admission_createdAt_idx\" ON public.\"Admission\" USING btree (\"createdAt\")"
+    },
+    {
+      "tablename": "Admission",
+      "indexname": "Admission_enquiryId_idx",
+      "indexdef": "CREATE INDEX \"Admission_enquiryId_idx\" ON public.\"Admission\" USING btree (\"enquiryId\")"
+    },
+    {
+      "tablename": "Admission",
+      "indexname": "Admission_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Admission_pkey\" ON public.\"Admission\" USING btree (id)"
+    },
+    {
+      "tablename": "Admission",
+      "indexname": "Admission_status_idx",
+      "indexdef": "CREATE INDEX \"Admission_status_idx\" ON public.\"Admission\" USING btree (status)"
+    },
+    {
+      "tablename": "Announcement",
+      "indexname": "Announcement_active_priority_idx",
+      "indexdef": "CREATE INDEX \"Announcement_active_priority_idx\" ON public.\"Announcement\" USING btree (active, priority)"
+    },
+    {
+      "tablename": "Announcement",
+      "indexname": "Announcement_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Announcement_pkey\" ON public.\"Announcement\" USING btree (id)"
+    },
+    {
+      "tablename": "AuditLog",
+      "indexname": "AuditLog_module_createdAt_idx",
+      "indexdef": "CREATE INDEX \"AuditLog_module_createdAt_idx\" ON public.\"AuditLog\" USING btree (module, \"createdAt\")"
+    },
+    {
+      "tablename": "AuditLog",
+      "indexname": "AuditLog_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"AuditLog_pkey\" ON public.\"AuditLog\" USING btree (id)"
+    },
+    {
+      "tablename": "AuditLog",
+      "indexname": "AuditLog_userId_idx",
+      "indexdef": "CREATE INDEX \"AuditLog_userId_idx\" ON public.\"AuditLog\" USING btree (\"userId\")"
+    },
+    {
+      "tablename": "Banner",
+      "indexname": "Banner_active_displayOrder_idx",
+      "indexdef": "CREATE INDEX \"Banner_active_displayOrder_idx\" ON public.\"Banner\" USING btree (active, \"displayOrder\")"
+    },
+    {
+      "tablename": "Banner",
+      "indexname": "Banner_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Banner_pkey\" ON public.\"Banner\" USING btree (id)"
+    },
+    {
+      "tablename": "BlogPost",
+      "indexname": "BlogPost_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"BlogPost_pkey\" ON public.\"BlogPost\" USING btree (id)"
+    },
+    {
+      "tablename": "BlogPost",
+      "indexname": "BlogPost_slug_key",
+      "indexdef": "CREATE UNIQUE INDEX \"BlogPost_slug_key\" ON public.\"BlogPost\" USING btree (slug)"
+    },
+    {
+      "tablename": "BlogPost",
+      "indexname": "BlogPost_status_publishedAt_idx",
+      "indexdef": "CREATE INDEX \"BlogPost_status_publishedAt_idx\" ON public.\"BlogPost\" USING btree (status, \"publishedAt\")"
+    },
+    {
+      "tablename": "ClassLevel",
+      "indexname": "ClassLevel_code_key",
+      "indexdef": "CREATE UNIQUE INDEX \"ClassLevel_code_key\" ON public.\"ClassLevel\" USING btree (code)"
+    },
+    {
+      "tablename": "ClassLevel",
+      "indexname": "ClassLevel_displayOrder_idx",
+      "indexdef": "CREATE INDEX \"ClassLevel_displayOrder_idx\" ON public.\"ClassLevel\" USING btree (\"displayOrder\")"
+    },
+    {
+      "tablename": "ClassLevel",
+      "indexname": "ClassLevel_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"ClassLevel_pkey\" ON public.\"ClassLevel\" USING btree (id)"
+    },
+    {
+      "tablename": "Enquiry",
+      "indexname": "Enquiry_createdAt_idx",
+      "indexdef": "CREATE INDEX \"Enquiry_createdAt_idx\" ON public.\"Enquiry\" USING btree (\"createdAt\")"
+    },
+    {
+      "tablename": "Enquiry",
+      "indexname": "Enquiry_enquiryNumber_key",
+      "indexdef": "CREATE UNIQUE INDEX \"Enquiry_enquiryNumber_key\" ON public.\"Enquiry\" USING btree (\"enquiryNumber\")"
+    },
+    {
+      "tablename": "Enquiry",
+      "indexname": "Enquiry_nextFollowUpDate_idx",
+      "indexdef": "CREATE INDEX \"Enquiry_nextFollowUpDate_idx\" ON public.\"Enquiry\" USING btree (\"nextFollowUpDate\")"
+    },
+    {
+      "tablename": "Enquiry",
+      "indexname": "Enquiry_phone_idx",
+      "indexdef": "CREATE INDEX \"Enquiry_phone_idx\" ON public.\"Enquiry\" USING btree (phone)"
+    },
+    {
+      "tablename": "Enquiry",
+      "indexname": "Enquiry_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Enquiry_pkey\" ON public.\"Enquiry\" USING btree (id)"
+    },
+    {
+      "tablename": "Enquiry",
+      "indexname": "Enquiry_status_idx",
+      "indexdef": "CREATE INDEX \"Enquiry_status_idx\" ON public.\"Enquiry\" USING btree (status)"
+    },
+    {
+      "tablename": "EnquiryFollowUp",
+      "indexname": "EnquiryFollowUp_enquiryId_createdAt_idx",
+      "indexdef": "CREATE INDEX \"EnquiryFollowUp_enquiryId_createdAt_idx\" ON public.\"EnquiryFollowUp\" USING btree (\"enquiryId\", \"createdAt\")"
+    },
+    {
+      "tablename": "EnquiryFollowUp",
+      "indexname": "EnquiryFollowUp_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"EnquiryFollowUp_pkey\" ON public.\"EnquiryFollowUp\" USING btree (id)"
+    },
+    {
+      "tablename": "Facility",
+      "indexname": "Facility_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Facility_pkey\" ON public.\"Facility\" USING btree (id)"
+    },
+    {
+      "tablename": "FeeStructure",
+      "indexname": "FeeStructure_className_academicYear_idx",
+      "indexdef": "CREATE INDEX \"FeeStructure_className_academicYear_idx\" ON public.\"FeeStructure\" USING btree (\"className\", \"academicYear\")"
+    },
+    {
+      "tablename": "FeeStructure",
+      "indexname": "FeeStructure_feeTypeId_idx",
+      "indexdef": "CREATE INDEX \"FeeStructure_feeTypeId_idx\" ON public.\"FeeStructure\" USING btree (\"feeTypeId\")"
+    },
+    {
+      "tablename": "FeeStructure",
+      "indexname": "FeeStructure_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"FeeStructure_pkey\" ON public.\"FeeStructure\" USING btree (id)"
+    },
+    {
+      "tablename": "FeeType",
+      "indexname": "FeeType_name_key",
+      "indexdef": "CREATE UNIQUE INDEX \"FeeType_name_key\" ON public.\"FeeType\" USING btree (name)"
+    },
+    {
+      "tablename": "FeeType",
+      "indexname": "FeeType_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"FeeType_pkey\" ON public.\"FeeType\" USING btree (id)"
+    },
+    {
+      "tablename": "GalleryAlbum",
+      "indexname": "GalleryAlbum_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"GalleryAlbum_pkey\" ON public.\"GalleryAlbum\" USING btree (id)"
+    },
+    {
+      "tablename": "GalleryAlbum",
+      "indexname": "GalleryAlbum_slug_key",
+      "indexdef": "CREATE UNIQUE INDEX \"GalleryAlbum_slug_key\" ON public.\"GalleryAlbum\" USING btree (slug)"
+    },
+    {
+      "tablename": "GalleryItem",
+      "indexname": "GalleryItem_albumId_displayOrder_idx",
+      "indexdef": "CREATE INDEX \"GalleryItem_albumId_displayOrder_idx\" ON public.\"GalleryItem\" USING btree (\"albumId\", \"displayOrder\")"
+    },
+    {
+      "tablename": "GalleryItem",
+      "indexname": "GalleryItem_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"GalleryItem_pkey\" ON public.\"GalleryItem\" USING btree (id)"
+    },
+    {
+      "tablename": "Guardian",
+      "indexname": "Guardian_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Guardian_pkey\" ON public.\"Guardian\" USING btree (id)"
+    },
+    {
+      "tablename": "NewsletterSubscriber",
+      "indexname": "NewsletterSubscriber_active_createdAt_idx",
+      "indexdef": "CREATE INDEX \"NewsletterSubscriber_active_createdAt_idx\" ON public.\"NewsletterSubscriber\" USING btree (active, \"createdAt\")"
+    },
+    {
+      "tablename": "NewsletterSubscriber",
+      "indexname": "NewsletterSubscriber_email_key",
+      "indexdef": "CREATE UNIQUE INDEX \"NewsletterSubscriber_email_key\" ON public.\"NewsletterSubscriber\" USING btree (email)"
+    },
+    {
+      "tablename": "NewsletterSubscriber",
+      "indexname": "NewsletterSubscriber_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"NewsletterSubscriber_pkey\" ON public.\"NewsletterSubscriber\" USING btree (id)"
+    },
+    {
+      "tablename": "Payment",
+      "indexname": "Payment_paidAt_idx",
+      "indexdef": "CREATE INDEX \"Payment_paidAt_idx\" ON public.\"Payment\" USING btree (\"paidAt\")"
+    },
+    {
+      "tablename": "Payment",
+      "indexname": "Payment_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Payment_pkey\" ON public.\"Payment\" USING btree (id)"
+    },
+    {
+      "tablename": "Payment",
+      "indexname": "Payment_receiptNumber_key",
+      "indexdef": "CREATE UNIQUE INDEX \"Payment_receiptNumber_key\" ON public.\"Payment\" USING btree (\"receiptNumber\")"
+    },
+    {
+      "tablename": "Payment",
+      "indexname": "Payment_studentFeeId_idx",
+      "indexdef": "CREATE INDEX \"Payment_studentFeeId_idx\" ON public.\"Payment\" USING btree (\"studentFeeId\")"
+    },
+    {
+      "tablename": "Program",
+      "indexname": "Program_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Program_pkey\" ON public.\"Program\" USING btree (id)"
+    },
+    {
+      "tablename": "Program",
+      "indexname": "Program_slug_key",
+      "indexdef": "CREATE UNIQUE INDEX \"Program_slug_key\" ON public.\"Program\" USING btree (slug)"
+    },
+    {
+      "tablename": "RefreshSession",
+      "indexname": "RefreshSession_expiresAt_idx",
+      "indexdef": "CREATE INDEX \"RefreshSession_expiresAt_idx\" ON public.\"RefreshSession\" USING btree (\"expiresAt\")"
+    },
+    {
+      "tablename": "RefreshSession",
+      "indexname": "RefreshSession_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"RefreshSession_pkey\" ON public.\"RefreshSession\" USING btree (id)"
+    },
+    {
+      "tablename": "RefreshSession",
+      "indexname": "RefreshSession_tokenHash_idx",
+      "indexdef": "CREATE INDEX \"RefreshSession_tokenHash_idx\" ON public.\"RefreshSession\" USING btree (\"tokenHash\")"
+    },
+    {
+      "tablename": "RefreshSession",
+      "indexname": "RefreshSession_userId_idx",
+      "indexdef": "CREATE INDEX \"RefreshSession_userId_idx\" ON public.\"RefreshSession\" USING btree (\"userId\")"
+    },
+    {
+      "tablename": "SchoolEvent",
+      "indexname": "SchoolEvent_active_startDate_idx",
+      "indexdef": "CREATE INDEX \"SchoolEvent_active_startDate_idx\" ON public.\"SchoolEvent\" USING btree (active, \"startDate\")"
+    },
+    {
+      "tablename": "SchoolEvent",
+      "indexname": "SchoolEvent_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"SchoolEvent_pkey\" ON public.\"SchoolEvent\" USING btree (id)"
+    },
+    {
+      "tablename": "SchoolEvent",
+      "indexname": "SchoolEvent_slug_key",
+      "indexdef": "CREATE UNIQUE INDEX \"SchoolEvent_slug_key\" ON public.\"SchoolEvent\" USING btree (slug)"
+    },
+    {
+      "tablename": "Section",
+      "indexname": "Section_classLevelId_idx",
+      "indexdef": "CREATE INDEX \"Section_classLevelId_idx\" ON public.\"Section\" USING btree (\"classLevelId\")"
+    },
+    {
+      "tablename": "Section",
+      "indexname": "Section_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Section_pkey\" ON public.\"Section\" USING btree (id)"
+    },
+    {
+      "tablename": "Sequence",
+      "indexname": "Sequence_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Sequence_pkey\" ON public.\"Sequence\" USING btree (key)"
+    },
+    {
+      "tablename": "SiteSetting",
+      "indexname": "SiteSetting_key_key",
+      "indexdef": "CREATE UNIQUE INDEX \"SiteSetting_key_key\" ON public.\"SiteSetting\" USING btree (key)"
+    },
+    {
+      "tablename": "SiteSetting",
+      "indexname": "SiteSetting_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"SiteSetting_pkey\" ON public.\"SiteSetting\" USING btree (id)"
+    },
+    {
+      "tablename": "Student",
+      "indexname": "Student_admissionNumber_key",
+      "indexdef": "CREATE UNIQUE INDEX \"Student_admissionNumber_key\" ON public.\"Student\" USING btree (\"admissionNumber\")"
+    },
+    {
+      "tablename": "Student",
+      "indexname": "Student_classLevelId_idx",
+      "indexdef": "CREATE INDEX \"Student_classLevelId_idx\" ON public.\"Student\" USING btree (\"classLevelId\")"
+    },
+    {
+      "tablename": "Student",
+      "indexname": "Student_createdAt_idx",
+      "indexdef": "CREATE INDEX \"Student_createdAt_idx\" ON public.\"Student\" USING btree (\"createdAt\")"
+    },
+    {
+      "tablename": "Student",
+      "indexname": "Student_firstName_idx",
+      "indexdef": "CREATE INDEX \"Student_firstName_idx\" ON public.\"Student\" USING btree (\"firstName\")"
+    },
+    {
+      "tablename": "Student",
+      "indexname": "Student_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Student_pkey\" ON public.\"Student\" USING btree (id)"
+    },
+    {
+      "tablename": "Student",
+      "indexname": "Student_sectionId_idx",
+      "indexdef": "CREATE INDEX \"Student_sectionId_idx\" ON public.\"Student\" USING btree (\"sectionId\")"
+    },
+    {
+      "tablename": "Student",
+      "indexname": "Student_status_idx",
+      "indexdef": "CREATE INDEX \"Student_status_idx\" ON public.\"Student\" USING btree (status)"
+    },
+    {
+      "tablename": "StudentFee",
+      "indexname": "StudentFee_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"StudentFee_pkey\" ON public.\"StudentFee\" USING btree (id)"
+    },
+    {
+      "tablename": "StudentFee",
+      "indexname": "StudentFee_status_dueDate_idx",
+      "indexdef": "CREATE INDEX \"StudentFee_status_dueDate_idx\" ON public.\"StudentFee\" USING btree (status, \"dueDate\")"
+    },
+    {
+      "tablename": "StudentFee",
+      "indexname": "StudentFee_studentId_idx",
+      "indexdef": "CREATE INDEX \"StudentFee_studentId_idx\" ON public.\"StudentFee\" USING btree (\"studentId\")"
+    },
+    {
+      "tablename": "StudentGuardian",
+      "indexname": "StudentGuardian_guardianId_idx",
+      "indexdef": "CREATE INDEX \"StudentGuardian_guardianId_idx\" ON public.\"StudentGuardian\" USING btree (\"guardianId\")"
+    },
+    {
+      "tablename": "StudentGuardian",
+      "indexname": "StudentGuardian_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"StudentGuardian_pkey\" ON public.\"StudentGuardian\" USING btree (\"studentId\", \"guardianId\")"
+    },
+    {
+      "tablename": "Testimonial",
+      "indexname": "Testimonial_active_featured_displayOrder_idx",
+      "indexdef": "CREATE INDEX \"Testimonial_active_featured_displayOrder_idx\" ON public.\"Testimonial\" USING btree (active, featured, \"displayOrder\")"
+    },
+    {
+      "tablename": "Testimonial",
+      "indexname": "Testimonial_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"Testimonial_pkey\" ON public.\"Testimonial\" USING btree (id)"
+    },
+    {
+      "tablename": "User",
+      "indexname": "User_email_key",
+      "indexdef": "CREATE UNIQUE INDEX \"User_email_key\" ON public.\"User\" USING btree (email)"
+    },
+    {
+      "tablename": "User",
+      "indexname": "User_pkey",
+      "indexdef": "CREATE UNIQUE INDEX \"User_pkey\" ON public.\"User\" USING btree (id)"
+    },
+    {
+      "tablename": "_prisma_migrations",
+      "indexname": "_prisma_migrations_pkey",
+      "indexdef": "CREATE UNIQUE INDEX _prisma_migrations_pkey ON public._prisma_migrations USING btree (id)"
+    }
+  ],
+  "migrations": [
+    {
+      "migration_name": "20260915113243_init",
+      "finished_at": "2026-09-15T11:32:47.194Z",
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20260915170000_add_testimonial_contact_fields",
+      "finished_at": "2026-09-15T17:05:47.746Z",
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20260918052743_add_announcement_image",
+      "finished_at": "2026-09-18T05:27:44.002Z",
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20260918181519_remove_attendance",
+      "finished_at": "2026-09-18T18:15:19.843Z",
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20260929120000_add_sequences_and_indexes",
+      "finished_at": "2026-09-30T19:23:28.327Z",
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20261001120000_add_newsletter_subscribers",
+      "finished_at": "2026-09-30T19:23:28.829Z",
+      "rolled_back_at": null
+    }
+  ]
+}

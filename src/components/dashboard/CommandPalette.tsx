@@ -3,21 +3,23 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CornerDownLeft, Globe2, Search } from "lucide-react";
 import { NAV, type NavItem } from "./nav";
+import { canAccessPage, useAuth } from "@/store/auth";
 
 type Entry = Pick<NavItem, "href" | "label" | "helper" | "icon"> & { section: string };
 
 /** Ctrl/⌘ + K quick-jump across both workspaces the user can access. */
 export function CommandPalette({ open, onClose, canUseCms }: { open: boolean; onClose: () => void; canUseCms: boolean }) {
   const router = useRouter();
+  const role = useAuth(state => state.user?.role);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const input = useRef<HTMLInputElement>(null);
 
   const entries = useMemo<Entry[]>(() => [
-    ...NAV.crm.map((item) => ({ ...item, section: "School CRM" })),
-    ...(canUseCms ? NAV.admin.map((item) => ({ ...item, section: "Website CMS" })) : []),
+    ...NAV.crm.filter(item => canAccessPage(role, item.href)).map((item) => ({ ...item, section: "School CRM" })),
+    ...(canUseCms ? NAV.admin.filter(item => canAccessPage(role, item.href)).map((item) => ({ ...item, section: "Website CMS" })) : []),
     { href: "/", label: "Public website", helper: "Open the school website", icon: Globe2, section: "Website" },
-  ], [canUseCms]);
+  ], [canUseCms, role]);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -43,10 +45,10 @@ export function CommandPalette({ open, onClose, canUseCms }: { open: boolean; on
 
   return (
     <div className="fixed inset-0 z-[80] flex items-start justify-center px-4 pt-[12vh]" role="dialog" aria-modal="true" aria-label="Quick navigation">
-      <button type="button" aria-label="Close quick navigation" onClick={onClose} className="absolute inset-0 bg-slate-950/40 backdrop-blur-sm" />
+      <button type="button" aria-label="Close quick navigation" onClick={onClose} className="absolute inset-0 bg-little-neutral-950/40 backdrop-blur-sm" />
       <div className="panel-glass relative w-full max-w-xl animate-fade-up overflow-hidden !bg-white/80">
         <div className="flex items-center gap-3 border-b px-5">
-          <Search className="h-5 w-5 text-slate-400" />
+          <Search className="h-5 w-5 text-little-neutral-500" />
           <input
             ref={input}
             value={query}
@@ -58,7 +60,7 @@ export function CommandPalette({ open, onClose, canUseCms }: { open: boolean; on
               if (event.key === "Enter") go(results[active]);
             }}
             placeholder="Jump to a page…"
-            className="h-14 flex-1 bg-transparent text-base font-semibold outline-none placeholder:text-slate-400"
+            className="h-14 flex-1 bg-transparent text-base font-semibold outline-none placeholder:text-little-neutral-500"
             aria-label="Search pages"
           />
           <span className="kbd">Esc</span>
@@ -72,19 +74,19 @@ export function CommandPalette({ open, onClose, canUseCms }: { open: boolean; on
                   type="button"
                   onMouseEnter={() => setActive(index)}
                   onClick={() => go(entry)}
-                  className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition ${index === active ? "bg-slate-900/[.06]" : ""}`}
+                  className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition ${index === active ? "bg-little-neutral-900/[.06]" : ""}`}
                 >
                   <span className="accent-bg flex h-9 w-9 items-center justify-center rounded-xl"><Icon className="h-4 w-4" /></span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-bold">{entry.label}</span>
-                    <span className="block truncate text-xs text-slate-500">{entry.section} · {entry.helper}</span>
+                    <span className="block truncate text-xs text-little-neutral-500">{entry.section} · {entry.helper}</span>
                   </span>
-                  {index === active && <CornerDownLeft className="h-4 w-4 text-slate-400" />}
+                  {index === active && <CornerDownLeft className="h-4 w-4 text-little-neutral-500" />}
                 </button>
               </li>
             );
           })}
-          {results.length === 0 && <li className="px-4 py-10 text-center text-sm font-bold text-slate-400">No pages match “{query}”.</li>}
+          {results.length === 0 && <li className="px-4 py-10 text-center text-sm font-bold text-little-neutral-500">No pages match “{query}”.</li>}
         </ul>
       </div>
     </div>

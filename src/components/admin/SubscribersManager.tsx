@@ -6,6 +6,7 @@ import { useCrud } from "@/components/dashboard/useCrud";
 import { ConfirmDelete, ListToolbar, matches, PublishToggle } from "@/components/dashboard/ui";
 import { QueryState } from "@/components/states/QueryState";
 import { formatDate, humanize } from "@/lib/media";
+import { BRAND } from "@/lib/brand";
 
 type Subscriber = { id: string; email: string; source: string; active: boolean; createdAt: string };
 
@@ -42,9 +43,9 @@ export function SubscribersManager() {
   }
 
   const stats = [
-    { label: "Total sign-ups", value: all.length, icon: Users, tint: "#6366f1" },
-    { label: "Subscribed", value: activeRows.length, icon: MailCheck, tint: "#16a34a" },
-    { label: "Unsubscribed", value: all.length - activeRows.length, icon: MailX, tint: "#e2725b" },
+    { label: "Total sign-ups", value: all.length, icon: Users, tint: BRAND.blue[600] },
+    { label: "Subscribed", value: activeRows.length, icon: MailCheck, tint: BRAND.green[600] },
+    { label: "Unsubscribed", value: all.length - activeRows.length, icon: MailX, tint: BRAND.coral[500] },
   ];
 
   return (
@@ -55,7 +56,7 @@ export function SubscribersManager() {
             <span className="flex h-11 w-11 items-center justify-center rounded-2xl" style={{ backgroundColor: `${tint}1a`, color: tint }}><Icon className="h-5 w-5" /></span>
             <span>
               <span className="block text-2xl font-extrabold">{value}</span>
-              <span className="block text-xs font-bold text-slate-500">{label}</span>
+              <span className="block text-xs font-bold text-little-neutral-500">{label}</span>
             </span>
           </div>
         ))}
@@ -87,9 +88,9 @@ export function SubscribersManager() {
               <div key={r.id} className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="min-w-0">
                   <a href={`mailto:${r.email}`} className="block truncate font-extrabold hover:underline">{r.email}</a>
-                  <div className="mt-1 flex flex-wrap items-center gap-3 text-xs font-bold text-slate-500">
+                  <div className="mt-1 flex flex-wrap items-center gap-3 text-xs font-bold text-little-neutral-500">
                     <span className="flex items-center gap-1.5"><CalendarDays className="h-3.5 w-3.5" />Joined {formatDate(r.createdAt)}</span>
-                    <span className="chip bg-slate-200/60 text-slate-600">{humanize(r.source)}</span>
+                    <span className="chip bg-little-neutral-200/60 text-little-neutral-600">{humanize(r.source)}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">

@@ -28,8 +28,8 @@ export function NewsletterForm() {
 
   if (status === "done") {
     return (
-      <div role="status" className="flex animate-pop items-center gap-3 rounded-[22px] bg-emerald-950 px-4 py-3.5 text-white shadow-lg">
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f7c85b] to-[#ef9e8a] text-emerald-950">
+      <div role="status" className="flex animate-pop items-center gap-3 rounded-[22px] bg-little-green-950 px-4 py-3.5 text-white shadow-lg">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-little-yellow-400 to-little-coral-300 text-little-green-950">
           <PartyPopper className="h-5 w-5" />
         </span>
         <span>
@@ -42,10 +42,10 @@ export function NewsletterForm() {
 
   return (
     <form onSubmit={submit} className="relative w-full">
-      <div className="flex flex-col gap-2 rounded-[22px] bg-white p-2 shadow-[0_10px_30px_-12px_rgba(23,60,47,.45)] sm:flex-row sm:items-center">
+      <div className="flex flex-col gap-2 rounded-[22px] bg-white p-2 shadow-[0_10px_30px_-12px_rgba(36,68,32,.45)] sm:flex-row sm:items-center">
         <label className="relative flex-1">
           <span className="sr-only">Email address</span>
-          <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-emerald-700/60" />
+          <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-little-green-700/60" />
           <input
             type="email"
             required
@@ -57,7 +57,7 @@ export function NewsletterForm() {
             onChange={(e) => { setEmail(e.target.value); if (status === "error") setStatus("idle"); }}
             aria-invalid={status === "error"}
             aria-describedby="newsletter-message"
-            className="w-full rounded-2xl bg-transparent py-3 pl-10 pr-3 font-semibold text-emerald-950 outline-none placeholder:font-medium placeholder:text-slate-400 focus-visible:bg-emerald-50/60"
+            className="w-full rounded-2xl bg-transparent py-3 pl-10 pr-3 font-semibold text-little-green-950 outline-none placeholder:font-medium placeholder:text-little-neutral-500 focus-visible:bg-little-green-50/60"
           />
         </label>
         {/* Honeypot: invisible to people, tempting to bots. */}
@@ -65,13 +65,13 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-900 px-5 py-3 font-extrabold text-white shadow-[0_4px_0_#0f2a20] transition-[transform,box-shadow,background-color] duration-150 hover:bg-emerald-800 active:translate-y-1 active:shadow-none disabled:opacity-70"
+          className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-little-green-900 px-5 py-3 font-extrabold text-white shadow-[0_4px_0_var(--color-little-green-950)] transition-[transform,box-shadow,background-color] duration-150 hover:bg-little-green-800 active:translate-y-1 active:shadow-none disabled:opacity-70"
         >
           {status === "sending" ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />}
           {status === "sending" ? "Subscribing…" : "Subscribe"}
         </button>
       </div>
-      <p id="newsletter-message" role={status === "error" ? "alert" : undefined} className={`mt-2 min-h-5 px-2 text-xs font-bold ${status === "error" ? "text-rose-800" : "text-emerald-950/60"}`}>
+      <p id="newsletter-message" role={status === "error" ? "alert" : undefined} className={`mt-2 min-h-5 px-2 text-xs font-bold ${status === "error" ? "text-little-coral-800" : "text-little-green-950/60"}`}>
         {status === "error" ? message : "Only school news — no spam, ever."}
       </p>
     </form>

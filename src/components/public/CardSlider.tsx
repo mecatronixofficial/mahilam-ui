@@ -54,7 +54,7 @@ export function CardSlider({
   const scrollable = view.visible < 0.999;
   const arrow = tone === "dark"
     ? "bg-white/10 text-white ring-1 ring-white/20 hover:bg-white/20 disabled:opacity-30"
-    : "bg-white text-emerald-950 ring-1 ring-emerald-950/10 shadow-sm hover:bg-emerald-50 disabled:opacity-35";
+    : "bg-white text-little-green-950 ring-1 ring-little-green-950/10 shadow-sm hover:bg-little-green-50 disabled:opacity-35";
 
   return (
     <div>
@@ -86,9 +86,9 @@ export function CardSlider({
       </div>
 
       {scrollable && (
-        <div aria-hidden className={`relative mx-auto mt-5 h-1.5 w-40 overflow-hidden rounded-full ${tone === "dark" ? "bg-white/15" : "bg-emerald-950/10"}`}>
+        <div aria-hidden className={`relative mx-auto mt-5 h-1.5 w-40 overflow-hidden rounded-full ${tone === "dark" ? "bg-white/15" : "bg-little-green-950/10"}`}>
           <span
-            className={`absolute inset-y-0 rounded-full transition-[left] duration-150 ${tone === "dark" ? "bg-[#f7c85b]" : "bg-emerald-800"}`}
+            className={`absolute inset-y-0 rounded-full transition-[left] duration-150 ${tone === "dark" ? "bg-little-yellow-400" : "bg-little-green-800"}`}
             style={{ width: `${view.visible * 100}%`, left: `${view.progress * (1 - view.visible) * 100}%` }}
           />
         </div>

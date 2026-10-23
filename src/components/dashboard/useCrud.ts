@@ -3,22 +3,24 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { api, errorMessage } from "@/lib/api";
 
-type ListResponse<T> = { data: T[] };
+export type PageMeta = { page: number; limit: number; total: number; pages: number };
+type ListResponse<T> = { data: T[]; meta?: PageMeta };
 
 /**
  * List + create/update/patch/delete for one REST resource, with toasts and cache refresh.
  * `noun` is used in messages, e.g. "Announcement saved".
  */
-export function useCrud<T extends { id: string }>(endpoint: string, noun: string, options: { queryKey?: readonly unknown[]; invalidate?: readonly unknown[][] } = {}) {
+export function useCrud<T extends { id: string }>(endpoint: string, noun: string, options: { queryKey?: readonly unknown[]; listPath?: string; invalidateKey?: readonly unknown[]; invalidate?: readonly unknown[][] } = {}) {
   const client = useQueryClient();
   const queryKey = options.queryKey ?? [endpoint];
   const refresh = () => {
-    client.invalidateQueries({ queryKey });
+    if (/^\/(crm|enquiries|admissions|students|academics|fees|staff)(\/|$)/.test(endpoint)) client.invalidateQueries({ queryKey: ["crm"] });
+    client.invalidateQueries({ queryKey: options.invalidateKey ?? queryKey });
     options.invalidate?.forEach((key) => client.invalidateQueries({ queryKey: key }));
   };
   const fail = (error: unknown) => toast.error(errorMessage(error, `Couldn't save the ${noun.toLowerCase()}.`));
 
-  const list = useQuery({ queryKey, queryFn: () => api<ListResponse<T>>(endpoint) });
+  const list = useQuery({ queryKey, queryFn: () => api<ListResponse<T>>(options.listPath ?? endpoint) });
 
   const create = useMutation({
     mutationFn: (payload: object) => api<{ data: T }>(endpoint, { method: "POST", body: JSON.stringify(payload) }),
@@ -41,11 +43,11 @@ export function useCrud<T extends { id: string }>(endpoint: string, noun: string
 
   const remove = useMutation({
     mutationFn: (id: string) => api(`${endpoint}/${id}`, { method: "DELETE" }),
-    onSuccess: () => { toast.success(`${noun} deleted`); refresh(); },
+    onSuccess: () => { toast.success(`${noun} ${["Student", "Enquiry", "Application", "Staff account"].includes(noun) ? "archived" : "deleted"}`); refresh(); },
     onError: (error) => toast.error(errorMessage(error, `Couldn't delete the ${noun.toLowerCase()}.`)),
   });
 
-  return { list, rows: list.data?.data ?? [], create, update, patch, remove, saving: create.isPending || update.isPending };
+  return { list, rows: list.data?.data ?? [], meta: list.data?.meta, create, update, patch, remove, saving: create.isPending || update.isPending };
 }
 
 export function slugify(value: string) {

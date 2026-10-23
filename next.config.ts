@@ -8,6 +8,8 @@ const imageHosts = (process.env.NEXT_PUBLIC_IMAGE_HOSTS || "")
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Avoid Gzip drain-listener warnings while streaming development responses.
+  compress: process.env.NODE_ENV !== "development",
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
@@ -18,6 +20,8 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
+    // Work around Turbopack panics while restoring the persistent dev cache.
+    turbopackFileSystemCacheForDev: false,
     optimizePackageImports: ["lucide-react", "recharts", "date-fns"],
   },
   async headers() {

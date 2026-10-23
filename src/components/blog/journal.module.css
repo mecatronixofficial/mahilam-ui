@@ -1,0 +1,27 @@
+/* Journal (blog) only. */
+
+/* The storybook's right page turns over and settles back. */
+.page { animation: page 6s ease-in-out infinite; }
+@keyframes page {
+  0%, 30% { transform: rotateY(0deg); }
+  50%, 62% { transform: rotateY(-165deg); }
+  85%, 100% { transform: rotateY(0deg); }
+}
+
+/* Lined notebook paper. */
+.lined {
+  background-image: repeating-linear-gradient(to bottom, transparent 0 31px, rgb(96 197 195 / .22) 31px 32px);
+}
+
+/* Pending navigation (filter/search): the results gently dim instead of jumping. */
+.results { transition: opacity .25s ease; }
+.results[data-pending] { opacity: .45; }
+
+/* Story rail: snap cards, hidden scrollbar. */
+.rail { scroll-snap-type: x mandatory; scrollbar-width: none; }
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { scroll-snap-align: start; }
+
+@media (prefers-reduced-motion: reduce) {
+  .page { animation: none !important; }
+}

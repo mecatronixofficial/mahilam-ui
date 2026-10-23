@@ -70,8 +70,8 @@ export function EventsManager() {
           </div>
           <label className="grid gap-1.5"><span className="label">Venue</span><input className="input" placeholder="School campus" value={form.venue} onChange={(e) => setForm({ ...form, venue: e.target.value })} /></label>
           <div className="flex flex-wrap gap-5">
-            <label className="flex items-center gap-2.5 text-sm font-bold text-slate-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published</label>
-            <label className="flex items-center gap-2.5 text-sm font-bold text-slate-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.featured} onChange={(e) => setForm({ ...form, featured: e.target.checked })} />Featured</label>
+            <label className="flex items-center gap-2.5 text-sm font-bold text-little-neutral-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />Published</label>
+            <label className="flex items-center gap-2.5 text-sm font-bold text-little-neutral-600"><input type="checkbox" className="h-4 w-4 rounded" checked={form.featured} onChange={(e) => setForm({ ...form, featured: e.target.checked })} />Featured</label>
           </div>
           <button className="btn-primary" disabled={crud.saving}>
             {crud.saving ? <LoaderCircle className="h-4 w-4 animate-spin" /> : editingId ? <Pencil className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
@@ -96,11 +96,11 @@ export function EventsManager() {
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <h3 className="font-extrabold">{r.title}</h3>
-                        {r.category && <span className="chip bg-slate-200/60 text-slate-600">{r.category}</span>}
-                        {isPast(r) && <span className="chip bg-slate-200/60 text-slate-500">Past</span>}
+                        {r.category && <span className="chip bg-little-neutral-200/60 text-little-neutral-600">{r.category}</span>}
+                        {isPast(r) && <span className="chip bg-little-neutral-200/60 text-little-neutral-500">Past</span>}
                       </div>
-                      {r.description && <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-slate-500">{r.description}</p>}
-                      <div className="mt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-slate-500">
+                      {r.description && <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-little-neutral-500">{r.description}</p>}
+                      <div className="mt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-little-neutral-500">
                         <span className="flex items-center gap-1.5"><CalendarDays className="h-3.5 w-3.5" />{formatDate(r.startDate)}{r.endDate ? ` – ${formatDate(r.endDate)}` : ""}</span>
                         {r.startTime && <span className="flex items-center gap-1.5"><Clock3 className="h-3.5 w-3.5" />{r.startTime}</span>}
                         {r.venue && <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" />{r.venue}</span>}
@@ -108,12 +108,12 @@ export function EventsManager() {
                     </div>
                     {r.coverImage
                       ? <img src={r.coverImage} alt="" loading="lazy" className="hidden h-16 w-20 shrink-0 rounded-xl object-cover sm:block" />
-                      : <div className="hidden h-16 w-20 shrink-0 items-center justify-center rounded-xl border border-dashed text-slate-300 sm:flex"><ImageOff className="h-4 w-4" /></div>}
+                      : <div className="hidden h-16 w-20 shrink-0 items-center justify-center rounded-xl border border-dashed text-little-neutral-300 sm:flex"><ImageOff className="h-4 w-4" /></div>}
                   </div>
                   <div className="mt-4 flex flex-wrap items-center gap-2 border-t pt-3">
                     <button type="button" onClick={() => startEdit(r)} className="btn-soft !px-3 !py-1.5 !text-xs"><Pencil className="h-3.5 w-3.5" /> Edit</button>
-                    <button type="button" onClick={() => crud.patch.mutate({ id: r.id, payload: { featured: !r.featured } })} disabled={crud.patch.isPending} aria-pressed={r.featured} className={`chip ${r.featured ? "bg-amber-100/80 text-amber-700" : "bg-slate-200/60 text-slate-500"}`}>
-                      <Star className={`h-3.5 w-3.5 ${r.featured ? "fill-amber-500" : ""}`} />{r.featured ? "Featured" : "Feature"}
+                    <button type="button" onClick={() => crud.patch.mutate({ id: r.id, payload: { featured: !r.featured } })} disabled={crud.patch.isPending} aria-pressed={r.featured} className={`chip ${r.featured ? "bg-little-yellow-100/80 text-little-yellow-700" : "bg-little-neutral-200/60 text-little-neutral-500"}`}>
+                      <Star className={`h-3.5 w-3.5 ${r.featured ? "fill-little-yellow-500" : ""}`} />{r.featured ? "Featured" : "Feature"}
                     </button>
                     <PublishToggle active={r.active} pending={crud.patch.isPending} onToggle={() => crud.patch.mutate({ id: r.id, payload: { active: !r.active } })} />
                     <span className="ml-auto"><ConfirmDelete pending={crud.remove.isPending} onConfirm={() => crud.remove.mutate(r.id)} /></span>

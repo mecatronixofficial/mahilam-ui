@@ -1,0 +1,1882 @@
+{
+  "checkedAt": "2026-10-22T11:13:21.185Z",
+  "database": "disposable-local-postgresql",
+  "api": "real NestJS with Prisma",
+  "browser": "Chrome headless CDP",
+  "checks": [
+    "All 14 CMS sections checked at 390, 768 and 1440 pixels with compact body, headings and form typography",
+    "Banner editor retains reactive preview with smaller controls",
+    "Gallery edit dialog opens, accepts edits and closes at phone width",
+    "Existing compact CRM styling preserved after sharing density styles",
+    "CMS editor keeps its compact workspace and role-filtered navigation"
+  ],
+  "viewports": [
+    {
+      "path": "/admin",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Overview",
+      "errors": []
+    },
+    {
+      "path": "/admin/announcements",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Announcements",
+      "errors": []
+    },
+    {
+      "path": "/admin/banners",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Banners",
+      "errors": []
+    },
+    {
+      "path": "/admin/testimonials",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Parent Reviews",
+      "errors": []
+    },
+    {
+      "path": "/admin/learning-approach",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Learning Approach",
+      "errors": []
+    },
+    {
+      "path": "/admin/programs",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Programs",
+      "errors": []
+    },
+    {
+      "path": "/admin/activities",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Activities",
+      "errors": []
+    },
+    {
+      "path": "/admin/facilities",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Facilities",
+      "errors": []
+    },
+    {
+      "path": "/admin/gallery",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Gallery",
+      "errors": []
+    },
+    {
+      "path": "/admin/events",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Events",
+      "errors": []
+    },
+    {
+      "path": "/admin/blogs",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Blog",
+      "errors": []
+    },
+    {
+      "path": "/admin/subscribers",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Subscribers",
+      "errors": []
+    },
+    {
+      "path": "/admin/settings",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Settings",
+      "errors": []
+    },
+    {
+      "path": "/admin/activity",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Activity Log",
+      "errors": []
+    },
+    {
+      "path": "/admin",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Overview",
+      "errors": []
+    },
+    {
+      "path": "/admin/announcements",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Announcements",
+      "errors": []
+    },
+    {
+      "path": "/admin/banners",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Banners",
+      "errors": []
+    },
+    {
+      "path": "/admin/testimonials",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Parent Reviews",
+      "errors": []
+    },
+    {
+      "path": "/admin/learning-approach",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Learning Approach",
+      "errors": []
+    },
+    {
+      "path": "/admin/programs",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Programs",
+      "errors": []
+    },
+    {
+      "path": "/admin/activities",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Activities",
+      "errors": []
+    },
+    {
+      "path": "/admin/facilities",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Facilities",
+      "errors": []
+    },
+    {
+      "path": "/admin/gallery",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Gallery",
+      "errors": []
+    },
+    {
+      "path": "/admin/events",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Events",
+      "errors": []
+    },
+    {
+      "path": "/admin/blogs",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Blog",
+      "errors": []
+    },
+    {
+      "path": "/admin/subscribers",
+      "width": 768,
+      "pageWidth": 768,
+      "heading": "Subscribers",
+      "errors": []
+    },
+    {
+      "path": "/admin/settings",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Settings",
+      "errors": []
+    },
+    {
+      "path": "/admin/activity",
+      "width": 768,
+      "pageWidth": 753,
+      "heading": "Activity Log",
+      "errors": []
+    },
+    {
+      "path": "/admin",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Overview",
+      "errors": []
+    },
+    {
+      "path": "/admin/announcements",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Announcements",
+      "errors": []
+    },
+    {
+      "path": "/admin/banners",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Banners",
+      "errors": []
+    },
+    {
+      "path": "/admin/testimonials",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Parent Reviews",
+      "errors": []
+    },
+    {
+      "path": "/admin/learning-approach",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Learning Approach",
+      "errors": []
+    },
+    {
+      "path": "/admin/programs",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Programs",
+      "errors": []
+    },
+    {
+      "path": "/admin/activities",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Activities",
+      "errors": []
+    },
+    {
+      "path": "/admin/facilities",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Facilities",
+      "errors": []
+    },
+    {
+      "path": "/admin/gallery",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Gallery",
+      "errors": []
+    },
+    {
+      "path": "/admin/events",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Events",
+      "errors": []
+    },
+    {
+      "path": "/admin/blogs",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Blog",
+      "errors": []
+    },
+    {
+      "path": "/admin/subscribers",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Subscribers",
+      "errors": []
+    },
+    {
+      "path": "/admin/settings",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Settings",
+      "errors": []
+    },
+    {
+      "path": "/admin/activity",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Activity Log",
+      "errors": []
+    },
+    {
+      "path": "/admin",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Overview",
+      "errors": []
+    },
+    {
+      "path": "/admin/banners",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Banners",
+      "errors": []
+    },
+    {
+      "path": "/admin",
+      "width": 1440,
+      "pageWidth": 1440,
+      "heading": "Overview",
+      "errors": []
+    },
+    {
+      "path": "/admin/banners",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Banners",
+      "errors": []
+    },
+    {
+      "path": "/admin/settings",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Settings",
+      "errors": []
+    },
+    {
+      "path": "/admin/gallery",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Gallery",
+      "errors": []
+    },
+    {
+      "path": "/crm",
+      "width": 1440,
+      "pageWidth": 1425,
+      "heading": "Command Center",
+      "errors": []
+    },
+    {
+      "path": "/crm/enquiries",
+      "width": 390,
+      "pageWidth": 390,
+      "heading": "Enquiries",
+      "errors": []
+    }
+  ],
+  "apiFailures": [],
+  "exceptions": [],
+  "typography": [
+    {
+      "path": "/admin",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [],
+      "table": null
+    },
+    {
+      "path": "/admin/announcements",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/banners",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/testimonials",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/learning-approach",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/programs",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 188.796875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/activities",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/facilities",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/gallery",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/events",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36.59375
+        },
+        {
+          "font": "12px",
+          "height": 36.296875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/blogs",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/subscribers",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/settings",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/activity",
+      "width": 390,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [],
+      "table": null
+    },
+    {
+      "path": "/admin",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [],
+      "table": null
+    },
+    {
+      "path": "/admin/announcements",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/banners",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/testimonials",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/learning-approach",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/programs",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 188.796875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/activities",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/facilities",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/gallery",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/events",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36.59375
+        },
+        {
+          "font": "12px",
+          "height": 36.296875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/blogs",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/subscribers",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/settings",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/activity",
+      "width": 768,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [],
+      "table": null
+    },
+    {
+      "path": "/admin",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [],
+      "table": null
+    },
+    {
+      "path": "/admin/announcements",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/banners",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/testimonials",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/learning-approach",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/programs",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 188.796875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/activities",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/facilities",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 107.1875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/gallery",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/events",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36.59375
+        },
+        {
+          "font": "12px",
+          "height": 36.296875
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/blogs",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/subscribers",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/settings",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 76
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        },
+        {
+          "font": "12px",
+          "height": 36
+        }
+      ],
+      "table": null
+    },
+    {
+      "path": "/admin/activity",
+      "width": 1440,
+      "density": "compact",
+      "body": "12px",
+      "title": "18px",
+      "inputs": [],
+      "table": null
+    }
+  ],
+  "dialog": {
+    "width": 390,
+    "font": "12px",
+    "title": "15px",
+    "input": "12px"
+  },
+  "status": "passed"
+}

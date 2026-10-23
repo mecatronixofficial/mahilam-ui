@@ -1,4 +1,5 @@
 "use client";
+import { FeeManagementClient } from "./FeeManagementClient";
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -12,6 +13,7 @@ import { QueryState } from "@/components/states/QueryState";
 import { TableSkeleton } from "@/components/states/Skeletons";
 import { formatDate, formatMoney, humanize } from "@/lib/media";
 import { FEE_STATUSES, PAYMENT_METHODS, STATUS_STYLES } from "./constants";
+import { BRAND } from "@/lib/brand";
 
 type Fee = {
   id: string; label: string; originalAmount: string | number; discount: string | number; fine: string | number; paid: string | number; status: string; dueDate?: string | null;
@@ -37,7 +39,7 @@ export function FeesClient() {
   const [assigning, setAssigning] = useState(false);
   const [assign, setAssign] = useState({ studentId: "", label: "Term 1 tuition", originalAmount: "", discount: "", dueDate: "" });
 
-  const refresh = () => ["fees", "dashboard-report", "reports-fees"].forEach((key) => qc.invalidateQueries({ queryKey: [key] }));
+  const refresh = () => ["crm", "fees", "dashboard-report", "reports-fees"].forEach((key) => qc.invalidateQueries({ queryKey: [key] }));
 
   const pay = useMutation({
     mutationFn: () => api<{ data?: { receiptNumber?: string } }>("/fees/payments", { method: "POST", body: JSON.stringify({ studentFeeId: paying!.id, amount: Number(payment.amount), method: payment.method, paidAt: payment.paidAt || null, notes: payment.notes.trim() || null }) }),
@@ -73,12 +75,12 @@ export function FeesClient() {
   const overpay = paying ? payAmount > balance(paying) + 0.001 : false;
 
   return (
-    <>
+    <><FeeManagementClient />
       <div className="mb-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Total billed" icon={Receipt} tint="#6366f1" loading={q.isPending} unavailable={q.isError} value={formatMoney(billed)} />
-        <StatCard label="Collected" icon={Wallet} tint="#16a34a" loading={q.isPending} unavailable={q.isError} value={formatMoney(collected)} note={billed ? `${Math.round((collected / billed) * 100)}% of billed` : undefined} />
-        <StatCard label="Outstanding" icon={CircleDollarSign} tint="#0e9aa7" loading={q.isPending} unavailable={q.isError} value={formatMoney(outstanding)} />
-        <StatCard label="Overdue fees" icon={AlertTriangle} tint="#e11d48" loading={q.isPending} unavailable={q.isError} value={overdue} />
+        <StatCard label="Total billed" icon={Receipt} tint={BRAND.blue[600]} loading={q.isPending} unavailable={q.isError} value={formatMoney(billed)} />
+        <StatCard label="Collected" icon={Wallet} tint={BRAND.green[600]} loading={q.isPending} unavailable={q.isError} value={formatMoney(collected)} note={billed ? `${Math.round((collected / billed) * 100)}% of billed` : undefined} />
+        <StatCard label="Outstanding" icon={CircleDollarSign} tint={BRAND.blue[500]} loading={q.isPending} unavailable={q.isError} value={formatMoney(outstanding)} />
+        <StatCard label="Overdue fees" icon={AlertTriangle} tint={BRAND.coral[600]} loading={q.isPending} unavailable={q.isError} value={overdue} />
       </div>
 
       <ListToolbar
@@ -90,7 +92,7 @@ export function FeesClient() {
         onFilter={setStatus}
         count={rows.length}
         actions={
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {isAdmin && (
               <>
                 <button type="button" onClick={() => exportCsv("fees")} className="btn-soft !px-3 !py-2 text-sm" title="Export fees CSV"><Download className="h-4 w-4" /><span className="hidden sm:inline">Fees</span></button>
@@ -113,16 +115,16 @@ export function FeesClient() {
                   const payable = n(fee.originalAmount) - n(fee.discount) + n(fee.fine);
                   const progress = payable ? Math.min(100, (n(fee.paid) / payable) * 100) : 100;
                   return (
-                    <tr key={fee.id} className={isOverdue(fee) ? "bg-rose-50/40" : ""}>
-                      <td><div className="font-extrabold">{studentName(fee)}</div><div className="text-xs font-semibold text-slate-400">{fee.student?.admissionNumber}</div></td>
+                    <tr key={fee.id} className={isOverdue(fee) ? "bg-little-coral-50/40" : ""}>
+                      <td><div className="font-extrabold">{studentName(fee)}</div><div className="text-xs font-semibold text-little-neutral-500">{fee.student?.admissionNumber}</div></td>
                       <td className="font-semibold">{fee.label}</td>
-                      <td className="whitespace-nowrap tabular-nums">{formatMoney(payable)}{n(fee.discount) > 0 && <div className="text-[11px] font-bold text-emerald-600">−{formatMoney(fee.discount)} discount</div>}</td>
+                      <td className="whitespace-nowrap tabular-nums">{formatMoney(payable)}{n(fee.discount) > 0 && <div className="text-[11px] font-bold text-little-green-600">−{formatMoney(fee.discount)} discount</div>}</td>
                       <td className="min-w-28 tabular-nums">
                         {formatMoney(fee.paid)}
-                        <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-slate-200/70"><div className="h-full rounded-full bg-emerald-500" style={{ width: `${progress}%` }} /></div>
+                        <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-little-neutral-200/70"><div className="h-full rounded-full bg-little-green-500" style={{ width: `${progress}%` }} /></div>
                       </td>
-                      <td className={`whitespace-nowrap font-extrabold tabular-nums ${due > 0 ? "" : "text-slate-300"}`}>{formatMoney(due)}</td>
-                      <td className={`whitespace-nowrap text-xs font-bold ${isOverdue(fee) ? "text-rose-600" : "text-slate-500"}`}>{formatDate(fee.dueDate) || "—"}</td>
+                      <td className={`whitespace-nowrap font-extrabold tabular-nums ${due > 0 ? "" : "text-little-neutral-300"}`}>{formatMoney(due)}</td>
+                      <td className={`whitespace-nowrap text-xs font-bold ${isOverdue(fee) ? "text-little-coral-600" : "text-little-neutral-500"}`}>{formatDate(fee.dueDate) || "—"}</td>
                       <td><span className={`chip ${STATUS_STYLES[fee.status] || STATUS_STYLES.PENDING}`}>{humanize(fee.status)}</span></td>
                       <td className="text-right">{due > 0 && fee.status !== "WAIVED" && <button type="button" onClick={() => openPayment(fee)} className="btn-soft whitespace-nowrap !px-3 !py-1.5 !text-xs"><Banknote className="h-3.5 w-3.5" />Record payment</button>}</td>
                     </tr>
@@ -139,15 +141,15 @@ export function FeesClient() {
           <form onSubmit={(e) => { e.preventDefault(); if (!overpay) pay.mutate(); }} className="grid gap-4">
             <div className="rounded-2xl bg-white/70 p-4">
               <p className="font-extrabold">{studentName(paying)}</p>
-              <p className="text-sm text-slate-500">{paying.label}</p>
+              <p className="text-sm text-little-neutral-500">{paying.label}</p>
               <p className="mt-2 text-sm font-bold">Balance due: <span className="text-lg">{formatMoney(balance(paying))}</span></p>
             </div>
             <label className="grid gap-1.5"><span className="label">Amount (₹) *</span><input className="input text-lg font-extrabold" type="number" min={0.01} step="0.01" inputMode="decimal" value={payment.amount} onChange={(e) => setPayment({ ...payment, amount: e.target.value })} required aria-invalid={overpay} />
-              {overpay && <span className="text-xs font-bold text-rose-600">That&apos;s more than the balance due.</span>}
+              {overpay && <span className="text-xs font-bold text-little-coral-600">That&apos;s more than the balance due.</span>}
             </label>
             <fieldset>
               <legend className="label mb-1.5">Method</legend>
-              <div className="flex flex-wrap gap-1.5">{PAYMENT_METHODS.map((m) => <button key={m} type="button" onClick={() => setPayment({ ...payment, method: m })} aria-pressed={payment.method === m} className={`chip border ${payment.method === m ? "dash-nav-active border-transparent" : "bg-white/70 text-slate-600"}`}>{humanize(m)}</button>)}</div>
+              <div className="flex flex-wrap gap-1.5">{PAYMENT_METHODS.map((m) => <button key={m} type="button" onClick={() => setPayment({ ...payment, method: m })} aria-pressed={payment.method === m} className={`chip border ${payment.method === m ? "dash-nav-active border-transparent" : "bg-white/70 text-little-neutral-600"}`}>{humanize(m)}</button>)}</div>
             </fieldset>
             <label className="grid gap-1.5"><span className="label">Date received</span><input className="input" type="date" max={today()} value={payment.paidAt} onChange={(e) => setPayment({ ...payment, paidAt: e.target.value })} /></label>
             <label className="grid gap-1.5"><span className="label">Notes</span><input className="input" placeholder="UPI ref / cheque no." value={payment.notes} onChange={(e) => setPayment({ ...payment, notes: e.target.value })} /></label>

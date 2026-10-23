@@ -1,11 +1,15 @@
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Facebook, Heart, Instagram, Mail, MailOpen, MapPin, Phone, Star, Youtube } from "lucide-react";
+import { ExternalLink, Facebook, Heart, Instagram, Mail, MailOpen, MapPin, Phone, Youtube } from "lucide-react";
 import { WhatsappIcon } from "./WhatsappIcon";
 import { NewsletterForm } from "./NewsletterForm";
 import { BrandLogo } from "./BrandLogo";
+import type { Branding } from "@/lib/branding";
+import { ArrowBubble, Shape, PALETTE } from "./PlayShapes";
+import { ShapePile } from "./ShapePile";
 import { site, telHref, type PublicSite } from "@/lib/site";
 
-const TINTS = ["#f7c85b", "#ef9e8a", "#a7d9c1", "#8cb9e8", "#c4b5fd"];
+/** Social buttons sit on circles in the logo colours. */
+const SOCIAL_COLORS = ["bg-little-blue-400", "bg-little-pink-400", "bg-little-green-400", "bg-little-yellow-400"];
 
 const exploreLinks = [
   ["/", "Home"],
@@ -20,9 +24,7 @@ const exploreLinks = [
   ["/contact", "Contact"],
 ] as const;
 
-const bunting = Array.from({ length: 26 });
-
-export function Footer({ siteDetails = site }: { siteDetails?: PublicSite }) {
+export function Footer({ siteDetails = site, branding }: { siteDetails?: PublicSite; branding?: Branding }) {
   const year = new Date().getFullYear();
   const socialLinks = [
     ["Facebook", siteDetails.social.facebook, Facebook],
@@ -32,45 +34,23 @@ export function Footer({ siteDetails = site }: { siteDetails?: PublicSite }) {
   ] as const;
 
   return (
-    <footer className="relative mt-24 text-white">
-      {/* Cloud-scalloped top edge */}
-      <div aria-hidden className="h-6 w-full bg-[radial-gradient(circle_at_22px_24px,#173c2f_22px,transparent_23px)] bg-[length:44px_24px] bg-repeat-x" />
-
-      <div className="relative overflow-hidden bg-[#173c2f]">
-        {/* Soft glows and doodles */}
-        <div aria-hidden className="pointer-events-none absolute inset-0">
-          <span className="absolute -left-24 top-40 h-72 w-72 rounded-full bg-[#f7c85b]/10 blur-3xl" />
-          <span className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-[#ef9e8a]/10 blur-3xl" />
-          <span className="absolute inset-0 opacity-[.06] [background-image:radial-gradient(#fff_1.2px,transparent_1.2px)] [background-size:22px_22px]" />
-          <Star className="banner-twinkle absolute left-[3%] top-[60%] hidden h-4 w-4 xl:block fill-[#f7c85b] text-[#f7c85b]" />
-          <Star className="banner-twinkle absolute right-[30%] top-[40%] h-3 w-3 fill-[#ef9e8a] text-[#ef9e8a] [animation-delay:-1.2s]" />
-          <Heart className="banner-twinkle absolute bottom-[18%] right-[6%] h-4 w-4 fill-[#ef9e8a] text-[#ef9e8a] [animation-delay:-.6s]" />
-        </div>
-
-        {/* Party bunting */}
-        <div aria-hidden className="relative h-4 w-full overflow-hidden">
-          <div className="absolute inset-x-0 top-1.5 border-t-2 border-dashed border-white/15" />
-          <div className="container-pad flex h-full items-start justify-between px-6">
-            {bunting.map((_, i) => (
-              <span key={i} className="h-3 w-2.5 shrink-0 max-sm:even:hidden" style={{ backgroundColor: TINTS[i % TINTS.length], clipPath: "polygon(0 0, 100% 0, 50% 100%)" }} />
-            ))}
-          </div>
-        </div>
-
-        <div className="container-pad relative pb-10 pt-10">
+    <footer className="lm-play relative mt-10 px-2 pb-2 sm:px-3 sm:pb-3">
+      <div className="relative overflow-hidden rounded-[32px] bg-little-green-900 text-little-cream sm:rounded-[48px]">
+        <div className="relative z-10 mx-auto w-full px-4 pt-5 sm:px-6 sm:pt-6 lg:px-8">
           {/* Newsletter card */}
-          <section aria-labelledby="newsletter-title" className="relative overflow-hidden rounded-[32px] bg-[linear-gradient(120deg,#f7c85b,#f4b98a_55%,#ef9e8a)] p-6 text-emerald-950 shadow-[0_24px_50px_-24px_rgba(0,0,0,.6)] sm:p-8">
-            <span aria-hidden className="absolute -right-10 -top-12 h-44 w-44 rounded-full border-[18px] border-white/25" />
-            <span aria-hidden className="absolute -bottom-16 left-1/3 h-36 w-36 rounded-full bg-white/15" />
-            <div className="relative grid items-center gap-6 lg:grid-cols-[1fr_1.05fr] lg:gap-10">
+          <section aria-labelledby="newsletter-title" className="relative overflow-hidden rounded-[20px] bg-little-pink-300 p-4 text-little-green-900 sm:rounded-[24px] sm:p-5">
+            <Shape name="flower" color={PALETTE.blush} className="pointer-events-none absolute -right-14 -top-16 w-56 rotate-12 sm:w-72" />
+            <Shape name="leaf" color={PALETTE.sun} className="pointer-events-none absolute -bottom-10 left-[38%] hidden w-28 -rotate-12 lg:block" />
+            <div className="relative grid items-center gap-4 lg:grid-cols-[1fr_1.05fr] lg:gap-6">
               <div className="flex items-start gap-4">
-                <span className="flex h-14 w-14 shrink-0 -rotate-6 items-center justify-center rounded-[20px] bg-white text-[#e2725b] shadow-md">
-                  <MailOpen className="h-7 w-7" strokeWidth={2.2} />
+                <span className="relative grid h-12 w-12 shrink-0 place-items-center">
+                  <Shape name="pebble" color="#fff" className="absolute inset-0 h-full w-full" />
+                  <MailOpen className="relative h-7 w-7" strokeWidth={2.2} />
                 </span>
                 <div>
-                  <p className="text-[11px] font-extrabold uppercase tracking-[.2em] text-emerald-950/60">School newsletter</p>
-                  <h2 id="newsletter-title" className="mt-1 font-display text-2xl font-bold leading-tight sm:text-[1.75rem]">Get happy updates in your inbox</h2>
-                  <p className="mt-2 max-w-md text-sm font-semibold leading-6 text-emerald-950/75">Events, holidays, admission dates and little classroom moments — sent straight to you.</p>
+                  <p className="text-sm font-bold text-little-green-900/70">School newsletter</p>
+                  <h2 id="newsletter-title" className="mt-1 text-xl font-extrabold leading-tight tracking-tight sm:text-2xl">Get happy updates in your inbox</h2>
+                  <p className="mt-3 max-w-md leading-7 text-little-green-900/80">Events, holidays, admission dates and little classroom moments — sent straight to you.</p>
                 </div>
               </div>
               <NewsletterForm />
@@ -78,15 +58,15 @@ export function Footer({ siteDetails = site }: { siteDetails?: PublicSite }) {
           </section>
 
           {/* Main columns */}
-          <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1.1fr_1fr]">
+          <div className="mt-7 grid gap-7 sm:mt-8 sm:grid-cols-2 lg:grid-cols-[1fr_1.6fr_1.1fr_1fr] lg:gap-6">
             {/* Brand */}
             <div>
               <Link href="/" className="group inline-flex" aria-label="Little Mahilam Pre-school home">
-                <BrandLogo className="h-auto w-52 transition-transform duration-300 group-hover:scale-[1.03]" />
+                <BrandLogo branding={branding} className="h-24 w-48 transition-transform duration-300 group-hover:scale-[1.03]" />
               </Link>
-              <p className="mt-4 max-w-sm leading-7 text-white/70">Child-centric, play-way learning and multiple intelligence for happy little learners.</p>
+              <p className="mt-5 max-w-sm leading-7 text-white/70">Child-centric, play-way learning and multiple intelligence for happy little learners.</p>
               {socialLinks.some(([, url]) => url) && (
-                <div className="mt-5 flex items-center gap-2">
+                <div className="mt-6 flex items-center gap-2.5">
                   {socialLinks.map(([name, url, Icon], i) =>
                     url ? (
                       <a
@@ -95,8 +75,7 @@ export function Footer({ siteDetails = site }: { siteDetails?: PublicSite }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={name}
-                        className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-white ring-1 ring-white/10 transition hover:-translate-y-1 hover:-rotate-6 hover:bg-[var(--tint)] hover:text-emerald-950"
-                        style={{ ["--tint" as string]: TINTS[i % TINTS.length] }}
+                        className={`flex h-11 w-11 items-center justify-center rounded-full text-little-green-950 transition hover:-translate-y-1 hover:scale-105 ${SOCIAL_COLORS[i % SOCIAL_COLORS.length]}`}
                       >
                         <Icon className="h-4.5 w-4.5" />
                       </a>
@@ -106,16 +85,15 @@ export function Footer({ siteDetails = site }: { siteDetails?: PublicSite }) {
               )}
             </div>
 
-            {/* Explore */}
+            {/* Explore: big bold links */}
             <nav aria-label="Footer">
-              <h3 className="font-display text-lg font-bold">Explore</h3>
-              <span aria-hidden className="mt-1.5 block h-1 w-10 rounded-full bg-gradient-to-r from-[#f7c85b] to-[#ef9e8a]" />
-              <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5">
-                {exploreLinks.map(([href, label], i) => (
+              <h3 className="text-sm font-bold text-white/55">Explore</h3>
+              <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2">
+                {exploreLinks.map(([href, label]) => (
                   <li key={href}>
-                    <Link href={href} className="group inline-flex items-center gap-2 text-white/75 transition-colors hover:text-white">
-                      <span className="h-2 w-2 shrink-0 rounded-full transition-transform group-hover:scale-150" style={{ backgroundColor: TINTS[i % TINTS.length] }} />
-                      <span className="transition-transform group-hover:translate-x-0.5">{label}</span>
+                    <Link href={href} className="group relative inline-block text-base font-bold tracking-tight text-white sm:text-lg">
+                      {label}
+                      <span aria-hidden className="absolute -bottom-0.5 left-0 h-0.5 w-full origin-left scale-x-0 bg-little-pink-300 transition-transform duration-300 group-hover:scale-x-100" />
                     </Link>
                   </li>
                 ))}
@@ -124,30 +102,29 @@ export function Footer({ siteDetails = site }: { siteDetails?: PublicSite }) {
 
             {/* Visit */}
             <div>
-              <h3 className="font-display text-lg font-bold">Visit us</h3>
-              <span aria-hidden className="mt-1.5 block h-1 w-10 rounded-full bg-gradient-to-r from-[#a7d9c1] to-[#8cb9e8]" />
-              <ul className="mt-4 grid gap-3 text-white/75">
+              <h3 className="text-sm font-bold text-white/55">Visit us</h3>
+              <ul className="mt-4 grid gap-4 text-white/85">
                 <li className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#f7c85b]/15"><MapPin className="h-4 w-4 text-[#f7c85b]" /></span>
-                  <span className="text-sm leading-6">
+                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-little-yellow-100" />
+                  <span className="leading-6">
                     {siteDetails.fullAddress}
-                    <a href={siteDetails.mapUrl} target="_blank" rel="noopener noreferrer" className="mt-1 flex w-fit items-center gap-1.5 font-bold text-[#f7c85b] hover:underline">
+                    <a href={siteDetails.mapUrl} target="_blank" rel="noopener noreferrer" className="lm-link mt-2 w-fit text-sm text-little-yellow-100">
                       View on Google Maps <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   </span>
                 </li>
                 {siteDetails.phone && (
                   <li>
-                    <a href={telHref(siteDetails.phone)} className="flex w-fit items-center gap-3 transition-colors hover:text-white">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#ef9e8a]/15"><Phone className="h-4 w-4 text-[#ef9e8a]" /></span>
+                    <a href={telHref(siteDetails.phone)} className="flex w-fit items-center gap-3 font-semibold transition-colors hover:text-white">
+                      <Phone className="h-5 w-5 shrink-0 text-little-pink-300" />
                       {siteDetails.phone}
                     </a>
                   </li>
                 )}
                 {siteDetails.email && (
                   <li>
-                    <a href={`mailto:${siteDetails.email}`} className="flex w-fit items-center gap-3 break-all transition-colors hover:text-white">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#8cb9e8]/15"><Mail className="h-4 w-4 text-[#8cb9e8]" /></span>
+                    <a href={`mailto:${siteDetails.email}`} className="flex w-fit items-center gap-3 break-all font-semibold transition-colors hover:text-white">
+                      <Mail className="h-5 w-5 shrink-0 text-little-blue-100" />
                       {siteDetails.email}
                     </a>
                   </li>
@@ -156,36 +133,31 @@ export function Footer({ siteDetails = site }: { siteDetails?: PublicSite }) {
             </div>
 
             {/* Admissions */}
-            <div className="relative self-start overflow-hidden rounded-[28px] border border-white/10 bg-white/[.06] p-6">
-              <span aria-hidden className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-[#f7c85b]/15" />
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7c85b] px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-950">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-900" /> Admissions open
+            <div className="relative self-start overflow-hidden rounded-[16px] bg-little-yellow-100 p-3 text-little-green-900">
+              <Shape name="burst" color={PALETTE.sun} className="pointer-events-none absolute -right-8 -top-8 w-24 rotate-12" />
+              <span className="relative inline-flex items-center gap-1.5 rounded-full bg-little-green-900 px-3 py-1 text-xs font-bold text-white">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-little-yellow-100" /> Admissions open
               </span>
-              <p className="mt-3 font-display text-lg font-bold leading-snug">Give your little one a happy start</p>
-              <p className="mt-1.5 text-sm leading-6 text-white/65">Enquire about seats for the upcoming session — Play Group to Grade 3.</p>
-              <Link
-                href="/admissions"
-                className="group mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#f7c85b] to-[#ef9e8a] px-5 py-2.5 font-extrabold text-emerald-950 shadow-[0_4px_0_rgba(0,0,0,.25)] transition-[transform,box-shadow] active:translate-y-1 active:shadow-none"
-              >
-                Enquire Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              <p className="relative mt-2 text-base font-extrabold leading-tight tracking-tight">Give your little one a happy start</p>
+              <p className="relative mt-2 text-xs leading-5 text-little-green-900/75">Enquire about seats for the upcoming session — Play Group to Grade 3.</p>
+              <Link href="/admissions" className="lm-btn relative mt-3 !gap-2 !px-3 !py-2 !text-xs [&>.lm-btn-arrow]:!h-6 [&>.lm-btn-arrow]:!w-6 [&_svg]:!h-3.5 [&_svg]:!w-3.5">Enquire Now <ArrowBubble /></Link>
             </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="relative mt-7 flex flex-col gap-2 border-t border-white/10 py-4 pr-24 text-xs sm:mt-8 sm:pr-44">
+            <span className="flex flex-wrap items-center gap-x-5 gap-y-2 font-bold">
+              <Link href="/privacy-policy" className="text-white hover:opacity-70">Privacy</Link>
+              <Link href="/login" className="text-white hover:opacity-70">Staff Login</Link>
+            </span>
+            <span className="text-little-cream-100/50">© {year} Little Mahilam Preschool. All rights reserved.</span>
+            <span className="flex items-center gap-1.5 text-little-cream-100/50">
+              Made with <Heart className="h-3.5 w-3.5 fill-little-pink-300 text-little-pink-300" /> for little learners in Tiruppur
+            </span>
+            <ShapePile className="absolute bottom-0 right-0 w-24 sm:w-40" />
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="relative border-t border-white/10">
-          <div className="container-pad flex flex-col items-center justify-between gap-3 py-5 text-sm text-white/55 md:flex-row">
-            <span>© {year} Little Mahilam Preschool. All rights reserved.</span>
-            <span className="flex items-center gap-1.5">
-              Made with <Heart className="h-3.5 w-3.5 fill-[#ef9e8a] text-[#ef9e8a]" /> for little learners in Tiruppur
-            </span>
-            <span className="flex items-center gap-4 font-bold">
-              <Link href="/privacy-policy" className="text-white/70 hover:text-white">Privacy</Link>
-              <Link href="/login" className="text-white/70 hover:text-white">Staff Login</Link>
-            </span>
-          </div>
-        </div>
       </div>
     </footer>
   );
