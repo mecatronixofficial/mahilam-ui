@@ -1,4 +1,6 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api/v1";
+// Keep session cookies on the website origin, including separate Vercel projects.
+// next.config.ts forwards these requests to the configured backend.
+const API_URL = "/api/v1";
 const REQUEST_TIMEOUT_MS = 20_000;
 
 /** Endpoints that must never trigger a token refresh (they are the refresh flow). */

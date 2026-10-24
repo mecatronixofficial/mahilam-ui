@@ -121,7 +121,7 @@ try{
  for(const[role,start]of [["COUNSELLOR","/crm"],["ACCOUNTANT","/crm/fees"],["TEACHER","/crm/attendance"],["CMS_EDITOR","/admin"]]){
   await login(users[role].email,password);await waitFor("location.pathname==="+JSON.stringify(start)+" && !!document.querySelector('main')",role+" landing");await Bun.sleep(500);
   const endpoint=role==="CMS_EDITOR"?"/crm/dashboard":"/crm/settings";
-  const status=await evaluate("fetch("+JSON.stringify((process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api/v1")+endpoint)+",{credentials:'include'}).then(r=>r.status)");
+  const status=await evaluate("fetch("+JSON.stringify("/api/v1"+endpoint)+",{credentials:'include'}).then(r=>r.status)");
   assert.equal(status,403,role+" forbidden API");
   if(role==="COUNSELLOR"){assert.equal(await evaluate("!!document.querySelector('aside a[href=\"/crm/fees\"]')"),false);}
  }
