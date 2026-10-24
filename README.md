@@ -12,7 +12,7 @@ bun run build && bun run start
 bun run typecheck
 ```
 
-`NEXT_PUBLIC_API_URL` must point at the Little Mahilam backend (default port 4000).
+Browser requests use the same-origin `/api/v1` proxy. `API_URL_INTERNAL`, or `NEXT_PUBLIC_API_URL` as a fallback, must point at the Little Mahilam backend including `/api/v1` (default `http://localhost:4000/api/v1`). The same upstream supplies server-rendered public content.
 
 Development filesystem caching is disabled in `next.config.ts` to work around
 Turbopack cache-restore panics. Restarting development may compile more slowly.
@@ -23,13 +23,13 @@ If Turbopack still crashes, stop the server and run `bun run dev:webpack`.
 `vercel.json` builds with Bun and the Next.js preset. Import this folder as its own Vercel project (the backend is a separate project) and set these environment variables for Production:
 
 - `NEXT_PUBLIC_SITE_URL`: the public https domain, e.g. `https://littlemahilam.in`. `robots.txt` only allows indexing for an https URL.
-- `NEXT_PUBLIC_API_URL`: the deployed backend, e.g. `https://api.littlemahilam.in/api/v1`.
+- `API_URL_INTERNAL`: the deployed backend, including `/api/v1`, e.g. `https://mahilam-server.vercel.app/api/v1`. An existing `NEXT_PUBLIC_API_URL` pointing at the backend is also supported as a fallback.
 - `NEXT_PUBLIC_IMAGE_HOSTS`: the R2/CDN hostname(s) for CMS images.
 - The contact, social and verification values from `.env.example`.
 
 `NEXT_PUBLIC_*` values are baked in at build time, so redeploy after changing them. On the backend, set `FRONTEND_URL` to this site's URL (comma-separate extra origins such as the `vercel.app` URL) so CORS allows it.
 
-Put the site and the API on the same registrable domain (e.g. `littlemahilam.in` and `api.littlemahilam.in`). Sign-in cookies are `SameSite=Lax`, and two `*.vercel.app` URLs count as different sites, so the admin/CRM login only works once both have custom domains. The public pages work either way.
+Authentication works on separate Vercel project domains: browser requests go to `/api/v1` on the frontend, and Next.js rewrites them to the backend. Login, refresh, logout, uploads and downloads all use this proxy. HTTP-only, Secure, SameSite=Lax cookies remain on the frontend host. Set the upstream to the backend URL, never the frontend URL, and redeploy after changing it because rewrites are built into the deployment. For this deployment, use `NEXT_PUBLIC_SITE_URL=https://mahilam-ui.vercel.app` and `API_URL_INTERNAL=https://mahilam-server.vercel.app/api/v1`. Verify `/api/v1/health` on the frontend returns JSON before testing sign-in.
 
 ## What's where
 
